@@ -1,11 +1,31 @@
 html
 {
-	font-size: 18px;
+	font-family: "Karla";
+	font-size: 24px;
+	font-weight: 300;
+	letter-spacing: 0.04em;
 }
 
-h1 { font-size: 32px; }
-h2 { font-size: 24px;  }
-h3 { font-size: 20px; }
+h1
+{
+	font-size: 2.4em;
+	font-weight: 400;
+	letter-spacing: 0;
+}
+
+h2
+{
+	font-size: 1.4em;
+	font-weight: 400;
+}
+
+h3
+{
+	font-size: 0.6em;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
 
 #site-wrapper
 {
@@ -27,27 +47,23 @@ h3 { font-size: 20px; }
 {
 	width: 100%;
 
-	padding-bottom: 2.5%;
-
 	overflow: hidden;
 }
 
 #nav-bar a
 {
+	text-decoration: none;
+
 	margin-right: 20px;
 
 	float: left;
 
 	color: black;
 
-	opacity: 0.5;
+	opacity: 0.25;
 }
 
 #nav-bar a:hover
 {
-	transition: opacity 500ms;
-	-webkit-transition: opacity 500ms;
-	-moz-transition: opacity 500ms;
-	-o-transition: opacity 500ms;
 	opacity: 1;
 }
