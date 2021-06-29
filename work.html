@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/work-page-style.css">
 	<!-- Jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<!-- Javascript -->
 	<script src="js/javascript.js" type="text/javascript"></script>
 </head>
@@ -20,24 +21,25 @@
 	<div id="site-wrapper">
 		<!-- Navigation -->
 		<div id="nav-bar">
-			<a class="hover" href="index.html">Home</a><a class="hover" href="work.html">Work</a><a class="hover" href="#">Connect</a>
-			<div id="name" class="hover">Looking for Yellow</div>
+			<a class="soft-hover" href="index.html">Home</a><a class="soft-hover" href="work.html">Work</a><a class="soft-hover" href="#">Connect</a>
+			<div id="name" class="soft-hover">Looking for Yellow</div>
 		</div>
 		<!-- Content -->
 		<div id="main">
 			<div class="spacer-short"></div>
-			<!-- Work Cell -->
-			<div class="work-cell hover">
-				<div class="work-cell-contents">
-					<img src="images/sccs20a.png">
-					<p>SCCS 20th Anniversary</p>
+			<!-- Work Thumbnails -->
+			<div id="work-thumbnail-container">
+				<div id="sccs" class="work-thumbnail hover">
+					<div class="work-thumbnail-contents">
+						<img src="images/sccs20a.png">
+						<p>SCCS 20th Anniversary</p>
+					</div>
 				</div>
-			</div>
-			<!-- Work Cell -->
-			<div class="work-cell hover">
-				<div class="work-cell-contents">
-					<img src="images/orange.png">
-					<p>The Orange that had No Peel</p>
+				<div id="orange" class="work-thumbnail hover">
+					<div class="work-thumbnail-contents">
+						<img src="images/orange.png">
+						<p>The Orange that had No Peel</p>
+					</div>
 				</div>
 			</div>
 		</div>

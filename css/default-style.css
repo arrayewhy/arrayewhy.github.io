@@ -1,16 +1,50 @@
+#site-wrapper
+{
+	width: 90%;
+
+	margin: 2.5%;
+	padding: 2.5%;
+}
+
+#main { width: 100%; }
+
+/* Nav Bar ............................................................ */
+
+#nav-bar
+{
+	width: 100%;
+
+	overflow: visible;
+}
+
+#nav-bar a
+{
+	text-decoration: none;
+
+	margin-right: 25px;
+
+	float: left;
+
+	color: black;
+}
+
+#nav-bar #name { float: right; }
+
+/* Fonts ............................................................ */
+
 html
 {
 	font-family: "Karla";
 	font-size: 24px;
 	font-weight: 300;
-	letter-spacing: 0.04em;
+	letter-spacing: 0.02em;
 }
 
 h1
 {
 	font-size: 2.4em;
 	font-weight: 400;
-	letter-spacing: 0;
+	letter-spacing: -0.005em;
 }
 
 h2
@@ -27,56 +61,21 @@ h3
 	letter-spacing: 0.2em;
 }
 
-#site-wrapper
-{
-	width: 90%;
+/* Hover ............................................................ */
 
-	margin: 2.5%;
-	padding: 2.5%;
+.hover, .soft-hover
+{
+	transition: opacity 500ms;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
 }
 
-#main
-{
-	width: 100%;
-}
+.hover { opacity: 0.6; }
 
-/* Nav Bar |||||||||||||||||||||||||||||||||||||||||||||||||| */
+.soft-hover { opacity: 0.2; }
 
-#nav-bar
-{
-	width: 100%;
-
-	overflow: visible;
-}
-
-#nav-bar a
-{
-	text-decoration: none;
-
-	margin-right: 20px;
-
-	float: left;
-
-	color: black;
-}
-
-#nav-bar #name
-{
-	float: right;
-}
-
-/* Hover |||||||||||||||||||||||||||||||||||||||||||||||||| */
-
-.hover
-{
-	transition: opacity 250ms;
-	-webkit-transition: opacity 250ms;
-	-moz-transition: opacity 250ms;
-	-o-transition: opacity 250ms;
-	opacity: 0.4;
-}
-
-/* Spacers |||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* Spacers ............................................................ */
 
 .spacer-tall
 {
@@ -89,6 +88,8 @@ h3
 	width: 100%;
 	height: 50px;
 }
+
+/* Mobile |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
 @media only screen and (max-width: 768px)
 {
