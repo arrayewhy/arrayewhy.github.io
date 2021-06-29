@@ -4,6 +4,11 @@
 	height: auto;
 }
 
+#nav-bar
+{
+	height: auto;
+}
+
 #nav-bar a
 {
 	padding: 50px;
