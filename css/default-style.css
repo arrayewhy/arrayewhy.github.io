@@ -53,14 +53,18 @@ h3
 	float: left;
 
 	color: black;
-
-	opacity: 0.25;
 }
 
-#nav-bar a:hover
+#nav-bar #name
 {
-	opacity: 1;
+	float: right;
 }
+
+/* Hover |||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+.hover { opacity: 0.6; }
+
+.hover:hover { opacity: 1; }
 
 /* Spacers |||||||||||||||||||||||||||||||||||||||||||||||||| */
 
@@ -68,4 +72,10 @@ h3
 {
 	width: 100%;
 	height: 200px;
+}
+
+.spacer-short
+{
+	width: 100%;
+	height: 50px;
 }
