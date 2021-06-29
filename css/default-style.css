@@ -64,10 +64,10 @@ h3
 
 .hover
 {
-	transition: opacity 500ms;
-	-webkit-transition: opacity 500ms;
-	-moz-transition: opacity 500ms;
-	-o-transition: opacity 500ms;
+	transition: opacity 250ms;
+	-webkit-transition: opacity 250ms;
+	-moz-transition: opacity 250ms;
+	-o-transition: opacity 250ms;
 	opacity: 0.4;
 }
 
