@@ -1,5 +1,7 @@
 $(function ()
 {
+	// Hover Effects
+
 	$(".hover").on ("mouseover", function ()
 	{
 		$(this).css ("opacity", "1");

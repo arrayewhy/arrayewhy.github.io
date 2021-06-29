@@ -6,8 +6,24 @@
 	float: left;
 }
 
-.work-cell img
+.work-cell-contents
 {
 	width: 100%;
 	height: auto;
+
+	padding: 10%;
+}
+
+.work-cell img
+{
+	width: 80%;
+	height: auto;
+}
+
+@media only screen and (max-width: 768px)
+{
+	.work-cell
+	{
+		width: 50%;
+	}
 }
