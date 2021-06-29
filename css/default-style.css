@@ -46,7 +46,7 @@ h3
 {
 	width: 100%;
 
-	overflow: hidden;
+	overflow: visible;
 }
 
 #nav-bar a

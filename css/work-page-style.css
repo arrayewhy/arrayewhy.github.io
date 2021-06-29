@@ -4,6 +4,8 @@
 	height: auto;
 
 	float: left;
+
+	overflow: hidden;
 }
 
 .work-cell-contents
@@ -24,6 +26,6 @@
 {
 	.work-cell
 	{
-		width: 50%;
+		width: 100%;
 	}
 }
