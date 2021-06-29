@@ -1,17 +1,30 @@
+html
+{
+	font-size: 32px;
+}
+
 #site-wrapper
 {
-	width: 100%;
-	height: auto;
+	width: 90%;
+
+	margin: 2.5%;
+	padding: 2.5%;
+
+	background-color: beige;
 }
 
 #nav-bar
 {
-	/*height: 200px;*/
+	width: 100%;
+
+	padding-bottom: 2.5%;
+
+	overflow: hidden;
 }
 
 #nav-bar a
 {
-	margin: 50px;
+	margin-right: 20px;
 
-	background-color: grey;
+	float: left;
 }
