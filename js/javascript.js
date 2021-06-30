@@ -1,9 +1,6 @@
 $(function ()
 {
-	$(".main").load (function ()
-	{
-		alert ("Done!");
-	});
+	alert ("Hi");
 
 	// Hover
 
