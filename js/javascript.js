@@ -1,17 +1,15 @@
 $(function ()
 {
-	// Work Thumbnail
-
-	// $(".work-thumbnail").on ("click", function ()
-	// {
-	// 	$("#work-thumbnail-container").fadeOut ("fast");
-	// });
+	$(".main").load (function ()
+	{
+		alert ("Done!");
+	});
 
 	// Hover
 
 	$(".hover")
 	.on ("mouseover", function () { $(this).css ("opacity", "1"); })
-	.on ("mouseout", function () { $(this).css ("opacity", "0.4"); });
+	.on ("mouseout", function () { $(this).css ("opacity", "0.6"); });
 
 	// Soft Hover
 
