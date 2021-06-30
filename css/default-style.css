@@ -79,7 +79,7 @@ h3
 
 /* Hover ............................................................ */
 
-.hover, .soft-hover
+.fade, .soft-fade
 {
 	transition: opacity 500ms;
 	-webkit-transition: opacity 500ms;
@@ -87,9 +87,9 @@ h3
 	-o-transition: opacity 500ms;
 }
 
-.hover { opacity: 0.6; }
+.fade { opacity: 0.6; }
 
-.soft-hover { opacity: 0.2; }
+.soft-fade { opacity: 0.2; }
 
 /* Spacers ............................................................ */
 

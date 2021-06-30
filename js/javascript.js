@@ -7,15 +7,15 @@ $(window).on ("load", function ()
 
 $(function ()
 {
-	// Hover
+	// Hover Fade
 
-	$(".hover")
+	$(".fade")
 	.on ("mouseover", function () { $(this).css ("opacity", "1"); })
 	.on ("mouseout", function () { $(this).css ("opacity", "0.6"); });
 
-	// Soft Hover
+	// Hover Soft Fade
 
-	$(".soft-hover")
+	$(".soft-fade")
 	.on ("mouseover", function () { $(this).css ("opacity", "1"); })
 	.on ("mouseout", function () { $(this).css ("opacity", "0.2"); });
 });
