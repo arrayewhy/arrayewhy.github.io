@@ -1,9 +1,12 @@
-$(function ()
+$(window).on ("load", function ()
 {
 	// Fade In On Load
 
 	$(".fadeOnLoad").css ("opacity", "1");
+});
 
+$(function ()
+{
 	// Hover
 
 	$(".hover")
