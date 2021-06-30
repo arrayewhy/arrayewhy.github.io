@@ -6,7 +6,12 @@
 	padding: 2.5%;
 }
 
-#main { width: 100%; }
+#main
+{
+	width: 100%;
+
+	clear: both;
+}
 
 /* Nav Bar ............................................................ */
 
@@ -34,10 +39,12 @@
 
 html
 {
-	font-family: "Karla";
+	font-family: "Karla", sans-serif;
 	font-size: 24px;
 	font-weight: 300;
 	letter-spacing: 0.02em;
+
+	color: rgba(0,0,0,0.9);
 }
 
 h1
@@ -81,6 +88,12 @@ h3
 {
 	width: 100%;
 	height: 250px;
+}
+
+.spacer-normal
+{
+	width: 100%;
+	height: 100px;
 }
 
 .spacer-short
