@@ -1,8 +1,8 @@
-alert ("No");
-
 $(function ()
 {
-	alert ("Hi");
+	// Fade In On Load
+
+	$(".fadeOnLoad").css ("opacity", "1");
 
 	// Hover
 
