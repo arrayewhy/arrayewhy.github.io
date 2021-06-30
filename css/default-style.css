@@ -13,6 +13,15 @@
 	clear: both;
 }
 
+.fadeOnLoad
+{
+	transition: opacity 500ms;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	opacity: 0;
+}
+
 /* Nav Bar ............................................................ */
 
 #nav-bar
@@ -67,6 +76,14 @@ h3
 }
 
 /* Hover Fade ............................................................ */
+
+.fade, .soft-fade
+{
+	transition: opacity 250ms;
+	-webkit-transition: opacity 250ms;
+	-moz-transition: opacity 250ms;
+	-o-transition: opacity 250ms;
+}
 
 .fade { opacity: 0.6; }
 
