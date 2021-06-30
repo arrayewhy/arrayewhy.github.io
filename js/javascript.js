@@ -1,3 +1,5 @@
+alert ("No");
+
 $(function ()
 {
 	alert ("Hi");
