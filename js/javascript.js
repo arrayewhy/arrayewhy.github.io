@@ -2,20 +2,26 @@ $(window).on ("load", function ()
 {
 	// Fade In On Load
 
-	$(".fadeOnLoad").css ("opacity", "1");
+	$(".revealOnLoad").css ("opacity", "1");
 });
 
 $(function ()
 {
-	// Hover Fade
+	// Hover Fade In
 
-	$(".fade")
+	$(".fade-in")
 	.on ("mouseover", function () { $(this).css ("opacity", "1"); })
 	.on ("mouseout", function () { $(this).css ("opacity", "0.6"); });
 
-	// Hover Soft Fade
+	// Hover Ghost Fade In
 
-	$(".soft-fade")
+	$(".ghost-fade-in")
 	.on ("mouseover", function () { $(this).css ("opacity", "1"); })
 	.on ("mouseout", function () { $(this).css ("opacity", "0.2"); });
+
+	// Fade Out
+
+	$(".fade-out")
+	.on ("mouseover", function () { $(this).css ("opacity", "0.6"); })
+	.on ("mouseout", function () { $(this).css ("opacity", "1"); });
 });

@@ -13,7 +13,7 @@
 	clear: both;
 }
 
-.fadeOnLoad
+.revealOnLoad
 {
 	transition: opacity 500ms;
 	-webkit-transition: opacity 500ms;
@@ -22,7 +22,7 @@
 	opacity: 0;
 }
 
-/* Nav Bar ............................................................ */
+/* Nav Bar .................... */
 
 #nav-bar
 {
@@ -33,16 +33,14 @@
 
 #nav-bar a
 {
+	margin-bottom: 2px;
+
 	text-decoration: none;
-
-	margin-right: 25px;
-
-	float: left;
 
 	color: black;
 }
 
-/* Fonts ............................................................ */
+/* Typography .................... */
 
 html
 {
@@ -56,14 +54,14 @@ html
 
 h1
 {
-	font-size: 2.4em;
+	font-size: 2em;
 	font-weight: 400;
 	letter-spacing: -0.005em;
 }
 
 h2
 {
-	font-size: 1.4em;
+	font-size: 1.5em;
 	font-weight: 400;
 }
 
@@ -72,12 +70,13 @@ h3
 	font-size: 0.6em;
 	font-weight: 400;
 	text-transform: uppercase;
-	letter-spacing: 0.2em;
+	letter-spacing: 0.1em;
+	line-height: 1.2em;
 }
 
-/* Hover Fade ............................................................ */
+/* Hover Fade .................... */
 
-.fade, .soft-fade
+.fade-out, .fade-in, .ghost-fade-in
 {
 	transition: opacity 250ms;
 	-webkit-transition: opacity 250ms;
@@ -85,16 +84,16 @@ h3
 	-o-transition: opacity 250ms;
 }
 
-.fade { opacity: 0.6; }
+.fade-in { opacity: 0.6; }
 
-.soft-fade { opacity: 0.2; }
+.ghost-fade-in { opacity: 0.2; }
 
-/* Spacers ............................................................ */
+/* Spacers .................... */
 
 .spacer-tall
 {
 	width: 100%;
-	height: 250px;
+	height: 200px;
 }
 
 .spacer-normal
@@ -109,13 +108,39 @@ h3
 	height: 50px;
 }
 
+/* Desktop |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+@media only screen and (min-width: 768px)
+{
+	/* Nav Bar .................... */
+
+	#nav-bar a
+	{
+		margin-right: 25px;
+
+		float: left;
+	}
+}
+
 /* Mobile |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
 @media only screen and (max-width: 768px)
 {
+	/* Nav Bar .................... */
+	
+	#nav-bar a
+	{
+		float: right;
+		clear: right;
+	}
+
+	/* Typography .................... */
+
 	html
 	{
 		font-size: 18px;
-		letter-spacing: 0.02em;
+		letter-spacing: 0.04em;
 	}
+
+	h3 { font-size: 0.8em; }
 }
