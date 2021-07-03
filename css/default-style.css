@@ -13,12 +13,19 @@
 	clear: both;
 }
 
+#landing-image
+{
+	width: 50%;
+
+	float: right;
+}
+
 .revealOnLoad
 {
-	transition: opacity 500ms;
-	-webkit-transition: opacity 500ms;
-	-moz-transition: opacity 500ms;
-	-o-transition: opacity 500ms;
+	transition: opacity 1s;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-o-transition: opacity 1s;
 	opacity: 0;
 }
 
@@ -33,7 +40,9 @@
 
 #nav-bar a
 {
-	margin-bottom: 2px;
+	margin-right: 25px;
+
+	float: left;
 
 	text-decoration: none;
 
@@ -78,10 +87,10 @@ h3
 
 .fade-out, .fade-in, .ghost-fade-in
 {
-	transition: opacity 250ms;
-	-webkit-transition: opacity 250ms;
-	-moz-transition: opacity 250ms;
-	-o-transition: opacity 250ms;
+	transition: opacity 500ms;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
 }
 
 .fade-in { opacity: 0.6; }
@@ -112,24 +121,23 @@ h3
 
 @media only screen and (min-width: 768px)
 {
-	/* Nav Bar .................... */
-
-	#nav-bar a
-	{
-		margin-right: 25px;
-
-		float: left;
-	}
 }
 
 /* Mobile |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
 @media only screen and (max-width: 768px)
 {
+	#landing-image
+	{
+		width: 100%;
+	}
+
 	/* Nav Bar .................... */
 	
 	#nav-bar a
 	{
+		margin-bottom: 2px;
+
 		float: right;
 		clear: right;
 	}

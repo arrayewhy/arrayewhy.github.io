@@ -1,3 +1,33 @@
+#sketchbook-thumbnail-container
+{
+}
+
+.sketchbook-thumbnail
+{
+	width: 25%;
+	height: auto;
+
+	float: left;
+
+	overflow: hidden;
+}
+
+/* Tablet |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+@media only screen and (max-width: 1024px)
+{
+	.sketchbook-thumbnail { width: 50%; }
+}
+
+/* Mobile |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+@media only screen and (max-width: 768px)
+{
+	.sketchbook-thumbnail { width: 100%; }
+}
+
+/* Work .................... */
+
 .work-thumbnail
 {
 	width: 33.3%;
