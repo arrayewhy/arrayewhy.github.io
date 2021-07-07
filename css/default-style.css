@@ -29,6 +29,13 @@
 	opacity: 0;
 }
 
+a
+{
+	text-decoration: none;
+
+	color: rgba(0,0,0,0.9);
+}
+
 /* Nav Bar .................... */
 
 #nav-bar
@@ -44,9 +51,7 @@
 
 	float: left;
 
-	text-decoration: none;
-
-	color: black;
+	color: rgba(0,0,0,0.9);
 }
 
 /* Typography .................... */
