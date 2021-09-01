@@ -30,6 +30,7 @@ $(function ()
 	$(".sketchbook-thumbnail").on ("click", function ()
 	{
 		var imgUrl = "url(" + $(this).attr ("src") + ") no-repeat";
+
 		$("#sketch-zoom").css ("width", "100%");
 		$("#sketch-zoom").css ("height", "100%");
 		$("#sketch-zoom").css ("visibility", "visible");
