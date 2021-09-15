@@ -14,6 +14,28 @@
 		{
 			background-color: black;
 		}
+
+		#audioConsoleWrapper a
+		{
+			color: white;
+			text-decoration: none;
+
+			font-family: sans-serif, "Verdana";
+			letter-spacing: 0.05em;
+
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.credit
+		{
+			padding: 18px 20px 18px 20px;
+		}
+
+		.float-left
+		{
+			float: left;
+		}
 	</style>
 	<!-- Jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -27,11 +49,13 @@
 <body>
 	<img id="imageZoom" src="images/Warm Tea Cup - Full Res.png">
 
-	<!-- <iframe src="music/kaze-no-toori-michi.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe> -->
-	<audio controls autoplay loop>
+	<div id="audioConsoleWrapper" class="float-left">
+	<audio class="float-left" controls autoplay loop>
 		<source src="music/kaze-no-toori-michi.mp3" type="audio/mp3">
   		Your browser does not support the audio element.
 	</audio>
+	<a href="https://youtu.be/fU6IZvajPAw" class="float-left credit">風の通り道 Music Box Cover, R3 Music Box</a>
+	</div>
 
 	<script type="text/javascript">
 		$(function(){
