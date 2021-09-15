@@ -14,6 +14,28 @@
 		{
 			background-color: #f4fef9;
 		}
+
+		#audioConsoleWrapper a
+		{
+			color: black;
+			text-decoration: none;
+
+			font-family: sans-serif, "Verdana";
+			letter-spacing: 0.05em;
+
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.credit
+		{
+			padding: 18px 20px 18px 20px;
+		}
+
+		.float-left
+		{
+			float: left;
+		}
 	</style>
 	<!-- Jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -28,10 +50,14 @@
 	<img id="imageZoom" src="images/Cloud House - Wide [Boosted, Full-res].png">
 
 	<!-- <iframe src="music/kaze-no-toori-michi.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe> -->
-	<audio controls="" autoplay loop>
-		<source src="music/The Wind Rises.mp3" type="audio/mp3">
+
+	<div id="audioConsoleWrapper" class="float-left">
+	<audio class="float-left" controls autoplay loop>
+		<source src="music/Hikoukigumo - Yumi Arai.mp3" type="audio/mp3">
   		Your browser does not support the audio element.
 	</audio>
+	<a href="https://open.spotify.com/track/2YyxBmzk2l7NzyBakN3TdM" class="float-left credit">ひこうき雲 (Hikoukigumo), Yumi Arai</a>
+	</div>
 
 	<script type="text/javascript">
 		$(function(){
