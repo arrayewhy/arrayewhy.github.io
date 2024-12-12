@@ -1,0 +1,180 @@
+html {
+	background-color: mintcream;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* START: Navigation */
+
+#nav {
+	width: 100%;
+	height: auto;
+}
+
+#logo-cont {
+	width: 64px;
+	height: 64px;
+	background-color: orange;
+}
+
+/* END: Navigation */
+
+.footer {
+	width: 100%;
+	height: auto;
+	padding: 32px;
+	box-sizing: border-box;
+	border-top: solid lightgray;
+}
+
+/* START: Section Buttons */
+
+.sect-btns {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row-reverse;
+	order: ;
+/*	background-color: red;*/
+}
+
+.sect-btns a {
+	display: block;
+	width: 25%;
+	height: 500px;
+/*	background-color: blue;*/
+}
+
+#sect-btn-1 { order: 3; }
+#sect-btn-2 { order: 2; }
+#sect-btn-3 { order: 1; }
+
+.sect-btn-cont {
+	width: 100%;
+	height: 100%;
+	align-content: center;
+}
+
+.sect-btn {
+	width: 75%;
+	height: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+	transition: .2s;
+/*	background-color: yellow;*/
+}
+
+.sect-btn:hover {
+	padding-left: 32px;
+}
+
+.sect-thumb {
+	width: 100%;
+	height: 75%;
+	background-color: green;
+}
+
+.sect-text {
+	width: 100%;
+	height: 25%;
+	padding: 16px;
+	box-sizing: border-box;
+	background-color: orange;
+}
+
+/* END: Section Buttons */
+
+
+/* START: Mobile */
+
+@media (max-width: 1280px) {
+	.sect-btns {
+		flex-direction: initial;
+	}
+
+	#sect-btn-1 { order: 1; }
+	#sect-btn-2 { order: 2; }
+	#sect-btn-3 { order: 3; }
+
+	.sect-btns a {
+		width: 50%;
+	}
+}
+
+@media (max-width: 768px) {
+	#logo-cont {
+		display: none;
+	}
+
+	.sect-btns a {
+		width: 100%;
+	}
+}
+
+/* END: Mobile */
+
+
+/* START: Utilities */
+
+.pos-at-btm {
+	position: absolute;
+	bottom: 0;
+}
+
+/* END: Utilities */
+
+
+/* CSS Reset */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
