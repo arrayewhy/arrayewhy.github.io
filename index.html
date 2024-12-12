@@ -3,28 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<style type="text/css">
-
-		
-
-	</style>
-
 	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
 
 </head>
 
 <body>
 
 	<div id="nav">
-		<div id="logo-cont"></div>
+		<a href="index.html">
+			<div id="logo-cont"></div>
+		</a>
 	</div>
+
+	<!-- START: Main Content Section -->
 
 	 <!-- START: Section Buttons  -->
 
 	<div class="sect-btns">
 
-		<a href="#" id="sect-btn-1">
+		<a href="illustration.html" id="sect-btn-1" onclick="StyleFor_Illustration()">
 			<div class="sect-btn-cont">
 				<div class="sect-btn">
 					<div class="sect-thumb"></div>
@@ -55,9 +53,18 @@
 
 	<!-- END: Section Buttons  -->
 
+	<!-- END: Main Content Section -->
+
 	<div class="footer">
 		© Arrayewhy 2024
 	</div>
+
+	<!-- <script type="text/javascript">
+		function StyleFor_Illustration() {
+			const htmlElement = document.querySelector('html');
+			htmlElement.style.backgroundColor = "lightblue";
+		}
+	</script> -->
 
 </body>
 
