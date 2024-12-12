@@ -1,4 +1,4 @@
-function StyleFor_Illustration() {
+function Show_Page() {
 	const htmlElement = document.querySelector('html');
-	htmlElement.style.backgroundColor = "lightblue";
+	htmlElement.style.opacity = "1";	
 }

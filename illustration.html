@@ -13,28 +13,29 @@
 		}
 
 		.main-cont section {
+			display: flex;
 			background-color: yellow;
 		}
 
 		.main-cont section .left {
-			width: 50%;
+			width: 40%;
 			height: 200px;
 			background-color: lightcoral;
 		}
 
 		.main-cont section .right {
-			width: 50%;
+			width: 60%;
 			height: 400px;
-			background-color: lightcyan;
+			background-color: purple;
 		}
 
 	</style>
 
 	<link rel="stylesheet" href="style.css">
-
+	<script src="script.js"></script>
 </head>
 
-<body>
+<body onload="Show_Page()">
 
 	<div id="nav">
 		<a href="index.html">
@@ -47,13 +48,13 @@
 	 <div class="main-cont">
 
 	 	<section>
-	 		<div class="left"></div>
-	 		<div class="right"></div>
+	 		<div class="left">Title</div>
+	 		<div class="right">Details</div>
 	 	</section>
 
 	 	<section>
-	 		<div class="left"></div>
-	 		<div class="right"></div>
+	 		<div class="left">Title</div>
+	 		<div class="right">Details</div>
 	 	</section>
 
 	 </div>

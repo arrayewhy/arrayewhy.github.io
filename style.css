@@ -1,6 +1,7 @@
 html {
 	background-color: mintcream;
-	transition: .5s;
+	opacity: 0;
+	transition: opacity 1s ease-out;
 }
 
 a {
