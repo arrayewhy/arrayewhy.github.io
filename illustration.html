@@ -5,34 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css-reset.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<style type="text/css">
-
-		.main-cont {
-			width: 100%;
-			height: auto;
-			background-color: lightblue;
-		}
-
-		.main-cont section {
-			display: flex;
-			background-color: yellow;
-		}
-
-		.main-cont section .left {
-			width: 40%;
-			height: 200px;
-			background-color: lightcoral;
-		}
-
-		.main-cont section .right {
-			width: 60%;
-			height: 400px;
-			background-color: purple;
-		}
-
-	</style>
-
+	<link rel="stylesheet" type="text/css" href="containers.css">
 	<script src="script.js"></script>
 </head>
 
@@ -49,13 +22,12 @@
 	 <div class="main-cont">
 
 	 	<section>
-	 		<div class="left">Title</div>
-	 		<div class="right">Details</div>
-	 	</section>
-
-	 	<section>
-	 		<div class="left">Title</div>
-	 		<div class="right">Details</div>
+	 		<div class="left">
+	 			<h2>Title</h2>
+	 		</div>
+	 		<div class="right">
+	 			Details
+	 		</div>
 	 	</section>
 
 	 </div>
@@ -63,7 +35,7 @@
 	<!-- END: Main Content Section -->
 
 	<div class="footer">
-		© Arrayewhy 2024
+		<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
 	</div>
 
 </body>

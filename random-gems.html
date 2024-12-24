@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css-reset.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="containers.css">
+	<script src="script.js"></script>
+</head>
+
+<body onload="Show_Page()">
+
+	<div id="nav">
+		<a href="index.html">
+			<div id="logo-cont"></div>
+		</a>
+	</div>
+
+	<!-- START: Main Content Section -->
+
+	<div class="main-cont">
+
+	 	<section>
+
+	 		<div class="left">
+	 			<h2>DIY Inverse Kinematics</h2>
+	 			<a href="https://www.motionscript.com/expressions-lab-ae65/ik.html">
+	 				<p class="source">
+	 					Source: Dan Ebberts' AE Expression Lab
+	 					<br>
+						https://www.motionscript.com/expressions-lab-ae65/ik.html
+					</p>
+				</a>
+	 		</div>
+	 		<div class="right">
+
+	 			<p>
+	 				This is a pair of rotation expressions you can use to implement inverse kinematics (IK) in After Effects. This code is based on expressions developed by Brian Maffitt for his wonderful "Total Training for After Effects" DVD series. I've modified them somewhat to allow anchor points to be inset from the edge of the objects.
+	 			</p>
+	 			<p>
+	 				IK allows you to position a chain of objects based on the movement of the object at the end of the chain. For example, moving a hand would cause the upper and lower arm components to rotate at their joints to accomodate the hand's movement.
+	 			</p>
+	 			<p>
+	 				Here's the code for the rotation of the upper arm:
+	 			</p>
+	 			<pre>A = toWorld(anchorPoint);
+L = thisComp.layer("lowerArm");
+B = L.toWorld(L.anchorPoint);
+L = thisComp.layer("Null 1");
+C = L.toWorld(L.anchorPoint);
+L = thisComp.layer("hand");
+H = L.toWorld(L.anchorPoint);
+a = length(A,B);
+b = length(B,C);
+c = length(H,A);
+x = (a*a - b*b + c*c)/(2*c);
+beta = Math.acos(clamp(x/a,-1,1));
+D = H - A;
+delta = Math.atan2(D[1],D[0]);
+radiansToDegrees(delta - beta);</pre>
+				<p>
+					And here's the code for the rotation of the lower arm:
+				</p>
+				<pre>B = toWorld(anchorPoint);
+L = thisComp.layer("upperArm");
+A = L.toWorld(L.anchorPoint);
+L = thisComp.layer("Null 1");
+C = L.toWorld(L.anchorPoint);
+L = thisComp.layer("hand");
+H = L.toWorld(L.anchorPoint);
+a = length(A,B);
+b = length(B,C);
+c = length(H,A);
+x = (a*a - b*b + c*c)/(2*c);
+y = c - x;
+alpha = Math.acos(clamp(y/b,-1,1));
+beta = Math.acos(clamp(x/a,-1,1));
+radiansToDegrees(alpha + beta);</pre>
+				<p>
+					The math behind these is somewhat complex, but if you know trig it's kind of fun to figure out how it works.
+				</p>
+				<p>
+					Here's the way you set this up. First, import the pieces for your IK chain (note that if you need to scale the pieces you should do that first in another application, because it will screw up the angle calculations if you do it in your comp). Also note that these expressions assume that your pieces start out horizontal. If they start out vertical, you will need to adjust the upper arm expression by subtracting 90 degrees from the result, by changing the last line to this:
+				</p>
+				<code>radiansToDegrees(delta - beta) - 90;</code>
+				<p>
+					Next you need to move the anchor points to the joints (move the upper arm's anchor point to the sholder, the lower arm's to the elbow and the hand's to the wrist). Next you align the pieces to form your chain. Then create a null layer ("Null 1" in this example) and position it so its anchor point is at the same place as the hand's anchor point. Now make the upper arm the parent of the lower arm, and the lower arm the parent of the null. Note that the hand has no parent. Now apply the expressions for rotation.
+				</p>
+				<p>
+					If you've done everything right, you should be able to move the hand around in the comp and the arm will follow.
+				</p>
+				<p>
+					To get the mirror image solution (so the the arm pieces bend the other way) you would change the last line of the upper arm expression to:
+				</p>
+				<code>radiansToDegrees(delta + beta);</code>
+				<p>
+					and change the last line of the lower arm expression to:
+				</p>
+				<code>-radiansToDegrees(alpha + beta);</code>
+	 		</div>
+
+	 	</section>
+
+	 </div>
+
+	<!-- END: Main Content Section -->
+
+	<div class="footer">
+		<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
+	</div>
+
+</body>
+
+</html>
