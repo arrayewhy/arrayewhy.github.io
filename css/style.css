@@ -1,28 +1,46 @@
+@import url('css-reset.css');
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+@import url('variables.css');
+@import url('utilities.css');
+@import url('containers.css');
 
 html {
 	font-family: "Roboto", sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 	letter-spacing: .02rem;
 	color: black;
+
+	word-wrap: break-word;
 
 	opacity: 0;
 	transition: opacity 1s ease-out;
 
-/*	background-color: rgba(0, 0, 0, .025);*/
-background-image: linear-gradient(to right, rgba(0, 0, 0, .025), rgba(0, 0, 0, .15));
+	background-image: linear-gradient(to right, white, rgba(0, 0, 0, .05));
 }
 
-b { font-weight: bold; }
+b {
+	font-weight: bold;
+}
 
-i { font-style: italic; }
+i {
+	font-style: italic;
+}
 
 h2, h3 {
+/*	margin: 32px 32px 64px 32px;*/
 	margin: 32px;
 }
 
-h2 { font-size: 2rem;  }
-h3 { font-size: .75rem; }
+h2 {
+/*	font-size: 2rem;*/
+	font-size: var(--double);
+}
+
+h3 {
+	font-size: .75rem;
+}
 
 a {
 	text-decoration: none;
@@ -32,11 +50,12 @@ a {
 code, pre {
 
 /*	padding: 32px 32px 32px 32px;*/
-	padding-left: 64px;
+	padding-left: 32px;
 	margin: 32px 32px 32px 32px;
 /*	margin: 0 0 32px 0;*/
 	display: inline-block;
 
+	font-style: italic;
 	line-height: 1.3rem;
 
 	border-left: solid rgba(0,0,0,0.08) 2px;
@@ -51,20 +70,14 @@ p {
 }
 
 p.source {
-/*	padding: 16px;*/
-/*	padding-left: 0;*/
-	padding: 16px 24px 16px 0;
-
-	border-radius: 16px;
-
-	background-color: none;
-
-	transition: 1s ease;
+	font-size: .8rem;
+	color: var(--half-grey);
+	padding: 16px 16px 16px 24px;
+	transition: .5s ease;
 }
 
 p.source:hover {
-	padding: 16px;
-/*	padding-left: 24px;*/
+	color: black;
 	padding: 16px 16px 16px 24px;
 	background-color: #ffd54b;
 	transition: .5s ease;
@@ -74,14 +87,19 @@ p.source:hover {
 
 #nav {
 	width: 100%;
-	height: auto;
+/*	height: auto;*/
+	height: 64px;
+
+/*	background-color: black;*/
 }
 
 #logo-cont {
 	width: 64px;
 	height: 64px;
+
 	display: inline-block;
-	background-color: white;
+
+	background-color: yellow;
 }
 
 /* END: Navigation */
@@ -91,7 +109,18 @@ p.source:hover {
 	height: auto;
 	padding: 32px;
 	box-sizing: border-box;
-	border-top: solid rgba(0, 0, 0, .1) 1px;
+
+	color: var(--light-grey);
+	transition: .5s ease;
+
+/*	border-top: solid rgba(0, 0, 0, .1) 1px;*/
+
+	background-color: white;
+}
+
+.footer:hover {
+	color: var(--half-grey);
+	transition: .5s ease;
 }
 
 /* START: Section Buttons */
@@ -122,6 +151,7 @@ p.source:hover {
 	width: 100%;
 	height: 100%;
 	align-content: center;
+/*	background-color: orange;*/
 }
 
 .sect-btn {
@@ -132,27 +162,28 @@ p.source:hover {
 	padding-top: 64px;
 	padding-bottom: 64px;
 	box-sizing: border-box;
-	transition: .2s;
+	transition: .2s ease;
 /*	background-color: yellow;*/
 }
 
 .sect-btn:hover {
 	padding-left: 32px;
+	transition: .2s ease;
 }
 
 .sect-thumb {
 	width: 100%;
 	height: 400px;
-	background-color: green;
+/*	background-color: green;*/
 }
 
-/*#illustration-thumb {
-	background-image: url(img/tiger-puff-low-res.png);
+.sect-thumb#illustration {
+	background-image: url(../img/tiger-puff-low-res.png);
 	background-size: 400%;
-	background-position: -540px -500px;
+	background-position: -475px -270px;
 	background-repeat: no-repeat;
 	background-color: #ffdea6;
-}*/
+}
 
 .sect-text {
 	width: 100%;
@@ -161,7 +192,6 @@ p.source:hover {
 	box-sizing: border-box;
 	color: black;
 	background-color: white;
-/*	background-color: orange;*/
 }
 
 /* END: Section Buttons */
@@ -185,7 +215,7 @@ p.source:hover {
 
 @media (max-width: 768px) {
 	#logo-cont {
-		display: none;
+/*		display: none;*/
 	}
 
 	.sect-btns a {
@@ -194,26 +224,3 @@ p.source:hover {
 }
 
 /* END: Mobile */
-
-
-/* START: Utilities */
-
-.all-caps {
-	text-transform: uppercase;
-}
-
-.space-letters {
-	letter-spacing: .1rem;
-}
-
-.pos-at-btm {
-	position: absolute;
-	bottom: 0;
-}
-
-.spacer-32 {
-	width: 100%;
-	height: 32px;
-}
-
-/* END: Utilities */

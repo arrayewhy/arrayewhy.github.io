@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+	<style type="text/css">
+		#zoom-overlay {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+
+			display: none;
+
+			background-size: cover;
+			background-position: center;
+		}
+	</style>
+
+	<script src="../js/script.js"></script>
+</head>
+
+<body onload="Show_Page()">
+
+	<div id="zoom-overlay" onclick="Hide_Zoom_Overlay()"></div>
+
+	<div id="nav">
+		<a href="../index.html">
+			<div id="logo-cont"></div>
+		</a>
+	</div>
+
+	<!-- START: Main Content Section -->
+
+	 <div class="main-cont">
+
+	 	<section>
+	 		<div class="left">
+	 			<h2>Illustrations</h2>
+	 		</div>
+	 		<div class="right gallery">
+	 			<img src="../img/tiger-puff-low-res.png" onclick="Show_Zoom_Overlay('tiger')">
+	 			<img src="../img/cozy-kettle-low-res.jpg" onclick="Show_Zoom_Overlay('kettle')">
+	 		</div>
+	 	</section>
+
+	 </div>
+
+	<!-- END: Main Content Section -->
+
+	<div class="footer">
+		<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
+	</div>
+
+	<script type="text/javascript">
+		var zoomOverlay = document.getElementById('zoom-overlay');
+		function Show_Zoom_Overlay(e) {
+			// if (e == 'tiger') {
+			// 	zoomOverlay.style.backgroundImage = "url(../img/tiger-puff-high-res.png)";
+			// }
+			switch(e) {
+				case 'tiger':
+					zoomOverlay.style.backgroundImage = "url(../img/tiger-puff-high-res.png)";
+					break;
+				case 'kettle':
+					zoomOverlay.style.backgroundImage = "url(../img/cozy-kettle-high-res.png)";
+					break;
+				default:
+					return;
+			}
+			zoomOverlay.style.display = 'block';
+		}
+
+		function Hide_Zoom_Overlay() {
+			zoomOverlay.style.display = 'none';
+		}
+	</script>
+
+</body>
+
+</html>

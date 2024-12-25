@@ -1,0 +1,8 @@
+:root {
+	/*	Size */
+	--double: 2rem;
+	/*	Colour */
+	--light-grey: rgba(0,0,0,0.25);
+	--half-grey: rgba(0,0,0,0.5);
+	--dark-grey: rgba(0,0,0,0.75);
+}
