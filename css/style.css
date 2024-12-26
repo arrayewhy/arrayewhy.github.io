@@ -131,7 +131,7 @@ p.source:hover {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row-reverse;
-	padding: 32px;
+/*	padding: 32px;*/
 	box-sizing: border-box;
 /*	background-color: red;*/
 }

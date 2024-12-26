@@ -3,11 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ARRAYEWHY - Online Gallery</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="js/script.js"></script>
 </head>
 
-<body onload="Show_Page()">
+<body onload="Show_Page(); Do_Lol();">
 
 	<div id="nav">
 		<a href="index.html">
@@ -50,13 +51,22 @@
 
 		</div>
 
-		<div class="sect-btns">
-			
-			<a href="pages/random-gems.html">
+		<div id="lol" class="sect-btns">
+
+			<a id="rando" href="pages/random-gems.html">
 				<div class="sect-btn-cont">
 					<div class="sect-btn">
 						<!-- <div class="sect-thumb"></div> -->
 						<div class="sect-text space-letters">Random Gems</div>
+					</div>
+				</div>
+			</a>
+
+			<a href="pages/thoughts.html">
+				<div class="sect-btn-cont">
+					<div class="sect-btn">
+						<!-- <div class="sect-thumb"></div> -->
+						<div class="sect-text space-letters">Thoughts</div>
 					</div>
 				</div>
 			</a>
@@ -71,6 +81,24 @@
 	<div class="footer">
 		<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
 	</div>
+
+	<script type="text/javascript">
+		var count = 0;
+		function Do_Lol() {
+			// var lol = document.getElementById("lol");
+			var children = lol.childNodes;
+			// alert(lol.childNodes[3].id);
+			children.forEach(p);
+			// children.forEach(alert(this));
+			// alert(lol.childElementCount);
+		}
+		function p(e) {
+			alert(t(e));
+		}
+		function t(e) {
+			return e.tagName == "A";
+		}
+	</script>
 
 </body>
 
