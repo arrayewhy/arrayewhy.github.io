@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ARRAYEWHY - Online Gallery</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/experiments.css">
+	<script src="../js/script.js"></script>
+	<!-- <script src="experiments.js"></script> -->
+	
+	<noscript>
+		<style type="text/css">
+			html { opacity: 1; }
+		</style>
+	</noscript>
+
+</head>
+
+<body onload="Show_Page()">
+
+	<div id="nav">
+		<a href="../index.html">
+			<div id="logo-cont">
+				<div id="logo"></div>
+			</div>
+		</a>
+	</div>
+
+	<!-- START: Main Content Section -->
+
+	 <div class="main-cont">
+
+	 	<section>
+	 		<div class="left">
+	 			<h2>Random Experiments</h2>
+	 		</div>
+	 		<div class="right">
+
+	 			<div class="thought">
+	 				<button>HTML</button>
+	 				<button>CSS</button>
+	 				<div id="mainHolder">
+						<div id="charHolder" class="ShiftCenterAnim">
+							<div id="animBody" class="BopAnim">
+								<div id="eye" class="anim-eye-left-right">
+									<div id="pupil" class="anim-pupil-left-right">
+										<div id="reflection"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	 			</div>
+	 			<p>Bouncing Slime Animation</p>
+
+	 			<div id="gameboy-js" class="thought">
+	 				<div id="wrapper">
+						<div id="screen">
+							<div id="player"></div>
+						</div>
+						<div id="controls-wrapper">
+							<div id="controls">
+								<div id="up" class="button"></div>
+								<div id="down" class="button"></div>
+								<div id="left" class="button"></div>
+								<div id="right" class="button"></div>
+							</div>
+						</div>
+					</div>
+	 			</div>
+	 			<p>GameBoy JS</p>
+
+	 		</div>
+	 	</section>
+
+	 </div>
+
+	<!-- END: Main Content Section -->
+
+	<div class="footer">
+		<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
+	</div>
+
+	<script type="text/javascript">
+		// START - GameBoy JS
+
+		var player = document.getElementById("player");
+
+		document.getElementById("up").onclick = function() { Move_Up(); }
+		document.getElementById("down").onclick = function() { Move_Down(); }
+		document.getElementById("left").onclick = function() { Move_Left(); }
+		document.getElementById("right").onclick = function() { Move_Right(); }
+
+		var screenSize = 500;
+		var pTop = 0;
+		var pLeft = 0;
+
+		function Move_Up() {
+			if (pTop == 0) {
+				return;
+			}
+			pTop -= 10;
+			player.style.top = pTop + "%";
+		}
+
+		function Move_Down() {
+			if (pTop == 90) {
+				return;
+			}
+			pTop += 10;
+			player.style.top = pTop + "%";
+		}
+
+		function Move_Left() {
+			if (pLeft == 0) {
+				return;
+			}
+			pLeft -= 10;
+			player.style.left = pLeft + "%";
+		}
+
+		function Move_Right() {
+			if (pLeft == 90) {
+				return;
+			}
+			pLeft += 10;
+			player.style.left = pLeft + "%";
+		}
+		
+		// END - GameBoy JS
+	</script>
+
+</body>
+
+</html>
