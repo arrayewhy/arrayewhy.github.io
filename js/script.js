@@ -13,6 +13,7 @@ window.onload = function() {
 
 	imp = document.getElementById("imp");
 	logoCont.onmouseenter = function() { Imp_Drift(); }
+	Imp_Drift();
 }
 
 function Imp_Drift() {
