@@ -22,8 +22,12 @@
 	transition: .5s;
 }*/
 
+experiment h3 {
+	margin-bottom: 64px;
+}
+
 @media (max-width: 768px) {
-	.experiment {
+	experiment {
 		margin-left: auto;
 		margin-right: auto;
 	}

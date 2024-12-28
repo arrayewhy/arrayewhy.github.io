@@ -5,6 +5,10 @@
 /*	background-color: lightblue;*/
 }
 
+.main-cont h2 {
+	margin-bottom: 32px;
+}
+
 .main-cont section {
 	display: flex;
 /*	background-color: yellow;*/

@@ -16,6 +16,10 @@
 	height: 32px;
 }
 
+.margin-32 {
+	margin: 32px;
+}
+
 .focus {
 	opacity: 0.6;
 	transition: 0.5s ease;
