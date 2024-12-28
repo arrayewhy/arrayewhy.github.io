@@ -22,6 +22,9 @@
 	width: 65%;
 /*	min-height: 512px;*/
 	padding: 64px 15% 64px 0;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
 
 /*	background-color: pink;*/
 }
@@ -55,9 +58,4 @@
 		padding: 64px 0 64px 0;
 	}
 }
-
-@media (max-width: 768px) {
-	
-}
-
 /* END: Mobile */
