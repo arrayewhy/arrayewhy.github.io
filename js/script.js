@@ -16,11 +16,15 @@ window.onload = function() {
 }
 
 function Imp_Drift() {
+
 	if (drifting) {
 		return;
 	}
+
 	drifting = true;
+
 	imp.classList.add("DriftRightAnim");
+
 	setTimeout(function() {
 		imp.classList.remove("DriftRightAnim");
 		drifting = false;
