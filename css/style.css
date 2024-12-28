@@ -89,11 +89,100 @@ p.source:hover {
 	width: 100%;
 /*	height: auto;*/
 	height: 128px;
+/*	background-color: blue;*/
+}
+
+#nav #imp {
+	width: 16px;
+	height: 16px;
+
+	position: absolute;
+	left: 56px;
+	top: 56px;
+
+	border-radius: 50%;
+	filter: blur(5px);
+
+	opacity: 0;
+
+	z-index: -100;
+
+	background-color: var(--light-grey);
+}
+
+.DriftRightAnim {
+	animation-name: DriftRight;
+	animation-duration: 2s;
+	animation-timing-function: linear;
+}
+
+@keyframes DriftRight {
+	0% {
+		opacity: 0;
+		left: 56px;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		left: 500px;
+	}
+}
+
+#logo-cont {
+	width: 64px;
+	height: 64px;
+
+/*	opacity: 0.5;*/
+
+	position: relative;
+	left: 32px;
+	top: 32px;
+
+	transition: 1s ease;
+	background-color: white;
+}
+
+#r {
+	width: 32px;
+	height: 32px;
+
+	position: absolute;
+	left: 16px;
+	top: 16px;
+
+	display: flex;
+	flex-wrap: wrap;
+
+/*	background-color: yellow;*/
+}
+
+#r #top {
+	width: 32px;
+	height: 16px;
+	border-radius: 0 8px 8px 0;
+	background-color: black;
+}
+
+#r #btm-left {
+	width: 16px;
+	height: 16px;
+	background-color: black;
+}
+
+#r #btm-right {
+/*	width: 100%;*/
+/*	height: 50%;*/
+	border-left: 0 solid transparent;
+	border-right: 16px solid transparent;
+	border-bottom: 16px solid black;
+	box-sizing: border-box;
 
 /*	background-color: black;*/
 }
 
-#logo-cont {
+/*#logo-cont {
 	width: 128px;
 	height: 128px;
 
@@ -106,16 +195,17 @@ p.source:hover {
 
 	transition: 1s;
 
-/*	background-color: orange;*/
-}
+	background-color: orange;
+}*/
 
 #logo-cont:hover {
-	opacity: 1;
-	left: 16px;
-	transition: 1s;
+/*	opacity: 1;*/
+	left: 48px;
+	transition: 1s ease;
+	background-color: #ffd54b;
 }
 
-#logo {
+/*#logo {
 	width: 25%;
 	height: 25%;
 
@@ -130,20 +220,19 @@ p.source:hover {
 	transition: .5s ease;
 
 	background-color: white;
-}
+}*/
 
-#logo:hover {
+/*#logo:hover {
 	width: 50%;
 	height: 50%;
 
-/*	position: relative;*/
 	left: 25%;
 	top: 25%;
 
 	border-width: 2px;
 
 	transition: .5s ease;
-}
+}*/
 
 /* END: Navigation */
 
