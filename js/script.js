@@ -29,7 +29,7 @@ function Imp_Drift() {
 	setTimeout(function() {
 		imp.classList.remove("DriftRightAnim");
 		drifting = false;
-	}, 2000);
+	}, 3000);
 }
 
 function Show_Page() {

@@ -37,7 +37,7 @@
 	display: flex;
 }
 
-.main-cont section .right img {
+.main-cont section .right.gallery img {
 	width: 50%;
 	height: auto;
 }
@@ -60,6 +60,15 @@
 	.main-cont section .right {
 		width: 100%;
 		padding: 64px 0 64px 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.main-cont section .right.gallery img {
+		width: 100%;
+	}
+	.main-cont section .right {
+		padding: 0;
 	}
 }
 /* END: Mobile */
