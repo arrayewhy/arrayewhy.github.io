@@ -79,12 +79,16 @@
 }
 
 @media (max-width: 768px) {
+	.main-cont section .left h2 {
+		padding-left: 32px;
+	}
+
 	.main-cont section .right.gallery img {
 		width: 100%;
 	}
-	.main-cont section .right {
+	/*.main-cont section .right {
 		padding: 0;
-	}
+	}*/
 }
 
 @media (min-width: 1280px) {
