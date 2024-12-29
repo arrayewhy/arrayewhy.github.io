@@ -17,11 +17,6 @@
 	background-color: white;
 }
 
-/*.experiment:hover {
-	box-shadow: 4px 4px 5px rgba(0, 0, 0, .2);
-	transition: .5s;
-}*/
-
 experiment h3 {
 	margin-bottom: 64px;
 }
@@ -32,6 +27,8 @@ experiment h3 {
 		margin-right: auto;
 	}
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 /* START - Bouncing Slime Animation */
 
@@ -164,6 +161,8 @@ experiment h3 {
 
 /* END - Bouncing Slime Animation */
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 /* START - GameBoy JS */
 
 #wrapper {
@@ -276,3 +275,172 @@ experiment h3 {
 }
 
 /* END - GameBoy JS */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* START - Animated Frame */
+
+#card {
+	width: 300px;
+	height: 400px;
+	position: relative;
+	background-color: beige;
+}
+
+#contents {
+	width: 250px;
+	height: 350px;
+	position: absolute;
+	left: 25px;
+	top: 25px;
+/*	border: solid black 2px;*/
+	box-sizing: border-box;
+/* 	background-color: yellow;*/
+}
+
+.top-side {
+	width: 200px;
+	height: 50px;
+	position: relative;
+	overflow: hidden;
+	background-color: red;
+}
+
+.top-contents {
+	width: 400px;
+	height: 50px;
+	position: absolute;
+	left: -200px;
+	display: flex;
+	background-color: green;
+}
+
+.top-contents-bg {
+	width: 200px;
+	height: 50px;
+	background-image: linear-gradient(to right, orange, blue);
+}
+
+.TopContentsAnim {
+	animation-name: TopContentsAnim;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear; */
+}
+
+@keyframes TopContentsAnim {
+	0% { left: -200px; }
+	100% { left: 0; }
+}
+
+.right-side {
+	width: 50px;
+	height: 300px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	overflow: hidden;
+	background-color: red;
+}
+
+.right-contents {
+	width: 50px;
+	height: 600px;
+	position: absolute;
+	top: -300px;
+	background-color: green;
+}
+
+.right-contents-bg {
+	width: 50px;
+	height: 300px;
+	background-image: linear-gradient(to bottom, orange, blue);
+}
+
+.RightContentsAnim {
+	animation-name: RightContentsAnim;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear; 
+}
+
+@keyframes RightContentsAnim {
+	0% { top: -300px; }
+	100% { top: 0px; }
+}
+
+.btm-side {
+	width: 200px;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	background-color: red;
+}
+
+.btm-contents {
+	width: 400px;
+	height: 50px;
+	position: absolute;
+	left: 0;
+	display: flex;
+	overflow: hidden;
+	background-color: green;
+}
+
+.btm-contents-bg {
+	width: 200px;
+	height: 50px;
+	background-image: linear-gradient(to left, orange, blue);
+}
+
+.BtmContentsAnim {
+	animation-name: BtmContentsAnim;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear; */
+}
+
+@keyframes BtmContentsAnim {
+	0% { left: 0; }
+	100% { left: -200px; }
+}
+
+.left-side {
+	width: 50px;
+	height: 300px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	background-color: red;
+}
+
+.left-contents {
+	width: 50px;
+	height: 600px;
+	position: absolute;
+	top: -300px;
+	background-color: green;
+}
+
+.left-contents-bg {
+	width: 50px;
+	height: 300px;
+	background-image: linear-gradient(to top, orange, blue);
+}
+
+.LeftContentsAnim {
+	animation-name: LeftContentsAnim;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear; 
+}
+
+@keyframes LeftContentsAnim {
+	0% { top: 0; }
+	100% { top: -300px; }
+}
+
+/* END - Animated Frame */
