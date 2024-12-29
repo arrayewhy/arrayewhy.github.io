@@ -71,6 +71,7 @@ code, pre {
 p {
 /*	margin: 32px;*/
 	line-height: 1.4rem;
+	margin-bottom: 32px;
 }
 
 .source-label {

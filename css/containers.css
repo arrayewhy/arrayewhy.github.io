@@ -5,9 +5,9 @@
 /*	background-color: lightblue;*/
 }
 
-.main-cont h2 {
+/*.main-cont h2 {
 	margin-bottom: 32px;
-}
+}*/
 
 .main-cont section {
 	display: flex;
@@ -31,6 +31,21 @@
 	flex-direction: column;
 
 /*	background-color: pink;*/
+}
+
+.main-cont section .right h2 {
+	margin-bottom: 32px;
+}
+
+.main-cont section .right h2.post-title {
+	margin: 16px 0 32px 0;
+}
+
+.main-cont section .right video, 
+.main-cont section .right img {
+	width: 100%;
+	height: auto;
+	margin-bottom: 32px;
 }
 
 .main-cont section .right.gallery {
@@ -71,4 +86,19 @@
 		padding: 0;
 	}
 }
+
+@media (min-width: 1280px) {
+	.main-cont section .right video, 
+	.main-cont section .right img {
+		opacity: 0.8;
+		transition: .5s;
+	}
+
+	.main-cont section .right video:hover, 
+	.main-cont section .right img:hover {
+		opacity: 1;
+		transition: .5s;
+	}
+}
+
 /* END: Mobile */
