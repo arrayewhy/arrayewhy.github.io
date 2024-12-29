@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/experiments.css">
 	<script src="../js/script.js"></script>
-	<!-- <script src="experiments.js"></script> -->
+	<script src="../js/experiments.js"></script>
 	
 	<noscript>
 		<style type="text/css">
@@ -121,6 +121,12 @@
 	 				<h3 class="all-caps space-letters">Animated Frame</h3>
 	 			</experiment>
 
+	 			<experiment>
+	 				<div id="grid-nodes" class="experiment hover-shadow">
+	 					<div id="grid-frame"></div>
+	 				</div>
+	 			</experiment>
+
 	 		</div>
 	 	</section>
 
@@ -142,43 +148,15 @@
 		document.getElementById("left").onclick = function() { Move_Left(); }
 		document.getElementById("right").onclick = function() { Move_Right(); }
 
-		var screenSize = 500;
-		var pTop = 0;
-		var pLeft = 0;
-
-		function Move_Up() {
-			if (pTop == 0) {
-				return;
-			}
-			pTop -= 10;
-			player.style.top = pTop + "%";
-		}
-
-		function Move_Down() {
-			if (pTop == 90) {
-				return;
-			}
-			pTop += 10;
-			player.style.top = pTop + "%";
-		}
-
-		function Move_Left() {
-			if (pLeft == 0) {
-				return;
-			}
-			pLeft -= 10;
-			player.style.left = pLeft + "%";
-		}
-
-		function Move_Right() {
-			if (pLeft == 90) {
-				return;
-			}
-			pLeft += 10;
-			player.style.left = pLeft + "%";
-		}
-		
 		// END - GameBoy JS
+
+		// START - Grid Nodes
+
+		var gridFrame = document.getElementById("grid-frame");
+
+		CreateRows();
+
+		// END - Grid Nodes
 	</script>
 
 </body>

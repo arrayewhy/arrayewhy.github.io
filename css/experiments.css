@@ -444,3 +444,29 @@ experiment h3 {
 }
 
 /* END - Animated Frame */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* START - Grid Nodes */
+
+#grid-frame {
+	width: 300px;
+	height: 300px;
+	position: relative;
+	background-color: var(--light-grey);
+}
+
+#grid-frame div {
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+	transition: .25s ease;
+	background-color: white;
+	z-index: 1;
+}
+
+#grid-frame div:hover {
+	box-shadow: 8px 8px 2px rgba(0, 0, 0, .25);
+	transition: .25s ease;
+	z-index: 100;
+}
+
+/* END - Grid Nodes */
