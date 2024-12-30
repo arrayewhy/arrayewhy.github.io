@@ -33,9 +33,12 @@
 
 	<!-- START: Main Content Section -->
 
-	 <div id="point-and-click">
+
+	 <div id="point-and-click" class="wrapper">
 	 	<div id="screen">
-	 		<div id="player"></div>
+	 		<div id="player">
+	 			<div class="sprite"></div>
+	 		</div>
 	 	</div>
 	 </div>
 
@@ -43,14 +46,23 @@
 
 	<script type="text/javascript">
 		var screen = document.getElementById("screen");
+		// console.log(screen.offsetWidth);
+		// console.log(screen.offsetHeight);
 		var player = document.getElementById("player");
+		var playerSprite = Get_PlayerSprite(player.childNodes);
+
+		var idleSpriteFrames_Path = "url(../img/Shelter_Animation_Idle.png)";
+		var runSpriteFrames_Path = "url(../img/Shelter_Animation_Run.png)";
+
+		// playerSprite.style.backgroundSize = "256px auto";
 
 		var cellSize = 20;
 		var cellsX = 48;
 		var cellsY = 27;
 
 		CreateCellRows(cellsY, cellsX);
-		CreatePlayer(0, 0);
+		CreatePlayer(screen.offsetHeight/2, screen.offsetWidth/2);
+		Set_PlayerSprite_Idle(playerSprite);
 
 		function CreateCellRows(rowCount, colCount) {
 			var currTop = 0;
@@ -89,7 +101,8 @@
 			player.style.top = top + "px";
 		}
 
-		var speed = .025;
+		var speed = 1;
+		var maxChange = 80;
 		var gapAllow = 20;
 		var moving = false;
 		var moveInteral = null;
@@ -101,7 +114,10 @@
 				clearInterval(moveInteral);
 			}
 			console.log("moving: " + moving);
-			moveInteral = setInterval(function() { MovePlayer(left, top) }, 16.666);
+			// player.style.transition = "1s linear";
+			Set_PlayerSprite_Run(playerSprite);
+			MovePlayer(left, top);
+			moveInteral = setInterval(function() { MovePlayer(left, top) }, 500);
 		}
 
 		function MovePlayer(left, top) {
@@ -122,11 +138,42 @@
 				dirY = -1;
 			}
 
+			var changeX = gapX * dirX;
+			if(changeX > maxChange) {
+				changeX = maxChange;
+				// player.style.transition = "1s ease-out";
+			}
+			var changeY = gapY * dirY;
+			if(changeY > maxChange) {
+				changeY = maxChange;
+				// player.style.transition = "1s ease-out";
+			}
+
+			player.style.left = player.offsetLeft + changeX * dirX * speed + "px";
+			player.style.top = player.offsetTop + changeY * dirY * speed + "px";
+
 			if(gapX * dirX > gapAllow || gapY * dirY > gapAllow) {
-				player.style.left = player.offsetLeft + gapX * speed + "px";
-				player.style.top = player.offsetTop + gapY * speed + "px";
 				return;
 			}
+
+			// if(gapX * dirX > gapAllow || gapY * dirY > gapAllow) {
+
+			// 	var changeX = gapX * dirX;
+			// 	if(changeX > maxChange) {
+			// 		changeX = maxChange;
+			// 	}
+			// 	var changeY = gapY * dirY;
+			// 	if(changeY > maxChange) {
+			// 		changeY = maxChange;
+			// 	}
+
+			// 	player.style.left = player.offsetLeft + changeX * dirX * speed + "px";
+			// 	player.style.top = player.offsetTop + changeY * dirY * speed + "px";
+			// 	return;
+			// }
+
+			// player.style.left = player.offsetLeft + changeX * dirX * speed + "px";
+			// player.style.top = player.offsetTop + changeY * dirY * speed + "px";
 
 			// if(gapX * dirX > 0 || gapY * dirY > 0) {
 			// 	player.style.left = player.offsetLeft + gapX * speed + "px";
@@ -136,12 +183,31 @@
 
 			moving = false;
 			console.log("moving: " + moving);
+			Set_PlayerSprite_Idle(playerSprite);
 			clearInterval(moveInteral);
+		}
+
+		function Get_PlayerSprite(playerChildren) {
+			for(var i = 0; i < playerChildren.length; i++) {
+				if(playerChildren[i].className == "sprite") {
+					return playerChildren[i];
+				}
+			}
+		}
+
+		function Set_PlayerSprite_Idle(pSprite) {
+			pSprite.style.backgroundImage = idleSpriteFrames_Path;
+			pSprite.style.backgroundSize = "128px auto";
+		}
+
+		function Set_PlayerSprite_Run(pSprite) {
+			pSprite.style.backgroundImage = runSpriteFrames_Path;
+			pSprite.style.backgroundSize = "256px auto";
 		}
 
 	</script>
 
-	<div class="footer bottom">
+	<div class="footer">
 		<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
 	</div>
 
