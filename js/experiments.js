@@ -49,10 +49,10 @@ var topPosArray = [];
 function CreateRows() {
 	var currY = 30;
 	var currFrontID = 0;
-	for(var i = 0; i < 13; i++) {
+	for(var i = 0; i < 17; i++) {
 		CreateRow(currY, currFrontID);
-		currFrontID += 13;
-		currY += 20;
+		currFrontID += 17;
+		currY += 15;
 	}
 	// console.log(leftPosArray);
 	// console.log(rightPosArray);
@@ -62,10 +62,10 @@ function CreateRows() {
 function CreateRow(posY, nodeID) {
 	var currX = 30;
 	var currID = nodeID;
-	for(var i = 0; i < 13; i++) {
+	for(var i = 0; i < 17; i++) {
 		CreateNode(currX, posY, currID);
 		currID++;
-		currX += 20;
+		currX += 15;
 	}
 }
 
@@ -78,9 +78,11 @@ function CreateNode(posX, posY, nodeID) {
 
 	node.onmouseenter = function() { Expand(node); }
 	node.onmouseleave = function() { Shrink(node); }
+	node.onclick = function() { Pop(node); }
 
 	node.style.width = nodeSize + "px";
 	node.style.height = nodeSize + "px";
+	node.style.borderRadius = nodeSize / 2 + "px";
 
 	node.style.position = "absolute";
 	node.style.left = posX - (nodeSize / 2) + "px";
@@ -89,13 +91,14 @@ function CreateNode(posX, posY, nodeID) {
 	gridFrame.appendChild(node);
 }
 
-var scaleFactor = 2.5;
+var scaleFactor = 4;
 
 function Expand(e) {
 	e.style.width = nodeSize * scaleFactor + "px";
 	e.style.height = nodeSize * scaleFactor + "px";
 	e.style.left = leftPosArray[e.id] - (nodeSize * scaleFactor / 2) + "px";
 	e.style.top = topPosArray[e.id] - (nodeSize * scaleFactor / 2) + "px";
+	e.style.borderRadius = nodeSize * 2 + "px";
 }
 
 function Shrink(e) {
@@ -103,6 +106,10 @@ function Shrink(e) {
 	e.style.height = nodeSize + "px";
 	e.style.left = leftPosArray[e.id] - (nodeSize / 2) + "px";
 	e.style.top = topPosArray[e.id] - (nodeSize / 2) + "px";
+}
+
+function Pop(e) {
+	e.remove();
 }
 
 // END - Grid Nodes
