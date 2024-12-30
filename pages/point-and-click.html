@@ -49,7 +49,7 @@
 		// console.log(screen.offsetWidth);
 		// console.log(screen.offsetHeight);
 		var player = document.getElementById("player");
-		var playerSprite = Get_PlayerSprite(player.childNodes);
+		var playerSprite = null;
 
 		var idleSpriteFrames_Path = "url(../img/Shelter_Animation_Idle.png)";
 		var runSpriteFrames_Path = "url(../img/Shelter_Animation_Run.png)";
@@ -62,6 +62,7 @@
 
 		CreateCellRows(cellsY, cellsX);
 		CreatePlayer(screen.offsetHeight/2, screen.offsetWidth/2);
+		Initialize_PlayerSprite(player.childNodes);
 		Set_PlayerSprite_Idle(playerSprite);
 
 		function CreateCellRows(rowCount, colCount) {
@@ -105,17 +106,27 @@
 		var maxChange = 80;
 		var gapAllow = 20;
 		var moving = false;
+		var facingRight = false;
+
 		var moveInteral = null;
+		var runAnimInterval = null;
+		var currFrameOffset = 0;
 
 		function Start_MovePlayer(left, top) {
 			if(!moving) {
 				moving = true;
+				clearInterval(runAnimInterval);
+				AdvanceSpriteFrame_Run(playerSprite, currFrameOffset);
+				runAnimInterval = setInterval(function() { AdvanceSpriteFrame_Run(playerSprite, currFrameOffset); }, 166.666);
 			} else {
 				clearInterval(moveInteral);
 			}
 			console.log("moving: " + moving);
 			// player.style.transition = "1s linear";
+
 			Set_PlayerSprite_Run(playerSprite);
+			// AdvanceSpriteFrame_Run(playerSprite, currFrameOffset);
+
 			MovePlayer(left, top);
 			moveInteral = setInterval(function() { MovePlayer(left, top) }, 500);
 		}
@@ -138,6 +149,16 @@
 				dirY = -1;
 			}
 
+			// Flip Sprite
+
+			if(dirX > 0 && !facingRight) {
+				playerSprite.style.transform = "scaleX(-1)";
+				facingRight = true;
+			} else if(dirX < 0 && facingRight) {
+				playerSprite.style.transform = "scaleX(1)";
+				facingRight = false;
+			}
+
 			var changeX = gapX * dirX;
 			if(changeX > maxChange) {
 				changeX = maxChange;
@@ -156,54 +177,49 @@
 				return;
 			}
 
-			// if(gapX * dirX > gapAllow || gapY * dirY > gapAllow) {
-
-			// 	var changeX = gapX * dirX;
-			// 	if(changeX > maxChange) {
-			// 		changeX = maxChange;
-			// 	}
-			// 	var changeY = gapY * dirY;
-			// 	if(changeY > maxChange) {
-			// 		changeY = maxChange;
-			// 	}
-
-			// 	player.style.left = player.offsetLeft + changeX * dirX * speed + "px";
-			// 	player.style.top = player.offsetTop + changeY * dirY * speed + "px";
-			// 	return;
-			// }
-
-			// player.style.left = player.offsetLeft + changeX * dirX * speed + "px";
-			// player.style.top = player.offsetTop + changeY * dirY * speed + "px";
-
-			// if(gapX * dirX > 0 || gapY * dirY > 0) {
-			// 	player.style.left = player.offsetLeft + gapX * speed + "px";
-			// 	player.style.top = player.offsetTop + gapY * speed + "px";
-			// 	return;
-			// }
-
 			moving = false;
 			console.log("moving: " + moving);
 			Set_PlayerSprite_Idle(playerSprite);
+
 			clearInterval(moveInteral);
+			clearInterval(runAnimInterval);
+			currFrameOffset = 0;
 		}
 
-		function Get_PlayerSprite(playerChildren) {
+		// START - Sprites and Animation
+
+		function Initialize_PlayerSprite(playerChildren) {
 			for(var i = 0; i < playerChildren.length; i++) {
 				if(playerChildren[i].className == "sprite") {
-					return playerChildren[i];
+					playerSprite = playerChildren[i];
 				}
 			}
 		}
 
+		// function Get_PlayerSprite(playerChildren) {
+		// 	for(var i = 0; i < playerChildren.length; i++) {
+		// 		if(playerChildren[i].className == "sprite") {
+		// 			return playerChildren[i];
+		// 		}
+		// 	}
+		// }
+
 		function Set_PlayerSprite_Idle(pSprite) {
 			pSprite.style.backgroundImage = idleSpriteFrames_Path;
-			pSprite.style.backgroundSize = "128px auto";
+			// pSprite.style.backgroundSize = "auto 64px";
 		}
 
 		function Set_PlayerSprite_Run(pSprite) {
 			pSprite.style.backgroundImage = runSpriteFrames_Path;
-			pSprite.style.backgroundSize = "256px auto";
+			// pSprite.style.backgroundSize = "auto 64px";
 		}
+
+		function AdvanceSpriteFrame_Run(pSprite, val) {
+			pSprite.style.backgroundPosition = val + "px";
+			currFrameOffset += 64;
+		}
+
+		// END = Sprites and Animation
 
 	</script>
 

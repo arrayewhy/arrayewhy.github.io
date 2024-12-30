@@ -15,13 +15,13 @@
 
 .cell {
 	position: absolute;
-/*	opacity: 0.4;*/
-/*	background-color: lime;*/
+	opacity: 0.4;
+	background-color: lime;
 }
 
-/*.cell:hover {
+.cell:hover {
 	opacity: 1;
-}*/
+}
 
 #player {
 	position: absolute;
@@ -39,5 +39,5 @@
 	left: -32px;
 	top: -32px;
 	background-image: url("../img/Shelter_Animation_Idle.png");
-	background-size: 128px auto;
+	background-size: auto 64px;
 }
