@@ -85,6 +85,7 @@
 	 			<experiment>
 	 				<div class="experiment hover-shadow">
 	 					<div id="card">
+	 						<i class="bi bi-hand-index-thumb-fill"></i>
 							<div id="contents">
 
 								<div class="top-side">
@@ -150,6 +151,19 @@
 		document.getElementById("right").onclick = function() { Move_Right(); }
 
 		// END - GameBoy JS
+
+		// START - Animated Frame
+
+		var card = document.getElementById("card");
+		var topSide = card.getElementsByClassName("top-side")[0];
+		var rightSide = card.getElementsByClassName("right-side")[0];
+		var leftSide = card.getElementsByClassName("left-side")[0];
+		var btmSide = card.getElementsByClassName("btm-side")[0];
+
+		card.onmouseenter = function() { Show_Borders(topSide, rightSide, btmSide, leftSide); }
+		card.onmouseleave = function() { Hide_Borders(topSide, rightSide, btmSide, leftSide); }
+
+		// END - Animated Frame
 
 		// START - Grid Nodes
 

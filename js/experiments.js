@@ -40,6 +40,26 @@ function Move_Right() {
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// START - Animated Frame
+
+function Show_Borders(topSide, rightSide, btmSide, leftSide) {
+	topSide.style.top = "0";
+	rightSide.style.right = "0";
+	btmSide.style.bottom = "0";
+	leftSide.style.left = "0";
+}
+
+function Hide_Borders(topSide, rightSide, btmSide, leftSide) {
+	rightSide.style.right = -50 + "px";
+	topSide.style.top = -50 + "px";
+	btmSide.style.bottom = -50 + "px";
+	leftSide.style.left = -50 + "px";
+}
+
+// END - Animated Frame
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // START - Grid Nodes
 
 var nodeSize = 10;
