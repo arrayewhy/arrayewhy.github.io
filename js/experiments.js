@@ -1,3 +1,21 @@
+var codeVisible = false;
+
+function Toggle_Code() {
+	if(!codeVisible) {
+		var codeConts = document.getElementsByClassName("code-cont");
+		for(var i = 0; i < codeConts.length; i++) {
+			codeConts[i].style.display = "inline-block";
+		}
+		codeVisible = true;
+		return;
+	}
+	var codeConts = document.getElementsByClassName("code-cont");
+	for(var i = 0; i < codeConts.length; i++) {
+		codeConts[i].style.display = "none";
+	}
+	codeVisible = false;
+}
+
 // START - Animated Frame
 
 function Show_Borders(topSide, rightSide, btmSide, leftSide) {

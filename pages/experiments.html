@@ -39,6 +39,7 @@
 	 	<section>
 	 		<div class="left">
 	 			<h2>Random Experiments</h2>
+	 			<button id="show-code-btn">Show Code</button>
 	 		</div>
 	 		<div class="right">
 
@@ -55,12 +56,10 @@
 								</div>
 							</div>
 						</div>
-						<div class="code-cont">
-							<iframe id="bouncing-slime-html" src="bouncing-slime-html.txt" style="display: none;"></iframe>
-							<iframe id="bouncing-slime-css" src="bouncing-slime-css.txt" style="display: none;"></iframe>
+						<div class="code-cont display-none">
+							<iframe src="experiments/bouncing-slime-html.txt"></iframe>
+							<iframe src="experiments/bouncing-slime-css.txt"></iframe>
 						</div>
-						<button id="bouncing-slime-html-btn">HTML</button>
-		 				<button id="bouncing-slime-css-btn">CSS</button>
 		 			</div>
 		 			<h3 id="bouncing-slime" class="all-caps space-letters">Bouncing Slime Animation</h3>
 	 			</experiment>
@@ -146,13 +145,8 @@
 
 	<script type="text/javascript">
 
-		document.getElementById("bouncing-slime-html-btn").onclick = function() {
-			document.getElementById('bouncing-slime-html').style.display = 'inline-block';
-			document.getElementById('bouncing-slime-css').style.display = 'none';
-		}
-		document.getElementById("bouncing-slime-css-btn").onclick = function() {
-			document.getElementById('bouncing-slime-html').style.display = 'none';
-			document.getElementById('bouncing-slime-css').style.display = 'inline-block';
+		document.getElementById("show-code-btn").onclick = function() {
+			Toggle_Code();
 		}
 
 		// START - GameBoy JS
@@ -186,6 +180,7 @@
 		CreateRows();
 
 		// END - Grid Nodes
+
 	</script>
 
 </body>

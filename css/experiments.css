@@ -1,5 +1,10 @@
 @import url('variables.css');
 
+#show-code-btn {
+	padding: 8px;
+	margin: 32px 32px 32px 0;
+}
+
 .experiment {
 	width: 300px;
 	min-height: 300px;
@@ -9,6 +14,7 @@
 /*	box-sizing: border-box;*/
 
 	display: inline-block;
+/*	display: flex;*/
 	overflow: hidden;
 /*	box-shadow: 4px 4px 5px rgba(0, 0, 0, .2);*/
 
@@ -25,6 +31,9 @@ experiment h3 {
 	experiment {
 		margin-left: auto;
 		margin-right: auto;
+	}
+	#show-code-btn {
+		margin: 32px;
 	}
 }
 
