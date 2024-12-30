@@ -307,10 +307,10 @@ experiment h3 {
 }
 
 .top-side {
-	width: 200px;
+	width: 250px;
 	height: 50px;
 	position: relative;
-	left: 50px;
+	left: 0;
 	top: -50px;
 	transition: .5s ease;
 	overflow: hidden;
@@ -318,16 +318,16 @@ experiment h3 {
 }
 
 .top-contents {
-	width: 400px;
+	width: 500px;
 	height: 50px;
 	position: absolute;
-	left: -200px;
+	left: -250px;
 	display: flex;
 	background-color: green;
 }
 
 .top-contents-bg {
-	width: 200px;
+	width: 250px;
 	height: 50px;
 	background-image: linear-gradient(to right, orange, blue);
 }
@@ -340,16 +340,16 @@ experiment h3 {
 }
 
 @keyframes TopContentsAnim {
-	0% { left: -200px; }
+	0% { left: -250px; }
 	100% { left: 0; }
 }
 
 .right-side {
 	width: 50px;
-	height: 300px;
+	height: 350px;
 	position: absolute;
 	right: -50px;
-	top: 50px;
+	top: 0;
 	overflow: hidden;
 	transition: .5s ease;
 	background-color: red;
@@ -357,15 +357,15 @@ experiment h3 {
 
 .right-contents {
 	width: 50px;
-	height: 600px;
+	height: 700px;
 	position: absolute;
-	top: -300px;
+	top: -350px;
 	background-color: green;
 }
 
 .right-contents-bg {
 	width: 50px;
-	height: 300px;
+	height: 350px;
 	background-image: linear-gradient(to bottom, orange, blue);
 }
 
@@ -377,15 +377,15 @@ experiment h3 {
 }
 
 @keyframes RightContentsAnim {
-	0% { top: -300px; }
+	0% { top: -350px; }
 	100% { top: 0px; }
 }
 
 .btm-side {
-	width: 200px;
+	width: 250px;
 	height: 50px;
 	position: absolute;
-	right: 50px;
+	right: 0;
 	bottom: -50px;
 	transition: .5s ease;
 	overflow: hidden;
@@ -393,7 +393,7 @@ experiment h3 {
 }
 
 .btm-contents {
-	width: 400px;
+	width: 500px;
 	height: 50px;
 	position: absolute;
 	left: 0;
@@ -403,7 +403,7 @@ experiment h3 {
 }
 
 .btm-contents-bg {
-	width: 200px;
+	width: 250px;
 	height: 50px;
 	background-image: linear-gradient(to left, orange, blue);
 }
@@ -417,15 +417,15 @@ experiment h3 {
 
 @keyframes BtmContentsAnim {
 	0% { left: 0; }
-	100% { left: -200px; }
+	100% { left: -250px; }
 }
 
 .left-side {
 	width: 50px;
-	height: 300px;
+	height: 350px;
 	position: absolute;
 	left: -50px;
-	bottom: 50px;
+	bottom: 0;
 	overflow: hidden;
 	transition: .5s ease;
 	background-color: red;
@@ -433,15 +433,15 @@ experiment h3 {
 
 .left-contents {
 	width: 50px;
-	height: 600px;
+	height: 700px;
 	position: absolute;
-	top: -300px;
+	top: -350px;
 	background-color: green;
 }
 
 .left-contents-bg {
 	width: 50px;
-	height: 300px;
+	height: 350px;
 	background-image: linear-gradient(to top, orange, blue);
 }
 
@@ -454,7 +454,7 @@ experiment h3 {
 
 @keyframes LeftContentsAnim {
 	0% { top: 0; }
-	100% { top: -300px; }
+	100% { top: -350px; }
 }
 
 /* END - Animated Frame */
