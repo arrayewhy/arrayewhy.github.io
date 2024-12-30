@@ -302,6 +302,7 @@ experiment h3 {
 	width: 200px;
 	height: 50px;
 	position: relative;
+	left: 50px;
 	overflow: hidden;
 	background-color: red;
 }
@@ -338,7 +339,7 @@ experiment h3 {
 	height: 300px;
 	position: absolute;
 	right: 0;
-	top: 0;
+	top: 50px;
 	overflow: hidden;
 	background-color: red;
 }
@@ -373,7 +374,7 @@ experiment h3 {
 	width: 200px;
 	height: 50px;
 	position: absolute;
-	right: 0;
+	right: 50px;
 	bottom: 0;
 	overflow: hidden;
 	background-color: red;
@@ -412,7 +413,7 @@ experiment h3 {
 	height: 300px;
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 50px;
 	overflow: hidden;
 	background-color: red;
 }
