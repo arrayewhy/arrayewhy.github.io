@@ -1,3 +1,37 @@
+// START - Animated Frame
+
+function Show_Borders(topSide, rightSide, btmSide, leftSide) {
+	topSide.style.top = "0";
+	topSide.style.left = 50 + "px";
+
+	rightSide.style.right = "0";
+	rightSide.style.top = 50 + "px";
+
+	btmSide.style.bottom = "0";
+	btmSide.style.right = 50 + "px";
+
+	leftSide.style.left = "0";
+	leftSide.style.bottom = 50 + "px";
+}
+
+function Hide_Borders(topSide, rightSide, btmSide, leftSide) {
+	topSide.style.top = -50 + "px";
+	topSide.style.left = "0";
+
+	rightSide.style.right = -50 + "px";
+	rightSide.style.top = "0";
+
+	btmSide.style.bottom = -50 + "px";
+	btmSide.style.right = "0";
+
+	leftSide.style.left = -50 + "px";
+	leftSide.style.bottom = "0";
+}
+
+// END - Animated Frame
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // START - GameBoy JS
 
 var screenSize = 500;
@@ -37,40 +71,6 @@ function Move_Right() {
 }
 
 // END - GameBoy JS
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-// START - Animated Frame
-
-function Show_Borders(topSide, rightSide, btmSide, leftSide) {
-	topSide.style.top = "0";
-	topSide.style.left = 50 + "px";
-
-	rightSide.style.right = "0";
-	rightSide.style.top = 50 + "px";
-
-	btmSide.style.bottom = "0";
-	btmSide.style.right = 50 + "px";
-
-	leftSide.style.left = "0";
-	leftSide.style.bottom = 50 + "px";
-}
-
-function Hide_Borders(topSide, rightSide, btmSide, leftSide) {
-	topSide.style.top = -50 + "px";
-	topSide.style.left = "0";
-
-	rightSide.style.right = -50 + "px";
-	rightSide.style.top = "0";
-
-	btmSide.style.bottom = -50 + "px";
-	btmSide.style.right = "0";
-
-	leftSide.style.left = -50 + "px";
-	leftSide.style.bottom = "0";
-}
-
-// END - Animated Frame
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

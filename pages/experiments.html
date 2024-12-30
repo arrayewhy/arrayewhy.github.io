@@ -44,8 +44,6 @@
 
 	 			<experiment>
 	 				<div class="experiment hover-shadow">
-		 				<!-- <button>HTML</button> -->
-		 				<!-- <button>CSS</button> -->
 		 				<div id="mainHolder">
 							<div id="charHolder" class="ShiftCenterAnim">
 								<div id="animBody" class="BopAnim">
@@ -57,29 +55,14 @@
 								</div>
 							</div>
 						</div>
+						<div class="code-cont">
+							<iframe id="bouncing-slime-html" src="bouncing-slime-html.txt" style="display: none;"></iframe>
+							<iframe id="bouncing-slime-css" src="bouncing-slime-css.txt" style="display: none;"></iframe>
+						</div>
+						<button id="bouncing-slime-html-btn">HTML</button>
+		 				<button id="bouncing-slime-css-btn">CSS</button>
 		 			</div>
 		 			<h3 id="bouncing-slime" class="all-caps space-letters">Bouncing Slime Animation</h3>
-	 			</experiment>
-
-	 			<experiment>
-	 				<div class="experiment hover-shadow">
-		 				<!-- <button>HTML</button> -->
-		 				<!-- <button>CSS</button> -->
-		 				<div id="wrapper">
-							<div id="screen">
-								<div id="player"></div>
-							</div>
-							<div id="controls-wrapper">
-								<div id="controls">
-									<div id="up" class="button"></div>
-									<div id="down" class="button"></div>
-									<div id="left" class="button"></div>
-									<div id="right" class="button"></div>
-								</div>
-							</div>
-						</div>
-		 			</div>
-		 			<h3 id="gameboy-js" class="all-caps space-letters">GameBoy JS</h3>
 	 			</experiment>
 
 	 			<experiment>
@@ -124,6 +107,27 @@
 
 	 			<experiment>
 	 				<div class="experiment hover-shadow">
+		 				<!-- <button>HTML</button> -->
+		 				<!-- <button>CSS</button> -->
+		 				<div id="wrapper">
+							<div id="screen">
+								<div id="player"></div>
+							</div>
+							<div id="controls-wrapper">
+								<div id="controls">
+									<div id="up" class="button"></div>
+									<div id="down" class="button"></div>
+									<div id="left" class="button"></div>
+									<div id="right" class="button"></div>
+								</div>
+							</div>
+						</div>
+		 			</div>
+		 			<h3 id="gameboy-js" class="all-caps space-letters">GameBoy JS</h3>
+	 			</experiment>
+
+	 			<experiment>
+	 				<div class="experiment hover-shadow">
 	 					<div id="grid-frame"></div>
 	 				</div>
 	 				<h3 id="grid-nodes" class="all-caps space-letters">Grid Nodes</h3>
@@ -141,6 +145,16 @@
 	</div>
 
 	<script type="text/javascript">
+
+		document.getElementById("bouncing-slime-html-btn").onclick = function() {
+			document.getElementById('bouncing-slime-html').style.display = 'inline-block';
+			document.getElementById('bouncing-slime-css').style.display = 'none';
+		}
+		document.getElementById("bouncing-slime-css-btn").onclick = function() {
+			document.getElementById('bouncing-slime-html').style.display = 'none';
+			document.getElementById('bouncing-slime-css').style.display = 'inline-block';
+		}
+
 		// START - GameBoy JS
 
 		var player = document.getElementById("player");

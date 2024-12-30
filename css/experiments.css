@@ -163,121 +163,6 @@ experiment h3 {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-/* START - GameBoy JS */
-
-#wrapper {
-/*	display: flex;*/
-}
-
-#screen {
-	width: 300px;
-	height: 300px;
-	position: relative;
-	background-color: beige;
-}
-
-#player {
-	width: 10%;
-	height: 10%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	transition: .25s ease;
-	background-color: black;
-}
-
-#controls-wrapper {
-	width: 300px;
-	height: 200px;
-	padding-top: 32px;
-}
-
-#controls {
-	width: 66.6666%;
-	height: 100%;
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-/*	background-color: yellow;*/
-}
-
-#controls .button {
-	width: 33.3%;
-	height: 33.3%;
-	position: absolute;
-	background-color: var(--half-grey);
-	transition: .25s ease;
-}
-
-#controls .button:hover {
-	background-color: var(--light-grey);
-	transition: .25s ease;
-}
-
-#controls .button:active {
-	background-color: var(--dark-grey);	
-	transition: .25s ease;
-}
-
-#controls .button#up {
-	border-radius: 50% 50% 0 0;
-	left: 33.3%;
-	top: 0;
-}
-
-#controls .button#up:hover {
-	top: -2%;
-}
-
-#controls .button#up:active {
-	top: 2%;
-}
-
-#controls .button#down {
-	border-radius: 0 0 50% 50%;
-	left: 33.3%;
-	bottom: 0;
-}
-
-#controls .button#down:hover {
-	bottom: 2%;
-}
-
-#controls .button#down:active {
-	bottom: -2%;
-}
-
-#controls .button#left {
-	border-radius: 50% 0 0 50%;
-	top: 33.3%;
-}
-
-#controls .button#left:hover {
-	top: 31.3%;
-}
-
-#controls .button#left:active {
-	top: 35.3%;
-}
-
-#controls .button#right {
-	border-radius: 0 50% 50% 0;
-	top: 33.3%;
-	right: 0;
-}
-
-#controls .button#right:hover {
-	top: 31.3%;
-}
-
-#controls .button#right:active {
-	top: 35.3%;
-}
-
-/* END - GameBoy JS */
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
 /* START - Animated Frame */
 
 #card {
@@ -458,6 +343,121 @@ experiment h3 {
 }
 
 /* END - Animated Frame */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* START - GameBoy JS */
+
+#wrapper {
+/*	display: flex;*/
+}
+
+#screen {
+	width: 300px;
+	height: 300px;
+	position: relative;
+	background-color: beige;
+}
+
+#player {
+	width: 10%;
+	height: 10%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: .25s ease;
+	background-color: black;
+}
+
+#controls-wrapper {
+	width: 300px;
+	height: 200px;
+	padding-top: 32px;
+}
+
+#controls {
+	width: 66.6666%;
+	height: 100%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+/*	background-color: yellow;*/
+}
+
+#controls .button {
+	width: 33.3%;
+	height: 33.3%;
+	position: absolute;
+	background-color: var(--half-grey);
+	transition: .25s ease;
+}
+
+#controls .button:hover {
+	background-color: var(--light-grey);
+	transition: .25s ease;
+}
+
+#controls .button:active {
+	background-color: var(--dark-grey);	
+	transition: .25s ease;
+}
+
+#controls .button#up {
+	border-radius: 50% 50% 0 0;
+	left: 33.3%;
+	top: 0;
+}
+
+#controls .button#up:hover {
+	top: -2%;
+}
+
+#controls .button#up:active {
+	top: 2%;
+}
+
+#controls .button#down {
+	border-radius: 0 0 50% 50%;
+	left: 33.3%;
+	bottom: 0;
+}
+
+#controls .button#down:hover {
+	bottom: 2%;
+}
+
+#controls .button#down:active {
+	bottom: -2%;
+}
+
+#controls .button#left {
+	border-radius: 50% 0 0 50%;
+	top: 33.3%;
+}
+
+#controls .button#left:hover {
+	top: 31.3%;
+}
+
+#controls .button#left:active {
+	top: 35.3%;
+}
+
+#controls .button#right {
+	border-radius: 0 50% 50% 0;
+	top: 33.3%;
+	right: 0;
+}
+
+#controls .button#right:hover {
+	top: 31.3%;
+}
+
+#controls .button#right:active {
+	top: 35.3%;
+}
+
+/* END - GameBoy JS */
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 

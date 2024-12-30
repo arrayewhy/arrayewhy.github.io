@@ -1,0 +1,11 @@
+<div id="mainHolder">
+	<div id="charHolder" class="ShiftCenterAnim">
+		<div id="animBody" class="BopAnim">
+			<div id="eye" class="anim-eye-left-right">
+				<div id="pupil" class="anim-pupil-left-right">
+					<div id="reflection"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
