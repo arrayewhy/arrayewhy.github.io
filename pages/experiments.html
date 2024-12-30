@@ -145,22 +145,6 @@
 
 	<script type="text/javascript">
 
-		// START - Load HTML into DIV
-
-		var expHTML = document.createElement("div");
-		expHTML.style.width = "300px";
-		expHTML.style.height = "300px";
-		expHTML.style.backgroundColor = "green";
-
-		var htmlPath = "experiments/bouncing-slime-html.txt";
-		fetch(htmlPath)
-		.then(x => x.text())
-		.then(y => expHTML.innerHTML = y);
-
-		document.getElementsByTagName("body")[0].appendChild(newBox);
-
-		// END - Load HTML into DIV
-
 		document.getElementById("show-code-btn").onclick = function() {
 			Toggle_Code();
 		}
