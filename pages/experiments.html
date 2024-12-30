@@ -145,6 +145,19 @@
 
 	<script type="text/javascript">
 
+		var bounceHtml = "experiments/bouncing-slime-html.txt";
+		fetch(bounceHtml)
+		.then(x => x.text())
+		.then(y => alert(y));
+		// console.log(bounceHtml.innerText);
+
+		// alert(bounceHtml);
+
+		// var newBox = document.createElement("div");
+		// newBox.innerHTML = bounceHtml;
+		// var bodyElem = document.getElementsByTagName("body")[0];
+		// bodyElem.appendChild(newBox);
+
 		document.getElementById("show-code-btn").onclick = function() {
 			Toggle_Code();
 		}
