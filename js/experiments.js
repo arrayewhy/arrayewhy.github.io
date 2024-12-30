@@ -109,6 +109,9 @@ function Shrink(e) {
 }
 
 function Pop(e) {
+	if(e.style.width < nodeSize) {
+		return;
+	}
 	e.remove();
 }
 
