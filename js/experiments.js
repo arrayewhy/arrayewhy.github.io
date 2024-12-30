@@ -82,7 +82,6 @@ function CreateNode(posX, posY, nodeID) {
 
 	node.style.width = nodeSize + "px";
 	node.style.height = nodeSize + "px";
-	node.style.borderRadius = nodeSize / 2 + "px";
 
 	node.style.position = "absolute";
 	node.style.left = posX - (nodeSize / 2) + "px";
@@ -98,7 +97,6 @@ function Expand(e) {
 	e.style.height = nodeSize * scaleFactor + "px";
 	e.style.left = leftPosArray[e.id] - (nodeSize * scaleFactor / 2) + "px";
 	e.style.top = topPosArray[e.id] - (nodeSize * scaleFactor / 2) + "px";
-	e.style.borderRadius = nodeSize * 2 + "px";
 }
 
 function Shrink(e) {
@@ -109,10 +107,8 @@ function Shrink(e) {
 }
 
 function Pop(e) {
-	if(e.style.width < nodeSize) {
-		return;
-	}
 	e.remove();
+
 }
 
 // END - Grid Nodes
