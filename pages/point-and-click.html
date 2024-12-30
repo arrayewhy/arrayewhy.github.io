@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ARRAYEWHY - Online Gallery</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/point-and-click.css">
+	<script src="../js/script.js"></script>
+	
+	<noscript>
+		<style type="text/css">
+			html { opacity: 1; }
+		</style>
+	</noscript>
+
+</head>
+
+<body>
+
+	<div id="nav">
+		<a href="../index.html">
+			<div id="logo-cont">
+				<div id="r">
+					<div id="top"></div>
+					<div id="btm-left"></div>
+					<div id="btm-right"></div>
+				</div>
+			</div>
+			<div id="imp"></div>
+		</a>
+	</div>
+
+	<!-- START: Main Content Section -->
+
+	 <div id="point-and-click">
+	 	<div id="screen">
+	 		<div id="player"></div>
+	 	</div>
+	 </div>
+
+	<!-- END: Main Content Section -->
+
+	<script type="text/javascript">
+		var screen = document.getElementById("screen");
+		var player = document.getElementById("player");
+
+		var cellSize = 20;
+		var cellsX = 48;
+		var cellsY = 27;
+
+		CreateCellRows(cellsY, cellsX);
+		CreatePlayer(0, 0);
+
+		function CreateCellRows(rowCount, colCount) {
+			var currTop = 0;
+			for(var i = 0; i < rowCount; i++) {
+				CreateCellRow(currTop, colCount);
+				currTop += cellSize;
+			}
+		}
+
+		function CreateCellRow(top, colCount) {
+			var currLeft = 0;
+			for(var i = 0; i < colCount; i++) {
+				CreateCell(top, currLeft);
+				currLeft += cellSize;
+			}
+		}
+
+		function CreateCell(top, left) {
+			var newCell = document.createElement("div");
+			newCell.classList.add("cell");
+
+			newCell.style.width = cellSize + "px";
+			newCell.style.height = cellSize + "px";
+			newCell.style.left = left + "px";
+			newCell.style.top = top + "px";
+
+			screen.appendChild(newCell);
+
+			newCell.onclick = function() { Start_MovePlayer(newCell.style.left, newCell.style.top); }
+		}
+
+		function CreatePlayer(top, left) {
+			player.style.width = cellSize + "px";
+			player.style.height = cellSize + "px";
+			player.style.left = left + "px";
+			player.style.top = top + "px";
+		}
+
+		var speed = .025;
+		var gapAllow = 20;
+		var moving = false;
+		var moveInteral = null;
+
+		function Start_MovePlayer(left, top) {
+			if(!moving) {
+				moving = true;
+			} else {
+				clearInterval(moveInteral);
+			}
+			console.log("moving: " + moving);
+			moveInteral = setInterval(function() { MovePlayer(left, top) }, 16.666);
+		}
+
+		function MovePlayer(left, top) {
+			var gapX = parseFloat(left) - player.offsetLeft;
+			var gapY = parseFloat(top) - player.offsetTop;
+
+			var dirX = 0;
+			if(gapX > 0) {
+				dirX = 1;
+			} else {
+				dirX = -1;
+			}
+
+			var dirY = 0;
+			if(gapY > 0) {
+				dirY = 1;
+			} else {
+				dirY = -1;
+			}
+
+			if(gapX * dirX > gapAllow || gapY * dirY > gapAllow) {
+				player.style.left = player.offsetLeft + gapX * speed + "px";
+				player.style.top = player.offsetTop + gapY * speed + "px";
+				return;
+			}
+
+			// if(gapX * dirX > 0 || gapY * dirY > 0) {
+			// 	player.style.left = player.offsetLeft + gapX * speed + "px";
+			// 	player.style.top = player.offsetTop + gapY * speed + "px";
+			// 	return;
+			// }
+
+			moving = false;
+			console.log("moving: " + moving);
+			clearInterval(moveInteral);
+		}
+
+	</script>
+
+	<div class="footer bottom">
+		<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+#screen {
+	width: 960px;
+	height: 540px;
+	position: relative;
+	background-color: beige;
+}
+
+.cell {
+	position: absolute;
+	opacity: 0.4;
+	background-color: lime;
+}
+
+.cell:hover {
+	opacity: 1;
+}
+
+#player {
+	position: absolute;
+	background-color: red;
+	z-index: 100;
+}
