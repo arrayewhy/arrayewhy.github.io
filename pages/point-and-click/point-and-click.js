@@ -172,16 +172,16 @@ function CheckDist(left, top) {
 
 // START - Sprites and Animation
 
-function PrepSprites(sPrepper) {
-	PrepSprite(sPrepper, idleSpriteFrames_Path);
-	PrepSprite(sPrepper, runSpriteFrames_Path);
-}
+// function PrepSprites(sPrepper) {
+// 	PrepSprite(sPrepper, idleSpriteFrames_Path);
+// 	PrepSprite(sPrepper, runSpriteFrames_Path);
+// }
 
-function PrepSprite(sPrepper, path) {
-	var prepper = document.createElement("div");
-	prepper.style.backgroundImage = path;
-	sPrepper.appendChild(prepper);
-}
+// function PrepSprite(sPrepper, path) {
+// 	var prepper = document.createElement("div");
+// 	prepper.style.backgroundImage = path;
+// 	sPrepper.appendChild(prepper);
+// }
 
 function Initialize_PlayerSprite(playerChildren) {
 	for(var i = 0; i < playerChildren.length; i++) {
