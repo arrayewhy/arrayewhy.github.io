@@ -63,7 +63,6 @@ function CreatePlayer(top, left) {
 }
 
 var pps = 64;
-var maxChange = 80;
 var gapAllow = 2;
 var moving = false;
 var facingRight = false;
@@ -71,37 +70,40 @@ var facingRight = false;
 var moveInteral = null;
 var runAnimInterval = null;
 var currFrameOffset = 0;
+
 var checkDistInterval = null;
 var checkFreq = 4;
 
 function Start_MovePlayer(target) {
+
 	var tPos = [target.offsetLeft, target.offsetTop];
+
 	if(!moving) {
+
 		moving = true;
-		// clearInterval(runAnimInterval);
+
 		Set_PlayerSprite_Run(playerSprite);
 		AdvanceSpriteFrame_Run(playerSprite, currFrameOffset);
 		runAnimInterval = setInterval(function() { AdvanceSpriteFrame_Run(playerSprite, currFrameOffset); }, 166.666);
+
 	} else {
+
 		clearInterval(checkDistInterval);
+
 	}
+
 	checkDistInterval = setInterval(function() { CheckDist(tPos[0], tPos[1]); }, 1000 / checkFreq);
-		// MovePlayer(tPos[0], tPos[1]);
-		// clearInterval(moveInteral);
 	
 	// console.log("moving: " + moving);
 
-	// Set_PlayerSprite_Run(playerSprite);
-
 	MovePlayer(tPos[0], tPos[1]);
-	// moveInteral = setInterval(function() { MovePlayer(left, top) }, 500);
 }
 
 function MovePlayer(left, top) {
 	var dirGapX = left - player.offsetLeft;
 	var dirGapY = top - player.offsetTop;
-	// var dirGapX = parseFloat(left) - player.offsetLeft;
-	// var dirGapY = parseFloat(top) - player.offsetTop;
+
+	// Flip Sprite
 
 	var dirX = 0;
 	if(dirGapX > 0) {
@@ -110,14 +112,12 @@ function MovePlayer(left, top) {
 		dirX = -1;
 	}
 
-	var dirY = 0;
-	if(dirGapY > 0) {
-		dirY = 1;
-	} else {
-		dirY = -1;
-	}
-
-	// Flip Sprite
+	// var dirY = 0;
+	// if(dirGapY > 0) {
+	// 	dirY = 1;
+	// } else {
+	// 	dirY = -1;
+	// }
 
 	if(dirX > 0 && !facingRight) {
 		playerSprite.style.transform = "scaleX(-1)";
@@ -127,66 +127,46 @@ function MovePlayer(left, top) {
 		facingRight = false;
 	}
 
-	// var changeX = dirGapX * dirX;
-	// if(changeX > maxChange) {
-	// 	changeX = maxChange;
-	// }
-	// var changeY = dirGapY * dirY;
-	// if(changeY > maxChange) {
-	// 	changeY = maxChange;
-	// }
-
 	var gap = [Math.abs(dirGapX), Math.abs(dirGapY)];
 
 	var dist = Math.sqrt(gap[0] * gap[0] + gap[1] * gap[1]);
+
 	// console.log(dist);
+
 	player.style.left = parseFloat(left) + "px";
 	player.style.top = parseFloat(top) + "px";
 
 	// console.log(player.style.left, player.style.top);
 
 	player.style.transition = dist/pps + "s linear";
-
-	// player.style.left = player.offsetLeft + changeX * dirX * pps + "px";
-	// player.style.top = player.offsetTop + changeY * dirY * pps + "px";
-
-	// if(dirGapX * dirX > gapAllow || dirGapY * dirY > gapAllow) {
-	// 	return;
-	// }
-
-	// if(dist > gapAllow) {
-	// 	return;
-	// }
-
-	// moving = false;
-	// console.log("moving: " + moving);
-	// Set_PlayerSprite_Idle(playerSprite);
-
-	// clearInterval(moveInteral);
-	// clearInterval(runAnimInterval);
-	// currFrameOffset = 0;
 }
 
 function CheckDist(left, top) {
+
 	var dirGapX = left - player.offsetLeft;
 	var dirGapY = top - player.offsetTop;
 
 	var gap = [Math.abs(dirGapX), Math.abs(dirGapY)];
 
 	var dist = Math.sqrt(gap[0] * gap[0] + gap[1] * gap[1]);
+
 	// console.log(dist);
+
 	if(dist > gapAllow) {
 		return;
 	}
 
 	moving = false;
+
 	// console.log("moving: " + moving);
+
 	Set_PlayerSprite_Idle(playerSprite);
 
 	clearInterval(moveInteral);
 	clearInterval(runAnimInterval);
 	clearInterval(checkDistInterval);
 	currFrameOffset = 0;
+
 	// console.log("Done");
 }
 
@@ -204,13 +184,11 @@ function Set_PlayerSprite_Idle(pSprite) {
 	pSprite.style.backgroundImage = idleSpriteFrames_Path;
 	pSprite.style.backgroundPosition = "0";
 	pSprite.style.animation = "Anim_Idle 2s infinite steps(2)";
-	// pSprite.style.backgroundSize = "auto 64px";
 }
 
 function Set_PlayerSprite_Run(pSprite) {
 	pSprite.style.backgroundImage = runSpriteFrames_Path;
 	pSprite.style.animation = "none";
-	// pSprite.style.backgroundSize = "auto 64px";
 }
 
 function AdvanceSpriteFrame_Run(pSprite, val) {
