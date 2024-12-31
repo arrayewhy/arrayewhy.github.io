@@ -1,5 +1,5 @@
-var idleSpriteFrames_Path = "url(../img/Shelter_Animation_Idle.png)";
-var runSpriteFrames_Path = "url(../img/Shelter_Animation_Run.png)";
+var idleSpriteFrames_Path = "url(../../img/Shelter_Animation_Idle.png)";
+var runSpriteFrames_Path = "url(../../img/Shelter_Animation_Run.png)";
 
 var cellSize = 20;
 var cellsX = 48;

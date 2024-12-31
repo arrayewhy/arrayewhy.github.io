@@ -16,7 +16,7 @@
 	position: relative;
 	overflow: hidden;
 /*	background-color: beige;*/
-	background-image: url("../img/Twilight-Town-Background-16.png");
+	background-image: url("../../img/Twilight-Town-Background-16.png");
 	background-size: 1920px auto;
 	background-position: -500px -800px;
 }
@@ -50,7 +50,7 @@
 	position: absolute;
 	left: -32px;
 	top: -32px;
-	background-image: url("../img/Shelter_Animation_Idle.png");
+	background-image: url("../../img/Shelter_Animation_Idle.png");
 	background-size: auto 64px;
 
 	animation: Anim_Idle 2s infinite steps(2);
