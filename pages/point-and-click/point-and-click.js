@@ -55,7 +55,7 @@ function CreateCell(top, left) {
 	newCell.onclick = function() { Start_MovePlayer(this); }
 }
 
-function CreatePlayer(top, left) {
+function StylePlayer(top, left) {
 	player.style.width = cellSize + "px";
 	player.style.height = cellSize + "px";
 	player.style.left = left + "px";
@@ -171,6 +171,17 @@ function CheckDist(left, top) {
 }
 
 // START - Sprites and Animation
+
+function PrepSprites(sPrepper) {
+	PrepSprite(sPrepper, idleSpriteFrames_Path);
+	PrepSprite(sPrepper, runSpriteFrames_Path);
+}
+
+function PrepSprite(sPrepper, path) {
+	var prepper = document.createElement("div");
+	prepper.style.backgroundImage = path;
+	sPrepper.appendChild(prepper);
+}
 
 function Initialize_PlayerSprite(playerChildren) {
 	for(var i = 0; i < playerChildren.length; i++) {

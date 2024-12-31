@@ -41,6 +41,7 @@
 	 			<div class="sprite"></div>
 	 		</div>
 	 	</div>
+	 	<div id="sprite-prepper"></div>
 	 </div>
 
 	<!-- END: Main Content Section -->
@@ -51,11 +52,14 @@
 		var player = document.getElementById("player");
 		var playerSprite = null;
 
+		var spritePrepper = document.getElementById("sprite-prepper");
+
 		CreateCellRows(cellsY, cellsX);
 		// CreatePlayer(screen.offsetHeight/2, screen.offsetWidth/2);
-		CreatePlayer(280, 500);
+		StylePlayer(280, 500);
 		Initialize_PlayerSprite(player.childNodes);
 		Set_PlayerSprite_Idle(playerSprite);
+		PrepSprites(spritePrepper);
 
 	</script>
 
