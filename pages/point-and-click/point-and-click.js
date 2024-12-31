@@ -78,12 +78,14 @@ function Start_MovePlayer(target) {
 	var tPos = [target.offsetLeft, target.offsetTop];
 	if(!moving) {
 		moving = true;
-		checkDistInterval = setInterval(function() { CheckDist(tPos[0], tPos[1]); }, 1000 / checkFreq);
 		// clearInterval(runAnimInterval);
 		Set_PlayerSprite_Run(playerSprite);
 		AdvanceSpriteFrame_Run(playerSprite, currFrameOffset);
 		runAnimInterval = setInterval(function() { AdvanceSpriteFrame_Run(playerSprite, currFrameOffset); }, 166.666);
+	} else {
+		clearInterval(checkDistInterval);
 	}
+	checkDistInterval = setInterval(function() { CheckDist(tPos[0], tPos[1]); }, 1000 / checkFreq);
 		// MovePlayer(tPos[0], tPos[1]);
 		// clearInterval(moveInteral);
 	
@@ -137,7 +139,7 @@ function MovePlayer(left, top) {
 	var gap = [Math.abs(dirGapX), Math.abs(dirGapY)];
 
 	var dist = Math.sqrt(gap[0] * gap[0] + gap[1] * gap[1]);
-	console.log(gap);
+	// console.log(dist);
 	player.style.left = parseFloat(left) + "px";
 	player.style.top = parseFloat(top) + "px";
 
@@ -166,13 +168,13 @@ function MovePlayer(left, top) {
 }
 
 function CheckDist(left, top) {
-	var dirGapX = parseFloat(left) - player.offsetLeft;
-	var dirGapY = parseFloat(top) - player.offsetTop;
+	var dirGapX = left - player.offsetLeft;
+	var dirGapY = top - player.offsetTop;
 
-	var gap = [Math.abs(dirGapX), Math.abs(dirGapX)];
+	var gap = [Math.abs(dirGapX), Math.abs(dirGapY)];
 
 	var dist = Math.sqrt(gap[0] * gap[0] + gap[1] * gap[1]);
-
+	// console.log(dist);
 	if(dist > gapAllow) {
 		return;
 	}
@@ -185,6 +187,7 @@ function CheckDist(left, top) {
 	clearInterval(runAnimInterval);
 	clearInterval(checkDistInterval);
 	currFrameOffset = 0;
+	// console.log("Done");
 }
 
 // START - Sprites and Animation
