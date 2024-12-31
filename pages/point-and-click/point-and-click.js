@@ -68,7 +68,7 @@ var moving = false;
 var facingRight = false;
 
 var moveInteral = null;
-var runAnimInterval = null;
+// var runAnimInterval = null;
 var currFrameOffset = 0;
 
 var checkDistInterval = null;
@@ -83,8 +83,8 @@ function Start_MovePlayer(target) {
 		moving = true;
 
 		Set_PlayerSprite_Run(playerSprite);
-		AdvanceSpriteFrame_Run(playerSprite, currFrameOffset);
-		runAnimInterval = setInterval(function() { AdvanceSpriteFrame_Run(playerSprite, currFrameOffset); }, 166.666);
+		// AdvanceSpriteFrame_Run(playerSprite, currFrameOffset);
+		// runAnimInterval = setInterval(function() { AdvanceSpriteFrame_Run(playerSprite, currFrameOffset); }, 166.666);
 
 	} else {
 
@@ -163,7 +163,7 @@ function CheckDist(left, top) {
 	Set_PlayerSprite_Idle(playerSprite);
 
 	clearInterval(moveInteral);
-	clearInterval(runAnimInterval);
+	// clearInterval(runAnimInterval);
 	clearInterval(checkDistInterval);
 	currFrameOffset = 0;
 
@@ -183,15 +183,16 @@ function Initialize_PlayerSprite(playerChildren) {
 function Set_PlayerSprite_Idle(pSprite) {
 	pSprite.style.backgroundImage = idleSpriteFrames_Path;
 	pSprite.style.backgroundPosition = "0";
-	pSprite.style.animation = "Anim_Idle 2s infinite steps(2)";
+	pSprite.style.animation = "Anim_Idle var(--idleDur) infinite steps(2)";
 }
 
 function Set_PlayerSprite_Run(pSprite) {
 	pSprite.style.backgroundImage = runSpriteFrames_Path;
-	pSprite.style.animation = "none";
+	pSprite.style.backgroundPosition = "0";
+	pSprite.style.animation = "Anim_Run var(--runDur) infinite steps(4)";
 }
 
-function AdvanceSpriteFrame_Run(pSprite, val) {
-	pSprite.style.backgroundPosition = val + "px";
-	currFrameOffset += 64;
-}
+// function AdvanceSpriteFrame_Run(pSprite, val) {
+// 	pSprite.style.backgroundPosition = val + "px";
+// 	currFrameOffset += 64;
+// }
