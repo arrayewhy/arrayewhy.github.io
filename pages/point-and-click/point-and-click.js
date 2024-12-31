@@ -14,11 +14,6 @@ var approvedIds = [ 891, 890, 938, 939, 987, 986, 988, 889, 841, 840, 792, 793, 
 	435, 436, 484, 485, 533, 534, 486, 535, 487, 536, 537, 538, 539, 540, 541, 488, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 549, 548, 542, 641, 
 	640, 642, 643, 644, 645, 556, 1041, 1042, 1090, 1137, 743, 791 ];
 
-// CreateCellRows(cellsY, cellsX);
-// CreatePlayer(screen.offsetHeight/2, screen.offsetWidth/2);
-// Initialize_PlayerSprite(player.childNodes);
-// Set_PlayerSprite_Idle(playerSprite);
-
 function CreateCellRows(rowCount, colCount) {
 	var currTop = 0;
 	for(var i = 0; i < rowCount; i++) {
@@ -38,19 +33,6 @@ function CreateCellRow(top, colCount) {
 function CreateCell(top, left) {
 
 	var newCell = document.createElement("div");
-
-	// newCell.onclick = function() {
-	// 	if(!approvedIds.includes(parseInt(this.id))) {
-	// 		approvedIds.push(parseInt(this.id));
-	// 		this.style.backgroundColor = "lime";
-	// 		console.log(approvedIds);
-	// 	}
-	// };
-
-	// if(approvedIds.includes(currCellId)) {
-	// 	console.log("Dupe");
-	// 	newCell.style.backgroundColor = "lime";
-	// }
 
 	if(!approvedIds.includes(currCellId)) {
 		currCellId++
