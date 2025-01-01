@@ -14,10 +14,8 @@
 			left: auto;
 			right: 64px;
 		}
-
-		#player .sprite {
-			cursor: pointer;
-		}
+		#player .sprite { cursor: pointer; }
+		.sprite-prepper { position: absolute; right: 0; bottom: 0; display: none; }
 	</style>
 
 	<script src="js/script.js"></script>
@@ -137,7 +135,14 @@
 	<div class="footer">
 		<div class="footer-contents">
 			<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
-			<div id="player"><div class="sprite"></div></div>
+			<div id="player">
+				<div class="sprite">
+					<div class="sprite-prepper">
+						<img src="img/Shelter_Animation_Idle.png">
+						<img src="img/Shelter_Animation_Run.png">
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
