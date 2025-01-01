@@ -8,7 +8,7 @@
 	height: 540px;
 	padding: 128px 0 128px 0;
 	overflow: hidden;
-	background-color: black;
+	background-color: linen;
 }
 
 #screen {
@@ -17,6 +17,8 @@
 	margin-left: auto;
 	margin-right: auto;
 /*	margin: 128px auto 128px auto;*/
+	border: solid black 1px;
+	box-sizing: border-box;
 	position: relative;
 	overflow: hidden;
 /*	background-color: beige;*/
