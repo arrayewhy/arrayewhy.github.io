@@ -290,15 +290,16 @@ p.source-link:hover {
 	margin-right: 0;
 }
 
-.sect-btn a {
-/*	float: right;*/
-/*	clear: right;*/
-	/*display: flex;
-	justify-content: flex-end;
-	flex-direction: column;*/
+.sect-btn.pile a {
+	transition: .2s ease;
 }
 
-.sect-btn.anim-pad-left:hover {
+.anim-pad-left {
+	box-sizing: border-box;
+}
+
+/*.sect-btn.anim-pad-left:hover {*/
+.anim-pad-left:hover {
 	padding-left: 32px;
 	transition: .2s ease;
 }
