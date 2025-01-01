@@ -269,18 +269,36 @@ p.source-link:hover {
 }
 
 .sect-btn {
-	width: 75%;
+	width: 100%;
+/*	width: 75%;*/
+/*	width: auto;*/
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 /*	padding-top: 32px;*/
+	padding-left: 16px;
+	padding-right: 16px;
 	padding-bottom: 32px;
 	box-sizing: border-box;
 	transition: .2s ease;
 /*	background-color: yellow;*/
 }
 
-.sect-btn:hover {
+.sect-btn.pile {
+	width: 25%;
+	margin-left: auto;
+	margin-right: 0;
+}
+
+.sect-btn a {
+/*	float: right;*/
+/*	clear: right;*/
+	/*display: flex;
+	justify-content: flex-end;
+	flex-direction: column;*/
+}
+
+.sect-btn.anim-pad-left:hover {
 	padding-left: 32px;
 	transition: .2s ease;
 }
@@ -310,6 +328,29 @@ p.source-link:hover {
 	background-color: white;
 }
 
+.sect-btn-cont.pile {
+	width: 100%;
+	display: flex;
+/*	width: 75%;*/
+/*	height: auto;*/
+/*	padding-left: 16px;*/
+/*	padding-right: 16px;*/
+/*	box-sizing: border-box;*/
+/*	background-color: orange;*/
+}
+
+.sect-btn.pile a {
+	margin-bottom: 16px;
+/*	background-color: red;*/
+}
+
+/*.sect-btn-cont .sect-btn.pile a .sect-text {*/
+.sect-btn-cont .sect-btn a {
+/*	width: 25%;*/
+	width: 100%;
+/*	background-color: red;*/
+}
+
 /* END: Section Buttons */
 
 
@@ -335,6 +376,10 @@ p.source-link:hover {
 	}
 
 	.sect-btns a {
+		width: 100%;
+	}
+
+	.sect-btn.pile {
 		width: 100%;
 	}
 
