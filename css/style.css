@@ -208,21 +208,33 @@ p.source-link:hover {
 
 .footer {
 	width: 100%;
-	height: auto;
-	padding: 32px;
-	box-sizing: border-box;
+	height: 120px;
+/*	padding: 32px;*/
+/*	box-sizing: border-box;*/
+	position: relative;
+	overflow: hidden;
 
 	color: var(--light-grey);
 	transition: .5s ease;
 
 /*	border-top: solid rgba(0, 0, 0, .1) 1px;*/
 
-	background-color: white;
+/*	background-color: blue;*/
 }
 
 .footer:hover {
 	color: var(--half-grey);
 	transition: .5s ease;
+}
+
+.footer-contents {
+	width: 100%;
+	height: auto;
+	padding: 32px;
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 0;
+	background-color: white;
 }
 
 /* START: Section Buttons */

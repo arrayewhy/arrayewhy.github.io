@@ -6,6 +6,20 @@
 	<title>ARRAYEWHY - Online Gallery</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/latest-experiment.css">
+
+	<link rel="stylesheet" type="text/css" href="pages/point-and-click/point-and-click.css">
+	<style type="text/css">
+		#player {
+			top: 0;
+			left: auto;
+			right: 64px;
+		}
+
+		#player .sprite {
+			cursor: pointer;
+		}
+	</style>
+
 	<script src="js/script.js"></script>
 
 	<noscript>
@@ -94,7 +108,7 @@
 
 			<!-- START - Latest Experiment -->
 
-			<experiment>
+			<!-- <experiment>
 				<a href="pages/experiments.html">
 					<div class="experiment hover-shadow">
 						<div id="mainHolder">
@@ -110,7 +124,7 @@
 						</div>
 					</div>
 				</a>
-			</experiment>
+			</experiment> -->
 
 			<!-- END - Latest Experiment -->
 
@@ -121,8 +135,31 @@
 	<!-- END: Main Content Section -->
 
 	<div class="footer">
-		<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
+		<div class="footer-contents">
+			<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
+			<div id="player"><div class="sprite"></div></div>
+		</div>
 	</div>
+
+	<script type="text/javascript">
+		var player = document.getElementById("player");
+		var pSprite = player.childNodes[0];
+		pSprite.onclick = function() { MoveToDemo(); }
+		function MoveToDemo() {
+			// console.log("Move");
+			pSprite.style.backgroundImage = "url(img/Shelter_Animation_Run.png)"
+			pSprite.style.animation = "Anim_Run var(--runDur) infinite steps(4)";
+			pSprite.style.transform = "scaleX(-1)";
+			player.style.transition = "2s linear";
+			player.style.right = player.style.left - 64 + "px";
+			setTimeout(HidePage, 1000);
+			setTimeout(LoadDemoPage, 3000);
+		}
+		function HidePage() { document.querySelector("html").style.opacity = "0"; }
+		function LoadDemoPage() {
+			window.location = "pages/point-and-click/point-and-click.html";
+		}
+	</script>
 
 </body>
 

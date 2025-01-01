@@ -62,7 +62,9 @@
 	height: 64px;
 	position: absolute;
 	left: -32px;
-	top: -32px;
+	top: -48px;
+/*	top: -32px;*/
+/*	background-color: orange;*/
 	background-image: url("../../img/Shelter_Animation_Idle.png");
 	background-size: auto 64px;
 
