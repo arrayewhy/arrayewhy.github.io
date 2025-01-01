@@ -298,6 +298,7 @@ p.source-link:hover {
 }
 
 .anim-pad-left {
+	border-radius: 16px;
 	box-sizing: border-box;
 }
 
@@ -306,6 +307,10 @@ p.source-link:hover {
 /*	padding-left: 32px;*/
 	padding-left: 64px;
 	transition: .2s ease;
+}
+
+a.anim-pad-left {
+	background-color: #ffd54b;
 }
 
 .sect-thumb {
