@@ -323,6 +323,15 @@ p.source-link:hover {
 	background-color: #ffdea6;
 }
 
+.sect-thumb#game-dev {
+	background-image: url(../img/game-dev-thumb.png);
+	background-size: 950px;
+	background-position: -540px -350px;
+	background-repeat: no-repeat;
+/*	background-blend-mode: multiply;*/
+/*	background-color: rgba(0, 0, 0, .1);*/
+}
+
 .sect-text {
 	width: 100%;
 	height: auto;
