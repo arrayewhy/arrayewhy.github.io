@@ -305,12 +305,18 @@ p.source-link:hover {
 /*.sect-btn.anim-pad-left:hover {*/
 .anim-pad-left:hover {
 /*	padding-left: 32px;*/
-	padding-left: 64px;
+/*	padding-left: 64px;*/
+	padding-left: 0;
 	transition: .2s ease;
 }
 
 a.anim-pad-left {
 	background-color: #ffd54b;
+}
+
+a.anim-pad-left:hover {
+	padding-left: 32px;
+	transition: .2s ease;
 }
 
 .sect-thumb {
