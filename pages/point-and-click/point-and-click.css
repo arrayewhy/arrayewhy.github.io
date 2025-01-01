@@ -5,8 +5,9 @@
 
 #point-and-click.wrapper {
 	width: 100%;
-	height: 100%;
+	height: 540px;
 	padding: 128px 0 128px 0;
+	overflow: hidden;
 	background-color: black;
 }
 
@@ -22,6 +23,12 @@
 	background-image: url("../../img/Twilight-Town-Background-16.png");
 	background-size: 1920px auto;
 	background-position: -500px -800px;
+}
+
+@media (max-width: 768px) {
+	#screen {
+		left: -50%;
+	}
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
