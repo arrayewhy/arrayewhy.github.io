@@ -6,9 +6,46 @@
 	<title>ARRAYEWHY - Online Gallery</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<link rel="stylesheet" type="text/css" href="point-and-click.css">
-	<script src="../../js/script.js"></script>
-	<script type="text/javascript" src="point-and-click.js"></script>
+
+	<style type="text/css">
+		#curtain {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			background-color: black;
+			z-index: 100;
+		}
+		#loading-anim {
+			width: 64px;
+			height: 64px;
+			position: absolute;
+			left: calc(50% - 32px);
+			top: calc(50% - 32px);
+/*			background-color: red;*/
+			z-index: 101;
+
+			background-image: url(../../img/Shelter_Animation_Run_White.png);
+			background-size: auto 64px;
+			background-repeat: repeat-x;
+			animation: Anim_Run var(--runDur) infinite steps(4);
+			background-position-y: -8px;
+		}
+		/*#loading-anim .sprite {
+			width: 64px;
+			height: 64px;
+			position: absolute;
+			left: -32px;
+			top: -48px;
+			background-image: url(../../img/Shelter_Animation_Run_White.png);
+			background-size: auto 64px;
+			background-repeat: no-repeat;
+			animation: Anim_Run var(--runDur) infinite steps(4);
+		}*/
+	</style>
 	
+	<!-- <script src="../../js/script.js"></script> -->
+	<!-- <script type="text/javascript" src="point-and-click.js"></script> -->
+
 	<noscript>
 		<style type="text/css">
 			html { opacity: 1; }
@@ -37,26 +74,45 @@
 
 	 <div id="point-and-click" class="wrapper">
 	 	<div id="screen">
+	 		<div id="loading-anim">
+	 			<!-- <div class="sprite"></div> -->
+	 		</div>
+	 		<div id="curtain"></div>
 	 		<div id="player">
 	 			<div class="sprite"></div>
 	 		</div>
 	 	</div>
 	 	<div id="sprite-prepper">
 	 		<!-- Player -->
-	 		<img src="../../img/Shelter_Animation_Idle.png">
-	 		<img src="../../img/Shelter_Animation_Run.png">
+	 		<img class="sprite-asset" src="../../img/Shelter_Animation_Idle.png">
+	 		<img class="sprite-asset" src="../../img/Shelter_Animation_Run.png">
+	 		<img class="sprite-asset" src="../../img/Twilight-Town-Background-16.png">
 	 	</div>
 	 </div>
 
 	<!-- END: Main Content Section -->
 
+	<script src="../../js/script.js"></script>
+	<script type="text/javascript" src="point-and-click.js"></script>
+
 	<script type="text/javascript">
+		// window.onload = function() { Start(); }
+		// document.querySelector("body").onload = function() { console.log("Body Loaded"); }
+
 		var screen = document.getElementById("screen");
 		
 		var player = document.getElementById("player");
 		var playerSprite = null;
 
 		var spritePrepper = document.getElementById("sprite-prepper");
+
+		var demoWrapper = document.getElementsByClassName("wrapper")[0];
+		// console.log(demoWrapper);
+		// var curtain = document.getElementById("curtain");
+		// window.onload = function() {
+			// console.log("Attach");
+			// curtain.classList.add("Anim_Fade_Display_None");
+		// }
 
 		CreateCellRows(cellsY, cellsX);
 		// CreatePlayer(screen.offsetHeight/2, screen.offsetWidth/2);

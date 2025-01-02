@@ -6,8 +6,12 @@ var drifting = false;
 
 var anchors = document.getElementsByTagName("a");
 
-window.onload = function() {
-	htmlElement.onload = Show_Page();
+window.onload = function() { Start(); }
+
+function Start() {
+
+	// htmlElement.onload = Show_Page();
+	htmlElement.addEventListener(onload, Show_Page());
 
 	logoCont = document.getElementById("logo-cont");
 

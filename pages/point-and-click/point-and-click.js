@@ -14,6 +14,47 @@ var approvedIds = [ 891, 890, 938, 939, 987, 986, 988, 889, 841, 840, 792, 793, 
 	435, 436, 484, 485, 533, 534, 486, 535, 487, 536, 537, 538, 539, 540, 541, 488, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 549, 548, 542, 641, 
 	640, 642, 643, 644, 645, 556, 1041, 1042, 1090, 1137, 743, 791 ];
 
+var spriteAssets = document.getElementsByClassName("sprite-asset");
+
+// var spriteLoadingDone = false;
+
+var loadingAnim = document.getElementById("loading-anim");
+
+document.querySelector("html").addEventListener(onload, Wait_SpritesLoaded());
+
+var spriteLoadInterval;
+
+function Wait_SpritesLoaded() {
+	spriteLoadInterval = setInterval(Check_SpritesLoaded, 2000);
+}
+
+function Check_SpritesLoaded() {
+
+	var complete = false;
+
+	for(var i = 0; i < spriteAssets.length; i++) {
+		complete = Is_SpriteLoaded(spriteAssets[i]);
+	}
+
+	if(!complete) {
+		return;
+	}
+
+	// spriteLoadingDone = true;
+	clearInterval(spriteLoadInterval);
+	// console.log(spriteLoadingDone);
+	// loadingAnim.style.animation = "none";
+	loadingAnim.style.animation = "Anim_Fade_DisplayNone .5s linear 0s 1 forwards";
+	// loadingAnim.style.opacity = "0";
+	// loadingAnim.classList.add("Anim_Fade_DisplayNone");
+	document.getElementById("curtain").style.animation = "Anim_Fade_DisplayNone 1s linear .5s 1 forwards";
+	// document.getElementById("curtain").classList.add("Anim_Fade_DisplayNone");
+}
+
+function Is_SpriteLoaded(sprImg) {
+	return sprImg.complete;
+}
+
 function CreateCellRows(rowCount, colCount) {
 	var currTop = 0;
 	for(var i = 0; i < rowCount; i++) {
