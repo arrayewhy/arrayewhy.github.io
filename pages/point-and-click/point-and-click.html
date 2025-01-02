@@ -30,17 +30,6 @@
 			animation: Anim_Run var(--runDur) infinite steps(4);
 			background-position-y: -8px;
 		}
-		/*#loading-anim .sprite {
-			width: 64px;
-			height: 64px;
-			position: absolute;
-			left: -32px;
-			top: -48px;
-			background-image: url(../../img/Shelter_Animation_Run_White.png);
-			background-size: auto 64px;
-			background-repeat: no-repeat;
-			animation: Anim_Run var(--runDur) infinite steps(4);
-		}*/
 	</style>
 	
 	<!-- <script src="../../js/script.js"></script> -->
@@ -53,6 +42,8 @@
 	</noscript>
 
 </head>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 <body>
 
@@ -69,8 +60,9 @@
 		</a>
 	</div>
 
-	<!-- START: Main Content Section -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+	<!-- START: Main Content Section -->
 
 	 <div id="point-and-click" class="wrapper">
 	 	<div id="screen">
@@ -92,34 +84,22 @@
 
 	<!-- END: Main Content Section -->
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 	<script src="../../js/script.js"></script>
 	<script type="text/javascript" src="point-and-click.js"></script>
 
 	<script type="text/javascript">
-		// window.onload = function() { Start(); }
-		// document.querySelector("body").onload = function() { console.log("Body Loaded"); }
 
 		var screen = document.getElementById("screen");
 		
 		var player = document.getElementById("player");
 		var playerSprite = null;
 
-		var spritePrepper = document.getElementById("sprite-prepper");
-
-		var demoWrapper = document.getElementsByClassName("wrapper")[0];
-		// console.log(demoWrapper);
-		// var curtain = document.getElementById("curtain");
-		// window.onload = function() {
-			// console.log("Attach");
-			// curtain.classList.add("Anim_Fade_Display_None");
-		// }
-
 		CreateCellRows(cellsY, cellsX);
-		// CreatePlayer(screen.offsetHeight/2, screen.offsetWidth/2);
 		StylePlayer(280, 500);
 		Initialize_PlayerSprite(player.childNodes);
 		Set_PlayerSprite_Idle(playerSprite);
-		// PrepSprites(spritePrepper);
 
 	</script>
 

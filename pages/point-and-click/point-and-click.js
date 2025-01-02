@@ -1,5 +1,9 @@
+// Sprites
+
 var idleSpriteFrames_Path = "url(../../img/Shelter_Animation_Idle.png)";
 var runSpriteFrames_Path = "url(../../img/Shelter_Animation_Run.png)";
+
+// Cells for Movement
 
 var cellSize = 20;
 var cellsX = 48;
@@ -14,15 +18,31 @@ var approvedIds = [ 891, 890, 938, 939, 987, 986, 988, 889, 841, 840, 792, 793, 
 	435, 436, 484, 485, 533, 534, 486, 535, 487, 536, 537, 538, 539, 540, 541, 488, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 549, 548, 542, 641, 
 	640, 642, 643, 644, 645, 556, 1041, 1042, 1090, 1137, 743, 791 ];
 
-var spriteAssets = document.getElementsByClassName("sprite-asset");
+// Movement Variables
 
-// var spriteLoadingDone = false;
+var pps = 64;
+var gapAllow = 2;
+var moving = false;
+var facingRight = false;
+
+var currFrameOffset = 0;
+
+var checkDistInterval = null;
+var checkFreq = 4;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var spriteAssets = document.getElementsByClassName("sprite-asset");
 
 var loadingAnim = document.getElementById("loading-anim");
 
 document.querySelector("html").addEventListener(onload, Wait_SpritesLoaded());
 
-var spriteLoadInterval;
+var spriteLoadInterval = null;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// START - Sprite Asset Loading
 
 function Wait_SpritesLoaded() {
 	spriteLoadInterval = setInterval(Check_SpritesLoaded, 2000);
@@ -40,20 +60,22 @@ function Check_SpritesLoaded() {
 		return;
 	}
 
-	// spriteLoadingDone = true;
 	clearInterval(spriteLoadInterval);
-	// console.log(spriteLoadingDone);
-	// loadingAnim.style.animation = "none";
+	
 	loadingAnim.style.animation = "Anim_Fade_DisplayNone .5s linear 0s 1 forwards";
-	// loadingAnim.style.opacity = "0";
-	// loadingAnim.classList.add("Anim_Fade_DisplayNone");
+	
 	document.getElementById("curtain").style.animation = "Anim_Fade_DisplayNone 1s linear .5s 1 forwards";
-	// document.getElementById("curtain").classList.add("Anim_Fade_DisplayNone");
 }
 
 function Is_SpriteLoaded(sprImg) {
 	return sprImg.complete;
 }
+
+// END - Sprite Asset Loading
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// START - Cells for Movement
 
 function CreateCellRows(rowCount, colCount) {
 	var currTop = 0;
@@ -103,17 +125,11 @@ function StylePlayer(top, left) {
 	player.style.top = top + "px";
 }
 
-var pps = 64;
-var gapAllow = 2;
-var moving = false;
-var facingRight = false;
+// END - Cells for Movement
 
-var moveInteral = null;
-// var runAnimInterval = null;
-var currFrameOffset = 0;
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-var checkDistInterval = null;
-var checkFreq = 4;
+// START - Movement
 
 function Start_MovePlayer(target) {
 
@@ -124,8 +140,6 @@ function Start_MovePlayer(target) {
 		moving = true;
 
 		Set_PlayerSprite_Run(playerSprite);
-		// AdvanceSpriteFrame_Run(playerSprite, currFrameOffset);
-		// runAnimInterval = setInterval(function() { AdvanceSpriteFrame_Run(playerSprite, currFrameOffset); }, 166.666);
 
 	} else {
 
@@ -141,6 +155,7 @@ function Start_MovePlayer(target) {
 }
 
 function MovePlayer(left, top) {
+
 	var dirGapX = left - player.offsetLeft;
 	var dirGapY = top - player.offsetTop;
 
@@ -172,12 +187,8 @@ function MovePlayer(left, top) {
 
 	var dist = Math.sqrt(gap[0] * gap[0] + gap[1] * gap[1]);
 
-	// console.log(dist);
-
 	player.style.left = parseFloat(left) + "px";
 	player.style.top = parseFloat(top) + "px";
-
-	// console.log(player.style.left, player.style.top);
 
 	player.style.transition = dist/pps + "s linear";
 }
@@ -191,38 +202,23 @@ function CheckDist(left, top) {
 
 	var dist = Math.sqrt(gap[0] * gap[0] + gap[1] * gap[1]);
 
-	// console.log(dist);
-
 	if(dist > gapAllow) {
 		return;
 	}
 
 	moving = false;
 
-	// console.log("moving: " + moving);
-
 	Set_PlayerSprite_Idle(playerSprite);
-
-	clearInterval(moveInteral);
-	// clearInterval(runAnimInterval);
+	
 	clearInterval(checkDistInterval);
 	currFrameOffset = 0;
-
-	// console.log("Done");
 }
 
-// START - Sprites and Animation
+// END - Movement
 
-// function PrepSprites(sPrepper) {
-// 	PrepSprite(sPrepper, idleSpriteFrames_Path);
-// 	PrepSprite(sPrepper, runSpriteFrames_Path);
-// }
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// function PrepSprite(sPrepper, path) {
-// 	var prepper = document.createElement("div");
-// 	prepper.style.backgroundImage = path;
-// 	sPrepper.appendChild(prepper);
-// }
+// START - Animation
 
 function Initialize_PlayerSprite(playerChildren) {
 	for(var i = 0; i < playerChildren.length; i++) {
@@ -244,7 +240,4 @@ function Set_PlayerSprite_Run(pSprite) {
 	pSprite.style.animation = "Anim_Run var(--runDur) infinite steps(4)";
 }
 
-// function AdvanceSpriteFrame_Run(pSprite, val) {
-// 	pSprite.style.backgroundPosition = val + "px";
-// 	currFrameOffset += 64;
-// }
+// END - Animation
