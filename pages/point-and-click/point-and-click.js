@@ -1,7 +1,14 @@
+// Time
+
+var time = 0;
+const fps = 25;
+
 // Sprites
 
 var idleSpriteFrames_Path = "url(../../img/Shelter_Animation_Idle.png)";
 var runSpriteFrames_Path = "url(../../img/Shelter_Animation_Run.png)";
+
+var spriteAssets = document.getElementsByClassName("sprite-asset");
 
 // Cells for Movement
 
@@ -30,25 +37,42 @@ var currFrameOffset = 0;
 var checkDistInterval = null;
 var checkFreq = 4;
 
+// User Input
+
+var userClicked = false;
+var waitShow = null;
+
+// Background Music
+
+var bgm = document.getElementById("background-music");
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var spriteAssets = document.getElementsByClassName("sprite-asset");
+setInterval(function() {
+	time += fps;
+}, 1000/fps);
 
 var loadingAnim = document.getElementById("loading-anim");
 
+var spriteLoadInterval = null;
+
 document.querySelector("html").addEventListener(onload, Wait_SpritesLoaded());
 
-var spriteLoadInterval = null;
+var gameWrapper = document.getElementsByClassName("wrapper")[0];
+gameWrapper.onclick = function() { RecordUserInput(); }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // START - Sprite Asset Loading
 
 function Wait_SpritesLoaded() {
+	console.log("Start Wait Sprite Load");
 	spriteLoadInterval = setInterval(Check_SpritesLoaded, 2000);
 }
 
 function Check_SpritesLoaded() {
+
+	// console.log("Checking Sprites...");
 
 	var complete = false;
 
@@ -57,14 +81,22 @@ function Check_SpritesLoaded() {
 	}
 
 	if(!complete) {
+		console.log("Sprites NOT loaded!");
 		return;
 	}
 
+	console.log("Sprites loaded!");
+	
 	clearInterval(spriteLoadInterval);
-	
-	loadingAnim.style.animation = "Anim_Fade_DisplayNone .5s linear 0s 1 forwards";
-	
-	document.getElementById("curtain").style.animation = "Anim_Fade_DisplayNone 1s linear .5s 1 forwards";
+	spriteLoadInterval = null;
+
+	if(userClicked) {
+		// ShowScene();
+		Handle_IntroBGM(ShowScene);
+		return;
+	}
+
+	waitShow = setInterval(Wait_ShowScene, 2000);
 }
 
 function Is_SpriteLoaded(sprImg) {
@@ -72,6 +104,37 @@ function Is_SpriteLoaded(sprImg) {
 }
 
 // END - Sprite Asset Loading
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function Wait_ShowScene() {
+
+	console.log("Waiting to Show Scene...");
+
+	if(!userClicked) {
+		return;
+	}
+
+	// ShowScene();
+	Handle_IntroBGM(ShowScene);
+
+	clearInterval(waitShow);
+	waitShow = null;
+}
+
+function ShowScene() {
+	console.log("Showing Scene!");
+	loadingAnim.style.animation = "Anim_Fade_DisplayNone .5s linear 0s 1 forwards";
+	document.getElementById("curtain").style.animation = "Anim_Fade_DisplayNone 1s linear .5s 1 forwards";
+}
+
+function RecordUserInput() {
+	console.log("Click!");
+	userClicked = true;
+	gameWrapper.onclick = null;
+	// console.log(gameWrapper.onclick);
+	// document.querySelector("html").removeEventListener(onclick, RecordUserInput());
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -241,3 +304,29 @@ function Set_PlayerSprite_Run(pSprite) {
 }
 
 // END - Animation
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function Handle_IntroBGM(callback) {
+
+	// const maxVol = .4;
+
+	bgm.volume = .4;
+	bgm.play();
+
+	setTimeout(callback, 2000);
+
+	// var incVolInterval = setInterval(function() {
+	// 	console.log(bgm.volume);
+	// 	var nextVal = bgm.volume + 0.001 * (1000/fps);
+	// 	if(nextVal > maxVol) {
+	// 		bgm.volume = maxVol;
+	// 		clearInterval(incVolInterval);
+	// 		incVolInterval = null;
+	// 		callback();
+	// 		return;
+	// 	}
+	// 	bgm.volume += 0.1;
+	// 	console.log(bgm.volume);
+	// }, 250);
+}

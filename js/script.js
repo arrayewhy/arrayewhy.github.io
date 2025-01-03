@@ -19,7 +19,7 @@ window.onload = function() { Start() };
 
 function Start() {
 
-	console.log("Start");
+	// console.log("Start");
 
 	htmlElement.addEventListener('load', Show_Page(htmlElement));
 
