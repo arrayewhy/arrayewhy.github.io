@@ -64,6 +64,11 @@ code, pre {
 	box-sizing: border-box;
 }
 
+.time-stamp {
+	font-size: .75rem;
+	opacity: .6;
+}
+
 .code-cont {
 	margin: 32px 0 32px 0;
 	overflow: auto;

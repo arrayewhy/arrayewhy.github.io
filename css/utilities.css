@@ -48,3 +48,13 @@
 .display-none {
 	display: none;
 }
+
+/* Colours */
+
+.red-text {
+	color: crimson;
+}
+
+.blue-text {
+	color: blue;
+}
