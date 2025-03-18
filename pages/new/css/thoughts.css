@@ -1,0 +1,12 @@
+#thoughts-container {
+	padding-top: .5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 1rem;
+}
+
+.thought {
+	margin-top: .5rem;
+	padding: 1rem;
+	background-color: white;
+}

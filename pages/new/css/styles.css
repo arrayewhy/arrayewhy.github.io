@@ -1,0 +1,31 @@
+@import "css-reset.css";
+@import "variables.css";
+@import "gallery.css";
+@import "thoughts.css";
+@import "type.css";
+
+html {
+	font-size: var(--base-size);
+	background-color: var(--base-colour);
+}
+
+nav {
+	width: 100%;
+	height: auto;
+}
+
+/* Typography ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.tiny-text {
+	font-size: .5rem;
+}
+
+/* Sizes ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.full-width {
+	width: 100%;
+}
+
+.full-height {
+	height: 100%;
+}

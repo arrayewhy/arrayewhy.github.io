@@ -1,0 +1,862 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"red",
+				"orangered"
+			],
+			[
+				"green",
+				"lawngreen"
+			],
+			[
+				"sky",
+				"deepskyblue"
+			],
+			[
+				"ye",
+				"lightyellow"
+			],
+			[
+				"show",
+				"ShowScene"
+			],
+			[
+				"showsc",
+				"ShowScene"
+			],
+			[
+				"getele",
+				"getElementsByClassName"
+			],
+			[
+				"use",
+				"userClickInterval"
+			],
+			[
+				"wai",
+				"Wait_ShowScene"
+			],
+			[
+				"usercl",
+				"userClickInterval"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"ad",
+				"addEventListener"
+			],
+			[
+				"splo",
+				"spritesLoaded"
+			],
+			[
+				"checsp",
+				"CheckSprite"
+			],
+			[
+				"check",
+				"Check_SpritesLoaded"
+			],
+			[
+				"sprite",
+				"spriteLoadInterval"
+			],
+			[
+				"bacpo",
+				"background-position-y"
+			],
+			[
+				"backc",
+				"background-color"
+			],
+			[
+				"se",
+				"sect-thumb"
+			],
+			[
+				"Prep",
+				"PrepSprite"
+			],
+			[
+				"sp",
+				"spritePrepper"
+			],
+			[
+				"ba",
+				"backgroundPosition"
+			],
+			[
+				"offs",
+				"offsetLeft"
+			],
+			[
+				"dir",
+				"dirGapX"
+			],
+			[
+				"digap",
+				"dirGapX"
+			],
+			[
+				"node",
+				"nodes"
+			],
+			[
+				"mouse",
+				"mouseDelta"
+			],
+			[
+				"Mouse",
+				"mouseDelta"
+			],
+			[
+				"Upda",
+				"UpdateMousePos"
+			],
+			[
+				"time",
+				"timeScale"
+			],
+			[
+				"bac",
+				"backgroundPosition"
+			],
+			[
+				"animaite",
+				"animation-iteration-count"
+			],
+			[
+				"curr",
+				"currCellId"
+			],
+			[
+				"cu",
+				"currCellId"
+			],
+			[
+				"pl",
+				"playerSprite"
+			],
+			[
+				"play",
+				"playerSprite"
+			],
+			[
+				"p",
+				"playerSprite"
+			],
+			[
+				"chan",
+				"changeY"
+			],
+			[
+				"di",
+				"dirY"
+			],
+			[
+				"of",
+				"offsetTop"
+			],
+			[
+				"gap",
+				"gapX"
+			],
+			[
+				"new",
+				"newLeft"
+			],
+			[
+				"cell",
+				"cellsY"
+			],
+			[
+				"Cre",
+				"CreateCellRows"
+			],
+			[
+				"cre",
+				"CreateCellRow"
+			],
+			[
+				"re",
+				"relative"
+			],
+			[
+				"html",
+				"htmlCode"
+			],
+			[
+				"cod",
+				"codeVisible"
+			],
+			[
+				"getEl",
+				"getElementsByClassName"
+			],
+			[
+				"bounc",
+				"bouncing-slime-html"
+			],
+			[
+				"bacc",
+				"background-color"
+			],
+			[
+				"lef",
+				"left-side"
+			],
+			[
+				"ge",
+				"getElementsByClassName"
+			],
+			[
+				"top",
+				"topSide"
+			],
+			[
+				"nod",
+				"nodeSize"
+			],
+			[
+				"rgb",
+				"rgba()"
+			],
+			[
+				"pos",
+				"posY"
+			],
+			[
+				"no",
+				"nodeSize"
+			],
+			[
+				"cur",
+				"currFrontID"
+			],
+			[
+				"Crea",
+				"CreateRow"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"oran",
+				"orangered"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"im",
+				"Imp_Drift"
+			],
+			[
+				"animtim",
+				"animation-timing-function"
+			],
+			[
+				"yell",
+				"lightyellow"
+			],
+			[
+				"sec",
+				"sect-btn"
+			],
+			[
+				"all",
+				"all-caps"
+			],
+			[
+				"fontst",
+				"font-style"
+			],
+			[
+				"transiti",
+				"transition-property"
+			],
+			[
+				"transitio",
+				"transition-timing-function"
+			],
+			[
+				"transition",
+				"transition-duration"
+			],
+			[
+				"lgi",
+				"lightcyan"
+			],
+			[
+				"light",
+				"lightcoral"
+			],
+			[
+				"wr",
+				"wrap-reverse"
+			],
+			[
+				"tr",
+				"transition"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"dark",
+				"darkgray"
+			],
+			[
+				"inline-b",
+				"inline-table"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"flex",
+				"flex-wrap"
+			],
+			[
+				"about",
+				"aboutTxtCont1"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"y",
+				"translateY()"
+			],
+			[
+				"just",
+				"justify-items"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"for",
+				"form-all"
+			],
+			[
+				"magr",
+				"margin-top"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"ce",
+				"space-between"
+			],
+			[
+				"togg",
+				"ToggleButton"
+			],
+			[
+				"spa",
+				"space-around"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"li",
+				"li"
+			],
+			[
+				"clo",
+				"closeUpLeftOffset"
+			],
+			[
+				"deltam",
+				"deltaMouseX"
+			],
+			[
+				"pre",
+				"prevMousePosX"
+			],
+			[
+				"newm",
+				"newMousePosX"
+			],
+			[
+				"prem",
+				"prevMousePosY"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"fonsty",
+				"font-style"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"fon",
+				"font-display"
+			],
+			[
+				"fons",
+				"font-style"
+			],
+			[
+				"cl",
+				"closeUpCancel"
+			],
+			[
+				"tra",
+				"transform"
+			],
+			[
+				"bg",
+				"bgCol"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"trans",
+				"transition"
+			],
+			[
+				"ga",
+				"galleryElement"
+			],
+			[
+				"marign",
+				"margin"
+			],
+			[
+				"wot",
+				"workTypeTraditional"
+			],
+			[
+				"backsi",
+				"background-size"
+			],
+			[
+				"work",
+				"workTypeTraditional"
+			],
+			[
+				"bacsi",
+				"background-size"
+			],
+			[
+				"backgouc",
+				"background-color"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"bloc",
+				"inline-block"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/ray/Documents/Obsidian Vault/.obsidian/snippets/headers.css",
+			"settings":
+			{
+				"buffer_size": 319,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"cuzto",
+				"UI: Customize Color Scheme"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 112.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/media"
+	],
+	"file_history":
+	[
+		"/Users/ray/Library/Application Support/espanso/match/base.yml",
+		"/Users/ray/Documents/Obsidian Vault/.obsidian/snippets/headers.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/css/styles.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/css/type.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/index.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/css/gallery.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/css/variables.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/css/thoughts.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/media/video/Liquid-Shaft [13MAR2025].mp4",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/css/css-reset.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/thoughts.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css/variables.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/new/css/variables",
+		"/Users/ray/Desktop/Projects/Github/Shelter/Misc/Notes/Notes.txt",
+		"/Users/ray/Desktop/Projects/Github/Godot-Snippets/Fader.txt",
+		"/Users/ray/Desktop/Projects/Github/Godot-Snippets/JSON Data Save Load System.txt",
+		"/Users/ray/Desktop/Projects/Github/Godot-Snippets/In-game Debug Overlay",
+		"/Users/ray/Library/Application Support/Godot/app_userdata/Sandbox/savegame.bin",
+		"/Users/ray/Desktop/Projects/Github/Godot-Snippets/Image Data Handling",
+		"/Users/ray/Desktop/Projects/Github/SlimeHop/savegame.bin",
+		"/Users/ray/Desktop/Projects/Github/Empathy/empathy/.gitignore",
+		"/Users/ray/Desktop/Projects/Github/Shelter/Scripts/UI/Illumination.gd",
+		"/Users/ray/Desktop/Projects/Github/Shelter/Scripts/UI/Illumination-Spawner.gd",
+		"/Users/ray/Desktop/Projects/Github/Shelter/Scripts/Debug/InGameDebugger.gd",
+		"/Users/ray/Desktop/Projects/Github/Worlds/worlds/.gitignore",
+		"/Users/ray/Desktop/Projects/Github/Shelter/.gitignore",
+		"/Users/ray/Desktop/Projects/Github/Godot-Snippets/Point-To-Point Mover",
+		"/Users/ray/Desktop/Projects/Github/Calendar/.gitignore",
+		"/Users/ray/Desktop/Projects/Github/ClickClackMaps/TheManyHundreds/.gitignore",
+		"/Users/ray/Desktop/Projects/Github/ClickBricks/.gitignore",
+		"/Users/ray/Desktop/Projects/Github/Godot-Snippets/Viewport Positioning",
+		"/Users/ray/Downloads/Swinburne Lecture/2025/DDA211/DDA211 2D Animation Lesson Content.txt",
+		"/Users/ray/Downloads/Swinburne Lecture/2025/DDA211/DDA211 2D Animation Lesson Content",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/point-and-click/point-and-click.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/js/script.js",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/point-and-click/point-and-click.js",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/point-and-click/point-and-click.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/index.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css/style.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/experiments.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/game-dev.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/template.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/illustration.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/random-gems.html",
+		"/Users/ray/Desktop/sandbox.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/js/point-and-click.js",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/point-and-click.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css/point-and-click.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css/containers.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css/experiments-style.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css/experiments.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css/latest-experiment.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/js/experiments.js",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/experiments/bouncing-slime-html.txt",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/experiments/bouncing-slime-css.txt",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css/utilities.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/bouncing-slime-html.txt",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css/bouncing-slime-css.txt",
+		"/Users/ray/Downloads/Swinburne Lecture/Teaching Materials/Intro to Digital Design/DDA111 Assignment 2 Reply Formats",
+		"/Users/ray/Downloads/Swinburne Lecture/Teaching Materials/Intro to Digital Design/DDA111 Assignment 2 Marking Info",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/utilities.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/style.css",
+		"/Users/ray/Downloads/Swinburne Lecture/Teaching Materials/Interactive Design/DDA213 Assignment 2 Marking Info",
+		"/Users/ray/Downloads/Swinburne Lecture/Teaching Materials/Interactive Design/DDA213 Assignment 2 Failures",
+		"/Users/ray/Downloads/Swinburne Lecture/Teaching Materials/Interactive Design/DDA213 Assignment 2 Reply Formats",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/template.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/illustration.html",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/css-reset.css",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/script.js",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/animation.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Teaching Materials/Intro to Digital Design/DDA213 Assignment 2 Reply Formats",
+		"/Users/ray/Desktop/Projects/Github/rlic-work.github.io/pages/animation.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/maguro-website/src/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/the-kantin-granary/src/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/rizwan_104383831_home_dessert-_website/dist/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/teapackgo-html-and-css/dist/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/teapackgo-html-and-css/dist/style.css",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/teapackgo-html-and-css/dist/script.js",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/the-kantin-granary/dist/script.js",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/the-kantin-granary/dist/style.css",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/the-kantin-granary/dist/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/maguro-website/dist/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/maguro-website/dist/style.css",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/wawakch/dist/script.js",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/wawakch/dist/style.css",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/wawakch/dist/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/trevi/dist/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/trevi/dist/script.js",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/trevi/dist/style.css",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/anakdunstanemanuelatar_11190_1319696_&Val.zip/untitled/dist/style.css",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/anakdunstanemanuelatar_11190_1319696_&Val.zip/untitled/dist/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/don-s-burger/dist/style.css",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Landing Page/submissions/don-s-burger/dist/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Marking/DDA111 Interim Feedback",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Herrick/To Mr.Raymond/index.html",
+		"/Users/ray/Downloads/Swinburne Lecture/Student Documents/DDA213/Herrick/To Mr.Raymond/Interative-D.css",
+		"/Users/ray/Desktop/web/index.html",
+		"/Users/ray/Desktop/Hamburger/index.html",
+		"/Users/ray/Downloads/untitled 2/dist/index.html",
+		"/Users/ray/Downloads/untitled/src/index.html",
+		"/Users/ray/Desktop/index.html",
+		"/Users/ray/Desktop/Looking for Yellow Website/Shader \"Custom:GrayWhenBehind\"",
+		"/Users/ray/Desktop/Looking for Yellow Website/index.html",
+		"/Users/ray/Desktop/Looking for Yellow Website/src/app.js",
+		"/Users/ray/Desktop/Looking for Yellow Website/src/style.css",
+		"/Users/ray/Desktop/Looking for Yellow Website/style.css",
+		"/Users/ray/Desktop/Looking for Yellow Website/app.js",
+		"/Users/ray/Desktop/2D Shader",
+		"/Users/ray/Desktop/Projects/Github/FilmCoWebsite/FilmCoWebsite/site.region",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/index.less",
+		"/Users/ray/Desktop/FilmCoWebsite/blocks/header.block",
+		"/Users/ray/Desktop/FilmCoWebsite/collections/index.list",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/project.less",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/reset.css",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/helpers.less",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/header.less",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/cart.less",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/base.less",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/banner.less",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/animations.less",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/ancillary.less",
+		"/Users/ray/Desktop/FilmCoWebsite/styles/mixins.less",
+		"/Users/ray/Desktop/FilmCoWebsite/site.region",
+		"/Users/ray/Desktop/Projects/Github/FilmCoWebsite/FilmCoWebsite/scripts/site-bundle.js",
+		"/Users/ray/Desktop/Projects/Cloud Colony/main/css/communitySpecific.css",
+		"/Users/ray/Desktop/Projects/Cloud Colony/main/css/communities.css",
+		"/Users/ray/Desktop/Projects/Cloud Colony/main/css/main.css",
+		"/Users/ray/Desktop/Projects/Cloud Colony/main/photography.html"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 98.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"red",
+			"  ",
+			"time-stamp",
+			"time"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/ray/Documents/Obsidian Vault/.obsidian/snippets/headers.css",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 319,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "NewWebsite.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"s",
+				"css/styles.css"
+			],
+			[
+				"ga",
+				"css/gallery.css"
+			],
+			[
+				"thou",
+				"css/thoughts.css"
+			],
+			[
+				"vari",
+				"css/variables.css"
+			],
+			[
+				"st",
+				"css/styles.css"
+			],
+			[
+				"gal",
+				"css/gallery.css"
+			],
+			[
+				"gall",
+				"css/gallery.css"
+			],
+			[
+				"though",
+				"css/thoughts.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 364.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
