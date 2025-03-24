@@ -7,8 +7,10 @@ function Start() {
 	// 	console.log("Hi");
 	// }
 
-	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.scrollHeight;
-	document.getElementById("case-study").style.height = iframeBodyHeight + "px";
+	window.onresize = function() {
+		Resize_CaseStudy_IFrame();
+		// console.log("Hi");
+	}
 	// console.log(typeof(iframeBodyHeight));
 	// console.log(iframeBodyHeight)
 	document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
@@ -57,6 +59,12 @@ function Show_CaseStudy() {
 function Hide_CaseStudy() {
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "0";
 	console.log("Close case-study");
+}
+
+function Resize_CaseStudy_IFrame() {
+	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.scrollHeight;
+	document.getElementById("case-study").style.height = iframeBodyHeight + "px";
+	console.log(iframeBodyHeight);
 }
 
 // Tool Box ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
