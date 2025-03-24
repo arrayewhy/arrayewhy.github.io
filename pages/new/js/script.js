@@ -4,6 +4,7 @@ function Start() {
 
 	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.style.height;
 	console.log(typeof(iframeBodyHeight));
+	console.log(iframeBodyHeight)
 	document.getElementById("case-study").style.height = iframeBodyHeight + "px";
 }
 
