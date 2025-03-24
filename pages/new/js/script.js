@@ -7,8 +7,8 @@ function Start() {
 	// 	console.log("Hi");
 	// }
 
-	// var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.scrollHeight;
-	// document.getElementById("case-study").style.height = iframeBodyHeight + "px";
+	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.scrollHeight;
+	document.getElementById("case-study").style.height = iframeBodyHeight + "px";
 	// console.log(typeof(iframeBodyHeight));
 	// console.log(iframeBodyHeight)
 	document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
