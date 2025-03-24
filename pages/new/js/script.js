@@ -1,9 +1,7 @@
 function Start() {
 	Init_GalleryElems();
 	Init_SkillIcons();
-
-	window.onresize = function() { Resize_CaseStudy_IFrame(); }
-	document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
+	Init_CaseStudy();
 }
 
 // Gallery ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -42,6 +40,11 @@ function Hide_Description(desc) {
 
 // Case Study
 
+function Init_CaseStudy() {
+	window.onresize = function() { Resize_CaseStudy_IFrame(); }
+	document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
+}
+
 function Show_CaseStudy() {
 	Resize_CaseStudy_IFrame();
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "-100%";
@@ -57,7 +60,7 @@ function Resize_CaseStudy_IFrame() {
 	// The IFrame contentWindow will NOT be null when we go online.
 	if (document.getElementById("case-study-iframe").contentDocument == null) { return; }
 
-	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.scrollHeight;
+	var iframeBodyHeight = document.getElementById("case-study-iframe").contentDocument.body.scrollHeight;
 	document.getElementById("case-study-iframe").style.height = iframeBodyHeight + "px";
 }
 
