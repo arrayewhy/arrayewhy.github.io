@@ -2,7 +2,7 @@ function Start() {
 	Init_GalleryElems();
 	Init_SkillIcons();
 
-	var iframeBodyHeight = document.getElementById("case-study").contentDocument.document.body.style.height;
+	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.style.height;
 	console.log(typeof(iframeBodyHeight));
 	console.log(iframeBodyHeight)
 	document.getElementById("case-study").style.height = iframeBodyHeight + "px";
