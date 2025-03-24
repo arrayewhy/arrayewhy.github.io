@@ -49,13 +49,16 @@ function Show_CaseStudy() {
 
 function Hide_CaseStudy() {
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "0";
-	console.log("Close case-study");
 }
 
 function Resize_CaseStudy_IFrame() {
+
+	// This is here so things don't break when working offline.
+	// The IFrame contentWindow will NOT be null when we go online.
+	if (document.getElementById("case-study-iframe").contentDocument == null) { return; }
+
 	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.scrollHeight;
-	document.getElementById("case-study").style.height = iframeBodyHeight + "px";
-	console.log(iframeBodyHeight);
+	document.getElementById("case-study-iframe").style.height = iframeBodyHeight + "px";
 }
 
 // Tool Box ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
