@@ -28,7 +28,7 @@ function Init_GalleryElem(elem) {
 
 	// Hook up the Case Study functions
 	elem.onclick = function() { Show_CaseStudy(); }
-	// document.getElementById("case-study").onclick = function() { Hide_CaseStudy(); }
+	document.getElementById("case-study").onclick = function() { Hide_CaseStudy(); }
 }
 
 // Descriptions
