@@ -2,7 +2,7 @@ function Start() {
 	Init_GalleryElems();
 	Init_SkillIcons();
 
-	console.log(document.getElementById("case-study").contentDocument);
+	console.log(document.getElementById("case-study").contentDocument.body.style.height);
 }
 
 // Gallery ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
