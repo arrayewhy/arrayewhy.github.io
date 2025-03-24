@@ -51,6 +51,7 @@ function Show_CaseStudy() {
 
 function Hide_CaseStudy() {
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "0";
+	console.log("Close case-study");
 }
 
 // Tool Box ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
