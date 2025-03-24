@@ -1,4 +1,6 @@
 :root {
-	--base-size: 20px;
-	--base-colour: grey;
+	--base-size: 24px;
+	--base-color: cornsilk;
+	--accent-color: black;
+	--accent-color-invert: white;
 }

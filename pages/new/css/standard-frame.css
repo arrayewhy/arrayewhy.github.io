@@ -1,0 +1,13 @@
+.standard-frame {
+	width: 100%;
+
+	padding: 12rem 4rem 12rem 4rem;
+
+/*	border: 1px solid var(--accent-color);*/
+}
+
+@media (max-width: 512px) {
+	.standard-frame {
+		padding: 4rem;
+	}
+}
