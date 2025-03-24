@@ -2,7 +2,7 @@ function Start() {
 	Init_GalleryElems();
 	Init_SkillIcons();
 
-	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.height;
+	var iframeBodyHeight = document.getElementById("case-study").contentDocument.scrollHeight;
 	console.log(typeof(iframeBodyHeight));
 	console.log(iframeBodyHeight)
 	document.getElementById("case-study").style.height = iframeBodyHeight + "px";
@@ -28,7 +28,7 @@ function Init_GalleryElem(elem) {
 
 	// Hook up the Case Study functions
 	elem.onclick = function() { Show_CaseStudy(); }
-	document.getElementById("case-study").onclick = function() { Hide_CaseStudy(); }
+	// document.getElementById("case-study").onclick = function() { Hide_CaseStudy(); }
 }
 
 // Descriptions
@@ -51,7 +51,6 @@ function Show_CaseStudy() {
 
 function Hide_CaseStudy() {
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "0";
-	console.log("Hi");
 }
 
 // Tool Box ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
