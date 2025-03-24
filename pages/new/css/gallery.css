@@ -13,7 +13,6 @@
 
 .gallery-wrapper {
 	min-width: 100%;
-	background-color: orange;
 
 	display: flex;
 
@@ -78,12 +77,31 @@
 	transition: .25s ease-in-out;
 }
 
-#case-study {
+.case-study-wrapper {
 	min-width: 100%;
-/*	height: 600px;*/
 	height: auto;
 
 	position: relative;
+}
+
+#case-study {
+	width: 100%;
+/*	min-width: 100%;*/
+/*	height: 600px;*/
+	height: auto;
+
+/*	position: relative;*/
+}
+
+.back-button {
+	width: 3rem;
+	height: 3rem;
+	background-color: blue;
+
+/*	position: absolute;*/
+/*	top: 0;*/
+/*	left: 0;*/
+/*	z-index: 1;*/
 }
 
 /* Gallery Feature ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/

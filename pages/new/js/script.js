@@ -2,10 +2,16 @@ function Start() {
 	Init_GalleryElems();
 	Init_SkillIcons();
 
-	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.scrollHeight;
-	console.log(typeof(iframeBodyHeight));
-	console.log(iframeBodyHeight)
-	document.getElementById("case-study").style.height = iframeBodyHeight + "px";
+	// console.log(document.getElementsByClassName("back-button"));
+	// document.getElementsByClassName("back-button")[0].onclick = function() {
+	// 	console.log("Hi");
+	// }
+
+	// var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.scrollHeight;
+	// document.getElementById("case-study").style.height = iframeBodyHeight + "px";
+	// console.log(typeof(iframeBodyHeight));
+	// console.log(iframeBodyHeight)
+	document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
 }
 
 // Gallery ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -28,7 +34,6 @@ function Init_GalleryElem(elem) {
 
 	// Hook up the Case Study functions
 	elem.onclick = function() { Show_CaseStudy(); }
-	document.getElementById("case-study").onclick = function() { Hide_CaseStudy(); }
 }
 
 // Descriptions
