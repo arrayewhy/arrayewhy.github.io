@@ -2,7 +2,8 @@ function Start() {
 	Init_GalleryElems();
 	Init_SkillIcons();
 
-	console.log(document.getElementById("case-study").contentDocument.body.style.height);
+	var iframeBodyHeight = document.getElementById("case-study").contentDocument.body.style.height;
+	document.getElementById("case-study").style.height = iframeBodyHeight + "px";
 }
 
 // Gallery ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
