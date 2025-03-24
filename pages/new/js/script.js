@@ -2,17 +2,7 @@ function Start() {
 	Init_GalleryElems();
 	Init_SkillIcons();
 
-	// console.log(document.getElementsByClassName("back-button"));
-	// document.getElementsByClassName("back-button")[0].onclick = function() {
-	// 	console.log("Hi");
-	// }
-
-	window.onresize = function() {
-		Resize_CaseStudy_IFrame();
-		// console.log("Hi");
-	}
-	// console.log(typeof(iframeBodyHeight));
-	// console.log(iframeBodyHeight)
+	window.onresize = function() { Resize_CaseStudy_IFrame(); }
 	document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
 }
 
@@ -53,6 +43,7 @@ function Hide_Description(desc) {
 // Case Study
 
 function Show_CaseStudy() {
+	Resize_CaseStudy_IFrame();
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "-100%";
 }
 
