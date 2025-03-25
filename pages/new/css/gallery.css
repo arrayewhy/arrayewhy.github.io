@@ -44,7 +44,7 @@
 .gallery-elem.normal {
 /*	width: 33.333%; */
 	max-width: 33.333%; /* Width depends on child  */
-	min-width: 400px;
+/*	min-width: 400px;*/
 
 	border-radius: 1rem;
 	padding: 1rem;
@@ -155,13 +155,17 @@
 
 /* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-@media (max-width: 512px) {
-	.gallery-elem {
-		width: 100%;
+@media (max-width: 800px) {
+	.gallery-elem.normal {
+/*		width: 100%;*/
+		min-width: 100%;
 	}
 }
 
 @media (max-width: 1024px) {
+	.gallery-elem.normal {
+		max-width: 50%;
+	}
 	.gallery-elem.feature {
 		width: 100%;
 	}
