@@ -1,6 +1,12 @@
-body.case-study {
-	background-color: orange;
+#case-study-body {
 	overflow: hidden;
+
+	display: flex;
+	justify-content: center;
+}
+
+#case-study {
+	width: 75%;
 }
 
 /* Hide Scrollbar: */
@@ -11,10 +17,19 @@ while I am not sure about this method. */
   display: none;
 }*/
 
-body.case-study img {
+#case-study img {
 	width: 100%;
 }
 
-body.case-study video {
+#case-study video {
 	width: 100%;
+}
+
+/* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+@media (max-width: 800px) {
+	#case-study {
+		width: 100%;
+		padding: 0 1rem 0 1rem;
+	}
 }
