@@ -46,8 +46,9 @@ function Init_CaseStudy() {
 }
 
 function Show_CaseStudy() {
-	Resize_CaseStudy_IFrame();
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "-100%";
+	// Resize after 1 Second
+	const myTimeout = setTimeout(Resize_CaseStudy_IFrame, 1000);
 }
 
 function Hide_CaseStudy() {
@@ -56,7 +57,7 @@ function Hide_CaseStudy() {
 }
 
 function Resize_CaseStudy_IFrame() {
-
+	console.log("Resizing");
 	var iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
 
 	// This is here so things don't break when working offline.
