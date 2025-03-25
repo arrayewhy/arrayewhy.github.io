@@ -60,9 +60,11 @@ function Hide_CaseStudy() {
 	_caseStudyActive = false;
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "0";
 
-	document.getElementById("gallery").style.height = "auto";
-	document.getElementsByClassName("gallery-wrapper")[0].style.height = "auto";
-	document.getElementsByClassName("gallery-segment")[0].style.height = "auto";
+	// Force resize gallery elements along with Case Study elements
+	// to remove lingering white space.
+	// Considering cropping the out the bottom of the website when 
+	// the Case Study IFrame is active.	
+	Force_ResizeGalleryElements_OnHide();
 
 	document.getElementsByClassName("case-study-iframe-wrapper")[0].style.height = "0";
 	document.getElementById("case-study-iframe").style.height = "0";
@@ -74,18 +76,18 @@ function Resize_CaseStudy_IFrame() {
 
 	var iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
 
-	// This is here so things don't break when working offline.
-	// The IFrame contentWindow will NOT be null when we go online.
 	if (iframeContentDocument == null) {
+		// This is here so things don't break when working offline.
+		// The IFrame contentWindow will NOT be null when we go online.
 		document.getElementById("case-study-iframe").style.height = 2000 + "px";
 	}
 	else {
-		document.getElementById("gallery").style.height = 
-		iframeContentDocument.body.scrollHeight + "px";
-		document.getElementsByClassName("gallery-wrapper")[0].style.height = 
-		iframeContentDocument.body.scrollHeight + "px";
-		document.getElementsByClassName("gallery-segment")[0].style.height = 
-		iframeContentDocument.body.scrollHeight + "px";
+
+		// Force resize gallery elements along with Case Study elements
+		// to remove lingering white space.
+		// Considering cropping the out the bottom of the website when 
+		// the Case Study IFrame is active.
+		Force_ResizeGalleryElements_OnShow(iframeContentDocument);
 
 		document.getElementsByClassName("case-study-iframe-wrapper")[0].style.height = 
 		iframeContentDocument.body.scrollHeight + "px";
@@ -96,6 +98,21 @@ function Resize_CaseStudy_IFrame() {
 	// var iframeBodyHeight = document.getElementById("case-study-iframe").contentDocument.body.scrollHeight;
 	// console.log(iframeBodyHeight);
 	// document.getElementById("case-study-iframe").style.height = iframeBodyHeight + "px";
+}
+
+function Force_ResizeGalleryElements_OnHide() {
+	document.getElementById("gallery").style.height = "auto";
+	document.getElementsByClassName("gallery-wrapper")[0].style.height = "auto";
+	document.getElementsByClassName("gallery-segment")[0].style.height = "auto";
+}
+
+function Force_ResizeGalleryElements_OnShow(contentDoc) {
+	document.getElementById("gallery").style.height = 
+	contentDoc.body.scrollHeight + "px";
+	document.getElementsByClassName("gallery-wrapper")[0].style.height = 
+	contentDoc.body.scrollHeight + "px";
+	document.getElementsByClassName("gallery-segment")[0].style.height = 
+	contentDoc.body.scrollHeight + "px";
 }
 
 // Skill Set ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
