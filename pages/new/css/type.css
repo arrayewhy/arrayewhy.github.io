@@ -15,6 +15,10 @@ h1 {
 	font-size: 2rem;
 }
 
+h2 {
+	font-size: 1.25rem;
+}
+
 b {
 	font-weight: 500;
 }
@@ -27,3 +31,21 @@ b {
 	font-family: "Roboto", sans-serif;
 	letter-spacing: 0.015625rem;
 }*/
+
+/* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+@media (max-width: 800px) {
+
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	h2 {
+		font-size: 1rem;
+	}
+
+	p {
+		font-size: .85rem;
+		line-height: 1rem;
+	}
+}

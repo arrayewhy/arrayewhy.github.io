@@ -38,14 +38,19 @@ while I am not sure about this method. */
 /* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 @media (max-width: 800px) {
+
 	#case-study {
 		width: 100%;
 /*		padding: 0 1rem 0 1rem;*/
 	}
 
-	#case-study p, #case-study h2 {
-		padding: 2rem;
+	#case-study p, #case-study h1, #case-study h2 {
+		padding: 1rem 1.5rem 1rem 1.5rem;
 		box-sizing: border-box;
-/*		background-color: orange;*/
+	}
+
+	#case-study img, #case-study video {
+		padding: 1rem 0 1rem 0;
+		box-sizing: border-box;
 	}
 }
