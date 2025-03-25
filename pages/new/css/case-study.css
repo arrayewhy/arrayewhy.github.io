@@ -25,11 +25,27 @@ while I am not sure about this method. */
 	width: 100%;
 }
 
+#case-study h1, #case-study h2 {
+	padding: 4rem 0 4rem 0;
+	box-sizing: border-box;
+}
+
+#case-study p {
+	padding: 4rem 6rem 4rem 6rem;
+	box-sizing: border-box;
+}
+
 /* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 @media (max-width: 800px) {
 	#case-study {
 		width: 100%;
-		padding: 0 1rem 0 1rem;
+/*		padding: 0 1rem 0 1rem;*/
+	}
+
+	#case-study p, #case-study h2 {
+		padding: 2rem;
+		box-sizing: border-box;
+/*		background-color: orange;*/
 	}
 }

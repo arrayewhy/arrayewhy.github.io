@@ -44,7 +44,8 @@ var _caseStudyActive = false;
 
 function Init_CaseStudy() {
 	window.onresize = function() { Resize_CaseStudy_IFrame(); }
-	document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
+	// document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
+	document.getElementById("home-btn").onclick = function() { Hide_CaseStudy(); }
 }
 
 function Show_CaseStudy() {
@@ -82,7 +83,7 @@ function Resize_CaseStudy_IFrame() {
 	// document.getElementById("case-study-iframe").style.height = iframeBodyHeight + "px";
 }
 
-// Tool Box ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// Skill Set ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 function Init_SkillIcons() {
 	// Get Skill Elements as Array
