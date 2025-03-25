@@ -57,13 +57,21 @@ function Hide_CaseStudy() {
 
 function Resize_CaseStudy_IFrame() {
 
+	var iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
+
 	// This is here so things don't break when working offline.
 	// The IFrame contentWindow will NOT be null when we go online.
-	if (document.getElementById("case-study-iframe").contentDocument == null) { return; }
+	if (iframeContentDocument == null) {
+		document.getElementById("case-study-iframe").style.height = 2000 + "px";
+	}
+	else {
+		document.getElementById("case-study-iframe").style.height = 
+		iframeContentDocument.body.scrollHeight + "px";
+	}
 
-	var iframeBodyHeight = document.getElementById("case-study-iframe").contentDocument.body.scrollHeight;
-	console.log(iframeBodyHeight);
-	document.getElementById("case-study-iframe").style.height = iframeBodyHeight + "px";
+	// var iframeBodyHeight = document.getElementById("case-study-iframe").contentDocument.body.scrollHeight;
+	// console.log(iframeBodyHeight);
+	// document.getElementById("case-study-iframe").style.height = iframeBodyHeight + "px";
 }
 
 // Tool Box ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
