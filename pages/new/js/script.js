@@ -59,7 +59,7 @@ function Show_CaseStudy() {
 function Hide_CaseStudy() {
 	_caseStudyActive = false;
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "0";
-	document.getElementById("case-study-iframe-wrapper").style.height = "0";
+	document.getElementsByClassName("case-study-iframe-wrapper")[0].style.height = "0";
 	document.getElementById("case-study-iframe").style.height = "0";
 }
 
@@ -75,7 +75,7 @@ function Resize_CaseStudy_IFrame() {
 		document.getElementById("case-study-iframe").style.height = 2000 + "px";
 	}
 	else {
-		document.getElementById("case-study-iframe-wrapper").style.height = 
+		document.getElementsByClassName("case-study-iframe-wrapper")[0].style.height = 
 		iframeContentDocument.body.scrollHeight + "px";
 		document.getElementById("case-study-iframe").style.height = 
 		iframeContentDocument.body.scrollHeight + "px";
