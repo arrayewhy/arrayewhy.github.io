@@ -62,6 +62,7 @@ function Resize_CaseStudy_IFrame() {
 	if (document.getElementById("case-study-iframe").contentDocument == null) { return; }
 
 	var iframeBodyHeight = document.getElementById("case-study-iframe").contentDocument.body.scrollHeight;
+	console.log(iframeBodyHeight);
 	document.getElementById("case-study-iframe").style.height = iframeBodyHeight + "px";
 }
 
