@@ -1,0 +1,20 @@
+body.case-study {
+	background-color: orange;
+	overflow: hidden;
+}
+
+/* Hide Scrollbar: */
+/* I opted to hide the overflow instead since that is proven to be reliable,
+while I am not sure about this method. */
+
+/*body.case-study::-webkit-scrollbar {
+  display: none;
+}*/
+
+body.case-study img {
+	width: 100%;
+}
+
+body.case-study video {
+	width: 100%;
+}

@@ -1,11 +1,12 @@
 @import "css-reset.css";
+@import "type.css";
 @import "variables.css";
 @import "gallery.css";
+@import "case-study.css";
 @import "thoughts.css";
-@import "type.css";
+@import "skillset.css"; /* Skills */
 @import "standard-frame.css";
-@import "tools.css";
-@import "toolbox.css";
+@import "tools.css"; /* Preset classes */
 
 /* Built-in ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 

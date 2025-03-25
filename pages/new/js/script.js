@@ -40,24 +40,31 @@ function Hide_Description(desc) {
 
 // Case Study
 
+var _caseStudyActive = false;
+
 function Init_CaseStudy() {
 	window.onresize = function() { Resize_CaseStudy_IFrame(); }
 	document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
 }
 
 function Show_CaseStudy() {
+	_caseStudyActive = true;
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "-100%";
 	// Resize after 1 Second
-	const myTimeout = setTimeout(Resize_CaseStudy_IFrame, 1000);
+	const resizeDelay = 1000;
+	const myTimeout = setTimeout(Resize_CaseStudy_IFrame, resizeDelay);
 }
 
 function Hide_CaseStudy() {
+	_caseStudyActive = false;
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "0";
 	document.getElementById("case-study-iframe").style.height = "0";
 }
 
 function Resize_CaseStudy_IFrame() {
-	console.log("Resizing");
+
+	if (!_caseStudyActive) { return; }
+
 	var iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
 
 	// This is here so things don't break when working offline.
