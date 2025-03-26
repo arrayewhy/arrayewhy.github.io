@@ -41,6 +41,9 @@ footer {
 	right: auto;
 }
 
+/* We control the position of the home button by resizing this <div>,
+since there is no simple way to make the home button animate 
+from "left: 0" to "right: 0". */
 .home-btn-positioner {
 /*	width: 100%;*/
 	width: 4rem;
