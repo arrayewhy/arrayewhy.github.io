@@ -51,6 +51,11 @@ function Init_CaseStudy() {
 function Show_CaseStudy() {
 	_caseStudyActive = true;
 	document.getElementsByClassName("gallery-wrapper")[0].style.left = "-100%";
+	// Home Button
+	document.getElementsByClassName("home-btn-positioner")[0].style.width = "100%";
+	document.getElementById("logo-r").style.left = "-2rem";
+	document.getElementsByClassName("back-icon")[0].style.left = "0";
+	document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "transparent";
 	// Resize after 1 Second
 	const resizeDelay = 1000;
 	const myTimeout = setTimeout(Resize_CaseStudy_IFrame, resizeDelay);
@@ -68,6 +73,11 @@ function Hide_CaseStudy() {
 
 	document.getElementsByClassName("case-study-iframe-wrapper")[0].style.height = "0";
 	document.getElementById("case-study-iframe").style.height = "0";
+	// Home Button
+	document.getElementsByClassName("home-btn-positioner")[0].style.width = "4rem";
+	document.getElementById("logo-r").style.left = "0";
+	document.getElementsByClassName("back-icon")[0].style.left = "2rem";
+	document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "yellow";
 }
 
 function Resize_CaseStudy_IFrame() {
