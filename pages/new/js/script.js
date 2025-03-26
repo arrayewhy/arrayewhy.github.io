@@ -1,6 +1,7 @@
 const galleryWrapper = document.getElementsByClassName("gallery-wrapper")[0];
 const homeBtnPositioner = document.getElementsByClassName("home-btn-positioner")[0];
 const caseStudyIFrame_Wrapper = document.getElementsByClassName("case-study-iframe-wrapper")[0];
+const caseStudyIFrame = document.getElementById("case-study-iframe");
 const iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
 const backIcon = document.getElementsByClassName("back-icon")[0];
 
@@ -78,7 +79,7 @@ function Hide_CaseStudy() {
 	Force_ResizeGalleryElements_OnHide();
 
 	caseStudyIFrame_Wrapper.style.height = "0";
-	document.getElementById("case-study-iframe").style.height = "0";
+	caseStudyIFrame.style.height = "0";
 	// Home Button
 	homeBtnPositioner.style.width = "4rem";
 	document.getElementById("logo-r").style.left = "0";
@@ -93,7 +94,7 @@ function Resize_CaseStudy_IFrame() {
 	if (iframeContentDocument == null) {
 		// This is here so things don't break when working offline.
 		// The IFrame contentWindow will NOT be null when we go online.
-		document.getElementById("case-study-iframe").style.height = 2000 + "px";
+		caseStudyIFrame.style.height = 2000 + "px";
 	}
 	else {
 
@@ -105,13 +106,13 @@ function Resize_CaseStudy_IFrame() {
 
 		caseStudyIFrame_Wrapper.style.height = 
 		iframeContentDocument.body.scrollHeight + "px";
-		document.getElementById("case-study-iframe").style.height = 
+		caseStudyIFrame.style.height = 
 		iframeContentDocument.body.scrollHeight + "px";
 	}
 
-	// var iframeBodyHeight = document.getElementById("case-study-iframe").contentDocument.body.scrollHeight;
+	// var iframeBodyHeight = caseStudyIFrame.contentDocument.body.scrollHeight;
 	// console.log(iframeBodyHeight);
-	// document.getElementById("case-study-iframe").style.height = iframeBodyHeight + "px";
+	// caseStudyIFrame.style.height = iframeBodyHeight + "px";
 }
 
 function Force_ResizeGalleryElements_OnHide() {
