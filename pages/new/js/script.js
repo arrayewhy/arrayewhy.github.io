@@ -81,7 +81,9 @@ function Hide_CaseStudy() {
 	caseStudyIFrame_Wrapper.style.height = "0";
 	caseStudyIFrame.style.height = "0";
 	// Home Button
-	homeBtnPositioner.style.width = "4rem";
+	if (window.innerWidth <= 800) {
+		homeBtnPositioner.style.width = "4rem";
+	}
 	document.getElementById("logo-r").style.left = "0";
 	backIcon.style.left = "4rem";
 	document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "yellow";

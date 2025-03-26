@@ -45,8 +45,8 @@ footer {
 since there is no simple way to make the home button animate 
 from "left: 0" to "right: 0". */
 .home-btn-positioner {
-/*	width: 100%;*/
-	width: 4rem;
+	width: 100%;
+/*	width: 4rem;*/
 	height: 100%;
 /*	background-color: orange;*/
 
@@ -155,8 +155,7 @@ from "left: 0" to "right: 0". */
 /* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 @media (max-width: 800px) {
-	/*#home-btn {
-		left: auto;
-		right: 0;
-	}*/
+	.home-btn-positioner {
+		width: 4rem;
+	}
 }
