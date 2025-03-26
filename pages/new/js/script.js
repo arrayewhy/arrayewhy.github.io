@@ -1,3 +1,9 @@
+const galleryWrapper = document.getElementsByClassName("gallery-wrapper")[0];
+const homeBtnPositioner = document.getElementsByClassName("home-btn-positioner")[0];
+const caseStudyIFrame_Wrapper = document.getElementsByClassName("case-study-iframe-wrapper")[0];
+const iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
+const backIcon = document.getElementsByClassName("back-icon")[0];
+
 function Start() {
 	Init_GalleryElems();
 	Init_SkillIcons();
@@ -50,11 +56,11 @@ function Init_CaseStudy() {
 
 function Show_CaseStudy() {
 	_caseStudyActive = true;
-	document.getElementsByClassName("gallery-wrapper")[0].style.left = "-100%";
+	galleryWrapper.style.left = "-100%";
 	// Home Button
-	document.getElementsByClassName("home-btn-positioner")[0].style.width = "100%";
+	homeBtnPositioner.style.width = "100%";
 	document.getElementById("logo-r").style.left = "-2rem";
-	document.getElementsByClassName("back-icon")[0].style.left = "0";
+	backIcon.style.left = "0";
 	document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "transparent";
 	// Resize after 1 Second
 	const resizeDelay = 1000;
@@ -63,7 +69,7 @@ function Show_CaseStudy() {
 
 function Hide_CaseStudy() {
 	_caseStudyActive = false;
-	document.getElementsByClassName("gallery-wrapper")[0].style.left = "0";
+	galleryWrapper.style.left = "0";
 
 	// Force resize gallery elements along with Case Study elements
 	// to remove lingering white space.
@@ -71,20 +77,18 @@ function Hide_CaseStudy() {
 	// the Case Study IFrame is active.	
 	Force_ResizeGalleryElements_OnHide();
 
-	document.getElementsByClassName("case-study-iframe-wrapper")[0].style.height = "0";
+	caseStudyIFrame_Wrapper.style.height = "0";
 	document.getElementById("case-study-iframe").style.height = "0";
 	// Home Button
-	document.getElementsByClassName("home-btn-positioner")[0].style.width = "4rem";
+	homeBtnPositioner.style.width = "4rem";
 	document.getElementById("logo-r").style.left = "0";
-	document.getElementsByClassName("back-icon")[0].style.left = "4rem";
+	backIcon.style.left = "4rem";
 	document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "yellow";
 }
 
 function Resize_CaseStudy_IFrame() {
 
 	if (!_caseStudyActive) { return; }
-
-	var iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
 
 	if (iframeContentDocument == null) {
 		// This is here so things don't break when working offline.
@@ -99,7 +103,7 @@ function Resize_CaseStudy_IFrame() {
 		// the Case Study IFrame is active.
 		Force_ResizeGalleryElements_OnShow(iframeContentDocument);
 
-		document.getElementsByClassName("case-study-iframe-wrapper")[0].style.height = 
+		caseStudyIFrame_Wrapper.style.height = 
 		iframeContentDocument.body.scrollHeight + "px";
 		document.getElementById("case-study-iframe").style.height = 
 		iframeContentDocument.body.scrollHeight + "px";
@@ -112,14 +116,14 @@ function Resize_CaseStudy_IFrame() {
 
 function Force_ResizeGalleryElements_OnHide() {
 	document.getElementById("gallery").style.height = "auto";
-	document.getElementsByClassName("gallery-wrapper")[0].style.height = "auto";
+	galleryWrapper.style.height = "auto";
 	document.getElementsByClassName("gallery-segment")[0].style.height = "auto";
 }
 
 function Force_ResizeGalleryElements_OnShow(contentDoc) {
 	document.getElementById("gallery").style.height = 
 	contentDoc.body.scrollHeight + "px";
-	document.getElementsByClassName("gallery-wrapper")[0].style.height = 
+	galleryWrapper.style.height = 
 	contentDoc.body.scrollHeight + "px";
 	document.getElementsByClassName("gallery-segment")[0].style.height = 
 	contentDoc.body.scrollHeight + "px";
