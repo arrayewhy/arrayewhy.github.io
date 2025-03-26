@@ -171,6 +171,8 @@
 @media (max-width: 1024px) {
 	.gallery-elem.normal {
 		max-width: 50%; /* Split the gallery into 2 columns on Tablets */
+/*		max-width: 0;*/
+/*		min-width: 50%;*/
 	}
 	.gallery-elem.feature {
 		width: 100%; /* Disable feature expanding on Tablets and Phones */
