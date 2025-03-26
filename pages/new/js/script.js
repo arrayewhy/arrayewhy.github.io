@@ -76,7 +76,7 @@ function Hide_CaseStudy() {
 	// Home Button
 	document.getElementsByClassName("home-btn-positioner")[0].style.width = "4rem";
 	document.getElementById("logo-r").style.left = "0";
-	document.getElementsByClassName("back-icon")[0].style.left = "2rem";
+	document.getElementsByClassName("back-icon")[0].style.left = "4rem";
 	document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "yellow";
 }
 

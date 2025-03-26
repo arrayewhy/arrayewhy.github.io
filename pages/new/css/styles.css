@@ -90,7 +90,7 @@ from "left: 0" to "right: 0". */
 	background-repeat: no-repeat;
 
 	position: absolute;
-	left: 2rem;
+	left: 4rem;
 
 	transition: 1s ease-out;
 }
