@@ -15,7 +15,7 @@ nav {
 	height: 4rem;
 /*	background-color: orangered;*/
 
-/*	margin-bottom: 4rem;*/
+/*	margin-bottom: 1rem;*/
 	position: relative;
 }
 
@@ -39,6 +39,8 @@ footer {
 	position: absolute;
 	left: 0;
 	right: auto;
+
+	cursor: pointer;
 }
 
 /* We control the position of the home button by resizing this <div>,
@@ -53,7 +55,7 @@ from "left: 0" to "right: 0". */
 	position: absolute;
 	right: 0;
 
-	transition: 1s ease-in-out;
+	transition: 1.25s ease-in-out;
 }
 
 /* Logo ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/

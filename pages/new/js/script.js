@@ -62,7 +62,7 @@ function Show_CaseStudy() {
 	homeBtnPositioner.style.width = "100%";
 	document.getElementById("logo-r").style.left = "-2rem";
 	backIcon.style.left = "0";
-	document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "transparent";
+	// document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "transparent";
 	// Resize after 1 Second
 	const resizeDelay = 1000;
 	const myTimeout = setTimeout(Resize_CaseStudy_IFrame, resizeDelay);
@@ -86,7 +86,7 @@ function Hide_CaseStudy() {
 	}
 	document.getElementById("logo-r").style.left = "0";
 	backIcon.style.left = "4rem";
-	document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "yellow";
+	// document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "yellow";
 }
 
 function Resize_CaseStudy_IFrame() {

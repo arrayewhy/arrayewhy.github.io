@@ -1,5 +1,8 @@
 #gallery {
 	width: 100%;
+/*	background-color: orange;*/
+
+	margin: .5rem 0 .5rem 0;
 
 	/*padding: 2rem 0 2rem 0;
 	box-sizing: border-box;*/
@@ -50,6 +53,8 @@
 	padding: 1rem;
 	margin: .5rem;
 	box-sizing: border-box;
+
+	cursor: pointer;
 }
 
 .gallery-elem .description {
