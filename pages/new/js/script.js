@@ -29,8 +29,7 @@ function Init_GalleryElem(elem) {
 	elem.onmouseenter = function() { Show_Description(desc); }
 	elem.onmouseleave = function() { Hide_Description(desc); }
 
-	// Hook up the Case Study functions
-	elem.onclick = function() { Show_CaseStudy(); }
+	Hook_CaseStudyFunctions_To_GalleryElem(elem);
 }
 
 // Descriptions
@@ -51,8 +50,22 @@ var _caseStudyActive = false;
 
 function Init_CaseStudy() {
 	window.onresize = function() { Resize_CaseStudy_IFrame(); }
-	// document.getElementsByClassName("back-button")[0].onclick = function() { Hide_CaseStudy(); }
 	document.getElementById("home-btn").onclick = function() { Hide_CaseStudy(); }
+}
+
+function Hook_CaseStudyFunctions_To_GalleryElem(elem) {
+	if (elem.id != "") {
+		elem.onclick = function() { 
+			SetIFrameSource_And_ShowCaseStudy("pages/" + elem.id + ".html"); 
+		}
+		return;
+	}
+	console.error("No ID on Gallery Element.");
+}
+
+function SetIFrameSource_And_ShowCaseStudy(iFrameSrc) {
+	Set_IFrameSource(iFrameSrc);
+	Show_CaseStudy();
 }
 
 function Show_CaseStudy() {
@@ -132,11 +145,15 @@ function Force_ResizeGalleryElements_OnShow(contentDoc) {
 	contentDoc.body.scrollHeight + "px";
 }
 
+function Set_IFrameSource(iFrameSrc) {
+	caseStudyIFrame.src = iFrameSrc;
+}
+
 // Skill Set ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 function Init_SkillIcons() {
 	// Get Skill Elements as Array
-	var skillElems = 
+	const skillElems = 
 	Array.from(document.getElementsByClassName("skill"));
 	// Initialise each one
 	skillElems.forEach(Init_SkillIcon);
@@ -144,7 +161,7 @@ function Init_SkillIcons() {
 
 function Init_SkillIcon(elem) {
 	// Convert the element to an Array, and grab the Description Object
-	var elemChildren = Array.from(elem.childNodes);
+	const elemChildren = Array.from(elem.childNodes);
 	elem.onmouseenter = function() { Enable_SkillIcon(elem); }
 	elem.onmouseleave = function() { Disable_SkillIcon(elem); }
 }
