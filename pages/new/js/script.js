@@ -4,18 +4,11 @@ const backIcon = document.getElementsByClassName("back-icon")[0];
 const iconMainCont = document.getElementsByClassName("icon-main-cont")[0];
 // Variables: Gallery
 const gallery = document.getElementById("gallery");
-	console.log(gallery);
 const galleryWrapper = document.getElementsByClassName("gallery-wrapper")[0];
-	console.log(galleryWrapper);
 const rotationRange = 5;
 // Variables: Case Study
 const caseStudyIFrame_Wrapper = document.getElementsByClassName("case-study-iframe-wrapper")[0];
-	console.log(caseStudyIFrame_Wrapper);
 const caseStudyIFrame = document.getElementById("case-study-iframe");
-	console.log(caseStudyIFrame);
-// const iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
-	// console.log(iframeContentDocument);
-console.log("BABOI!");
 
 // Start ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
