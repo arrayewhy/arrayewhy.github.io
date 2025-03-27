@@ -3,6 +3,7 @@ const homeBtnPositioner = document.getElementsByClassName("home-btn-positioner")
 const backIcon = document.getElementsByClassName("back-icon")[0];
 const iconMainCont = document.getElementsByClassName("icon-main-cont")[0];
 // Variables: Gallery
+const gallery = document.getElementById("gallery");
 const galleryWrapper = document.getElementsByClassName("gallery-wrapper")[0];
 const rotationRange = 5;
 // Variables: Case Study
@@ -120,6 +121,7 @@ function Hide_CaseStudy() {
 
 function Resize_CaseStudy_IFrame() {
 
+	// Resize only if Case Study is active
 	if (!_caseStudyActive) { return; }
 
 	if (iframeContentDocument == null) {
@@ -136,9 +138,9 @@ function Resize_CaseStudy_IFrame() {
 		Force_ResizeGalleryElements_OnShow(iframeContentDocument);
 
 		caseStudyIFrame_Wrapper.style.height = 
-		iframeContentDocument.body.scrollHeight + "px";
+			iframeContentDocument.body.scrollHeight + "px";
 		caseStudyIFrame.style.height = 
-		iframeContentDocument.body.scrollHeight + "px";
+			iframeContentDocument.body.scrollHeight + "px";
 	}
 
 	// var iframeBodyHeight = caseStudyIFrame.contentDocument.body.scrollHeight;
@@ -147,18 +149,18 @@ function Resize_CaseStudy_IFrame() {
 }
 
 function Force_ResizeGalleryElements_OnHide() {
-	document.getElementById("gallery").style.height = "auto";
+	gallery.style.height = "auto";
 	galleryWrapper.style.height = "auto";
 	document.getElementsByClassName("gallery-segment")[0].style.height = "auto";
 }
 
 function Force_ResizeGalleryElements_OnShow(contentDoc) {
-	document.getElementById("gallery").style.height = 
-	contentDoc.body.scrollHeight + "px";
+	gallery.style.height = 
+		contentDoc.body.scrollHeight + "px";
 	galleryWrapper.style.height = 
-	contentDoc.body.scrollHeight + "px";
+		contentDoc.body.scrollHeight + "px";
 	document.getElementsByClassName("gallery-segment")[0].style.height = 
-	contentDoc.body.scrollHeight + "px";
+		contentDoc.body.scrollHeight + "px";
 }
 
 function Set_IFrameSource(iFrameSrc) {
