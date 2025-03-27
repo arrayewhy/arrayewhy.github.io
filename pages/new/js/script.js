@@ -13,9 +13,9 @@ const caseStudyIFrame_Wrapper = document.getElementsByClassName("case-study-ifra
 	console.log(caseStudyIFrame_Wrapper);
 const caseStudyIFrame = document.getElementById("case-study-iframe");
 	console.log(caseStudyIFrame);
-const iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
-	console.log(iframeContentDocument);
-console.log("Halibuba");
+// const iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
+	// console.log(iframeContentDocument);
+console.log("BABOI!");
 
 // Start ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -130,7 +130,10 @@ function Resize_CaseStudy_IFrame() {
 	// Resize only if Case Study is active
 	if (!_caseStudyActive) { return; }
 
-	if (iframeContentDocument == null) {
+	const contentDoc = 
+		document.getElementById("case-study-iframe").contentDocument;
+
+	if (contentDoc == null) {
 		// This is here so things don't break when working offline.
 		// The IFrame contentWindow will NOT be null when we go online.
 		caseStudyIFrame.style.height = 2000 + "px";
@@ -141,12 +144,12 @@ function Resize_CaseStudy_IFrame() {
 		// to remove lingering white space.
 		// Considering cropping the out the bottom of the website when 
 		// the Case Study IFrame is active.
-		Force_ResizeGalleryElements_OnShow(iframeContentDocument);
+		Force_ResizeGalleryElements_OnShow(contentDoc);
 
 		caseStudyIFrame_Wrapper.style.height = 
-			iframeContentDocument.body.scrollHeight + "px";
+			contentDoc.body.scrollHeight + "px";
 		caseStudyIFrame.style.height = 
-			iframeContentDocument.body.scrollHeight + "px";
+			contentDoc.body.scrollHeight + "px";
 	}
 
 	// var iframeBodyHeight = caseStudyIFrame.contentDocument.body.scrollHeight;
