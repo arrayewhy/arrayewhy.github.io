@@ -84,12 +84,12 @@
 	z-index: 1;
 
 	/* Typography */
-	font-family: "Roboto", sans-serif;
-/*	font-weight: 700;*/
+	
+	/*font-family: "Roboto", sans-serif;
 	letter-spacing: .0625rem;
 	font-size: .5rem;
 	color: var(--accent-color);
-	text-transform: uppercase;
+	text-transform: uppercase;*/
 
 	opacity: 0;
 	transition: .25s ease-in-out;

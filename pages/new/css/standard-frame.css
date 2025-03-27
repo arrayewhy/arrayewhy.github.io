@@ -1,14 +1,65 @@
-.standard-frame {
+.standard-frame-wrapper {
 	width: 100%;
+/*	height: auto;*/
+/*	background-color: beige;*/
 
-	padding: 12rem 4rem 12rem 4rem;
+/*	display: flex;*/
+
+/*	padding: 12rem 4rem 12rem 4rem;*/
+	padding: 20vw 2rem 20vw 2rem;
+	box-sizing: border-box;
+
+	display: flex;
+	justify-content: center;
 
 /*	border: 1px solid var(--accent-color);*/
+
+/*	overflow: hidden;*/
 }
 
-@media (max-width: 512px) {
+.standard-frame {
+/*	width: 100%;*/
+	width: fit-content;
+	height: auto;
+/*	min-width: 75%;*/
+/*	background-color: white;*/
+
+	border: solid 1px var(--light-grey);
+
+	padding: 2rem;
+/*	margin: 8rem 1rem 8rem 1rem;*/
+	border-radius: 1rem;
+	box-sizing: border-box;
+
+	display: flex;
+/*	justify-content: center;*/
+	justify-content: left;
+	flex-wrap: wrap;
+
+	position: relative;
+}
+
+.standard-frame .frame-title {
+	height: 1.5rem;
+	background-color: black;
+
+	display: flex;
+	align-items: center;
+
+	padding: 0 .75rem 0 .75rem;
+	border-radius: .5rem;
+
+	position: absolute;
+	top: -.75rem;
+	z-index: 1;
+
+	color: white;
+}
+
+/* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+@media (max-width: 800px) {
 	.standard-frame {
-		padding: 2rem 1.5rem 2rem 1.5rem;
-		box-sizing: border-box;
+		justify-content: center;
 	}
 }

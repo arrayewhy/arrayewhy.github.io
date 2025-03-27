@@ -27,10 +27,14 @@ b {
 	font-size: .75rem;
 }
 
-/*.roboto {
+.tiny-roboto {
 	font-family: "Roboto", sans-serif;
-	letter-spacing: 0.015625rem;
-}*/
+/*	font-weight: 700;*/
+	letter-spacing: .0625rem;
+	font-size: .5rem;
+/*	color: var(--accent-color);*/
+	text-transform: uppercase;
+}
 
 /* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
