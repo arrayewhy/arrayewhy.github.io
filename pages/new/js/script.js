@@ -86,7 +86,6 @@ function SetIFrameSource_And_ShowCaseStudy(iFrameSrc) {
 }
 
 function Show_CaseStudy() {
-	console.log("Show Case Study");
 	_caseStudyActive = true;
 	galleryWrapper.style.left = "-100%";
 	// Home Button
@@ -124,7 +123,7 @@ function Resize_CaseStudy_IFrame() {
 
 	// Resize only if Case Study is active
 	if (!_caseStudyActive) { return; }
-
+	console.log("Resizing");
 	if (iframeContentDocument == null) {
 		// This is here so things don't break when working offline.
 		// The IFrame contentWindow will NOT be null when we go online.
