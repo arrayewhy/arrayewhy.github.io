@@ -6,7 +6,7 @@ const iconMainCont = document.getElementsByClassName("icon-main-cont")[0];
 // Variables: Gallery
 const gallery = document.getElementById("gallery");
 const galleryWrapper = document.getElementsByClassName("gallery-wrapper")[0];
-const rotationRange = 5;
+// const rotationRange = 1;
 // Variables: Case Study
 const caseStudyIFrame_Wrapper = document.getElementsByClassName("case-study-iframe-wrapper")[0];
 const caseStudyIFrame = document.getElementById("case-study-iframe");
@@ -32,6 +32,9 @@ function Init_GalleryElems() {
 }
 
 function Init_GalleryElem(elem) {
+
+	elem.classList.add("shadow");
+
 	// Convert the element to an Array, and grab the Description Object
 	var desc = Array.from(elem.childNodes)[1];
 
@@ -177,16 +180,17 @@ function Set_IFrameSource(iFrameSrc) {
 function Init_SkillIcons() {
 	// Get Skill Elements as Array
 	const skillElems = 
-	Array.from(document.getElementsByClassName("skill"));
+		Array.from(document.getElementsByClassName("skill"));
 	// Initialise each one
 	skillElems.forEach(Init_SkillIcon);
 }
 
 function Init_SkillIcon(elem) {
+	elem.classList.add("shadow");
 	// Convert the element to an Array, and grab the Description Object
-	const elemChildren = Array.from(elem.childNodes);
-	elem.onmouseenter = function() { Enable_SkillIcon(elem); }
-	elem.onmouseleave = function() { Disable_SkillIcon(elem); }
+	// const elemChildren = Array.from(elem.childNodes);
+	// elem.onmouseenter = function() { Enable_SkillIcon(elem); }
+	// elem.onmouseleave = function() { Disable_SkillIcon(elem); }
 }
 
 function Enable_SkillIcon (elem) {

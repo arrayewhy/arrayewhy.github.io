@@ -18,3 +18,8 @@
 
 .invert-scale-x { transform: scaleX(-1); }
 .invert-scale-y { transform: scaleY(-1); }
+
+/* Shadow ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.shadow { box-shadow: none; }
+.shadow:hover { box-shadow: 0 .25rem .25rem rgba(0, 0, 0, .125); }
