@@ -71,7 +71,7 @@ from "left: 0" to "right: 0". */
 	justify-content: center;
 	align-items: center;
 
-	transition: 1s ease-in-out;
+	transition: .25s ease-in-out;
 }
 
 .icon-inner-cont {
@@ -94,7 +94,7 @@ from "left: 0" to "right: 0". */
 	position: absolute;
 	left: 4rem;
 
-	transition: 1s ease-out;
+	transition: .25s ease-out;
 }
 
 #logo-r {
@@ -117,7 +117,7 @@ from "left: 0" to "right: 0". */
 	display: flex;
 	flex-wrap: wrap;
 
-	transition: 1s ease-out;
+	transition: .25s ease-out;
 }
 
 #logo-r #top {
