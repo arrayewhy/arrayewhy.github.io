@@ -1,9 +1,18 @@
-const galleryWrapper = document.getElementsByClassName("gallery-wrapper")[0];
+// Variables: Home Button
 const homeBtnPositioner = document.getElementsByClassName("home-btn-positioner")[0];
+const backIcon = document.getElementsByClassName("back-icon")[0];
+const iconMainCont = document.getElementsByClassName("icon-main-cont")[0];
+// Variables: Gallery
+const galleryWrapper = document.getElementsByClassName("gallery-wrapper")[0];
+const rotationRange = 5;
+// Variables: Case Study
 const caseStudyIFrame_Wrapper = document.getElementsByClassName("case-study-iframe-wrapper")[0];
 const caseStudyIFrame = document.getElementById("case-study-iframe");
 const iframeContentDocument = document.getElementById("case-study-iframe").contentDocument;
-const backIcon = document.getElementsByClassName("back-icon")[0];
+
+// Start ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+window.onload = Start();
 
 function Start() {
 	Init_GalleryElems();
@@ -26,8 +35,15 @@ function Init_GalleryElem(elem) {
 	var desc = Array.from(elem.childNodes)[1];
 
 	// Hook up the Description functions
-	elem.onmouseenter = function() { Show_Description(desc); }
-	elem.onmouseleave = function() { Hide_Description(desc); }
+	elem.onmouseenter = function() {
+		Show_Description(desc);
+		// elem.style.rotate = 
+			// Math.random() * (rotationRange - (-rotationRange) + 1) + (-rotationRange) + "deg";
+	}
+	elem.onmouseleave = function() {
+		Hide_Description(desc);
+		// elem.style.rotate = "0deg";
+	}
 
 	Hook_CaseStudyFunctions_To_GalleryElem(elem);
 }
@@ -75,7 +91,7 @@ function Show_CaseStudy() {
 	homeBtnPositioner.style.width = "100%";
 	document.getElementById("logo-r").style.left = "-2rem";
 	backIcon.style.left = "0";
-	// document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "transparent";
+	// iconMainCont.style.backgroundColor = "transparent";
 	// Resize after 1 Second
 	const resizeDelay = 1000;
 	const myTimeout = setTimeout(Resize_CaseStudy_IFrame, resizeDelay);
@@ -99,7 +115,7 @@ function Hide_CaseStudy() {
 	}
 	document.getElementById("logo-r").style.left = "0";
 	backIcon.style.left = "4rem";
-	// document.getElementsByClassName("icon-main-cont")[0].style.backgroundColor = "yellow";
+	// iconMainCont.style.backgroundColor = "yellow";
 }
 
 function Resize_CaseStudy_IFrame() {
