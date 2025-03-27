@@ -123,11 +123,12 @@ function Resize_CaseStudy_IFrame() {
 
 	// Resize only if Case Study is active
 	if (!_caseStudyActive) { return; }
-	console.log("Resizing");
+
 	if (iframeContentDocument == null) {
 		// This is here so things don't break when working offline.
 		// The IFrame contentWindow will NOT be null when we go online.
 		caseStudyIFrame.style.height = 2000 + "px";
+		console.log("No IFrame Content");
 	}
 	else {
 
