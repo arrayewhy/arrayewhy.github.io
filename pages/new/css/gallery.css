@@ -59,11 +59,14 @@
 
 	cursor: pointer;
 
+	box-shadow: none;
+
 	transition: .125s ease-out;
 }
 
 .gallery-elem.normal:hover {
 	bottom: .5rem;
+	box-shadow: 0 .25rem .25rem rgba(0, 0, 0, .125);
 }
 
 .gallery-elem .description {
@@ -75,7 +78,7 @@
 	box-sizing: border-box;
 
 	position: absolute;
-	top: -50px;
+	top: 0;
 	right: 0;
 	z-index: 1;
 
