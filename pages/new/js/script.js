@@ -106,7 +106,7 @@ function Show_CaseStudy() {
 	homeBtnPositioner.style.width = "100%";
 	document.getElementById("logo-r").style.left = "-2rem";
 	backIcon.style.left = "0";
-	iconMainCont.style.backgroundColor = "transparent";
+	iconMainCont.style.backgroundColor = "yellow";
 	// Resize after 1 Second
 	const resizeDelay = 1000;
 	const myTimeout = setTimeout(Resize_CaseStudy_IFrame, resizeDelay);
@@ -130,7 +130,7 @@ function Hide_CaseStudy() {
 	}
 	document.getElementById("logo-r").style.left = "0";
 	backIcon.style.left = "4rem";
-	iconMainCont.style.backgroundColor = "yellow";
+	iconMainCont.style.backgroundColor = "transparent";
 
 	// Set_PageTopCol("white");
 }
