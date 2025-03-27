@@ -1,3 +1,4 @@
+const pageTop = document.getElementById("page-top");
 // Variables: Home Button
 const homeBtn = document.getElementById("home-btn");
 const homeBtnPositioner = document.getElementsByClassName("home-btn-positioner")[0];
@@ -20,6 +21,10 @@ function Start() {
 	Init_SkillIcons();
 	Init_CaseStudy();
 }
+
+// function Set_PageTopCol(col) {
+// 	pageTop.style.backgroundColor = col;
+// }
 
 // Gallery ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -79,6 +84,10 @@ function Hook_CaseStudyFunctions_To_GalleryElem(elem) {
 	if (elem.id != "") {
 		elem.onclick = function() { 
 			SetIFrameSource_And_ShowCaseStudy("pages/" + elem.id + ".html"); 
+
+			// if (elem.id == "case-study-motion-graphics") {
+			// 	Set_PageTopCol("black");
+			// }
 		}
 		return;
 	}
@@ -122,6 +131,8 @@ function Hide_CaseStudy() {
 	document.getElementById("logo-r").style.left = "0";
 	backIcon.style.left = "4rem";
 	iconMainCont.style.backgroundColor = "yellow";
+
+	// Set_PageTopCol("white");
 }
 
 function Resize_CaseStudy_IFrame() {

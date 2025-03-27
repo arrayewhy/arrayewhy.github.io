@@ -21,6 +21,13 @@ footer {
 	width: 100%;
 }
 
+#page-top {
+	width: 100%;
+	height: auto;
+
+	transition: background-color .5s ease-in-out;
+}
+
 /* Intro ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 #intro {

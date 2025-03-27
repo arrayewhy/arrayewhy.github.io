@@ -12,8 +12,8 @@
 
 .skill {
 /*	width: 4rem;*/
-	min-width: 4rem;
-	height: 4rem;
+	min-width: 3rem;
+	height: 3rem;
 	background-color: var(--base-color);
 
 	background-position: center;
@@ -22,7 +22,7 @@
 	position: relative;
 	bottom: 0;
 
-	margin: .25rem;
+	margin: .125rem;
 	border-radius: .5rem;
 	box-sizing: border-box;
 
@@ -38,7 +38,7 @@
 }
 
 .skill:hover {
-	bottom: .5rem;
+	bottom: .25rem;
 	filter: none;
 }
 
