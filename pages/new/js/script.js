@@ -86,6 +86,7 @@ function SetIFrameSource_And_ShowCaseStudy(iFrameSrc) {
 }
 
 function Show_CaseStudy() {
+	console.log("Show Case Study");
 	_caseStudyActive = true;
 	galleryWrapper.style.left = "-100%";
 	// Home Button
