@@ -1,154 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ARRAYEWHY - Online Gallery</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/latest-experiment.css">
-
-	<link rel="stylesheet" type="text/css" href="pages/point-and-click/point-and-click.css">
-	<style type="text/css">
-		#player {
-			top: 0;
-			left: auto;
-			right: 64px;
-		}
-		#player .sprite { cursor: pointer; }
-		.sprite-prepper { position: absolute; right: 0; bottom: 0; display: none; }
-	</style>
-
-	<script src="js/script.js"></script>
-
-	<noscript>
-		<style type="text/css">
-			html { opacity: 1; }
-		</style>
-	</noscript>
-
+	<title>Thoughts and Explorations of Illustrator and Game Developer, Raymond Lee</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
 
-	<div id="nav">
-		<a href="/">
-			<div id="logo-cont">
-				<div id="r">
-					<div id="top"></div>
-					<div id="btm-left"></div>
-					<div id="btm-right"></div>
-				</div>
-			</div>
-			<div id="imp"></div>
-		</a>
-	</div>
+	<div id="page-top">
+		
+		<!-- Navigation -->
 
-	<!-- START: Main Content Section -->
-
-		 <!-- START: Section Buttons  -->
-
-		<div class="sect-btns">
-
-			<a href="pages/illustration.html" id="sect-btn-1">
-				<div class="sect-btn-cont">
-					<div class="sect-btn anim-pad-left">
-						<div id="illustration" class="sect-thumb"></div>
-						<div class="sect-text">Illustration</div>
-					</div>
-				</div>
-			</a>
-
-			<a href="#" id="sect-btn-2">
-				<div class="sect-btn-cont">
-					<div class="sect-btn anim-pad-left">
-						<div class="sect-thumb"></div>
-						<div class="sect-text">Motion Graphics</div>
-					</div>
-				</div>
-			</a>
-
-			<a href="pages/game-dev.html" id="sect-btn-3">
-				<div class="sect-btn-cont">
-					<div class="sect-btn anim-pad-left">
-						<div id="game-dev" class="sect-thumb"></div>
-						<div class="sect-text">Game Development</div>
-					</div>
-				</div>
-			</a>
-
-		</div>
-
-		<div class="sect-btns">
-
-				<div class="sect-btn-cont pile">
-					<div class="sect-btn pile">
-						<a href="pages/experiments.html" class="anim-pad-left"><div class="sect-text">Code Experiments</div></a>
-						<a href="pages/random-gems.html" class="anim-pad-left"><div class="sect-text">Random Gems</div></a>
-						<a href="pages/thoughts.html" class="anim-pad-left"><div class="sect-text">Thoughts</div></a>
-					</div>
-				</div>
-
-			<!-- START - Latest Experiment -->
-
-			<!-- <experiment>
-				<a href="pages/experiments.html">
-					<div class="experiment hover-shadow">
-						<div id="mainHolder">
-							<div id="charHolder" class="ShiftCenterAnim">
-								<div id="animBody" class="BopAnim">
-									<div id="eye" class="anim-eye-left-right">
-										<div id="pupil" class="anim-pupil-left-right">
-											<div id="reflection"></div>
-										</div>
-									</div>
-								</div>
-							</div>
+		<nav>
+			<div class="home-btn-positioner">
+				<div id="home-btn" class="icon-main-cont">
+					<div class="icon-inner-cont">
+						<!-- Logo -->
+						<div id="logo-r">
+							<div id="top"></div>
+							<div id="btm-left"></div>
+							<div id="btm-right"></div>
 						</div>
-					</div>
-				</a>
-			</experiment> -->
+						<!-- Back Button -->
+						<div class="back-icon"></div>
 
-			<!-- END - Latest Experiment -->
-
-		</div>
-
-		<!-- END: Section Buttons  -->
-
-	<!-- END: Main Content Section -->
-
-	<div class="footer">
-		<div class="footer-contents">
-			<h3 class="all-caps space-letters">© Arrayewhy 2024</h3>
-			<div id="player">
-				<div class="sprite">
-					<div class="sprite-prepper">
-						<img src="img/Shelter_Animation_Idle.png">
-						<img src="img/Shelter_Animation_Run.png">
 					</div>
 				</div>
 			</div>
-		</div>
+		</nav>
+
+		<!-- Gallery -->
+
+		<section id="gallery">
+
+			<div class="gallery-wrapper">
+				<div class="gallery-segment">
+					<!-- 1 -->
+					<div
+					id="case-study-animation" class="gallery-elem normal">
+						<div class="description tiny-roboto">Animation</div>
+						<img class="full-height scale-100 invert-scale-x" src="media/image/Tiger Run Cycle.gif">
+					</div>
+					<!-- 2 -->
+					<div 
+					id="case-study-digital-illustration" class="gallery-elem normal">
+						<div class="description tiny-roboto">Illustrations</div>
+						<img class="full-width scale-200" src="media/image/tiger-puff-high-res.png">
+					</div>
+					<!-- 3 -->
+					<div 
+					id="case-study-motion-graphics" class="gallery-elem normal">
+						<div class="description tiny-roboto">Motion Graphics</div>
+						<video class="full-width scale-150" muted autoplay loop><source src="media/video/Liquid-Shaft [13MAR2025].mp4" type="video/mp4"></video>
+					</div>
+					<!-- 4 -->
+					<div 
+					id="case-study-game-dev" class="gallery-elem normal">
+						<div class="description tiny-roboto">Game Development</div>
+						<img class="full-height scale-125" src="media/image/Shelter-Screenshot [22MAR2025].jpeg">
+					</div>
+					<!-- 5 -->
+					<div 
+					id="case-study-traditional-illustration" class="gallery-elem normal">
+						<div class="description tiny-roboto">Illustration</div>
+						<img class="full-width scale-200" src="media/image/S20A Thank You Card - B.png">
+					</div>
+					<!-- 6 -->
+					<!-- <div class="gallery-elem normal"><iframe class="full-height full-width" src="code-toys/glow.html"></iframe></div> -->
+
+					<!-- <div class="gallery-elem normal">
+						<div class="description tiny-roboto">Animation</div>
+						<video class="full-height scale-100" muted autoplay loop><source src="media/video/Aaron Running [21JAN2022].mp4" type="video/mp4"></video>
+					</div> -->
+				</div>
+
+				<!-- <div class="case-study"></div> -->
+				<div class="case-study-iframe-wrapper">
+					<!-- <div class="back-button"></div> -->
+					<iframe id="case-study-iframe" src="#"></iframe>
+				</div>
+			</div>
+
+		</section>
+
 	</div>
 
-	<script type="text/javascript">
-		var player = document.getElementById("player");
-		var pSprite = player.childNodes[1];
-		pSprite.onclick = function() { MoveToDemo(); }
-		function MoveToDemo() {
-			// console.log("Move");
-			pSprite.style.backgroundImage = "url(img/Shelter_Animation_Run.png)"
-			pSprite.style.animation = "Anim_Run var(--runDur) infinite steps(4)";
-			pSprite.style.transform = "scaleX(-1)";
-			player.style.transition = "2s linear";
-			player.style.right = player.style.left - 64 + "px";
-			setTimeout(HidePage, 1000);
-			setTimeout(LoadDemoPage, 3000);
-		}
-		function HidePage() { document.querySelector("html").style.opacity = "0"; }
-		function LoadDemoPage() {
-			window.location = "pages/point-and-click/point-and-click.html";
-		}
-	</script>
+	<!-- Introduction -->
+
+	<section id="intro">
+		<div class="standard-frame-wrapper">
+			<div class="standard-frame">
+				<span class="frame-title tiny-roboto">Who is this?</span>
+				<center>He draws and animates to make the world just a little bit prettier than it was when he found it!</center>
+			</div>
+		</div>
+	</section>
+
+	<!-- Motion Reel -->
+
+	<section class="gallery-segment">
+		<div class="gallery-elem feature"><video class="full-width" controls muted autoplay loop><source src="media/video/ARRAYEWHY Showreel 2017.mp4" type="video/mp4"></video></div>
+	</section>
+
+	<!-- Arsenal -->
+
+	<div id="skillset">
+
+		<div class="standard-frame-wrapper">
+			<div class="standard-frame">
+				<span class="frame-title tiny-roboto">Skillset</span>
+					<div class="skill c-sharp"></div>
+					<div class="skill js"></div>
+					<div class="skill css"></div>
+					<div class="skill html"></div>
+					<div class="skill blender"></div>
+					<div class="skill godot"></div>
+					<div class="skill ae"></div>
+					<div class="skill ps"></div>
+					<div class="skill ai"></div>
+					<div class="skill an"></div>	
+			</div>
+		</div>
+
+		<!-- <div class="standard-frame-wrapper">
+			<div class="standard-frame flex">
+				<span class="frame-title tiny-roboto">Skillset</span>
+				<div class="skill js"></div>
+				<div class="skill css"></div>
+				<div class="skill html"></div>
+				<div class="skill blender"></div>
+				<div class="skill godot"></div>
+				<div class="skill ae"></div>
+				<div class="skill ps"></div>
+				<div class="skill ai"></div>
+				<div class="skill an"></div>
+			</div>
+		</div> -->
+	</div>
+
+	<!-- Thoughts -->
+
+	<section id="thoughts-container">
+		<div class="thought">
+			<b>We are physical manifestations of ideas.</b>
+			<br>
+			If you do not know what you want, and do not serve someone else's want, you cannot participate in the economy of ideas.
+			<br>
+			To directly benefit from the economy of ideas, is to manifest ideas, either your own or someone else's.
+			<br>
+			<span class="tiny-text">17:49:25, 11 March 2025</span>
+		</div>
+		<div class="thought">
+			<b>Multiple points of information trump a single high-resolution data point.</b>
+			<br>
+			A single high-resolution data point is fine if one is able to perceive the gradations in the data point, especially after heavy compression.
+			<br>
+			Similar to how a high-resolution image can be compressed an shrunk to a comparatively small size, whilst retaining a discernable level of detail.
+			<br>
+			But take away that <span class="red-text">perception of gradation</span>, eg. through blurriness or colour-blindness, and you will be left with a single ambiguous data point.
+			<br>
+			However, say we separate this data point at points where these gradations intersect into multiple data points.
+			<br>
+			The resulting fragments could hold meaning inferred through their shared relationship.
+			<br>
+			The possibility of deducing the information held in the original gradations is not completely lost, even with the loss of the previously mentioned <span class="red-text">perception</span>.
+			<br>
+			<span class="tiny-text">17:49:25, 11 March 2025</span>
+		</div>
+		<div class="thought">
+			<b>Art</b> is a sentient response to the perception of reality.<br>
+			<br>
+			In that a sentient being can act in both consciousness and unconsciousness.
+			The dance is not about us. We find that we <i>want</i> to dance, and find ourselves dancing.
+			In a world where simpler forms of consciousness dance in entropy, heat, and stone,
+			Others dance in the orbit of stars, and planets.
+			Some seemingly going in circles, while others struggling to stay in place.
+		</div>
+		<div class="thought">
+			<b>A definition for Love</b> is wanting the best for someone else.
+		</div>
+		<div class="thought">
+			<b>A name is more than a reference.</b><br>
+			<br>
+			The reference used to call for a specific point of data can be anything. It can be replaced with any alphanumeric value without affecting the data whatsoever. A person's given name, however, may not be replaced without altering the very personality it is used to call for. In this way, the giving of a name is a sort of prayer for the manifestation of a certain trait or character.
+		</div>
+	</section>
+
+	<!-- Footer -->
+
+	<!-- <footer class="flex center-x center-y">
+	</footer> -->
+
+	<!-- Javascript -->
+
+	<script type="text/javascript" src="js/script.js"></script>
 
 </body>
 

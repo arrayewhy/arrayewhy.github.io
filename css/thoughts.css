@@ -1,0 +1,16 @@
+#thoughts-container {
+
+/*	Disabled for now */
+	display: none;
+
+	padding-top: 1rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-bottom: 2rem;
+}
+
+.thought {
+	margin-top: 1rem;
+	padding: 2rem;
+	background-color: white;
+}
