@@ -13,9 +13,10 @@
 
 /* Sizes ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-.full-width { width: 100%; }
-.full-height { height: 100%; }
-.half-height { height: 50%; }
+.full-width { width: 100% !important; }
+.full-height { height: 100% !important; }
+.half-width { width: 50% !important; }
+.half-height { height: 50% !important; }
 
 .invert-scale-x { transform: scaleX(-1); }
 .invert-scale-y { transform: scaleY(-1); }
