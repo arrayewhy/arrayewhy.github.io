@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+html {
+	background-color: #ffc2b3;
+	overflow: hidden;
+
+	color: deeppink;
+/*	color: #352310;*/
+	font-family: 'Rubik Bubbles', sans-serif;
+	letter-spacing: .0625rem;
+
+	cursor: url('media/Mouse.png'), auto;
+}
+
+body {
+	display: flex;
+/*	padding-bottom: 32px;*/
+}
+
+.pointer {
+	cursor: url('media/Pointer.png'), auto;
+}
+
+/* Desktop ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#desktop {
+	width: 100%;
+	height: 90%;
+	background-color: floralwhite;
+
+	margin: 16px;
+	box-sizing: border-box;
+}
+
+.icon {
+/*	background-color: orange;*/
+	margin: 32px;
+
+/*	display: inline-block;*/
+	display: inline-flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.image {
+	width: 128px;
+	height: 128px;
+/*	background-color: #f19af9;*/
+}
+
+#trash.image {
+	background-image: url('media/Trash-Closed.png');
+}
+
+#trash.image:hover {
+	background-image: url('media/Trash-Open.png');
+}
+
+#mail.image {
+	background-image: url('media/Mail.png');
+}
+
+#mail.image:hover {
+	scale: 1.125;
+}
+
+.icon p {
+	margin-top: 8px;
+}
+
+/* Programs ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#email-wrapper {
+	width: 100%;
+	height: 100%;
+/*	background-color: rgba(220, 80, 80, .5);*/
+	background-color: rgba(255, 255, 255, .5);
+
+/*	display: flex;*/
+	display: none;
+
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.window {
+	width: 75%;
+	height: 80%;
+	background-color: floralwhite;
+
+/*	display: flex;*/
+/*	flex-flow: column;*/
+
+	position: relative;
+
+	border-radius: 16px;
+
+	overflow: hidden;
+
+	box-shadow: 16px 16px 8px rgba(30, 144, 255, .25);
+}
+
+/*#window::after {
+	container: "";
+	width: 100px;
+	height: 100px;
+	background-color: black;
+
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	z-index: 1000;
+}*/
+
+.control-wrapper {
+	width: 100%;
+	height: 64px;
+	background-color: dodgerblue;
+}
+
+.back-btn {
+	width: 64px;
+	height: 64px;
+	background-image: url('media/Cancel.png');
+	background-size: 75%;
+	background-position: center;
+	background-repeat: no-repeat;
+/*	background-color: red;*/
+
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	z-index: 200;
+}
+
+.content-wrapper {
+	width: 100%;
+	height: 100%;
+	background-color: floralwhite;
+
+	display: flex;
+}
+
+/* Email ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#email-window {
+/*	z-index: 2000;*/
+}
+
+#mail-list {
+	width: 30%;
+	min-width: 256px;
+	height: 100%;
+	background-color: lightskyblue;
+
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+
+	padding-top: 16px;
+}
+
+#mail-list div {
+	width: 256px;
+	height: 64px;
+	background-image: url('media/Mail-Selector.png');
+/*	background-color: yellow;*/
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	scale: 1;
+}
+
+#mail-list div:hover {
+	scale: 1.0625;
+}
+
+#mail-list p {
+	padding: 8px;
+}
+
+#reading-view {
+	width: 70%;
+	height: 100%;
+	background-color: floralwhite;
+}
+
+.message {
+	width: 100%;
+	height: 100%;
+/*	background-color: pink;*/
+
+	display: none;
+
+	padding: 32px;
+	box-sizing: border-box;
+
+	font-size: 2rem;
+}
+
+#reading-view p {
+	padding: 16px 0;
+}
+
+/* Letter ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#envelope {
+	width: 100%
+	max-width: 512px;
+	height: auto;
+	background-image: url('media/Envelope.png');
+	background-repeat: no-repeat;
+/*	background-size: 100%;*/
+/*	background-color: yellow;*/
+
+	rotate: 5deg;
+}
+
+#letter-wrapper {
+	width: 100%;
+	height: 100%;
+	background-color: #ffd54b;
+
+/*	display: flex;*/
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	z-index: 200;
+}
+
+#letter {
+	width: 50%;
+	height: 50%;
+	background-color: beige;
+
+	position: absolute;
+
+	rotate: 5deg;
+}
