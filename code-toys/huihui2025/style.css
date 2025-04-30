@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
 
 * {
 	margin: 0;
@@ -31,6 +33,82 @@ body {
 	cursor: url('media/Pointer.png'), auto;
 }
 
+.zoom:hover {
+	scale: 1.125;
+}
+
+.tilt:hover {
+	rotate: 5deg;
+}
+
+.mandarin {
+	font-family: "ZCOOL KuaiLe", sans-serif;
+/*	font-weight: 500;*/
+}
+
+/* Login ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#login-wrapper {
+	width: 100%;
+	height: 100%;
+	background-color: dodgerblue;
+
+	display: flex;
+/*	display: none;*/
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	opacity: .95;
+}
+
+#login-ui {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#login-ui img {
+	width: 64px;
+	height: 64px;
+
+	filter: brightness(3.0);
+}
+
+#login-ui p {
+
+	margin-bottom: 48px;
+
+	color: white;
+	font-size: 2rem;
+	text-align: center;
+}
+
+#login-btn {
+	width: 256px;
+	height: 64px;
+	background-image: url('media/Mail-Selector.png');
+	background-repeat: no-repeat;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	scale: 1.5;
+}
+
+#login-btn:hover {
+	scale: 1.6;
+}
+
+#login-btn::after {
+	content: "LOGIN";
+}
+
 /* Desktop ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 #desktop {
@@ -39,12 +117,13 @@ body {
 	background-color: floralwhite;
 
 	margin: 16px;
+	padding: 64px;
 	box-sizing: border-box;
 }
 
 .icon {
 /*	background-color: orange;*/
-	margin: 32px;
+	margin-right: 32px;
 
 /*	display: inline-block;*/
 	display: inline-flex;
@@ -68,10 +147,6 @@ body {
 
 #mail.image {
 	background-image: url('media/Mail.png');
-}
-
-#mail.image:hover {
-	scale: 1.125;
 }
 
 .icon p {
@@ -112,25 +187,28 @@ body {
 
 	overflow: hidden;
 
-	box-shadow: 16px 16px 8px rgba(30, 144, 255, .25);
+	border: solid 10px #362411;
+
+	box-shadow: 16px 16px 8px rgba(30, 144, 255, .5);
 }
-
-/*#window::after {
-	container: "";
-	width: 100px;
-	height: 100px;
-	background-color: black;
-
-	position: absolute;
-	top: 5px;
-	left: 5px;
-	z-index: 1000;
-}*/
 
 .control-wrapper {
 	width: 100%;
 	height: 64px;
 	background-color: dodgerblue;
+
+/*	position: relative;*/
+}
+
+#email-window .control-wrapper::before {
+	content: "SweetSnack - Inbox";
+
+	position: absolute;
+	top: 24px;
+	left: 24px;
+
+	color: floralwhite;
+	text-transform: uppercase;
 }
 
 .back-btn {
@@ -185,12 +263,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	scale: 1;
-}
-
-#mail-list div:hover {
-	scale: 1.0625;
 }
 
 #mail-list p {
@@ -201,19 +273,32 @@ body {
 	width: 70%;
 	height: 100%;
 	background-color: floralwhite;
+	background-image: url('media/Flower.gif');
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .message {
 	width: 100%;
 	height: 100%;
-/*	background-color: pink;*/
+	background-color: floralwhite;
 
 	display: none;
+
+/*	display: flex;*/
+/*    justify-content: center;*/
+	align-items: baseline;
+    flex-flow: column;
 
 	padding: 32px;
 	box-sizing: border-box;
 
 	font-size: 2rem;
+}
+
+#birthday.message {
+	justify-content: center;
+	flex-flow: row;
 }
 
 #reading-view p {
@@ -223,21 +308,25 @@ body {
 /* Letter ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 #envelope {
-	width: 100%
+	width: 50%;
 	max-width: 512px;
 	height: auto;
-	background-image: url('media/Envelope.png');
-	background-repeat: no-repeat;
+/*	background-image: url('media/Envelope.png');*/
+/*	background-repeat: no-repeat;*/
 /*	background-size: 100%;*/
 /*	background-color: yellow;*/
 
-	rotate: 5deg;
+/*	rotate: 5deg;*/
+}
+
+#envelope:hover {
+	rotate: 2.5deg;
 }
 
 #letter-wrapper {
 	width: 100%;
 	height: 100%;
-	background-color: #ffd54b;
+	background-color: rgba(255, 213, 75);
 
 /*	display: flex;*/
 	display: none;
@@ -250,10 +339,54 @@ body {
 
 #letter {
 	width: 50%;
-	height: 50%;
+	height: auto;
 	background-color: beige;
+
+	padding: 32px;
 
 	position: absolute;
 
+	color: royalblue;
+	font-size: 1.5rem;
+	font-family: "Playpen Sans", sans-serif;
+	letter-spacing: 0;
+
+	box-shadow: 8px 8px 12px rgba(54, 35, 17, .5);
+
 	rotate: 5deg;
+}
+
+#letter p {
+	margin-bottom: 64px;
+}
+
+/* Milo ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#milo-wrapper {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, .75);
+
+/*	display: flex;*/
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+}
+
+.card {
+	width: 256px;
+	height: 256px;
+	background-color: pink;
+
+	margin: 0 8px;
+}
+
+/* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+@media (max-width: 768px) {
+	#email-window .content-wrapper {
+		flex-flow: column;
+	}
 }

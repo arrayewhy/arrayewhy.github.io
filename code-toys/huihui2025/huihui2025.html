@@ -12,16 +12,37 @@
 
 <body>
 
+	<!-- Login -->
+
+	<div id="login-wrapper">
+		<div id="login-ui">
+			<img src="media/Flower.gif">
+			<p>Oopslee OS</p>
+			<div id="login-btn" class="pointer"></div>
+		</div>
+	</div>
+
+	<!-- Letter -->
+
 	<div id="letter-wrapper">
 
-		<div id="letter-back" class="back-btn pointer"></div>
+		<div id="letter-back" class="back-btn pointer zoom"></div>
 
 		<div id="letter">
 			<p>
-				Dear BB寶寶,
+				Dear BB<span class="mandarin">宝宝</span>,
 			</p>
 			<p>
-				拜拜 I love you <3
+				You are a gift to the people around you.
+				<br>
+				<br>
+				I love watching you take your small baby steps.
+				<br>
+				<br>
+				Little by little, stumbling towards a better future you can be proud of.
+				<br>
+				<br>
+				Happy 26 birthday, baby~ I love you <span style="color: deeppink;">♥︎</span>
 			</p>
 			<p>
 				Hugs and kisses,
@@ -31,19 +52,30 @@
 		</div>
 	</div>
 
+	<!-- Milo -->
+
+	<div id="milo-wrapper">
+		<div id="tin" class="card"></div>
+		<div id="triangle" class="card"></div>
+		<div id="kaya-toast" class="card"></div>
+		<div id="milo-peng" class="card"></div>
+	</div>
+
+	<!-- Desktop -->
+
 	<div id="desktop">
 
 		<!-- Icons -->
 
 		<div class="icon pointer">
 			<!-- <img src="media/Trash-Closed.png"> -->
-			<div id="trash" class="image sound-btn"></div>
+			<div id="trash" class="image sound-btn tilt"></div>
 			<p>Recycle Bin</p>
 		</div>
 
 		<div id="email-icon" class="icon pointer">
 			<!-- <img src="media/Trash-Closed.png"> -->
-			<div id="mail" class="image sound-btn"></div>
+			<div id="mail" class="image sound-btn zoom tilt"></div>
 			<p>Email</p>
 		</div>
 
@@ -54,7 +86,7 @@
 			<div id="email-window" class="window">
 
 				<div class="control-wrapper">
-					<div id="email-back" class="back-btn pointer"></div>
+					<div id="email-back" class="back-btn pointer zoom"></div>
 				</div>
 
 				<div class="content-wrapper">
@@ -62,12 +94,15 @@
 					<!-- Mail List -->
 
 					<div id="mail-list">
-						<div id="ingrid-message-selector" class="pointer">
+
+						<div id="ingrid-message-selector" class="pointer zoom">
 							<p class="sound-btn">Welcome to Singapore!</p>
 						</div>
-						<div id="birthday-message-selector" class="pointer">
-							<p class="sound-btn">Happy Birthday 寶寶</p>
+
+						<div id="birthday-message-selector" class="pointer zoom">
+							<p class="sound-btn">Happy Birthday <span class="mandarin">宝宝</span>!</p>
 						</div>
+
 					</div>
 
 					<!-- Reading View -->
@@ -80,8 +115,8 @@
 
 							<p>Dear Lesley,</p>
 
-							<p>Welcome to Singapore, Ingrid Design!<br>
-							My team and I look forward to working with you!</p>
+							<p>Welcome to Singapore and Ingrid Design!<br>
+							My team and I look forward to working with you, so try not to worry, and trust the process!</p>
 
 							<p>Take care!</p>
 
@@ -93,7 +128,7 @@
 						<!-- Birthday -->
 
 						<div id="birthday" class="message">
-							<img id="envelope" src="media/Envelope.png" class="pointer sound-btn">
+							<img id="envelope" src="media/Envelope.png" class="pointer sound-btn zoom">
 						</div>
 
 					</div>
@@ -110,12 +145,26 @@
 
 	<audio id="pop">
 		<source src="media/Audio/Bubble-Pop-744141__nomentero__bubble-pop-3.ogg" type="audio/ogg">
-		Your browser does not support the audio element.
 	</audio>
 
 	<audio id="pop-loud">
 		<source src="media/Audio/Bubble-Pop-Loud-439185__fourthwoods__pop-16.ogg" type="audio/ogg">
-		Your browser does not support the audio element.
+	</audio>
+
+	<audio id="pop-pitched-down">
+		<source src="media/Audio/Bubble-Pop-Pitched-Down-439185__fourthwoods__pop-16.ogg" type="audio/ogg">
+	</audio>
+
+	<audio id="forest-ambience" loop>
+		<source src="media/Audio/Digimon World OST_ Native Forest (Day).ogg" type="audio/ogg">
+	</audio>
+
+	<audio id="touch-letter">
+		<source src="media/Audio/Touch-Paper-484936__spacejoe__page-turn-16.ogg" type="audio/ogg">
+	</audio>
+
+	<audio id="open-letter">
+		<source src="media/Audio/Open-Letter-457767__partheeban__turnpage.ogg" type="audio/ogg">
 	</audio>
 
 	<!-- Javascript -->
