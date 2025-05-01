@@ -1,0 +1,257 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	background-color: cornsilk;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Card ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.card {
+	width: 25rem;
+	height: 32.5rem;
+	background-color: var(--yellow);
+
+	padding: 1.25rem;
+	box-sizing: border-box;
+
+	position: relative;
+
+	border-radius: 1rem;
+	box-shadow: 0 .25rem .25rem rgba(0, 0, 139, .5);
+
+	overflow: hidden;
+
+	transition: .5s;
+}
+
+.card::before {
+	content: "";
+	width: 200%;
+	height: 20%;
+	background-color: white;
+
+	position: absolute;
+	top: 0;
+	left: -50%;
+	z-index: 10;
+
+	opacity: 0.5;
+
+	filter: blur(2rem);
+
+	rotate: -45deg;
+
+	transition: 1s;
+}
+
+.card::after {
+	content: "";
+	width: 200%;
+	height: 40%;
+	background-color: goldenrod;
+
+	position: absolute;
+	bottom: 0;
+	left: 0%;
+	z-index: 10;
+
+	opacity: 0.6;
+
+	filter: blur(4rem);
+
+	rotate: -45deg;
+
+	transition: 1s;
+}
+
+.card:hover {
+	box-shadow: 0 .25rem .25rem rgba(0, 0, 139, 0.0);
+
+	scale: 1.125;
+/*	transform: rotate3d(1, -1, 0, 30deg);*/
+
+	transition: .5s;
+}
+
+.card:hover::before {
+	top: -50%;
+	filter: blur(1rem);
+	transition: .5s;
+}
+
+.card:hover::after {
+	left: 50%;
+	filter: blur(2rem);
+	transition: .5s;
+}
+
+.contents {
+	width: 100%;
+	height: 100%;
+	background-color: mediumblue;
+
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+
+	position: relative;
+}
+
+/* Contents ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.previous {
+	width: 4rem;
+	height: 4rem;
+	background-color: yellow;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.evolution {
+	width: 100%;
+	height: 2%;
+	background-color: pink;
+}
+
+/* Main  */
+
+.main {
+	width: 90%;
+	height: 5%;
+	background-color: orange;
+
+	display: flex;
+}
+
+.main .name {
+	width: 50%;
+	height: 100%;
+	background-color: red;
+
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+
+.main .hp {
+	width: 50%;
+	height: 100%;
+	background-color: green;
+
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+
+.hp .elem-container {
+	width: 2rem;
+	height: 2rem;
+	background-color: fuchsia;
+
+	border-radius: 1rem;
+
+	z-index: 1;
+
+	transition: scale .25s;
+}
+
+.hp .elem-container:hover {
+	scale: 1.25;
+	transition: scale .25s;
+}
+
+/* Picture */
+
+.picture {
+	width: 90%;
+	height: 47.5%;
+	background-color: var(--yellow);
+
+	padding: .5rem;
+	box-sizing: border-box;
+}
+
+.picture .image {
+	width: 100%;
+	height: 100%;
+	background-image: url('https://img10.hotstar.com/image/upload/f_auto/sources/r1/cms/prod/3439/1734248513439-i');
+	background-size: cover;
+	background-position: center;
+/*	background-color: red;*/
+
+	transition: scale .5s;
+}
+
+.picture .image:hover {
+	scale: 1.0625;
+	transition: scale .25s;
+}
+
+.bodyStats {
+	width: 80%;
+	height: 5%;
+	background-color: steelblue;
+}
+
+.move1 {
+	width: 95%;
+	height: 14%;
+	background-color: lightblue;
+}
+
+.move1::after {
+	content: "";
+	width: 95%;
+	height: 2px;
+	background-color: black;
+}
+
+.move2 {
+	width: 95%;
+	height: 14%;
+	background-color: cornflowerblue;
+}
+
+.attributes {
+	width: 90%;
+	height: 5%;
+	background-color: grey;
+}
+
+.lore {
+	width: 90%;
+	height: 5%;
+	background-color: orange;
+}
+
+.copyright {
+	width: 100%;
+	height: 2.5%;
+	background-color: pink;
+}
+
+/* Elements ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+/* Variables ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+:root {
+	--yellow: #ffd54b;
+}
