@@ -145,6 +145,17 @@ body {
 	background-image: url('media/Trash-Open.png');
 }
 
+#trash.image::after {
+	content: url('media/Trash-Open.png');
+	width: 0;
+	height: 0;
+	z-index: -1;
+
+	position: absolute;
+
+	overflow: hidden;
+}
+
 #mail.image {
 	background-image: url('media/Mail.png');
 }
