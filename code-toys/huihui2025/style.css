@@ -52,6 +52,10 @@ body {
 	scale: .75;
 }
 
+.scale-1-25 {
+	scale: 1.25;
+}
+
 .scale-1-5 {
 	scale: 1.5;
 }
@@ -152,7 +156,7 @@ body {
 	position: absolute;
 /*	bottom: 0;*/
 /*	left: 0;*/
-	z-index: 2;
+	z-index: 3;
 }
 
 #flower-1 {
@@ -167,16 +171,16 @@ body {
 }
 
 #flower-3 {
-	bottom: -10rem;
+	bottom: -8rem;
 	right: 36rem;
 	filter: blur(.25rem);
 }
 
-#flower-4 {
+/*#flower-4 {
 	bottom: -2rem;
 	right: 4rem;
 	filter: brightness(1.5) blur(.25rem);
-}
+}*/
 
 /* Desktop ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
@@ -235,6 +239,55 @@ body {
 
 .icon p {
 	margin-top: 8px;
+}
+
+/* Yao Yao ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#yaoyao-wrapper {
+	width: 256px;
+	height: 256px;
+
+	position: absolute;
+	bottom: 64px;
+	right: 64px;
+}
+
+#yaoyao {
+	width: 100%;
+	height: 100%;
+/*	background-color: pink;*/
+	background-image: url('media/YaoYao-Sleep.png');
+	background-repeat: no-repeat;
+}
+
+#yaoyao:hover {
+	background-image: url('media/YaoYao-Wake.png');
+}
+
+#yaoyao:active {
+	background-image: url('media/YaoYao-Stroke.png');
+}
+
+#tail {
+	width: 128px;
+	height: 128px;
+	background-image: url('media/Tail.gif');
+
+	position: absolute;
+	bottom: 0;
+	left: -2rem;
+	z-index: -10;
+}
+
+#yaoyao::after {
+	content: url('media/YaoYao-Wake.png') url('media/YaoYao-Stroke.png');
+	width: 0;
+	height: 0;
+	z-index: -1;
+
+	position: absolute;
+
+	overflow: hidden;
 }
 
 /* Programs ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
@@ -370,7 +423,7 @@ body {
 	top: 0;
 	right: 0;
 
-	animation: Pulse .8s;
+	animation: Pulse 1s steps(2, jump-start);
 	animation-iteration-count: infinite;
 }
 
@@ -380,7 +433,7 @@ body {
 		rotate: -10deg;
 	}
 
-	25% {
+	40% {
 		transform: scale(2.0);
 		rotate: 5deg;
 	}
@@ -460,13 +513,15 @@ body {
 }
 
 #letter {
-	width: 40%;
+	width: 30%;
 	height: auto;
 	background-color: beige;
 
 	padding: 32px;
 
 	position: absolute;
+
+	border-radius: .25rem;
 
 	color: royalblue;
 	font-size: 1.5rem;
@@ -476,6 +531,13 @@ body {
 	box-shadow: 8px 8px 12px rgba(54, 35, 17, .5);
 
 	rotate: 5deg;
+
+	transition: rotate 1s;
+}
+
+#letter:hover {
+	rotate: 1deg;
+	transition: rotate .5s;
 }
 
 #letter p {
@@ -511,12 +573,15 @@ body {
 }
 
 #tin-selector {
-	rotate: -5deg;
 	background-color: transparent;
 	background-image: url('media/Tin.png');
 	background-size: 90%;
 
+	position: relative;
+
 	opacity: .9;
+
+/*	rotate: -5deg;*/
 }
 
 #tin-selector::before {
@@ -526,8 +591,10 @@ body {
 	padding: .5rem 1rem;
 
 	position: absolute;
-	bottom: -1rem;
-	left: -1rem;
+	top: 0;
+	right: 0;
+/*	bottom: -1rem;*/
+/*	left: -1rem;*/
 
 	border-radius: 2rem;
 
@@ -551,6 +618,7 @@ body {
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	z-index: 2;
 }
 
 .pet {
