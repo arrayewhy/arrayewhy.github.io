@@ -17,18 +17,31 @@ var messages = document.getElementsByClassName("message");
 var birthdayMessageSelector = document.getElementById("birthday-message-selector");
 var ingridMessageSelector = document.getElementById("ingrid-message-selector");
 
+// Letter
 var envelope = document.getElementById("envelope");
 var letterWrapper = document.getElementById("letter-wrapper");
+var letterShown = false;
+
+// Milo
+var miloChooser = document.getElementById("milo-chooser");
+var sandwichSelector = document.getElementById("sandwich-selector");
+var rotiSelector = document.getElementById("roti-selector");
+var pengSelector = document.getElementById("peng-selector");
+// Pet
+var petWrapper = document.getElementById("pet-wrapper");
+var pet = document.getElementsByClassName("pet")[0];
+var petImage = document.getElementById("pet-image");
 
 // Buttons
 var loginBtn = document.getElementById("login-btn");
 var backBtns = document.getElementsByClassName("back-btn");
 
 // Audio
-var soundBtns = document.getElementsByClassName("sound-btn")
+var soundBtns = document.getElementsByClassName("sound-btn");
+var soundDulls = document.getElementsByClassName("sound-dull");
 var pop = document.getElementById("pop");
 var popLoud = document.getElementById("pop-loud");
-var popPitchedDown = document.getElementById("pop-pitched-down");
+var popDull = document.getElementById("pop-dull");
 var forestAmbience = document.getElementById("forest-ambience");
 var touchLetter = document.getElementById("touch-letter");
 var openLetter = document.getElementById("open-letter");
@@ -36,16 +49,26 @@ var openLetter = document.getElementById("open-letter");
 
 /* Initialisation ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
+
 // Login
 loginBtn.onclick = function() { Hide_Login(); }
+
 
 // Email
 emailIcon.onclick = function() { Open_Email(); }
 birthdayMessageSelector.onclick = function() { Show_Message("birthday"); }
 ingridMessageSelector.onclick = function() { Show_Message("ingrid"); }
 
+
 // Letter
 envelope.onclick = function() { Show_Letter(); }
+
+
+// Milo
+sandwichSelector.onclick = function() { Spawn_Sandwich(); }
+rotiSelector.onclick = function() { Spawn_Roti(); }
+pengSelector.onclick = function() { Spawn_Peng(); }
+
 
 // Back Buttons
 for(i = 0; i < backBtns.length; i++) {
@@ -61,8 +84,8 @@ for(i = 0; i < backBtns.length; i++) {
 	backBtns[i].onmouseover = function() { Play_Pop(); }
 }
 
-// Audio
 
+// Audio
 Adjust_AudioVolume();
 
 for(i = 0; i < soundBtns.length; i++) {
@@ -71,7 +94,7 @@ for(i = 0; i < soundBtns.length; i++) {
 
 	if(soundBtns[i].id == "trash") {
 		soundBtns[i].onmouseover = function() { Play_Pop(); }
-		soundBtns[i].onclick = function() { Play_Pop_PitchedDown(); }
+		// soundBtns[i].onclick = function() { Play_Dull(); }
 	}
 	else if(soundBtns[i].id == "envelope") {
 		soundBtns[i].onmouseover = function() { Play_TouchLetter(); }
@@ -79,6 +102,11 @@ for(i = 0; i < soundBtns.length; i++) {
 	else if(soundBtns[i].id != "envelope") {
 		soundBtns[i].onclick = function() { Play_PopLoud(); }
 	}
+}
+
+
+for(i = 0; i < soundDulls.length; i++) {
+	soundDulls[i].onclick = function() { Play_Dull(); }
 }
 
 
@@ -132,7 +160,7 @@ function Hide_EmailWindow(playPop) {
 		return;
 	}
 
-	Play_Pop_PitchedDown();
+	Play_Dull();
 }
 
 
@@ -148,7 +176,97 @@ function Show_Letter() {
 
 function Hide_Letter() {
 	letterWrapper.style.display = "none";
-	Play_Pop_PitchedDown();
+	Play_Dull();
+
+	if(letterShown) {
+		return;
+	}
+
+	letterShown = true;
+
+	Show_MiloChooser();
+}
+
+
+/* Milo ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+var leftLimit = 0;
+var rightLimit = petWrapper.offsetWidth - pet.offsetWidth;
+var petDir = 1;
+var facingRight = true;
+var moveSpeed = 10;
+var frameRate = 500;
+
+
+function Show_MiloChooser() {
+	miloChooser.style.display = "flex";
+}
+
+
+function Spawn_Sandwich() {
+	miloChooser.style.display = "none";
+	petImage.classList.add("sandwich");
+	petImage.classList.add("walk-sandwich");
+	moveSpeed = 8;
+	frameRate = 250;
+	Start_PetWalk();
+	Play_PopLoud();
+}
+
+
+function Spawn_Roti() {
+	miloChooser.style.display = "none";
+	petImage.classList.add("roti");
+	petImage.classList.add("walk-roti");
+	moveSpeed = 6;
+	frameRate = 200;
+	Start_PetWalk();
+	Play_PopLoud();
+}
+
+
+function Spawn_Peng() {
+	console.log("Peng");
+	miloChooser.style.display = "none";
+	petImage.classList.add("peng");
+	petImage.classList.add("walk-peng");
+	moveSpeed = 2;
+	frameRate = 100;
+	Start_PetWalk();
+	Play_PopLoud();
+}
+
+
+function Show_PetWrapper() {
+	petWrapper.style.display = "block";
+}
+
+
+function Start_PetWalk() {
+	Show_PetWrapper();
+	var interval_PetWalk = setInterval(PetWalk, frameRate);
+}
+
+
+function PetWalk() {
+
+	var nextPos = pet.offsetLeft + petDir * moveSpeed;
+	
+	if(nextPos <= 0) {
+		petDir *= -1;
+		pet.style.transform = "scaleX(1)";
+		return;
+	}
+
+	if(nextPos >= petWrapper.offsetWidth - pet.offsetWidth) {
+		petDir *= -1;
+		pet.style.transform = "scaleX(-1)";
+		return;
+	}
+
+	pet.style.left = nextPos + "px";
+
 }
 
 
@@ -157,7 +275,7 @@ function Hide_Letter() {
 
 function Adjust_AudioVolume() {
 	pop.volume = 0.5;
-	popPitchedDown.volume = 0.75;
+	popDull.volume = 0.75;
 	forestAmbience.volume = 0.125;
 }
 
@@ -172,13 +290,13 @@ function Play_PopLoud() {
 }
 
 
-function Play_Pop_PitchedDown() {
-	popPitchedDown.play();
+function Play_Dull() {
+	popDull.play();
 }
 
 
 function Play_ForestAmbience() {
-	forestAmbience.play();
+	// forestAmbience.play();
 }
 
 function Play_TouchLetter() {
