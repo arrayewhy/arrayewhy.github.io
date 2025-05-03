@@ -48,12 +48,20 @@ body {
 /*	font-weight: 500;*/
 }
 
+.scale-0-75 {
+	scale: .75;
+}
+
 .scale-1-5 {
 	scale: 1.5;
 }
 
 .scale-2 {
 	scale: 2;
+}
+
+.scale-3 {
+	scale: 3;
 }
 
 /* Login ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
@@ -142,20 +150,32 @@ body {
 /*	background-color: blue;*/
 
 	position: absolute;
-	bottom: 0;
-	left: 0;
+/*	bottom: 0;*/
+/*	left: 0;*/
 	z-index: 2;
 }
 
-#foreground #flower-1 {
+#flower-1 {
 	bottom: 0;
 	left: 0;
 	filter: brightness(1.125) blur(.25rem);
 }
 
-#foreground #flower-2 {
+#flower-2 {
 	bottom: -1rem;
 	left: 16rem;
+}
+
+#flower-3 {
+	bottom: -10rem;
+	right: 36rem;
+	filter: blur(.25rem);
+}
+
+#flower-4 {
+	bottom: -2rem;
+	right: 4rem;
+	filter: brightness(1.5) blur(.25rem);
 }
 
 /* Desktop ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
@@ -332,6 +352,43 @@ body {
 #mail-list p {
 	padding: 8px;
 /*	background-color: orange;*/
+}
+
+.heart {
+	position: relative;
+}
+
+.heart::after {
+	content: "";
+	width: 3rem;
+	height: 3rem;
+/*	background-color: yellow;*/
+	background-image: url('media/Heart.png');
+	background-size: cover;
+
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	animation: Pulse .8s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes Pulse {
+	0% {
+		transform: scale(1.0);
+		rotate: -10deg;
+	}
+
+	25% {
+		transform: scale(2.0);
+		rotate: 5deg;
+	}
+
+	100% {
+		transform: scale(1.0);
+		rotate: -10deg;
+	}
 }
 
 #reading-view {

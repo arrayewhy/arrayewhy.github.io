@@ -55,8 +55,8 @@ loginBtn.onclick = function() { Hide_Login(); }
 
 
 // Email
-emailIcon.onclick = function() { Open_Email(); }
-birthdayMessageSelector.onclick = function() { Show_Message("birthday"); }
+emailIcon.onclick = function() { Open_Email_First(); }
+birthdayMessageSelector.onclick = function() { Show_BirthdayMessage_First(); }
 ingridMessageSelector.onclick = function() { Show_Message("ingrid"); }
 
 
@@ -123,6 +123,13 @@ function Hide_Login() {
 /* Email ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 
+function Open_Email_First() {
+	Open_Email();
+	emailIcon.classList.remove("heart");
+	emailIcon.onclick = function() { Open_Email(); }
+}
+
+
 function Open_Email() {
 	emailWrapper.style.display = "flex";
 }
@@ -140,6 +147,13 @@ function Show_Message(topic) {
 		}
 
 	}
+}
+
+
+function Show_BirthdayMessage_First() {
+	Show_Message("birthday");
+	birthdayMessageSelector.classList.remove("heart");
+	birthdayMessageSelector.onclick = function() { Show_Message("birthday"); }
 }
 
 
@@ -206,10 +220,13 @@ function Show_MiloChooser() {
 
 function Spawn_Sandwich() {
 	miloChooser.style.display = "none";
+
 	petImage.classList.add("sandwich");
 	petImage.classList.add("walk-sandwich");
+	
 	moveSpeed = 8;
 	frameRate = 250;
+	
 	Start_PetWalk();
 	Play_PopLoud();
 }
@@ -217,22 +234,27 @@ function Spawn_Sandwich() {
 
 function Spawn_Roti() {
 	miloChooser.style.display = "none";
+
 	petImage.classList.add("roti");
 	petImage.classList.add("walk-roti");
+	
 	moveSpeed = 6;
 	frameRate = 200;
+	
 	Start_PetWalk();
 	Play_PopLoud();
 }
 
 
 function Spawn_Peng() {
-	console.log("Peng");
 	miloChooser.style.display = "none";
+
 	petImage.classList.add("peng");
 	petImage.classList.add("walk-peng");
+	
 	moveSpeed = 2;
 	frameRate = 100;
+	
 	Start_PetWalk();
 	Play_PopLoud();
 }
@@ -245,6 +267,7 @@ function Show_PetWrapper() {
 
 function Start_PetWalk() {
 	Show_PetWrapper();
+	// Start and Repeat PetWalk()
 	var interval_PetWalk = setInterval(PetWalk, frameRate);
 }
 
@@ -253,12 +276,14 @@ function PetWalk() {
 
 	var nextPos = pet.offsetLeft + petDir * moveSpeed;
 	
+	// Flip at Left
 	if(nextPos <= 0) {
 		petDir *= -1;
 		pet.style.transform = "scaleX(1)";
 		return;
 	}
 
+	// Flip at Right
 	if(nextPos >= petWrapper.offsetWidth - pet.offsetWidth) {
 		petDir *= -1;
 		pet.style.transform = "scaleX(-1)";
@@ -296,12 +321,14 @@ function Play_Dull() {
 
 
 function Play_ForestAmbience() {
-	// forestAmbience.play();
+	forestAmbience.play();
 }
+
 
 function Play_TouchLetter() {
 	touchLetter.play();
 }
+
 
 function Play_OpenLetter() {
 	openLetter.play();
