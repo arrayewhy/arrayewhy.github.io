@@ -8,14 +8,26 @@ var loginWrapper = document.getElementById("login-wrapper");
 // Icons
 var icons = document.getElementsByClassName("icon");
 var emailIcon = document.getElementById("email-icon");
+var galleryIcon = document.getElementById("gallery-icon");
+
+// Window
+var windowWrapper = document.getElementsByClassName("window-wrapper")[0];
 
 // Email
-var emailWrapper = document.getElementById("email-wrapper");
+var emailWindow = document.getElementById("email-window");
 var messages = document.getElementsByClassName("message");
+
+// Gallery
+var galleryWindow = document.getElementById("gallery-window");
+var galleryZoomWrapper = document.getElementById("gallery-zoom-wrapper");
+var galleryZoom = document.getElementById("gallery-zoom");
+var photos = document.getElementsByClassName("photo");
+var stickyPhoto = document.getElementById("sticky-photo");
 
 // Message Selectors
 var birthdayMessageSelector = document.getElementById("birthday-message-selector");
 var ingridMessageSelector = document.getElementById("ingrid-message-selector");
+var shupeeMessageSelector = document.getElementById("shupee-message-selector");
 
 // Letter
 var envelope = document.getElementById("envelope");
@@ -62,6 +74,25 @@ loginBtn.onclick = function() { Hide_Login(); }
 emailIcon.onclick = function() { Open_Email_First(); }
 birthdayMessageSelector.onclick = function() { Show_BirthdayMessage_First(); }
 ingridMessageSelector.onclick = function() { Show_Message("ingrid"); }
+shupeeMessageSelector.onclick = function() { Show_Message("shupee"); }
+
+
+// Gallery
+galleryIcon.onclick = function() { Open_Gallery(); }
+
+for(i = 0; i < photos.length; i++) {
+	photos[i].onmouseover = function() { Play_Pop(); }
+	photos[i].onclick = function() { Open_GalleryZoomWrapper(this.id); }
+}
+
+
+galleryZoom.onclick = function() { Hide_GalleryZoomWrapper(); }
+
+
+galleryZoom.onmouseover = function() { Play_TouchLetter(); }
+
+
+stickyPhoto.onmouseover = function() { Play_TouchLetter(); }
 
 
 // Letter
@@ -70,8 +101,14 @@ envelope.onclick = function() { Show_Letter(); }
 
 // Milo
 sandwichSelector.onclick = function() { Spawn_Sandwich(); }
+sandwichSelector.onmouseover = function() { Play_Pop(); }
+
+
 rotiSelector.onclick = function() { Spawn_Roti(); }
+rotiSelector.onmouseover = function() { Play_Pop(); }
+
 pengSelector.onclick = function() { Spawn_Peng(); }
+pengSelector.onmouseover = function() { Play_Pop(); }
 
 
 // Back Buttons
@@ -79,6 +116,10 @@ for(i = 0; i < backBtns.length; i++) {
 	// Email Wrapper
 	if (backBtns[i].id == "email-back") {
 		backBtns[i].onclick = function() { Hide_EmailWindow(true); }
+	}
+	// Gallery
+	else if(backBtns[i].id == "gallery-back") {
+		backBtns[i].onclick = function() { Hide_GalleryWindow(); }
 	}
 	// Letter
 	else if(backBtns[i].id == "letter-back") {
@@ -135,7 +176,8 @@ function Open_Email_First() {
 
 
 function Open_Email() {
-	emailWrapper.style.display = "flex";
+	windowWrapper.style.display = "flex";
+	emailWindow.style.display = "block";
 }
 
 
@@ -170,7 +212,8 @@ function Hide_Messages() {
 
 function Hide_EmailWindow(playPop) {
 
-	emailWrapper.style.display = "none";
+	windowWrapper.style.display = "none";
+	emailWindow.style.display = "none";
 
 	Hide_Messages();
 
@@ -179,6 +222,58 @@ function Hide_EmailWindow(playPop) {
 	}
 
 	Play_Dull();
+}
+
+
+/* Gallery ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+function Open_Gallery() {
+	windowWrapper.style.display = "flex";
+	galleryWindow.style.display = "flex";
+}
+
+
+function Hide_GalleryWindow() {
+	windowWrapper.style.display = "none";
+	galleryWindow.style.display = "none";
+	Play_Dull();
+}
+
+
+// Zoom
+
+
+function Open_GalleryZoomWrapper(photoID) {
+
+	Hide_GalleryWindow();
+
+	if(photoID == "photo-1") {
+		stickyPhoto.style.backgroundImage = "url('media/Photo-1.png')";
+		galleryZoom.style.backgroundImage = "url('media/Photo-1.png')";
+	}
+	else if(photoID == "photo-2") {
+		stickyPhoto.style.backgroundImage = "url('media/Photo-2.png')";
+		galleryZoom.style.backgroundImage = "url('media/Photo-2.png')";
+	}
+	else if(photoID == "photo-3") {
+		stickyPhoto.style.backgroundImage = "url('media/Photo-3.png')";
+		galleryZoom.style.backgroundImage = "url('media/Photo-3.png')";
+	}
+	else if(photoID == "photo-4") {
+		stickyPhoto.style.backgroundImage = "url('media/Photo-4.png')";
+		galleryZoom.style.backgroundImage = "url('media/Photo-4.png')";
+	}
+
+	galleryZoomWrapper.style.display = "flex";
+
+	Play_PopLoud();
+}
+
+
+function Hide_GalleryZoomWrapper() {
+	galleryZoomWrapper.style.display = "none";
+	Play_PopLoud();
 }
 
 

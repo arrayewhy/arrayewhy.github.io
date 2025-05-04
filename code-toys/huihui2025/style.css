@@ -242,6 +242,10 @@ body {
 	background-image: url('media/Mail.png');
 }
 
+#gallery.image {
+	background-image: url('media/Camera.png');
+}
+
 .icon p {
 	margin-top: 8px;
 }
@@ -297,7 +301,7 @@ body {
 
 /* Programs ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-#email-wrapper {
+.window-wrapper {
 	width: 100%;
 	height: 100%;
 /*	background-color: rgba(220, 80, 80, .5);*/
@@ -342,8 +346,23 @@ body {
 /*	position: relative;*/
 }
 
+#email-window {
+	display: none;
+}
+
 #email-window .control-wrapper::before {
 	content: "SweetSnack - Inbox";
+
+	position: absolute;
+	top: 24px;
+	left: 24px;
+
+	color: floralwhite;
+	text-transform: uppercase;
+}
+
+#gallery-window .control-wrapper::before {
+	content: "Photo Gallery";
 
 	position: absolute;
 	top: 24px;
@@ -379,10 +398,10 @@ body {
 
 /* Email ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-#email-window {
+/*#email-window {*/
 /*	width: 100%;*/
 /*	z-index: 2000;*/
-}
+/*}*/
 
 #mail-list {
 /*	width: 30%;*/
@@ -482,8 +501,122 @@ body {
 	flex-flow: row;
 }
 
+#shupee.message {
+	color: darkorange;
+}
+
 #reading-view p {
 	padding: 16px 0;
+}
+
+/* Gallery ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#gallery-window {
+	display: none;
+	flex-flow: column;
+}
+
+#gallery-window .content-wrapper {
+	padding: 1rem;
+}
+
+.photo {
+	width: 128px;
+	height: 160px;
+/*	background-color: pink;*/
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	margin: 1rem;
+
+	position: relative;
+}
+
+.photo:hover {
+	transform: scale(1.25);
+}
+
+#photo-1 {
+	background-image: url('media/Photo-1.png');
+}
+
+#photo-2 {
+	background-image: url('media/Photo-2.png');
+}
+
+#photo-3 {
+	background-image: url('media/Photo-3.png');
+}
+
+#photo-4 {
+	background-image: url('media/Photo-4.png');
+}
+
+/* Zoom */
+
+#gallery-zoom-wrapper {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 194, 179, .95);
+
+/*	display: flex;*/
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	z-index: 205;
+}
+
+#gallery-zoom {
+	width: 256px;
+	height: 320px;
+/*	background-color: purple;*/
+
+	rotate: 5deg;
+	transition: 1s;
+}
+
+#gallery-zoom:hover {
+	rotate: 0deg;
+	scale: 1.5;
+	transition: 1s;
+}
+
+/* Sticky Photo */
+
+#sticky-photo {
+	width: 256px;
+	height: 320px;
+	background-image: url('media/Blank.png');
+	background-repeat: no-repeat;
+	background-position: center;
+
+	float: right;
+
+	position: relative;
+
+	rotate: 5deg;
+	transition: .5s;
+}
+
+#sticky-photo:hover {
+	rotate: 0deg;
+	transition: .5s;
+}
+
+#sticky-photo::before {
+	content: "";
+	width: 64px;
+	height: 128px;
+	background-image: url('media/Clip.png');
+	background-repeat: no-repeat;
+	background-position: center;
+
+	position: absolute;
+	top: -3.3rem;
+	right: 2rem;
 }
 
 /* Letter ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
