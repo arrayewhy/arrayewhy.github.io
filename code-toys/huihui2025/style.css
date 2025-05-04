@@ -626,8 +626,9 @@ body {
 	content: url('media/Photo-1.png') url('media/Photo-2.png') url('media/Photo-3.png') url('media/Photo-4.png');
 	width: 0;
 	height: 0;
+	z-index: -1;
 
-	display: none;
+	position: absolute;
 
 	overflow: hidden;
 }
@@ -684,12 +685,12 @@ body {
 
 	rotate: 5deg;
 
-	transition: rotate 1s;
+	transition: 1s;
 }
 
 #letter:hover {
 	rotate: 1deg;
-	transition: rotate .5s;
+	transition: .5s;
 }
 
 #letter p {

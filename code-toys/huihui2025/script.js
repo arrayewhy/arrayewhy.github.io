@@ -32,6 +32,7 @@ var shupeeMessageSelector = document.getElementById("shupee-message-selector");
 // Letter
 var envelope = document.getElementById("envelope");
 var letterWrapper = document.getElementById("letter-wrapper");
+var letter = document.getElementById("letter");
 var letterShown = false;
 
 // Milo
