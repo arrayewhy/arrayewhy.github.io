@@ -619,6 +619,16 @@ body {
 	right: 2rem;
 }
 
+#sticky-photo::after {
+	content: url('media/Photo-1.png') url('media/Photo-2.png') url('media/Photo-3.png') url('media/Photo-4.png');
+	width: 0;
+	height: 0;
+
+	display: none;
+
+	overflow: hidden;
+}
+
 /* Letter ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 #envelope {
