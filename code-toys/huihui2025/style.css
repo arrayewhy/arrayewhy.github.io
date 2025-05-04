@@ -343,6 +343,8 @@ body {
 	height: 64px;
 	background-color: dodgerblue;
 
+	box-sizing: border-box;
+
 /*	position: relative;*/
 }
 
@@ -517,6 +519,7 @@ body {
 }
 
 #gallery-window .content-wrapper {
+	height: auto;
 	padding: 1rem;
 }
 
