@@ -14,14 +14,19 @@ html, body {
 
 html {
 	background-color: #ffc2b3;
-	overflow: hidden;
 
 	color: deeppink;
 /*	color: #352310;*/
 	font-family: 'Rubik Bubbles', sans-serif;
 	letter-spacing: .0625rem;
 
+	opacity: 0;
+
+	overflow: hidden;
+
 	cursor: url('media/Mouse.png'), auto;
+
+	transition: opacity 2s;
 }
 
 body {

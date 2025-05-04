@@ -49,6 +49,10 @@ var openLetter = document.getElementById("open-letter");
 
 /* Initialisation ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
+// Page Load
+document.getElementsByTagName("body")[0].onload = function() {
+	html.style.opacity = "1";
+}
 
 // Login
 loginBtn.onclick = function() { Hide_Login(); }
