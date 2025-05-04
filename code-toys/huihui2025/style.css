@@ -375,12 +375,13 @@ body {
 /* Email ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 #email-window {
+/*	width: 100%;*/
 /*	z-index: 2000;*/
 }
 
 #mail-list {
-	width: 30%;
-	min-width: 256px;
+/*	width: 30%;*/
+/*	min-width: 256px;*/
 	height: 100%;
 	background-color: lightskyblue;
 
@@ -388,7 +389,7 @@ body {
 	align-items: center;
 	flex-flow: column;
 
-	padding-top: 16px;
+	padding: 16px 0;
 }
 
 #mail-list div {
@@ -513,7 +514,7 @@ body {
 }
 
 #letter {
-	width: 30%;
+	width: 40%;
 	height: auto;
 	background-color: beige;
 
@@ -523,7 +524,7 @@ body {
 
 	border-radius: .25rem;
 
-	color: royalblue;
+	color: rgba(65, 105, 225, .9);
 	font-size: 1.5rem;
 	font-family: "Playpen Sans", sans-serif;
 	letter-spacing: 0;
@@ -738,7 +739,17 @@ body {
 /* Mobile ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 @media (max-width: 768px) {
+
+	#desktop {
+		padding: 32px;
+		display: flex;
+	}
+
 	#email-window .content-wrapper {
 		flex-flow: column;
+	}
+
+	#mail-list {
+		height: auto;
 	}
 }
