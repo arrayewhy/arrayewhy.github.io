@@ -1,0 +1,32 @@
+.contents.rings {
+	background-color: dodgerblue;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: relative;
+}
+
+.contents.rings .mouse-catcher {
+	width: 100%;
+	height: 100%;
+/*	background-color: orange;*/
+
+	position: absolute;
+	z-index: 20;
+}
+
+.contents.rings .ring {
+	width: 8rem;
+	height: 8rem;
+	background-color: white;
+
+	position: absolute;
+
+	border-radius: 50%;
+
+/*	border: .5rem solid white;*/
+
+	box-sizing: border-box;
+}

@@ -1,0 +1,55 @@
+.contents.bubble {
+	background-color: #ffd54b;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: relative;
+}
+
+#bubble {
+	position: relative;
+	z-index: 1;
+
+	font-size: 1rem;
+
+	cursor: pointer;
+
+	transition: transform .25s;
+}
+
+#bubble:hover {
+	transform: scale(1.0625);
+	transition: transform ease .25s;
+}
+
+#bubble-text {
+	max-width: 16rem;
+	transition: opacity ease-in .25s;
+}
+
+#bubble-bg-holder {
+	width: 0;
+	height: 0;
+
+	position: absolute;
+	z-index: -1;
+}
+
+#bubble-bg {
+	width: 0;
+	height: 0;
+	background-color: white;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	border-radius: 1rem;
+
+	box-shadow: 0 .25rem .25rem rgba(0, 0, 0, .125);
+
+	transition: .5s;
+	transition-timing-function: ease;
+}

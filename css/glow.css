@@ -1,0 +1,41 @@
+.contents.glow {
+	background-image: linear-gradient(to top right, midnightblue, dodgerblue);
+
+	position: relative;
+
+	/* Center the glowing box	*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.contents.glow:after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-image: radial-gradient(circle, white, transparent);
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	opacity: 0;
+
+	transition: opacity 1s;
+}
+
+.contents.glow:hover:after {
+	opacity: .5;
+
+	transition: opacity .5s;
+}
+
+#glow {
+	width: 2em;
+	height: 2em;
+	background-color: ghostwhite;
+
+	filter: blur(0);
+
+	transition: .2s;
+}

@@ -1,3 +1,10 @@
+@import "illuminations.css";
+
+@import "glow.css";
+@import "rings.css";
+@import "bubble.css";
+@import "party.css";
+
 * {
 	padding: 0;
 	margin: 0;
@@ -9,7 +16,7 @@
 	width: 100%;
 	height: auto;
 
-	padding: 4em;
+	padding: 5%;
 	box-sizing: border-box;
 }
 
@@ -25,9 +32,14 @@
 
 .gallery .frame-row .frame {
 	width: 100%;
+/*	min-width: 24rem;*/
 	height: auto;
 
 	padding: 1.5em;
+
+	box-sizing: border-box;
+
+	overflow: hidden;
 }
 
 .gallery .frame-row .frame .contents {
@@ -48,373 +60,21 @@
 	padding: 1em 0;
 }
 
-/* Glow ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-
-.contents.glow {
-	background-image: linear-gradient(to top right, midnightblue, dodgerblue);
-
-	position: relative;
-
-	/* Center the glowing box	*/
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.contents.glow:after {
-	content: "";
-	width: 100%;
-	height: 100%;
-	background-image: radial-gradient(circle, white, transparent);
-
-	position: absolute;
-	top: 0;
-	left: 0;
-
-	opacity: 0;
-
-	transition: opacity 1s;
-}
-
-.contents.glow:hover:after {
-	opacity: .5;
-
-	transition: opacity .5s;
-}
-
-#glow {
-	width: 2em;
-	height: 2em;
-	background-color: ghostwhite;
-
-	filter: blur(0);
-
-	transition: .2s;
-}
-
-/* Rings ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-
-.contents.rings {
-	background-color: dodgerblue;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	position: relative;
-}
-
-.contents.rings .mouse-catcher {
-	width: 100%;
-	height: 100%;
-/*	background-color: orange;*/
-
-	position: absolute;
-	z-index: 20;
-}
-
-.contents.rings .ring {
-	width: 8rem;
-	height: 8rem;
-	background-color: white;
-
-	position: absolute;
-
-	border-radius: 50%;
-
-/*	border: .5rem solid white;*/
-
-	box-sizing: border-box;
-}
-
-/* Illuminations ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-
-.illuminations {
-	width: 100%;
-	height: 6em;
-/*	background-color: orange;*/
-
-	position: relative;
-
-	font-size: 1rem;
-
-	overflow: hidden;
-
-	opacity: 0;
-
-	transition: opacity 5s;
-}
-
-.illum-row-mover {
-	width: auto;
-	height: 4em;
-/*	background-color: pink;*/
-
-	display: flex;
-
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.illum-row {
-	width: auto;
-	height: auto;
-/*	background-color: black;*/
-
-	position: relative;
-/*	bottom: 0;*/
-/*	left: 0;*/
-
-	display: flex;
-
-/*	overflow: hidden;*/
-}
-
-.illum-cell-wrapper {
-	width: 4em;
-	height: 4em;
-	background-color: black;
-
-	position: relative;
-
-	transition: 2s;
-}
-
-.illum-cell-wrapper:hover {
-	height: 6em;
-	transition: .25s;
-}
-
-.illum-cell-wrapper:hover:before {
-	height: 2em;
-	transition: height .25s;
-}
-
-.illum-cell-wrapper:before {
-	content: "";
-	width: 100%;
-	height: 0;
-	background-color: black;
-
-	display: block;
-
-	opacity: .25;
-
-	transition: height 2s;
-}
-
-.illum-cell-wrapper:active {
-	width: 16em;
-	transition: .25s;
-}
-
-.illum-cell {
-	width: 4em;
-	height: 4em;
-/*	aspect-ratio: 1 / 1;*/
-
-	position: relative;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-/* Moon */
-
-.moon {
-	background-color: black;
-}
-
-/*.illum-cell.moon {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}*/
-
-.illum-cell.moon:before {
-	content: "";
-	width: 40%;
-	height: 40%;
-	background-color: black;
-
-	position: absolute;
-	top: 25%;
-	left: 25%;
-
-	border-radius: 50%;
-}
-
-.illum-cell.moon:after {
-	content: "";
-	width: 40%;
-	height: 40%;
-	background-color: beige;
-
-	border-radius: 50%;
-}
-
-/* Sun */
-
-.sun {
-	background-color: dodgerblue;
-}
-
-/*.illum-cell.sun {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}*/
-
-.illum-cell.sun:after {
-	content: "";
-	width: 40%;
-	height: 40%;
-	background-color: #ffd54b;
-
-	border-radius: 50%;	
-}
-
-/* Plant */
-
-.plant {
-	background-color: #ffd54b;
-}
-
-/*.illum-cell.plant {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}*/
-
-.illum-cell.plant:after {
-	content: "";
-	width: 40%;
-	height: 40%;
-	background-color: orangered;
-
-	border-radius: 50%;
-
-	position: relative;
-}
-
-.illum-cell.plant .leaf {
-	width: 25%;
-	height: 25%;
-	background-color: olivedrab;
-
-	position: absolute;
-}
-
-.plant .leaf.TL {
-	top: 10%;
-	left: 10%;
-	border-radius: 0 50% 0 50%;
-}
-
-.plant .leaf.TR {
-	top: 10%;
-	right: 10%;
-	border-radius: 50% 0 50% 0;
-}
-
-.plant .leaf.BL {
-	bottom: 10%;
-	left: 10%;
-	border-radius: 50% 0 50% 0;
-}
-
-.plant .leaf.BR {
-	bottom: 10%;
-	right: 10%;
-	border-radius: 0 50% 0 50%;
-}
-
-/* Geo */
-
-.geo {
-	background-color: beige;
-}
-
-/*.illum-cell.geo {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}*/
-
-.illum-cell.geo:after {
-	content: "";
-	width: 50%;
-	height: 50%;
-	background-color: violet;
-}
-
-.illum-cell.geo:before {
-	content: "";
-	width: 20%;
-	height: 20%;
-	background-color: white;
-
-	position: absolute;
-
-	rotate: 45deg;
-}
-
-/* Bubble ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-
-.contents.bubble {
-	background-color: #ffd54b;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	position: relative;
-}
-
-#bubble {
-	position: relative;
-	z-index: 1;
-
-	font-size: 1rem;
-
-	cursor: pointer;
-
-	transition: transform .25s;
-}
-
-#bubble:hover {
-	transform: scale(1.0625);
-	transition: transform ease .25s;
-}
-
-#bubble-text {
-	max-width: 16rem;
-	transition: opacity ease-in .25s;
-}
-
-#bubble-bg-holder {
-	width: 0;
-	height: 0;
-
-	position: absolute;
-	z-index: -1;
-}
-
-#bubble-bg {
-	width: 0;
-	height: 0;
-	background-color: white;
-
-	position: absolute;
-	top: 0;
-	left: 0;
-
-	border-radius: 1rem;
-
-	box-shadow: 0 .25rem .25rem rgba(0, 0, 0, .125);
-
-	transition: .5s;
-	transition-timing-function: ease;
+@media (max-width: 768px) {
+
+	.gallery {
+		padding: 0;
+	}
+
+	.gallery .frame-row {
+		flex-flow: column;
+	}
+
+	.gallery .frame-row .frame {
+		padding: 1.5em 0;
+	}
+
+	.gallery .frame-row .frame .contents {
+		border-radius: 0;
+	}
 }
