@@ -25,3 +25,7 @@
 
 .shadow { box-shadow: none; }
 .shadow:hover { box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .125); }
+
+/* Spacing ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.push-top { margin-top: 2.5rem; }

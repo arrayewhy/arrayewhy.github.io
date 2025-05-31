@@ -1,0 +1,36 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	background-color: beige;
+}
+
+.aligner {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.wrapper {
+	width: 100%;
+	height: auto;
+
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+}
+
+.frame {
+	width: 32rem;
+	height: 32rem;
+
+	position: relative;
+
+	border: .0625rem solid black;
+}
+
+/* START ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
