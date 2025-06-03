@@ -1,13 +1,31 @@
+/* Fonts ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+/* Toys ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
 @import "illuminations.css";
 
 @import "glow.css";
 @import "rings.css";
 @import "bubble.css";
 @import "party.css";
+@import "plicker.css";
+
+/* General ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 * {
 	padding: 0;
 	margin: 0;
+}
+
+html {
+	font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+	font-size: 3.5rem;
 }
 
 /* Gallery ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
@@ -16,7 +34,7 @@
 	width: 100%;
 	height: auto;
 
-	padding: 5%;
+	padding: 4rem 5%;
 	box-sizing: border-box;
 }
 
@@ -71,10 +89,40 @@
 	}
 
 	.gallery .frame-row .frame {
-		padding: 1.5em 0;
+		padding: .75em;
 	}
 
 	.gallery .frame-row .frame .contents {
-		border-radius: 0;
+/*		border-radius: 0;*/
 	}
+}
+
+/* Intro Frame ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.frame.intro {
+	text-align: center;
+}
+
+.frame.intro .contents {
+	height: auto !important;
+
+	padding: 8rem 16rem 9rem 16rem;
+	box-sizing: border-box;
+}
+
+.frame.intro h1 {
+	margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+	.frame.intro .contents {
+		padding: 8rem 3rem 4rem 3rem;
+		box-sizing: border-box;
+	}
+}
+
+/* Tools ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.body-text {
+	font-size: 1.5rem !important;
 }

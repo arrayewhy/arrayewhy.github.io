@@ -1,0 +1,161 @@
+.contents.plicker div {
+	font-size: 12px;
+}
+
+.contents.plicker .mouse-catcher {
+	width: 100%;
+	height: 100%;
+/*	background-color: yellow;*/
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 2;
+}
+
+.contents.plicker .character {
+	width: 1px;
+	height: 1px;
+/*	background-color: blue;*/
+
+	position: absolute;
+	left: 12em;
+	bottom: 20%;
+}
+
+.contents.plicker .character .body {
+	width: 6em;
+	height: 8em;
+	background-color: red;
+
+	position: absolute;
+	left: -3em;
+	bottom: 0;
+
+	border-radius: 3em 3em .5em .5em;
+
+	transform: skewX(0);
+
+	transition: .125s;
+}
+
+.anim-Body-Bop {
+	animation-name: Body-Bop;
+	animation-duration: .5s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes Body-Bop {
+	0% {
+		width: 6em;
+		height: 8em;
+	}
+	50% {
+		width: 6.5em;
+		height: 6em;
+	}
+	100% {
+		width: 6em;
+		height: 8em;
+	}
+}
+
+.contents.plicker .character .body:after {
+	content: "";
+	width: 4em;
+	height: 2.5em;
+	background-color: black;
+
+	position: absolute;
+	left: 1em;
+	bottom: .5em;
+
+	border-radius: 6em 6em 3em 3em;
+
+	opacity: .125;
+
+	animation-name: Pulse;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes Pulse {
+	0% { scale: .9; }
+	15% { scale: 1.0; }
+	25% { scale: .9; }
+	50% { scale: 1.0; }
+	100% { scale: .9; }
+}
+
+/* O-O Eye ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.contents.plicker .character .eye {
+	width: 4em;
+	aspect-ratio: 1/1;
+	background-color: white;
+
+	position: absolute;
+	left: -1em;
+	top: -8em;
+	z-index: 1;
+
+	border-radius: 50%;
+/*	border-radius: 0 0 2em 2em;*/
+
+	transition: left .25s;
+}
+
+.anim-Eye-Bob {
+	animation-name: Eye-Bob;
+	animation-duration: .5s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes Eye-Bob {
+	0% { top: -8em; }
+	50% { top: -7em; }
+	100% { top: -8em; }
+}
+
+.contents.plicker .character .eye .pupil {
+	width: 1px;
+	height: 1px;
+/*	width: 60%;*/
+/*	aspect-ratio: 1/1;*/
+/*	background-color: fuchsia;*/
+
+	position: absolute;
+	left: 60%;
+	top: 50%;
+/*	top: 25%;*/
+/*	top: -1em;*/
+
+/*	border-radius: 50%;*/
+
+	transition: .5s;
+}
+
+.contents.plicker .character .eye .pupil:after {
+	content: "";
+	width: 2.5em;
+	aspect-ratio: 1/1;
+	background-color: black;
+
+	position: absolute;
+	left: -1.25em;
+	top: -1.25em;
+/*	top: -1em;*/
+
+	border-radius: 50%;
+}
+
+/* ^^^^ Ground ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.contents.plicker .ground {
+	width: 100%;
+	height: 20%;
+	background-color: olivedrab;
+
+	position: absolute;
+	bottom: 0;
+}

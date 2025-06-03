@@ -6,6 +6,8 @@
 	align-items: center;
 
 	position: relative;
+
+	font-family: "PT Serif", serif;
 }
 
 #bubble {
@@ -16,16 +18,24 @@
 
 	cursor: pointer;
 
-	transition: transform .25s;
+	transition: transform .5s;
 }
 
 #bubble:hover {
 	transform: scale(1.0625);
-	transition: transform ease .25s;
+	transition: transform ease .5s;
 }
 
 #bubble-text {
-	max-width: 16rem;
+	max-width: 32rem;
+/*	background-color: orange;*/
+
+	font-size: 1.25rem;
+	letter-spacing: .015625rem;
+	line-height: 2rem;
+
+	user-select: none;
+
 	transition: opacity ease-in .25s;
 }
 
@@ -34,7 +44,11 @@
 	height: 0;
 
 	position: absolute;
+	left: 50%;
+/*	top: 0;*/
 	z-index: -1;
+
+/*	transition: .5s;*/
 }
 
 #bubble-bg {
@@ -52,4 +66,10 @@
 
 	transition: .5s;
 	transition-timing-function: ease;
+}
+
+@media (max-width: 768px) {
+	#bubble-text {
+		font-size: 1rem;
+	}	
 }
