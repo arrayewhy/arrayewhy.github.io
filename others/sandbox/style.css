@@ -1,0 +1,62 @@
+* {
+	padding: 0;
+	margin: 0;
+
+	pointer-events: none;
+}
+
+.viewport-wrapper {
+	width: 100%;
+	height: auto;
+
+	padding: 3em 6em;
+	box-sizing: border-box;
+}
+
+.viewport {
+	width: 100%;
+	aspect-ratio: 16/9;
+	background-color: beige;
+
+	position: relative;
+
+	pointer-events: all;
+}
+
+.viewport:before {
+	content: "";
+	width: 1px;
+	height: 100%;
+	background-color: blue;
+
+	position: absolute;
+	left: 50%;
+	top: 0;
+
+	opacity: .5;
+}
+
+.viewport:after {
+	content: "";
+	width: 100%;
+	height: 1px;
+	background-color: blue;
+
+	position: absolute;
+	left: 0;
+	top: 50%;
+
+	opacity: .5;
+}
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.target {
+	width: 1em;
+	height: 1em;
+	background-color: red;
+
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}

@@ -1,3 +1,5 @@
+"use strict"
+
 const firstRing = document.querySelector(".ring");
 const mouseCatcher = document.querySelector(".mouse-catcher");
 var rings_mousePos = [0, 0];
@@ -16,7 +18,7 @@ function Prep_Rings() {
 		// Get Mouse Position
 		Set_MousePos_Rings(e);
 		// Start
-		if(ringInterval == null) {
+		if (ringInterval == null) {
 			Rings_Start();
 		}
 	}
@@ -29,7 +31,7 @@ function Set_MousePos_Rings(event) {
 function Rings_Start() {
 	let speed = .25;
 	ringInterval = setInterval(
-		function() { Move_Ring(firstRing, speed); }, 
+		function() { Move_Ring(firstRing, speed); },
 		50
 	);
 }
@@ -37,12 +39,12 @@ function Rings_Start() {
 function Move_Ring(ring, speed) {
 
 	let ringPos = [
-		ring.offsetLeft - (ring.offsetWidth / 6), 
+		ring.offsetLeft - (ring.offsetWidth / 6),
 		ring.offsetTop - (ring.offsetHeight / 6)
 	];
 
 	let rawDir = [
-		rings_mousePos[0] - ringPos[0], 
+		rings_mousePos[0] - ringPos[0],
 		rings_mousePos[1] - ringPos[1]
 	]
 

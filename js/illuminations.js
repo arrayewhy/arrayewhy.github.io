@@ -1,3 +1,5 @@
+"use strict"
+
 const bodyWidth = document.body.offsetWidth;
 
 const illumMover = document.querySelector(".illum-row-mover");

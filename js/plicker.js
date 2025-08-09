@@ -1,3 +1,5 @@
+"use strict"
+
 let plickerContentWindow = document.querySelector(".contents.plicker");
 let plickerMouseCatcher = document.querySelector(".contents.plicker .mouse-catcher");
 

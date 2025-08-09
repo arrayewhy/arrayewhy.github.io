@@ -1,3 +1,5 @@
+"use strict"
+
 const contentsBubble = document.querySelector(".contents.bubble");
 const bubble = document.querySelector("#bubble");
 const bubbleText = document.querySelector("#bubble-text");
@@ -32,7 +34,7 @@ Change_BubbleText_And_BG("");
 
 function Progress_BubbleText() {
 
-	if(bubbling){
+	if (bubbling) {
 		return;
 	}
 
@@ -40,13 +42,12 @@ function Progress_BubbleText() {
 
 	let text = bubbleText.innerHTML;
 
-	if(text == "")
-	{
+	if (text == "") {
 		text = lines[0];
 		Change_BubbleText_And_BG(text);
 		return;
 	}
-	else if(currLine == lines.length - 1) {
+	else if (currLine == lines.length - 1) {
 		Change_BubbleText_And_BG("");
 		currLine = 0;
 		return;
@@ -62,7 +63,7 @@ function Progress_BubbleText() {
 
 function Change_BubbleText_And_BG(text, reset) {
 
-	if(reset) {
+	if (reset) {
 		currLine = 0;
 	}
 
@@ -89,7 +90,7 @@ function Resize_Bubble_BG() {
 
 	// const rem = 16;
 	const rem = () => window.offsetWidth <= 768 ? 10 : 16;
-	
+
 	bubbleBG.style.width = bubble.offsetWidth + (rem() * 4) + "px";
 	bubbleBG.style.height = bubble.offsetHeight + (rem() * 3) + "px";
 	bubbleBG.style.top = -bubble.offsetHeight / 2 - (rem() * 1.5) + "px";

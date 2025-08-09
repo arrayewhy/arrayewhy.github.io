@@ -1,3 +1,5 @@
+"use strict"
+
 let partyContentWindow = document.querySelector(".contents.party");
 let light = document.querySelector("#light");
 let bulb = document.querySelector("#light .bulb");

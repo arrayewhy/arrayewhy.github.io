@@ -1,3 +1,5 @@
+"use strict"
+
 const glowBoxContainer = document.querySelector(".glow");
 const glowBox = document.querySelector("#glow");
 
@@ -32,10 +34,10 @@ function GlowBox_Off() {
 }
 
 function Prep_Glow() {
-	glowBoxContainer.onmouseenter = function() { 
+	glowBoxContainer.onmouseenter = function() {
 		GlowBox_On();
 	}
-	glowBoxContainer.onmouseleave = function() { 
+	glowBoxContainer.onmouseleave = function() {
 		GlowBox_Off();
 	}
 }
