@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<title>Perlin noise</title>
+
+<style>
+
+/*	.centerbox {*/
+		/* flexbox, por favor */
+/*		display: -webkit-box;*/
+/*		-webkit-box-orient: horizontal;*/
+/*		-webkit-box-pack: center;*/
+/*		-webkit-box-align: center;*/
+
+/*		display: -moz-box;*/
+/*		-moz-box-orient: horizontal;*/
+/*		-moz-box-pack: center;*/
+/*		-moz-box-align: center;*/
+
+/*		width: 100%;*/
+/*		height: 100%;*/
+/*		margin: 0; padding: 0;*/
+/*	}*/
+
+	body, html { width: 100%; height: 100%; padding: 0; margin: 0; }
+
+/*	canvas {*/
+		/* border-radius: 30px;  Border radiuses don't seem to work with putImageData */
+/*		box-shadow: 0 0 10px #777;*/
+/*		width: 1024px;*/
+/*		height: 768px;*/
+/*	}*/
+	body {
+		background-color: black;
+	}
+
+	.container {
+		width: 512px;
+		height: 512px;
+		background-color: black;
+
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+	}
+
+	.cell {
+		background-image: url(media/image/sparks_in_the_dark.png);
+		background-repeat: no-repeat;
+	}
+
+	.marking {
+		width: 100%;
+		height: 100%;
+
+		background-image: url(media/image/sparks_in_the_dark.png);
+		background-repeat: no-repeat;
+
+		position: relative;
+		top: 0;
+		left: 0;
+		z-index: 200;
+	}
+
+</style>
+
+<!-- <div class='centerbox'><canvas></canvas></div> -->
+
+<script src='js/perlin_noise_gen.js'></script>
+
+<body>
+
+	<div class="container"></div>
+
+	<script type="text/javascript">
+
+		const _container = document.querySelector(".container");
+
+		// for(let i = 0; i < 8; i++) {
+		// 	let cell = document.createElement("div");
+		// 	cell.classList.add("cell");
+		// 	container.append(cell);
+		// }
+
+		// console.log(container.childNodes);
+
+		// Noise
+		
+		// let rows = 32;
+		// let columns = 32;
+
+		const _container_width = _container.offsetWidth;
+		const _size = _container_width / 32;
+		const _complexity = 32;
+		const _intensity = 3;
+
+		const _mountains = 0.6;
+		const _highlands = 0.5;
+		const _ground = 0.3;
+		const _shore = 0.275;
+		const _shallow = 0.26;
+		const _sea = 0.2;
+		const _depths = 0.1;
+
+		let _seed = Math.random();
+		noise.seed(_seed);
+		console.log(_seed)
+
+		for (var r = 0; r < _size; r++) {
+
+			for (var c = 0; c < _size; c++) {
+
+				let cell = document.createElement("div");
+				cell.classList.add("cell");
+				_container.append(cell);
+
+				let value = Math.abs(noise.perlin2(c / (_size*_size) * _complexity, r / (_size*_size) * _complexity));
+
+				cell.style.width = _container.offsetWidth / _size + "px";
+				cell.style.height = _container.offsetHeight / _size + "px";
+				cell.style.backgroundSize = _container_width + "px";
+
+				// Mountains
+
+				if (value >= _mountains ) {
+
+					cell.style.backgroundPositionX = (-_size * 4) + "px";
+
+					// Peak
+
+					let marking = document.createElement("div");
+					marking.classList.add("marking");
+					marking.style.backgroundSize = _container_width + "px";
+					marking.style.backgroundPosition = (-_size * 6) + "px " + (-_size * 12) + "px";
+					marking.style.scale = 1.25;
+					cell.append(marking);
+
+					continue;
+				}
+
+				// Highlands
+
+				else if (value >= _highlands && value < _mountains ) {
+
+					cell.style.backgroundPositionX = (-_size * 6) + "px";
+
+					// Hill
+
+					let marking = document.createElement("div");
+					marking.classList.add("marking");
+					marking.style.backgroundSize = _container_width + "px";
+					marking.style.backgroundPosition = (-_size * 6) + "px " + (-_size * 16) + "px";
+					marking.style.scale = 1.25;
+					cell.append(marking);
+
+					continue;
+				}
+
+				// Ground
+
+				else if (value >= _ground && value < _highlands ) {
+
+					cell.style.backgroundPositionX = (-_size * 6) + "px";
+
+					let marking = document.createElement("div");
+					marking.classList.add("marking");
+					marking.style.backgroundSize = _container_width + "px";
+
+					// House
+
+					if (Math.random() > 0.9) {
+						marking.style.backgroundPosition = (-_size * 6) + "px " + (-_size * 28) + "px";
+						marking.style.top = -_size / 4 + "px";
+						marking.style.scale = .75;
+
+					// Tree
+
+					} else {
+						marking.style.backgroundPosition = (-_size * 14) + "px " + (-_size * 12) + "px";
+					}
+
+					cell.append(marking);
+
+					continue;
+				}
+
+				// Shore
+
+				else if (value >= _shore && value < _ground ) {
+					cell.style.backgroundPositionX = (-_size * 8) + "px";
+					continue;
+				}
+				
+				// Shallow
+
+				else if (value >= _shallow && value < _shore ) {
+					cell.style.backgroundPositionX = (-_size * 0) + "px";
+					continue;
+				}
+
+				// Sea
+
+				else if (value >= _sea && value < _shallow ) {
+					cell.style.opacity = 0.6;
+					continue;
+				}
+
+				// Depths
+
+				else if (value >= _depths && value < _sea ) {
+					cell.style.opacity = 0.25;
+					continue;
+				}
+
+				// Abyss
+
+				else if (value < _depths ) {
+					cell.style.opacity = 0.1;
+					continue;
+				}
+
+				// Error
+
+				else {
+					cell.style.backgroundPositionX = (-_size * 16) + "px";
+					cell.style.opacity = 1;
+				}
+			}
+		}
+
+	</script>
+</body>
+
+<script>
+
+	// var canvas = document.getElementsByTagName('canvas')[0];
+	// canvas.width = 1024 / 4; // 256
+	// canvas.height = 768 / 4; // 192
+
+	// var ctx = canvas.getContext('2d');
+
+	// var image = ctx.createImageData(canvas.width, canvas.height);
+	// var data = image.data;
+
+	// noise.seed(2);
+
+	// var start = Date.now();
+
+	// let count = 0;
+
+	// let value = 0;
+
+	// for (var x = 0; x < canvas.width; x++) {
+
+		//if (x % 100 == 0) {
+		//  noise.seed(Math.random());
+		//}
+
+	// 	for (var y = 0; y < canvas.height; y++) {
+	// 		// console.log(Math.abs(noise.perlin2(x / 100, y / 100)));
+	// 		value = Math.abs(noise.perlin2(x / 100, y / 100));
+	// 		value *= 256;
+
+	// 		var cell = (x + y * canvas.width) * 4;
+
+	// 		data[cell] = data[cell + 1] = data[cell + 2] = value;
+	// 		// value = data[cell + 2];
+	// 		data[cell] += Math.max(0, (25 - value) * 8);
+	//     	data[cell + 3] = 255; // alpha.
+
+	//     	// if (count < 50) {
+	// 		// 	console.log(value);
+	// 		// }
+	// 		count++;
+	// 	}
+
+	// 	console.log(value);
+	// }
+
+	/* // Benchmark code.
+	start = Date.now();
+	for (var x = 0; x < 10000; x++) {
+	  for (var y = 0; y < 10000; y++) {
+	    noise.simplex2(x / 50, y/50);
+	  }
+	}*/
+
+	// var end = Date.now();
+
+	// ctx.fillColor = 'black';
+	// ctx.fillRect(0, 0, 100, 100);
+	// ctx.putImageData(image, 0, 0);
+
+
+	// ctx.font = '16px sans-serif'
+	// ctx.textAlign = 'center';
+	// ctx.fillText('Rendered in ' + (end - start) + ' ms', canvas.width / 2, canvas.height - 20);
+
+	// if(console) {
+	// 	console.log('Rendered in ' + (end - start) + ' ms');
+	// }
+
+	// console.log(count);
+
+</script>

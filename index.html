@@ -157,11 +157,96 @@
 				<div class="label"></div>
 			</div>
 
+			<!--  -->
+
+			<div class="frame">
+
+				<div class="contents" style="background-color: beige;"></div>
+
+				<script type="text/javascript" src="js/perlin_noise_gen.js"></script>
+
+				<!-- <div class='centerbox'><canvas></canvas></div> -->
+
+				<script>
+
+					// var canvas = document.getElementsByTagName('canvas')[0];
+					var canvas = document.querySelector(".perlin");
+					// canvas.width = 1024;
+					// canvas.height = 768;
+
+					// var ctx = canvas.getContext('2d');
+					// var image = ctx.createImageData(canvas.width, canvas.height);
+					// var data = image.data;
+
+					// var start = Date.now();
+					// var value = Math.abs(noise.perlin2(1000, 1000));
+					// value *= 256;
+
+					let rows = 4;
+					let columns = 4;
+
+					noise.seed(1);
+
+					for (var r = 0; r < rows; r++) {
+						for (var c = 0; c < columns; c++) {
+							let value = Math.abs(noise.perlin2(c / 256, r / 256));
+							console.log(value);
+						}
+					}
+
+					// for (var i = 0; i < 10; i++) {
+					// 	let value = Math.abs(noise.perlin2(i / 256, i / 256));
+					// 	console.log(value);
+					// }
+					// for (var x = 0; x < canvas.offsetWidth; x++) {
+
+						// if (x % 100 == 0) {
+							// noise.seed(Math.random());
+							// console.log(noise.seed(Math.random()));
+						// }
+
+						// for (var y = 0; y < canvas.height; y++) {
+						// for (var y = 0; y < canvas.offsetHeight; y++) {
+								// var value = Math.abs(noise.perlin2(x / 100, y / 100));
+								// value *= 256;
+
+								// var cell = (x + y * canvas.width) * 4;
+								// var cell = (x + y * canvas.offsetWidth) * 4;
+								// data[cell] = data[cell + 1] = data[cell + 2] = value;
+								// data[cell] += Math.max(0, (25 - value) * 8);
+								// data[cell + 3] = 255; // alpha.
+						// }
+					// }
+
+					// var end = Date.now();
+
+					// ctx.fillColor = 'black';
+					// ctx.fillRect(0, 0, 100, 100);
+					// ctx.putImageData(image, 0, 0);
+
+
+					// ctx.font = '16px sans-serif'
+					// ctx.textAlign = 'center';
+					// ctx.fillText('Rendered in ' + (end - start) + ' ms', canvas.width / 2, canvas.height - 20);
+
+					// if(console) {
+					// 	console.log('Rendered in ' + (end - start) + ' ms');
+					// }
+
+				</script>
+
+
+				<!-- Label -->
+				<div class="label"></div>
+			</div>
+
 		</div>
 
 	</div>
 
 	<!-- Javascript -->
+
+	
 
 	<script type="text/javascript" src="js/glow.js"></script>
 	<script type="text/javascript" src="js/party.js"></script>

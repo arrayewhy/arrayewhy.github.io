@@ -27,7 +27,7 @@ html {
 
 h1 {
 	font-family: "Righteous", sans-serif;
-	font-size: 6rem;
+	font-size: 10vw;
 	letter-spacing: .75rem;
 }
 
@@ -109,7 +109,8 @@ h1 {
 .frame.intro .contents {
 	height: auto !important;
 
-	padding: 8rem 16rem 9rem 16rem;
+/*	padding: 8rem 16rem 9rem 16rem;*/
+	padding: 8rem 10vw;
 	box-sizing: border-box;
 }
 
