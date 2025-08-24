@@ -33,8 +33,8 @@
 	}
 
 	.container {
-		width: 512px;
-		height: 512px;
+		width: 100%;
+		height: auto;
 		background-color: black;
 
 		display: flex;
@@ -87,9 +87,17 @@
 		// let rows = 32;
 		// let columns = 32;
 
+		const _spritesheet_columns = 16;
+
+		// const _column_count = 16;
+		// const _cell_width = 64;
+		// const _container_width = _cell_width * _column_count;
+
+		const _cell_width = 32;
 		const _container_width = _container.offsetWidth;
-		const _size = _container_width / 32;
-		const _complexity = 32;
+		const _column_count = _container_width / _cell_width;
+
+		const _complexity = _column_count * 2;
 		const _intensity = 3;
 
 		const _mountains = 0.6;
@@ -104,32 +112,40 @@
 		noise.seed(_seed);
 		console.log(_seed)
 
-		for (var r = 0; r < _size; r++) {
+		_container.style.width = _container_width + "px";
+		_container.style.height = _container_width + "px";
 
-			for (var c = 0; c < _size; c++) {
+		for (var r = 0; r < _column_count; r++) {
+
+			for (var c = 0; c < _column_count; c++) {
 
 				let cell = document.createElement("div");
 				cell.classList.add("cell");
 				_container.append(cell);
 
-				let value = Math.abs(noise.perlin2(c / (_size*_size) * _complexity, r / (_size*_size) * _complexity));
+				let noise_value = Math.abs(
+					noise.perlin2(
+						c / (_column_count*_column_count) * _complexity, 
+						r / (_column_count*_column_count) * _complexity
+						)
+					);
 
-				cell.style.width = _container.offsetWidth / _size + "px";
-				cell.style.height = _container.offsetHeight / _size + "px";
-				cell.style.backgroundSize = _container_width + "px";
+				cell.style.width = _cell_width + "px";
+				cell.style.height = _cell_width + "px";
+				cell.style.backgroundSize = _cell_width * _spritesheet_columns + "px";
 
 				// Mountains
 
-				if (value >= _mountains ) {
+				if (noise_value >= _mountains ) {
 
-					cell.style.backgroundPositionX = (-_size * 4) + "px";
+					cell.style.backgroundPositionX = (-_cell_width * 2) + "px";
 
 					// Peak
 
 					let marking = document.createElement("div");
 					marking.classList.add("marking");
-					marking.style.backgroundSize = _container_width + "px";
-					marking.style.backgroundPosition = (-_size * 6) + "px " + (-_size * 12) + "px";
+					marking.style.backgroundSize = _cell_width * _spritesheet_columns + "px";
+					marking.style.backgroundPosition = (-_cell_width * 3) + "px " + (-_cell_width * 6) + "px";
 					marking.style.scale = 1.25;
 					cell.append(marking);
 
@@ -138,16 +154,16 @@
 
 				// Highlands
 
-				else if (value >= _highlands && value < _mountains ) {
+				else if (noise_value >= _highlands && noise_value < _mountains ) {
 
-					cell.style.backgroundPositionX = (-_size * 6) + "px";
+					cell.style.backgroundPositionX = (-_cell_width * 3) + "px";
 
 					// Hill
 
 					let marking = document.createElement("div");
 					marking.classList.add("marking");
-					marking.style.backgroundSize = _container_width + "px";
-					marking.style.backgroundPosition = (-_size * 6) + "px " + (-_size * 16) + "px";
+					marking.style.backgroundSize = _cell_width * _spritesheet_columns + "px";
+					marking.style.backgroundPosition = (-_cell_width * 3) + "px " + (-_cell_width * 8) + "px";
 					marking.style.scale = 1.25;
 					cell.append(marking);
 
@@ -156,25 +172,25 @@
 
 				// Ground
 
-				else if (value >= _ground && value < _highlands ) {
+				else if (noise_value >= _ground && noise_value < _highlands ) {
 
-					cell.style.backgroundPositionX = (-_size * 6) + "px";
+					cell.style.backgroundPositionX = (-_cell_width * 3) + "px";
 
 					let marking = document.createElement("div");
 					marking.classList.add("marking");
-					marking.style.backgroundSize = _container_width + "px";
+					marking.style.backgroundSize = _cell_width * _spritesheet_columns + "px";
 
 					// House
 
 					if (Math.random() > 0.9) {
-						marking.style.backgroundPosition = (-_size * 6) + "px " + (-_size * 28) + "px";
-						marking.style.top = -_size / 4 + "px";
+						marking.style.backgroundPosition = (-_cell_width * 3) + "px " + (-_cell_width * 14) + "px";
+						marking.style.top = -_cell_width / 2 + "px";
 						marking.style.scale = .75;
 
 					// Tree
 
 					} else {
-						marking.style.backgroundPosition = (-_size * 14) + "px " + (-_size * 12) + "px";
+						marking.style.backgroundPosition = (-_cell_width * 7) + "px " + (-_cell_width * 6) + "px";
 					}
 
 					cell.append(marking);
@@ -184,35 +200,35 @@
 
 				// Shore
 
-				else if (value >= _shore && value < _ground ) {
-					cell.style.backgroundPositionX = (-_size * 8) + "px";
+				else if (noise_value >= _shore && noise_value < _ground ) {
+					cell.style.backgroundPositionX = (-_cell_width * 4) + "px";
 					continue;
 				}
 				
 				// Shallow
 
-				else if (value >= _shallow && value < _shore ) {
-					cell.style.backgroundPositionX = (-_size * 0) + "px";
+				else if (noise_value >= _shallow && noise_value < _shore ) {
+					// cell.style.backgroundPositionX = (-_cell_width * 0) + "px";
 					continue;
 				}
 
 				// Sea
 
-				else if (value >= _sea && value < _shallow ) {
+				else if (noise_value >= _sea && noise_value < _shallow ) {
 					cell.style.opacity = 0.6;
 					continue;
 				}
 
 				// Depths
 
-				else if (value >= _depths && value < _sea ) {
+				else if (noise_value >= _depths && noise_value < _sea ) {
 					cell.style.opacity = 0.25;
 					continue;
 				}
 
 				// Abyss
 
-				else if (value < _depths ) {
+				else if (noise_value < _depths ) {
 					cell.style.opacity = 0.1;
 					continue;
 				}
@@ -220,7 +236,7 @@
 				// Error
 
 				else {
-					cell.style.backgroundPositionX = (-_size * 16) + "px";
+					cell.style.backgroundPositionX = (-_cell_width * 8) + "px";
 					cell.style.opacity = 1;
 				}
 			}
@@ -246,7 +262,7 @@
 
 	// let count = 0;
 
-	// let value = 0;
+	// let noise_value = 0;
 
 	// for (var x = 0; x < canvas.width; x++) {
 
@@ -256,23 +272,23 @@
 
 	// 	for (var y = 0; y < canvas.height; y++) {
 	// 		// console.log(Math.abs(noise.perlin2(x / 100, y / 100)));
-	// 		value = Math.abs(noise.perlin2(x / 100, y / 100));
-	// 		value *= 256;
+	// 		noise_value = Math.abs(noise.perlin2(x / 100, y / 100));
+	// 		noise_value *= 256;
 
 	// 		var cell = (x + y * canvas.width) * 4;
 
-	// 		data[cell] = data[cell + 1] = data[cell + 2] = value;
-	// 		// value = data[cell + 2];
-	// 		data[cell] += Math.max(0, (25 - value) * 8);
+	// 		data[cell] = data[cell + 1] = data[cell + 2] = noise_value;
+	// 		// noise_value = data[cell + 2];
+	// 		data[cell] += Math.max(0, (25 - noise_value) * 8);
 	//     	data[cell + 3] = 255; // alpha.
 
 	//     	// if (count < 50) {
-	// 		// 	console.log(value);
+	// 		// 	console.log(noise_value);
 	// 		// }
 	// 		count++;
 	// 	}
 
-	// 	console.log(value);
+	// 	console.log(noise_value);
 	// }
 
 	/* // Benchmark code.
