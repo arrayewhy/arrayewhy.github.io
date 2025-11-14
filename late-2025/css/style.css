@@ -1,3 +1,6 @@
+/* Bootstrap Icons */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
 * {
 	margin: 0;
 	padding: 0;
@@ -18,13 +21,17 @@ html {
 	height: 100%;
 /*	background-color: beige;*/
 
+	display: flex;
+	flex-flow: column;
+	gap: 1rem;
+
 	padding: 2rem 8rem;
 	box-sizing: border-box;
 }
 
 /* Boxes ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-.box-container {
+.box-row {
 	width: 100%;
 	height: 50vh;
 /*	background-color: grey;*/
@@ -33,12 +40,14 @@ html {
 	gap: 1rem;
 }
 
-.box-container .box {
+.box-row .box {
 	width: 100%;
 	height: 100%;
 /*	background-color: darkgray;*/
 
 	overflow: hidden;
+	
+	cursor: pointer;
 }
 
 .box img {
@@ -48,12 +57,8 @@ html {
 	object-position: center;
 }
 
-.box#tea-cup {
-	background-color: black;
-}
-.box#kettle {
-	background-color: #4c7c64;
-}
+.box#tea-cup { background-color: black; }
+.box#kettle { background-color: #4c7c64; }
 
 /* Close Up ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
@@ -65,22 +70,29 @@ html {
 	position: absolute;
 
 	display: none;
-/*	display: flex;*/
 	justify-content: center;
 
 	opacity: 0;
 }
 
 #close-up-container .close-btn {
-	width: 5%;
-	aspect-ratio: 1/1;
-	background-color: red;
+	width: 5vw;
+	height: 5vw;
+/*	background-color: red;*/
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 2vw;
 
 	position: absolute;
 	top: 0;
 	right: 0;
 
 	z-index: 2;
+
+	cursor: pointer;
 }
 
 #close-up-container .loader {
@@ -96,6 +108,4 @@ html {
 #close-up-container img {
 	width: auto;
 	height: 100%;
-
-/*	display: none;*/
 }
