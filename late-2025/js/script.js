@@ -1,7 +1,7 @@
 const boxes = document.querySelectorAll(".box");
 const close_up_container = document.querySelector("#close-up-container");
-const close_btn = close_up_container.firstElementChild;
-const close_up_img_holder = document.querySelector("#close-up-img-holder");
+const close_btn = document.querySelector("#close-up-container .close-btn");
+const close_up_img_holder = document.querySelector("#close-up-container img");
 
 const img_sources = {
 	"tea-cup":"late-2025/media/images/warm-tea-cup-high-res-cropped.png",
@@ -20,6 +20,7 @@ function _Assign_Functions() {
 		);
 
 	close_btn.onclick = function() { _Hide_Close_Up(); }
+	close_up_img_holder.onload = function() { alert("Done"); }
 }
 
 /* Close Up ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
