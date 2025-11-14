@@ -1,0 +1,85 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+html {
+	background-color: black;
+	color: white;
+}
+
+#site-wrapper {
+	width: 100%;
+	height: 100%;
+/*	background-color: beige;*/
+
+	padding: 2rem 8rem;
+	box-sizing: border-box;
+}
+
+/* Boxes ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+.box-container {
+	width: 100%;
+	height: 50vh;
+/*	background-color: grey;*/
+
+	display: flex;
+	gap: 1rem;
+}
+
+.box-container .box {
+	width: 100%;
+	height: 100%;
+/*	background-color: darkgray;*/
+
+	overflow: hidden;
+}
+
+.box img {
+	width: 100%;
+	height: 100%;
+	object-fit: scale-down;
+	object-position: center;
+}
+
+.box#tea-cup {
+	background-color: black;
+}
+.box#kettle {
+	background-color: #4c7c64;
+}
+
+/* Close Up ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+#close-up-container {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+
+	display: none;
+/*	display: flex;*/
+	justify-content: center;
+
+	position: absolute;
+}
+
+#close-up-container .close-btn {
+	width: 5%;
+	aspect-ratio: 1/1;
+	background-color: red;
+
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#close-up-container img {
+	width: auto;
+	height: 100%;
+}

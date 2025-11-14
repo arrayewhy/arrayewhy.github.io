@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+	<!-- Illuminations -->
+
+	<div class="illuminations">
+		<div class="illum-row-mover">
+			<div class="illum-row">
+				<div class="illum-cell-wrapper moon">
+					<div class="illum-cell moon"></div>
+				</div>
+				<div class="illum-cell-wrapper sun">
+					<div class="illum-cell sun"></div>
+				</div>
+				<div class="illum-cell-wrapper plant">
+					<div class="illum-cell plant">
+						<div class="leaf TL"></div>
+						<div class="leaf TR"></div>
+						<div class="leaf BL"></div>
+						<div class="leaf BR"></div>
+					</div>
+				</div>
+				<div class="illum-cell-wrapper geo">
+					<div class="illum-cell geo"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Gallery -->
+
+	<div class="gallery">
+
+		<!-- Row 1 -->
+
+		<div class="frame-row">
+
+			<!-- Intro -->
+
+			<div class="frame intro">
+				<div class="contents">
+					<h1>TOYBOX</h1>
+					<p class="body-text">Welcome!<br/>This is where I explore the playful possibilities of HTML, CSS, and Javascript!</p>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Row 2 -->
+
+		<div class="frame-row">
+
+			<!-- Glow -->
+
+			<div class="frame">
+				<div class="contents glow">
+					<div id="glow"></div>
+				</div>
+				<!-- Label -->
+				<div class="label">Glow</div>
+			</div>
+
+			<!-- Party -->
+
+			<div class="frame">
+				<div class="contents party">
+					<div id="light">
+						<div class="bulb"></div>
+						<div class="base">
+							<div class="switch"></div>
+						</div>
+					</div>
+					<div id="shortie">
+						<div class="eye">
+							<div class="pupil"></div>
+						</div>
+					</div>
+					<div id="tallie">
+						<div class="eye">
+							<div class="pupil"></div>
+						</div>
+					</div>
+				</div>
+				<!-- Label -->
+				<div class="label">Party</div>
+			</div>
+
+		</div>
+
+		<!-- Row 3 -->
+
+		<div class="frame-row">
+
+			<!-- Bubble -->
+
+			<div class="frame">
+				<div class="contents bubble">
+					<div id="bubble">
+						<div id="bubble-text"></div>
+						<div id="bubble-bg-holder">
+							<div id="bubble-bg"></div>
+						</div>
+					</div>
+				</div>
+				<!-- Label -->
+				<div class="label">Bubble</div>
+			</div>
+
+			<!-- Rings -->
+
+			<div class="frame">
+				<div class="contents rings">
+					<div class="mouse-catcher"></div>
+					<div class="ring"></div>
+				</div>
+				<!-- Label -->
+				<div class="label">Rings</div>
+			</div>
+
+		</div>
+
+		<!-- Row 4 -->
+
+		<div class="frame-row">
+
+			<!-- Plicker -->
+
+			<div class="frame">
+				<div class="contents plicker" style="background-color: beige;">
+					<div class="mouse-catcher"></div>
+					<div class="character">
+						<div class="eye">
+								<div class="pupil"></div>
+							</div>
+						<div class="body"></div>
+					</div>
+					<div class="ground"></div>
+				</div>
+				<!-- Label -->
+				<div class="label"></div>
+			</div>
+
+			<!--  -->
+
+			<div class="frame">
+				<div class="contents" style="background-color: beige;"></div>
+				<!-- Label -->
+				<div class="label"></div>
+			</div>
+
+			<!--  -->
+
+			<div class="frame">
+
+				<div class="contents" style="background-color: beige;"></div>
+
+				<script type="text/javascript" src="js/perlin_noise_gen.js"></script>
+
+				<!-- <div class='centerbox'><canvas></canvas></div> -->
+
+				<script>
+
+					// var canvas = document.getElementsByTagName('canvas')[0];
+					var canvas = document.querySelector(".perlin");
+					// canvas.width = 1024;
+					// canvas.height = 768;
+
+					// var ctx = canvas.getContext('2d');
+					// var image = ctx.createImageData(canvas.width, canvas.height);
+					// var data = image.data;
+
+					// var start = Date.now();
+					// var value = Math.abs(noise.perlin2(1000, 1000));
+					// value *= 256;
+
+					let rows = 4;
+					let columns = 4;
+
+					noise.seed(1);
+
+					for (var r = 0; r < rows; r++) {
+						for (var c = 0; c < columns; c++) {
+							let value = Math.abs(noise.perlin2(c / 256, r / 256));
+							console.log(value);
+						}
+					}
+
+					// for (var i = 0; i < 10; i++) {
+					// 	let value = Math.abs(noise.perlin2(i / 256, i / 256));
+					// 	console.log(value);
+					// }
+					// for (var x = 0; x < canvas.offsetWidth; x++) {
+
+						// if (x % 100 == 0) {
+							// noise.seed(Math.random());
+							// console.log(noise.seed(Math.random()));
+						// }
+
+						// for (var y = 0; y < canvas.height; y++) {
+						// for (var y = 0; y < canvas.offsetHeight; y++) {
+								// var value = Math.abs(noise.perlin2(x / 100, y / 100));
+								// value *= 256;
+
+								// var cell = (x + y * canvas.width) * 4;
+								// var cell = (x + y * canvas.offsetWidth) * 4;
+								// data[cell] = data[cell + 1] = data[cell + 2] = value;
+								// data[cell] += Math.max(0, (25 - value) * 8);
+								// data[cell + 3] = 255; // alpha.
+						// }
+					// }
+
+					// var end = Date.now();
+
+					// ctx.fillColor = 'black';
+					// ctx.fillRect(0, 0, 100, 100);
+					// ctx.putImageData(image, 0, 0);
+
+
+					// ctx.font = '16px sans-serif'
+					// ctx.textAlign = 'center';
+					// ctx.fillText('Rendered in ' + (end - start) + ' ms', canvas.width / 2, canvas.height - 20);
+
+					// if(console) {
+					// 	console.log('Rendered in ' + (end - start) + ' ms');
+					// }
+
+				</script>
+
+
+				<!-- Label -->
+				<div class="label"></div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- Javascript -->
+
+	
+
+	<script type="text/javascript" src="js/glow.js"></script>
+	<script type="text/javascript" src="js/party.js"></script>
+	<script type="text/javascript" src="js/bubble.js"></script>
+	<script type="text/javascript" src="js/rings.js"></script>
+	<script type="text/javascript" src="js/plicker.js"></script>
+
+	<script type="text/javascript" src="js/illuminations.js"></script>
+	<script type="text/javascript" src="js/Start.js"></script>
+
+</body>
+
+</html>
