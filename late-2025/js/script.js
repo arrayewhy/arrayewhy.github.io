@@ -6,11 +6,18 @@ const cu_close_button = document.querySelector("#close-up-container .close-btn")
 const cu_loader = document.querySelector("#close-up-container .loader");
 const cu_img = document.querySelector("#close-up-container img");
 var cu_interval;
-var _cu_id;
+var cu_id;
 
 const img_sources = {
-	"tea-cup":"late-2025/media/images/warm-tea-cup-high-res-cropped.png",
-	"kettle":"late-2025/media/images/cozy-kettle-cropped.png"
+	"tea-cup" : "late-2025/media/images/warm-tea-cup-high-res-cropped.png",
+	"kettle" : "late-2025/media/images/cozy-kettle-cropped.png",
+	"thank-you" : "late-2025/media/images/thank-you.png"
+}
+
+const bg_colours = {
+	"tea-cup" : "black",
+	"kettle" : "#4c7c64",
+	"thank-you" : "#f8f7ef"
 }
 
 _Assign_Functions();
@@ -32,7 +39,7 @@ function _Assign_Functions() {
 
 function _Show_Close_Up(id) {
 
-	_cu_id = id;
+	cu_id = id;
 
 	cu_container.style.top = window.pageYOffset + "px";
 
@@ -40,6 +47,9 @@ function _Show_Close_Up(id) {
 	cu_loader.style.opacity = "1";
 
 	cu_container.style.display = "flex";
+	cu_container.style.backgroundColor = bg_colours[id];
+
+	html.style.overflow = "hidden";
 
 	_Start_Fade_Container_In();
 }
@@ -57,9 +67,7 @@ function _Fade_Container_In() {
 
 		cu_container.style.opacity = 1;
 
-		html.style.overflow = "hidden";
-
-		cu_img.src = img_sources[_cu_id];
+		cu_img.src = img_sources[cu_id];
 
 		_Start_Checking_Image();
 	}
@@ -93,6 +101,7 @@ function _Fade_Loader_Out() {
 }
 
 function _Start_Fade_Container_Out() {
+	html.style.overflow = "initial";
 	cu_interval = setInterval(_Fade_Container_Out, 5);
 }
 
@@ -105,7 +114,6 @@ function _Fade_Container_Out() {
 		cu_img.style.display = "none";
 		cu_container.style.display = "none";
 		cu_container.style.opacity = "0";
-		html.style.overflow = "initial";
 	}
 }
 
