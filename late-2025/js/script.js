@@ -1,5 +1,6 @@
-const boxes = document.querySelectorAll(".box");
 const html = document.querySelector("html");
+const body = document.querySelector("body");
+const boxes = document.querySelectorAll(".box");
 
 const cu_container = document.querySelector("#close-up-container");
 const cu_close_button = document.querySelector("#close-up-container .close-btn");
@@ -33,6 +34,26 @@ function _Assign_Functions() {
 		);
 
 	cu_close_button.onclick = function() { _Start_Fade_Container_Out(); }
+
+	if (window.innerWidth <= 700) {
+		_Assign_Scroll_Fades();
+	}
+}
+
+function _Assign_Scroll_Fades() {
+	body.onscroll = function() {
+		// Higher is Sooner
+		let threshold = 400;
+		boxes.forEach(function(box) {
+			if (html.scrollTop - box.offsetTop > -threshold) {
+				box.style.opacity = 1;
+				return;
+			}
+			else {
+				box.style.opacity = .5;
+			}
+		})
+	}
 }
 
 /* Close Up ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
