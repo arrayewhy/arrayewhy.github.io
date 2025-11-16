@@ -9,6 +9,8 @@ const cu_img = document.querySelector("#close-up-container img");
 var cu_interval;
 var cu_id;
 
+const fade_threshold = 300;
+
 const img_sources = {
 	"tea-cup" : "late-2025/media/images/warm-tea-cup-high-res-cropped.png",
 	"kettle" : "late-2025/media/images/cozy-kettle-cropped.png",
@@ -21,9 +23,11 @@ const bg_colours = {
 	"thank-you" : "#f8f7ef"
 }
 
+/* Start ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
 _Assign_Functions();
 
-/* Functions ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/* Initialisation ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 function _Assign_Functions() {
 	// Assign Box Clicks
@@ -42,18 +46,21 @@ function _Assign_Functions() {
 
 function _Assign_Scroll_Fades() {
 	body.onscroll = function() {
-		// Higher is Sooner
-		let threshold = 400;
-		boxes.forEach(function(box) {
-			if (html.scrollTop - box.offsetTop > -threshold) {
-				box.style.opacity = 1;
-				return;
-			}
-			else {
-				box.style.opacity = .5;
-			}
-		})
+		_Fade_Boxes();
 	}
+	_Fade_Boxes();
+}
+
+function _Fade_Boxes() {
+	boxes.forEach(function(box) {
+		if (html.scrollTop - box.offsetTop > -fade_threshold) {
+			box.style.opacity = 1;
+			return;
+		}
+		else {
+			box.style.opacity = .2;
+		}
+	})
 }
 
 /* Close Up ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
