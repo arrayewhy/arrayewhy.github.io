@@ -9,7 +9,7 @@ const cu_img = document.querySelector("#close-up-container img");
 var cu_interval;
 var cu_id;
 
-const fade_threshold = 300;
+const fade_threshold = 350;
 
 const img_sources = {
 	"tea-cup" : "late-2025/media/images/warm-tea-cup-high-res-cropped.png",
