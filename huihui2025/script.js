@@ -257,20 +257,20 @@ function Open_GalleryZoomWrapper(photoID) {
 	Hide_GalleryWindow();
 
 	if(photoID == "photo-1") {
-		stickyPhoto.style.backgroundImage = "url('media/Photo-1.png')";
-		galleryZoom.style.backgroundImage = "url('media/Photo-1.png')";
+		stickyPhoto.style.backgroundImage = "url('huihui2025/media/Photo-1.png')";
+		galleryZoom.style.backgroundImage = "url('huihui2025/media/Photo-1.png')";
 	}
 	else if(photoID == "photo-2") {
-		stickyPhoto.style.backgroundImage = "url('media/Photo-2.png')";
-		galleryZoom.style.backgroundImage = "url('media/Photo-2.png')";
+		stickyPhoto.style.backgroundImage = "url('huihui2025/media/Photo-2.png')";
+		galleryZoom.style.backgroundImage = "url('huihui2025/media/Photo-2.png')";
 	}
 	else if(photoID == "photo-3") {
-		stickyPhoto.style.backgroundImage = "url('media/Photo-3.png')";
-		galleryZoom.style.backgroundImage = "url('media/Photo-3.png')";
+		stickyPhoto.style.backgroundImage = "url('huihui2025/media/Photo-3.png')";
+		galleryZoom.style.backgroundImage = "url('huihui2025/media/Photo-3.png')";
 	}
 	else if(photoID == "photo-4") {
-		stickyPhoto.style.backgroundImage = "url('media/Photo-4.png')";
-		galleryZoom.style.backgroundImage = "url('media/Photo-4.png')";
+		stickyPhoto.style.backgroundImage = "url('huihui2025/media/Photo-4.png')";
+		galleryZoom.style.backgroundImage = "url('huihui2025/media/Photo-4.png')";
 	}
 
 	galleryZoomWrapper.style.display = "flex";
