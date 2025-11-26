@@ -107,6 +107,8 @@ footer {
 	opacity: 0;
 
 	z-index: 1;
+
+	overflow: hidden;
 }
 
 #close-up-container .close-btn {
