@@ -110,15 +110,15 @@ footer {
 }
 
 #close-up-container .close-btn {
-	width: 5vw;
-	height: 5vw;
+	width: 2em;
+	height: 2em;
 	background-color: rgba(0, 0, 0, .2);
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	font-size: 2vw;
+	font-size: 2em;
 
 	position: absolute;
 	top: 1rem;
