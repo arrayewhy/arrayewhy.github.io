@@ -207,6 +207,10 @@
 		disclaimer.innerHTML = "Disclaimer:<br>None of these songs belong to the creator of this website.";
 		_body.appendChild(disclaimer);
 
+		var fs = require('fs');
+		var files = fs.readdirSync('/music');
+		alert(files);
+
 		function _Play(container, audio_player) {
 
 			// Pause
