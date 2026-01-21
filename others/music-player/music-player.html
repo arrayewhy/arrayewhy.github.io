@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Music Player</title>
+
+	<style type="text/css">
+
+		:root {
+			--dark-gray: rgba(50, 50, 50, 1.0);
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		a {
+			text-decoration: none;
+			color: var(--dark-gray);
+		}
+
+		html {
+			background-color: #f9f4ec;
+
+			padding-top: 4rem;
+			padding-bottom: 16rem;
+
+			font-size: 2vh;
+			font-family: "Georgia", sans-serif;
+			letter-spacing: .02rem;
+			color: var(--dark-gray);
+		}
+
+		body {
+/*			height: 100vh;*/
+
+			display: flex;
+			flex-flow: column;
+/*			justify-content: center;*/
+/*			align-items: center;*/
+			gap: .5rem;
+
+			padding: 0 8rem;
+			box-sizing: border-box;
+
+			position: relative;
+		}
+
+		body:after {
+			content: "";
+			width: 50vw;
+			height: 100vh;
+
+			background-image: url(images/0010.jpg);
+			background-repeat: no-repeat;
+			background-size: 120%;
+			background-position: center;
+
+			position: fixed;
+			top: 0;
+			right: 0;
+			z-index: -1;
+
+			mix-blend-mode: multiply;
+
+			opacity: .6;
+		}
+
+		#playlist-title {
+			padding: 2rem 0;
+		}
+
+		.audio-player {
+			width: 50%;
+			height: auto;
+			min-height: 3rem;
+
+			background-color: white;
+
+			display: flex;
+			align-items: center;
+
+			padding: 1rem;
+			box-sizing: border-box;
+
+			position: relative;
+			left: 0;
+
+			border-radius: .5rem;
+
+/*			color: gray;*/
+
+			cursor: pointer;
+
+			transition: background-color .5s, color .5s, padding-left .5s, left .5s;
+			transition-timing-function: ease;
+		}
+
+		.audio-player:after {
+			content: ">";
+			
+			position: absolute;
+			top: calc(50% - .75rem);
+			left: 1rem;
+
+			opacity: 0;
+
+			transition: opacity .25s;
+		}
+
+		.audio-player:hover {
+			color: dodgerblue;
+			left: 2rem;
+		}
+
+		@keyframes Bounce {
+			0% { left: 0; }
+			50% { left: 1rem; }
+			100% { left: 0; }
+		}
+
+		.playing {
+			background-color: lightskyblue;
+			color: white;
+			padding-left: 2.5rem;
+
+			position: relative;
+
+			animation-name: Bounce;
+			animation-duration: 4s;
+			animation-iteration-count: infinite;
+		}
+
+		.playing:after {
+			opacity: 1;
+			transition: opacity 2s;
+		}
+
+		.playing:hover {
+			background-color: dodgerblue;
+			color: white;
+		}
+
+		.paused:after {
+			content: "||";
+		}
+
+		#disclaimer {
+			padding-top: 2rem;
+			color: gray;
+			line-height: 1.5rem;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<h1 id="playlist-title">
+		<a href="https://www.patreon.com/arrayewhy">Arrayewhy's Music Library</a>
+	</h1>
+
+	<script type="text/javascript">
+
+		let SONGS = [
+			"music/残照 ⧸ Afterglow.mp3",
+			"music/ Coldplay - ALL MY LOVE (Official Video) (Directors' Cut).mp3",
+			"music/Branch - Keith Kenniff.mp3",
+			"music/Digimon World - File City (Night).mp3",
+			"music/Fantastic Mr. Fox - Kristofferson's Theme.mp3",
+			"music/Fix You - Jacob Collier & Chris Martin.mp3",
+			"music/Frontier Village Dali - Nobuo Uematsu, Final Fantasy 9.mp3",
+			"music/Panacea - Disasterpeace.mp3",
+			"music/Ragnarok Online - Peaceful Forest.mp3",
+			"music/Ragnarok Online - Plateau.mp3",
+			"music/Shimagurashi - Night.mp3",
+			"music/The Golden Hour - Louie Zong.mp3",
+			"music/The Sea - Tomas Dvorak, Machinarium.mp3",
+		];
+
+		let _body = document.querySelector('body');
+		let _music_players = [];
+
+		for(let i = 0; i < SONGS.length; i++) {
+			let container = document.createElement('div');
+			// Create Audio Player Container
+			container.innerHTML = '<p>' + SONGS[i].replace('music/', '') + '</p>';
+			container.innerHTML = container.innerHTML.replace('.mp3', '');
+			container.classList.add('audio-player');
+			// Create Audio Player
+			let audio_player = document.createElement('audio');
+			container.appendChild(audio_player);
+			audio_player.src = SONGS[i];
+			audio_player.load();
+			_music_players.push(audio_player);
+			// Assign Play on Click
+			container.onclick = function() { _Play(container, audio_player); };
+			// Add to Body
+			_body.appendChild(container);
+		}
+
+		// Disclaimer
+		let disclaimer = document.createElement('p');
+		disclaimer.setAttribute('id', 'disclaimer');
+		disclaimer.innerHTML = "Disclaimer:<br>None of these songs belong to the creator of this website.";
+		_body.appendChild(disclaimer);
+
+		function _Play(container, audio_player) {
+
+			// Pause
+			if(!audio_player.paused) {
+				audio_player.pause();
+				container.classList.add('paused');
+				return;
+			}
+
+			// Unpause
+			if(audio_player.paused && container.classList.contains('paused')) {
+				audio_player.play();
+				container.classList.remove('paused');
+				return;
+			}
+
+			// Play from Start
+			_music_players.forEach(_Stop);
+			audio_player.play();
+			// Add Visual Style
+			container.classList.add('playing');
+		}
+
+		function _Stop(audio_player) {
+			audio_player.pause();
+			audio_player.currentTime = 0;
+
+			audio_player.parentElement.classList.remove('playing');
+
+			if(audio_player.parentElement.classList.contains('paused')) {
+				audio_player.parentElement.classList.remove('paused');
+			}
+		}
+	</script>
+
+</body>
+
+</html>
