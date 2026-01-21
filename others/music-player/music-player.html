@@ -204,31 +204,33 @@
 
 		/* Phone */
 
-		@media only screen and (max-width: 1024px) {
+		@media only screen and (max-width: 400px) {
 
 			body {
 				padding-top: 24rem;
 				padding-left: 2rem;
 				padding-right: 2rem;
-/*				padding-bottom: 4rem;*/
 
 				font-size: 2vh;
 			}
 
 			body:after {
-				/*background-size: 100%;
-				background-position-x: center;*/
 				background-position-y: -10%;
 			}
 
-			#playlist-title {
-/*				text-align: center;*/
+			.audio-player {
+				padding: 1rem;
 			}
 
-			.audio-player {
-/*				width: 100%;*/
-/*				min-height: 2rem;*/
-				padding: 1rem;
+			.audio-player:hover {
+				left: 0;
+			}
+
+			.playing {
+				padding-left: 2.5rem;
+				left: 0;
+
+				animation-name: none;
 			}
 
 			#disclaimer {
