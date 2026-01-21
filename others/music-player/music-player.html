@@ -283,6 +283,8 @@
 		let _body = document.querySelector('body');
 		let _music_players = [];
 
+		// Create Audio Players
+
 		for(let i = 0; i < SONGS.length; i++) {
 			let container = document.createElement('div');
 			// Create Audio Player Container
@@ -291,6 +293,8 @@
 			container.classList.add('audio-player');
 			// Create Audio Player
 			let audio_player = document.createElement('audio');
+			audio_player.setAttribute('data-player-idx', i);
+			audio_player.onended = function() { _Play_Next(audio_player); }
 			container.appendChild(audio_player);
 			audio_player.src = SONGS[i];
 			audio_player.load();
@@ -338,6 +342,19 @@
 
 			if(audio_player.parentElement.classList.contains('paused')) {
 				audio_player.parentElement.classList.remove('paused');
+			}
+		}
+
+		function _Play_Next(audio_player) {
+
+			let player_idx = audio_player.getAttribute('data-player-idx');
+			player_idx = parseInt(player_idx);
+			let next_player_idx = player_idx + 1;
+
+			if(next_player_idx >= _music_players.length) {
+				_Play(_music_players[0].parentElement, _music_players[0]);
+			} else {
+				_Play(_music_players[next_player_idx].parentElement, _music_players[next_player_idx]);
 			}
 		}
 	</script>
