@@ -67,7 +67,7 @@
 			width: 100%;
 			height: 100%;
 
-			background-image: url('../../media/image/100_days/0010.jpg');
+			background-image: url('media/image/100_days/0010.jpg');
 			background-repeat: no-repeat;
 /*			background-size: 70%;*/
 			background-size: 100vh;
@@ -270,19 +270,19 @@
 		}
 
 		let SONGS = [
-			"music/Afterglow.mp3",
-			"music/ Coldplay - ALL MY LOVE (Official Video) (Directors' Cut).mp3",
-			"music/Branch - Keith Kenniff.mp3",
-			"music/Digimon World - File City (Night).mp3",
-			"music/Fantastic Mr. Fox - Kristofferson's Theme.mp3",
-			"music/Fix You - Jacob Collier & Chris Martin.mp3",
-			"music/Frontier Village Dali - Nobuo Uematsu, Final Fantasy 9.mp3",
-			"music/Panacea - Disasterpeace.mp3",
-			"music/Ragnarok Online - Peaceful Forest.mp3",
-			"music/Ragnarok Online - Plateau.mp3",
-			"music/Shimagurashi - Night.mp3",
-			"music/The Golden Hour - Louie Zong.mp3",
-			"music/The Sea - Tomas Dvorak, Machinarium.mp3",
+			"others/music/Afterglow.mp3",
+			"others/music/ Coldplay - ALL MY LOVE (Official Video) (Directors' Cut).mp3",
+			"others/music/Branch - Keith Kenniff.mp3",
+			"others/music/Digimon World - File City (Night).mp3",
+			"others/music/Fantastic Mr. Fox - Kristofferson's Theme.mp3",
+			"others/music/Fix You - Jacob Collier & Chris Martin.mp3",
+			"others/music/Frontier Village Dali - Nobuo Uematsu, Final Fantasy 9.mp3",
+			"others/music/Panacea - Disasterpeace.mp3",
+			"others/music/Ragnarok Online - Peaceful Forest.mp3",
+			"others/music/Ragnarok Online - Plateau.mp3",
+			"others/music/Shimagurashi - Night.mp3",
+			"others/music/The Golden Hour - Louie Zong.mp3",
+			"others/music/The Sea - Tomas Dvorak, Machinarium.mp3",
 		];
 
 		let _body = document.querySelector('body');
@@ -293,7 +293,7 @@
 		for(let i = 0; i < SONGS.length; i++) {
 			let container = document.createElement('div');
 			// Create Audio Player Container
-			container.innerHTML = '<p>' + SONGS[i].replace('music/', '') + '</p>';
+			container.innerHTML = '<p>' + SONGS[i].replace('others/music/', '') + '</p>';
 			container.innerHTML = container.innerHTML.replace('.mp3', '');
 			container.classList.add('audio-player');
 			// Create Audio Player
