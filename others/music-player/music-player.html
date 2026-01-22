@@ -348,7 +348,6 @@
 		function _Play_Next(audio_player) {
 
 			let player_idx = audio_player.getAttribute('data-player-idx');
-			player_idx = parseInt(player_idx);
 			let next_player_idx = player_idx + 1;
 
 			if(next_player_idx >= _music_players.length) {
@@ -357,6 +356,14 @@
 				_Play(_music_players[next_player_idx].parentElement, _music_players[next_player_idx]);
 			}
 		}
+
+		let _debug_box = document.createElement('div');
+		_debug_box.style.backgroundColor = 'white';
+		_debug_box.style.position = 'absolute';
+		_debug_box.style.top = 0;
+		_debug_box.style.left = 0;
+		_body.appendChild(_debug_box);
+		_debug_box.innerHTML = window.innerWidth + 'px';
 	</script>
 
 </body>
