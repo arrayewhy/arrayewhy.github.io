@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Arrayewhy's Favourite Music Player</title>
+	<title>The Hidden Music Player</title>
 
 	<style type="text/css">
 
@@ -69,8 +69,9 @@
 
 			background-image: url('../../media/image/100_days/0010.jpg');
 			background-repeat: no-repeat;
-			background-size: 70%;
-			background-position-x: 140%;
+/*			background-size: 70%;*/
+			background-size: 100vh;
+			background-position-x: 100%;
 			background-position-y: center;
 
 			position: fixed;
@@ -186,9 +187,9 @@
 			}
 
 			body:after {
-				background-size: 100%;
+/*				background-size: 100%;*/
 				background-position-x: center;
-				background-position-y: -50%;
+				background-position-y: -20vh;
 			}
 
 			#playlist-title {
@@ -216,15 +217,15 @@
 
 			body {
 				padding-top: 24rem;
-				padding-left: 1rem;
-				padding-right: 1rem;
+				padding-left: 2rem;
+				padding-right: 2rem;
 
 				font-size: 2vh;
 			}
 
 			body:after {
-				background-size: 150%;
-				background-position-y: -60%;
+/*				background-size: 150%;*/
+/*				background-position-y: -60%;*/
 			}
 
 			.audio-player {
@@ -259,10 +260,14 @@
 <body>
 
 	<h1 id="playlist-title">
-		<a href="https://www.patreon.com/arrayewhy">Arrayewhy's Favourite Music</a>
+		<a href="https://www.patreon.com/arrayewhy">The Hidden Music Player</a>
 	</h1>
 
 	<script type="text/javascript">
+
+		if(window.innerWidth <= 1024) {
+			document.querySelector('#playlist-title a').innerHTML = "The Hidden<br>Music<br>Player";
+		}
 
 		let SONGS = [
 			"music/Afterglow.mp3",
@@ -297,7 +302,7 @@
 			audio_player.onended = function() { _Play_Next(audio_player); }
 			container.appendChild(audio_player);
 			audio_player.src = SONGS[i];
-			audio_player.load();
+			// audio_player.load();
 			_music_players.push(audio_player);
 			// Assign Play on Click
 			container.onclick = function() { _Play(container, audio_player); };
