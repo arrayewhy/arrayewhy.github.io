@@ -20,9 +20,12 @@
 		}
 
 		:root {
-			--font-size-lg: 1.5rem;
-			--font-size-md: 1rem;
-			--font-size-sm: .6rem;
+			--desktop-size-lg: 1.5rem;
+			--desktop-size-md: 1rem;
+			--desktop-size-sm: .6rem;
+
+			--phone-size-sm: .8rem;
+			--phone-size-tiny: .6rem;
 		}
 
 		body {
@@ -34,7 +37,7 @@
 		}
 
 		h1 {
-			font-size: var(--font-size-lg);
+			font-size: var(--desktop-size-lg);
 		}
 
 		iframe {
@@ -95,16 +98,78 @@
 		footer {
 			width: 100%;
 			height: fit-content;
-/*			background-color: red;*/
 			padding-top: 6rem;
-			padding-bottom: 4rem;
+			padding-bottom: 1rem;
 		}
 
 		#copyright {
+			display: flex;
+			flex-flow: column;
+
 			text-align: center;
-			font-size: var(--font-size-sm);
+		}
+
+		.tiny {
+			font-size: var(--desktop-size-sm);
 			line-height: 1rem;
 			letter-spacing: .01rem;
+		}
+
+		/* Phone */
+
+		@media only screen and (max-width: 500px) {
+
+			body {
+				padding: 1rem;
+				font-size: var(--desktop-size-lg);
+			}
+
+			#intro {
+				width: 100%;
+				flex-flow: column;
+				gap: 5rem;
+				padding-top: 1rem;
+				padding-bottom: 7rem;
+				text-align: center;
+			}
+
+			#intro .split {
+				display: none;
+			}
+
+			#intro h1 {
+				font-weight: normal;
+				letter-spacing: .05rem;
+				font-size: var(--phone-size-sm);
+			}
+
+			#intro p {
+				width: 80%;
+			}
+
+			#gallery {
+				gap: 1rem;
+			}
+
+			#gallery .cell img {
+				width: auto;
+				height: 100%;
+			}
+
+			#copyright {
+				gap: .8rem;
+			}
+
+			.tiny {
+				font-size: var(--phone-size-tiny);
+				line-height: .7rem;
+			}
+
+			footer {
+				width: 80%;
+				padding-top: 5rem;
+				padding-bottom: 1rem;
+			}
 		}
 
 	</style>
@@ -117,10 +182,9 @@
 		<div class="text"><h1>Ray's Online Gallery</h1></div>
 		<div class="split"></div>
 		<div class="text">
-			I make illustrations and interactive toys for children.
+			<p>I make illustrations and interactive toys for children.</p>
 		</div>
 	</div>
-
 	<!-- Gallery -->
 	<div id="gallery">
 		<!-- Worlds -->
@@ -132,16 +196,16 @@
 			<img id="little_places" class="image-stack" src="media/image/little_places/cozy-kettle-low-res.jpg">
 		</div>
 		<!-- Music Player -->
-		<div class="cell">
+		<!-- <div class="cell">
 			<iframe src="music-player.html"></iframe>
-		</div>
+		</div> -->
 	</div>
-
-	<footer>
-		<p id="copyright">
-			Copyright © Arrayewhy 2026<br>
-			None of the materials on this website be it code or images or music, may be used in the training of AI models.
-		</p>
+	<!-- Footer -->
+	<footer class="tiny">
+		<span id="copyright">
+			<p>Copyright © Arrayewhy 2026</p>
+			<p>None of the materials on this website be it code, images or music, may be used in the training of AI models.</p>
+		</span>
 	</footer>
 
 	<script type="text/javascript">
@@ -167,27 +231,86 @@
 		let _body = document.querySelector('body');
 		let _image_stacks = document.querySelectorAll('.image-stack');
 
+		let _swap_interval;
+		const _fade_step = .05;
+		const _fade_step_dur = 10;
+
+		// Start
+
 		_body.onscroll = function() {
 			_image_stacks.forEach(_Check_Image_Scroll);
 		}
+
+		// Functions
 
 		function _Check_Image_Scroll(image_stack) {
 
 			let obj_dist_from_top = Object_Distance_from_Viewport_Top(image_stack.parentElement);
 
-			let top_thresh = 120;
+			let top_thresh = 200;
 			let intervals = 30;
 
 			if(obj_dist_from_top < top_thresh) {
 				if(obj_dist_from_top > top_thresh - intervals) {
-					image_stack.src = STACK_LIBRARY[image_stack.id][0];
+					// image_stack.src = STACK_LIBRARY[image_stack.id][0];
+					if(image_stack == STACK_LIBRARY[image_stack.id][0]) { return; }
+					_FadeOut_SwapSrc_FadeIn(image_stack, STACK_LIBRARY[image_stack.id][0]);
 				} else if(obj_dist_from_top > top_thresh - intervals * 2) {
-					image_stack.src = STACK_LIBRARY[image_stack.id][1];
+					// image_stack.src = STACK_LIBRARY[image_stack.id][1];
+					if(image_stack == STACK_LIBRARY[image_stack.id][1]) { return; }
+					_FadeOut_SwapSrc_FadeIn(image_stack, STACK_LIBRARY[image_stack.id][1]);
 				} else if(obj_dist_from_top > top_thresh - intervals * 3) {
-					image_stack.src = STACK_LIBRARY[image_stack.id][2];
+					// image_stack.src = STACK_LIBRARY[image_stack.id][2];
+					if(image_stack == STACK_LIBRARY[image_stack.id][2]) { return; }
+					_FadeOut_SwapSrc_FadeIn(image_stack, STACK_LIBRARY[image_stack.id][2]);
 				} else if(obj_dist_from_top > top_thresh - intervals * 4) {
-					image_stack.src = STACK_LIBRARY[image_stack.id][3];
+					// image_stack.src = STACK_LIBRARY[image_stack.id][3];
+					if(image_stack == STACK_LIBRARY[image_stack.id][3]) { return; }
+					_FadeOut_SwapSrc_FadeIn(image_stack, STACK_LIBRARY[image_stack.id][3]);
 				}
+			}
+		}
+
+		function _FadeOut_SwapSrc_FadeIn(image, src) {
+
+			if(_swap_interval != null) {
+				clearInterval(_swap_interval);
+				_swap_interval = null;
+			}
+
+			_swap_interval = setInterval(function() { _Fade_Out_And_Swap(image, src); }, _fade_step_dur);
+		}
+
+		function _Fade_Out_And_Swap(image, src) {
+			
+			let next_opacity = getComputedStyle(image).opacity - _fade_step;
+
+			if(next_opacity > 0) {
+				image.style.opacity = next_opacity;
+				return;
+			} else {
+				image.style.opacity = 0;
+				clearInterval(_swap_interval);
+				_swap_interval = null;
+
+				// Set new source
+				image.src = src;
+
+				_swap_interval = setInterval(function() { _Fade_In(image); }, (_fade_step_dur * 2));
+			}
+		}
+
+		function _Fade_In(image) {
+			
+			let next_opacity = parseFloat(getComputedStyle(image).opacity) + _fade_step;
+			
+			if(next_opacity < 1) {
+				image.style.opacity = next_opacity;
+				return;
+			} else {
+				image.style.opacity = 1;
+				clearInterval(_swap_interval);
+				_swap_interval = null;
 			}
 		}
 
