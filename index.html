@@ -88,21 +88,31 @@
 
 			position: relative;
 
-			display: flex;
-			justify-content: center;
-
 			overflow: hidden;
 
-			object-fit: cover;
+/*			object-fit: cover;*/
 
 			filter: blur(.2rem);
 
 			transition: filter .5s;
 		}
 
-		#gallery .cell img {
+		#gallery .cell .frame {
+			width: 100%;
+			height: 100%;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
 			position: absolute;
 			transition: top .5s ease-in-out, opacity .5s ease-in-out;
+		}
+
+		#gallery .cell img {
+			width: 100%;
+/*			height: auto;*/
+/*			height: 100%;*/
 		}
 
 		footer {
@@ -127,7 +137,7 @@
 
 		/* Phone */
 
-		@media only screen and (max-width: 500px) {
+		@media only screen and (max-width: 1024px) {
 
 			body {
 				padding: 1rem;
@@ -178,7 +188,7 @@
 			footer {
 				width: 80%;
 				padding-top: 5rem;
-				padding-bottom: 1rem;
+				padding-bottom: 2rem;
 			}
 		}
 
@@ -243,7 +253,7 @@
 
 		// Start
 
-		_image_stacks.forEach(_Create_Images);
+		_image_stacks.forEach(_Create_Image_Frames);
 
 		_body.onscroll = function() {
 			_image_stacks.forEach(_Check_Image_Scroll);
@@ -253,14 +263,20 @@
 
 		// Functions
 
-		function _Create_Images(img_stack_cell) {
+		function _Create_Image_Frames(img_stack_cell) {
 			let id = img_stack_cell.id;
 			let sources = STACK_LIBRARY[id];
 			for(let i = 0; i < sources.length; i++) {
+
+				let new_frame = document.createElement('var');
+				new_frame.classList.add('frame');
+
 				let new_img = document.createElement('img');
 				new_img.src = sources[i];
-				new_img.style.opacity = 0;
-				img_stack_cell.appendChild(new_img);
+				new_frame.appendChild(new_img);
+
+				new_frame.style.opacity = 0;
+				img_stack_cell.appendChild(new_frame);
 			}
 			img_stack_cell.children[0].style.top = 0;
 			img_stack_cell.children[0].style.opacity = 1;
@@ -277,9 +293,10 @@
 		}
 
 		function _Blur_Title(title) {
+
 			let obj_dist_from_top = Object_Distance_from_Viewport_Top(title);
 			let blur_thresh = -50;
-			console.log(obj_dist_from_top);
+
 			if(obj_dist_from_top < blur_thresh) {
 				// title.style.filter = 'blur(.1rem)';
 				title.style.opacity = '.3';
@@ -309,7 +326,7 @@
 					image_stack.children[3].style.top = '20%';
 					image_stack.children[3].style.opacity = 0;
 				} else if(obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 4) {
-					image_stack.children[3].style.top = '2rem';
+					image_stack.children[3].style.top = '1.5rem';
 					image_stack.children[3].style.opacity = 1;
 				}
 
