@@ -259,136 +259,38 @@
 		let _intro_h1 = document.querySelector('#intro h1');
 		let _cells = document.querySelectorAll('.cell');
 		let _image_stacks = document.querySelectorAll('.image-stack');
+		let _frames = [];
 
-		const _image_stack_top_thresh = 200;
-		const _image_stack_intervals = 40;
+		const _image_stack_top_thresh = 220;
+		const _image_stack_intervals = 60;
 
-		// Start
-
-		_body.onload = function() {
-			// Show Intro H1
-			_intro_h1.style.letterSpacing = '.2rem';
-			_intro_h1.style.opacity = 1;
-		}
-
-		_image_stacks.forEach(_Create_Image_Frames);
-
-		_body.onscroll = function() {
-
-			// Start Waiting for Scrolling to Stop
-
-			if (_scroll_interval == null) {
-				// _focused_image_stack = image_stack.getAttribute('id');
-				// _dist_from_top = obj_dist_from_top;
-				_scroll_interval = setInterval(_Check_for_Scrolling_Stop, 50);
-			}
-
-			// _focused_image_stacks = _Image_Stacks_Past_Threshold();
-
-			// let closest_image_stack;
-			// let closest_top_edge;
-
-			// for(let i = 0; i < _focused_image_stacks.length; i++) {
-
-			// 	let dist = Math.abs(_focused_image_stacks[i].offsetTop - _html.scrollTop);
-
-			// 	if (closest_top_edge == 0) {
-			// 		closest_top_edge = dist;
-			// 	} else if (dist < closest_top_edge) {
-			// 		closest_top_edge = dist;
-			// 		closest_image_stack = _focused_image_stacks[i];
-			// 	}
-			// }
-
-
-
-			// _image_stacks.forEach(_Check_Image_Scroll);
-			_cells.forEach(_Blur);
-			_Blur_Title(document.querySelector('#intro'));
-		}
-
-		function _Check_for_Scrolling_Stop() {
-
-			if (_html.scrollTop == _dist_from_top) {
-
-				// Stop Checking
-				clearInterval(_scroll_interval);
-				_scroll_interval = null;
-
-				// Find Closest Image Stack
-
-				let focused_image_stacks = _Image_Stacks_Past_Threshold();
-
-				if (focused_image_stacks.length <= 0) return;
-
-				// Get Closest Image Stack
-				let closest_image_stack;
-				let closest_top_edge = 0;
-
-				for(let i = 0; i < focused_image_stacks.length; i++) {
-
-					let dist = Math.abs(focused_image_stacks[i].offsetTop - _html.scrollTop);
-
-					if (closest_top_edge == 0) {
-						closest_top_edge = dist;
-						closest_image_stack = focused_image_stacks[i];
-					} else if (dist < closest_top_edge) {
-						closest_top_edge = dist;
-						closest_image_stack = focused_image_stacks[i];
-					}
-				}
-
-				// Swap Image
-
-				let obj_dist_from_top = Object_Distance_from_Viewport_Top(closest_image_stack);
-
-				const top_gap = '20%';
-
-				if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals) {
-					// Hide Image 2
-					closest_image_stack.children[1].style.top = top_gap;
-					closest_image_stack.children[1].style.opacity = 0;
-				} else if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 2) {
-					// Show Image 2
-					closest_image_stack.children[1].style.top = 0;
-					closest_image_stack.children[1].style.opacity = 1;
-					// Hide Image 3
-					closest_image_stack.children[2].style.top = top_gap;
-					closest_image_stack.children[2].style.opacity = 0;
-				} else if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 3) {
-					// Show Image 3
-					closest_image_stack.children[2].style.top = 0;
-					closest_image_stack.children[2].style.opacity = 1;
-					// Hide Image 4
-					closest_image_stack.children[3].style.top = top_gap;
-					closest_image_stack.children[3].style.opacity = 0;
-				} else if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 4) {
-					// Show Image 4
-					closest_image_stack.children[3].style.top = 0;
-					closest_image_stack.children[3].style.opacity = 1;
-				}
-
-
-			} else {
-				_dist_from_top = _html.scrollTop;
-			}
-		}
-
-		function _Image_Stacks_Past_Threshold() {
-			let array = [];
-			for(i = 0; i < _image_stacks.length; i++) {
-				let obj_dist_from_top = Object_Distance_from_Viewport_Top(_image_stacks[i]);
-				if (obj_dist_from_top > _image_stack_top_thresh) continue;
-				array.push(_image_stacks[i]);
-			}
-			return array;
-		}
+		_Start();
 
 		// Functions
 
+		function _Start() {
+
+			_body.onload = function() {
+				// Show Intro H1
+				_intro_h1.style.letterSpacing = '.2rem';
+				_intro_h1.style.opacity = 1;
+			}
+
+			// Create Image Frames for each Image Stack
+			_image_stacks.forEach(_Create_Image_Frames);
+
+			_body.onscroll = function() {
+				_image_stacks.forEach(_Show_Hide_Frames);
+				_cells.forEach(_Blur);
+				_Blur_Title(document.querySelector('#intro'));
+			}
+		}
+
 		function _Create_Image_Frames(img_stack_cell) {
+
 			let id = img_stack_cell.id;
 			let sources = STACK_LIBRARY[id];
+
 			for(let i = 0; i < sources.length; i++) {
 
 				let new_frame = document.createElement('var');
@@ -401,8 +303,26 @@
 				new_frame.style.opacity = 0;
 				img_stack_cell.appendChild(new_frame);
 			}
+
 			img_stack_cell.children[0].style.top = 0;
 			img_stack_cell.children[0].style.opacity = 1;
+		}
+
+		function _Show_Hide_Frames(image_stack) {
+
+			let frames = image_stack.children;
+			let img_stack_dist_from_top = Object_Distance_from_Viewport_Top(image_stack);
+			
+			const top_gap = '20%';
+			for(let i = 1; i < frames.length; i++) {
+				if (img_stack_dist_from_top + _image_stack_intervals * i < _image_stack_top_thresh) {
+					frames[i].style.top = 0;
+					frames[i].style.opacity = 1;
+				} else {
+					frames[i].style.top = top_gap;
+					frames[i].style.opacity = 0;
+				}
+			}
 		}
 
 		function _Blur(cell) {
@@ -426,99 +346,6 @@
 			} else {
 				// title.style.filter = 'blur(0)';
 				title.style.opacity = '1';
-			}
-		}
-
-		function _Check_If_Scrolling(image_stack) {
-
-			let obj_dist_from_top = Object_Distance_from_Viewport_Top(image_stack);
-
-			if (obj_dist_from_top != _dist_from_top) {
-				_dist_from_top = obj_dist_from_top;
-			} else {
-				clearInterval(_scroll_interval);
-				_scroll_interval = null;
-				// Change Image
-				if (obj_dist_from_top < _image_stack_top_thresh) {
-					console.log('Set')
-					const top_gap = '20%';
-
-					if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals) {
-						// Hide Image 2
-						image_stack.children[1].style.top = top_gap;
-						image_stack.children[1].style.opacity = 0;
-					} else if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 2) {
-						// Show Image 2
-						image_stack.children[1].style.top = 0;
-						image_stack.children[1].style.opacity = 1;
-						// Hide Image 3
-						image_stack.children[2].style.top = top_gap;
-						image_stack.children[2].style.opacity = 0;
-					} else if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 3) {
-						// Show Image 3
-						image_stack.children[2].style.top = 0;
-						image_stack.children[2].style.opacity = 1;
-						// Hide Image 4
-						image_stack.children[3].style.top = top_gap;
-						image_stack.children[3].style.opacity = 0;
-					} else if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 4) {
-						// Show Image 4
-						image_stack.children[3].style.top = 0;
-						image_stack.children[3].style.opacity = 1;
-					}
-
-				}
-			}
-		}
-
-		let _focused_image_stacks;
-		// let _focused_image_stack;
-		let _dist_from_top;
-
-		let _scroll_interval;
-
-		function _Check_Image_Scroll(image_stack) {
-
-			let obj_dist_from_top = Object_Distance_from_Viewport_Top(image_stack);
-
-			if (obj_dist_from_top > _image_stack_top_thresh) return;
-
-			// console.log(image_stack.getAttribute('id'));
-
-			// if (_scroll_interval == null) {
-				// _focused_image_stack = image_stack.getAttribute('id');
-				// _dist_from_top = obj_dist_from_top;
-				// _scroll_interval = setInterval(_Check_If_Scrolling(image_stack), 50);
-			// }
-
-			if (obj_dist_from_top < _image_stack_top_thresh) {
-
-				const top_gap = '20%';
-
-				if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals) {
-					// Hide Image 2
-					image_stack.children[1].style.top = top_gap;
-					image_stack.children[1].style.opacity = 0;
-				} else if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 2) {
-					// Show Image 2
-					image_stack.children[1].style.top = 0;
-					image_stack.children[1].style.opacity = 1;
-					// Hide Image 3
-					image_stack.children[2].style.top = top_gap;
-					image_stack.children[2].style.opacity = 0;
-				} else if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 3) {
-					// Show Image 3
-					image_stack.children[2].style.top = 0;
-					image_stack.children[2].style.opacity = 1;
-					// Hide Image 4
-					image_stack.children[3].style.top = top_gap;
-					image_stack.children[3].style.opacity = 0;
-				} else if (obj_dist_from_top > _image_stack_top_thresh - _image_stack_intervals * 4) {
-					// Show Image 4
-					image_stack.children[3].style.top = 0;
-					image_stack.children[3].style.opacity = 1;
-				}
-
 			}
 		}
 
