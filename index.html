@@ -26,6 +26,8 @@
 
 			--phone-size-sm: .8rem;
 			--phone-size-tiny: .6rem;
+
+			--gallery-cell-height: 60vh;
 		}
 
 		body {
@@ -40,7 +42,7 @@
 
 		iframe {
 			width: 100%;
-			height: 80vh;
+			height: var(--gallery-cell-height);
 			border: none;
 		}
 
@@ -62,12 +64,12 @@
 		#intro h1 {
 			font-size: var(--desktop-size-sm);
 /*			font-weight: normal;*/
-			letter-spacing: 0.1rem;
+			letter-spacing: 0.2rem;
 			text-transform: uppercase;
 
 			opacity: 0;
 
-			transition: letter-spacing 4s, opacity 4s;
+			transition: opacity 4s;
 		}
 
 		#intro .text {
@@ -94,13 +96,11 @@
 
 		#gallery .cell {
 			width: 100%;
-			height: 70vh;
+			height: var(--gallery-cell-height);
 
 			position: relative;
 
 			overflow: hidden;
-
-/*			object-fit: cover;*/
 
 			filter: blur(.2rem);
 
@@ -116,7 +116,9 @@
 			align-items: center;
 
 			position: absolute;
-			transition: top .5s ease-in-out, opacity .5s ease-in-out;
+			transition: top .5s ease-in-out, opacity .5s ease-in-out, transform .5s ease-in-out;
+
+			overflow: hidden;
 		}
 
 		#gallery .cell img {
@@ -261,7 +263,7 @@
 		let _image_stacks = document.querySelectorAll('.image-stack');
 		let _frames = [];
 
-		const _image_stack_top_thresh = 220;
+		const _image_stack_top_thresh = 300;
 		const _image_stack_intervals = 60;
 
 		_Start();
@@ -272,8 +274,8 @@
 
 			_body.onload = function() {
 				// Show Intro H1
-				_intro_h1.style.letterSpacing = '.2rem';
-				_intro_h1.style.opacity = 1;
+				// _intro_h1.style.letterSpacing = '.2rem';
+				_intro_h1.style.opacity = .8;
 			}
 
 			// Create Image Frames for each Image Stack
@@ -294,33 +296,49 @@
 			for(let i = 0; i < sources.length; i++) {
 
 				let new_frame = document.createElement('var');
+				new_frame.style.opacity = 0;
 				new_frame.classList.add('frame');
+
+				// new_frame.style.left = _Random_Number(-2, 2) + 'px';
+
+				img_stack_cell.appendChild(new_frame);
 
 				let new_img = document.createElement('img');
 				new_img.src = sources[i];
-				new_frame.appendChild(new_img);
 
-				new_frame.style.opacity = 0;
-				img_stack_cell.appendChild(new_frame);
+				new_frame.appendChild(new_img);
 			}
 
 			img_stack_cell.children[0].style.top = 0;
 			img_stack_cell.children[0].style.opacity = 1;
 		}
 
+		function _Random_Number(min, max) {
+			return Math.random() * (max - (min) + 1) + min;
+		}
+
 		function _Show_Hide_Frames(image_stack) {
 
 			let frames = image_stack.children;
 			let img_stack_dist_from_top = Object_Distance_from_Viewport_Top(image_stack);
-			
+
 			const top_gap = '20%';
 			for(let i = 1; i < frames.length; i++) {
 				if (img_stack_dist_from_top + _image_stack_intervals * i < _image_stack_top_thresh) {
+
+					// frames[i].style.top = (2 * i) + 'px';
 					frames[i].style.top = 0;
 					frames[i].style.opacity = 1;
+
+					// if (frames[i].style.transform == 'rotate(0deg)') {
+					// 	frames[i].style.transform = 'rotate(' + _Random_Number(-.5, .5) + 'deg)';
+					// }
 				} else {
+
 					frames[i].style.top = top_gap;
 					frames[i].style.opacity = 0;
+
+					// frames[i].style.transform = 'rotate(0deg)';
 				}
 			}
 		}
