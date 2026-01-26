@@ -130,6 +130,105 @@
 /*			height: 100%;*/
 		}
 
+		#gallery .cell .loader {
+			width: 100%;
+			height: 100%;
+			background-color: white;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			position: absolute;
+			top: 0;
+			z-index: 100;
+
+			transition: top 2s, opacity 2s;
+			transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+		}
+
+		#gallery .cell .loader:before {
+			content: '';
+			width: 2vw;
+			height: 2vw;
+			background-color: #ffd54b;
+
+			position: absolute;
+			z-index: 1;
+
+			border-radius: 100%;
+
+			animation-name: Loading;
+			animation-duration: .75s;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes Loading {
+			0% {
+				width: 2.2vw;
+				height: 1.4vw;
+				transform: translateY(.5vw);
+				animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+			}
+			25% {
+				width: 1.8vw;
+				height: 2.2vw;
+			}
+			50% {
+				width: 2vw;
+				height: 2vw;
+				transform: translateY(-3vw);
+				animation-timing-function: cubic-bezier(0.11, 0, 0.5, 0);
+			}
+			75% {
+				width: 1.8vw;
+				height: 2.2vw;
+			}
+			100% {
+				width: 2.2vw;
+				height: 1.4vw;
+				transform: translateY(.5vw);
+				animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+			}
+		}
+
+		#gallery .cell .loader:after {
+			content: '';
+			aspect-ratio: 1/.25;
+			background-color: black;
+
+			position: absolute;
+
+			border-radius: 100%;
+
+			transform: translateY(1vw);
+
+			animation-name: Loading-Shadow;
+			animation-duration: .75s;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes Loading-Shadow {
+			0% {
+				filter: blur(.05rem);
+				width: .5vw;
+				opacity: 1;
+				animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+			}
+			50% {
+				filter: blur(.2rem);
+				width: 1vw;
+				opacity: .6;
+				animation-timing-function: cubic-bezier(0.11, 0, 0.5, 0);
+			}
+			100% {
+				filter: blur(.05rem);
+				width: .5vw;
+				opacity: 1;
+				animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+			}
+		}
+
 		footer {
 			width: 100%;
 			height: fit-content;
@@ -278,6 +377,8 @@
 		let _image_stack_top_thresh = 300;
 		const _image_stack_intervals = 60;
 
+		let _loading_interval;
+
 		_Start();
 
 		// Functions
@@ -297,6 +398,8 @@
 			// Create Image Frames for each Image Stack
 			_image_stacks.forEach(_Create_Image_Frames);
 
+			_loading_interval = setInterval(_Check_Reveals, 100);
+
 			_body.onscroll = function() {
 				_image_stacks.forEach(_Show_Hide_Frames);
 				_cells.forEach(_Blur);
@@ -304,34 +407,72 @@
 			}
 		}
 
-		function _Create_Image_Frames(img_stack_cell) {
+		function _Create_Image_Frames(image_stack) {
 
-			let id = img_stack_cell.id;
+			let id = image_stack.id;
 			let sources = STACK_LIBRARY[id];
 
-			for(let i = 0; i < sources.length; i++) {
+			for(let i = -1; i < sources.length; i++) {
 
+				// Create the Loading element that sitz on top of all the Frames
+				if (i == -1) {
+					let loader = document.createElement('div');
+					loader.classList.add('loader');
+					// loader.style.opacity = 0;
+					image_stack.appendChild(loader);
+					continue;
+				}
+
+				// Create the Frame that holds the Image
 				let new_frame = document.createElement('var');
 				new_frame.style.opacity = 0;
 				new_frame.classList.add('frame');
 
-				// new_frame.style.left = _Random_Number(-2, 2) + 'px';
-
-				img_stack_cell.appendChild(new_frame);
-
+				// Create the Image showing the Artwork
 				let new_img = document.createElement('img');
 				new_img.src = sources[i];
-				// new_img.onload = function() { console.log(id + ' ' + i + ' ' + 'done'); }
 
+				// Add the .loading Class used for checking if this frame's Image is Done Loading
+				new_frame.classList.add('loading');
+				// Make it so when this Image is Done Loading, its Parent sheds the .loading class
+				new_img.onload = function() { new_img.parentElement.classList.remove('loading'); }
+
+				// Parent the Image to the Frame
 				new_frame.appendChild(new_img);
+				// Parent the Frame to the Gallery Cell
+				image_stack.appendChild(new_frame);
+
+				_frames.push(new_frame);
 			}
 
-			img_stack_cell.children[0].style.top = 0;
-			img_stack_cell.children[0].style.opacity = 1;
+			// Make the First Image Visible on Start
+			image_stack.children[1].style.top = 0;
+			image_stack.children[1].style.opacity = 1;
 		}
 
-		function _Random_Number(min, max) {
-			return Math.random() * (max - (min) + 1) + min;
+		function _Check_Reveals() {
+			
+			let loaded_frames = 0;
+
+			// For each Image Stack
+			for(let i = 0; i < _image_stacks.length; i++) {
+
+				// For each Frame within the Image Stack
+				for(let f = 1; f < _image_stacks[i].children.length; f++) {
+
+					if (_image_stacks[i].children[f].classList.contains('loading')) {
+						break;
+					}
+
+					loaded_frames += 1;
+					_image_stacks[i].children[0].style.opacity = 0;
+				}
+			}
+
+			if (loaded_frames == _frames.length) {
+				clearInterval(_loading_interval);
+				_loading_interval = null;
+			}
 		}
 
 		function _Show_Hide_Frames(image_stack) {
@@ -340,7 +481,9 @@
 			let img_stack_dist_from_top = Object_Distance_from_Viewport_Top(image_stack);
 
 			const top_gap = '10%';
-			for(let i = 1; i < frames.length; i++) {
+
+			for(let i = 2; i < frames.length; i++) {
+
 				if (img_stack_dist_from_top + _image_stack_intervals * i < _image_stack_top_thresh) {
 
 					// frames[i].style.top = (2 * i) + 'px';
@@ -386,6 +529,10 @@
 
 		function Object_Distance_from_Viewport_Top(obj) {
 			return obj.offsetTop - _html.scrollTop;
+		}
+
+		function _Random_Number(min, max) {
+			return Math.random() * (max - (min) + 1) + min;
 		}
 
 	</script>
