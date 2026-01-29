@@ -7,7 +7,6 @@
 	<title>Ray's Online Gallery</title>
 
 	<style type="text/css">
-
 		* {
 			margin: 0;
 			padding: 0;
@@ -66,7 +65,7 @@
 
 		#intro h1 {
 			font-size: var(--desktop-size-sm);
-/*			font-weight: normal;*/
+			/*			font-weight: normal;*/
 			letter-spacing: 0.2rem;
 			text-transform: uppercase;
 
@@ -126,8 +125,8 @@
 
 		#gallery .cell img {
 			width: 100%;
-/*			height: auto;*/
-/*			height: 100%;*/
+			/*			height: auto;*/
+			/*			height: 100%;*/
 		}
 
 		#gallery .cell .loader {
@@ -170,20 +169,24 @@
 				transform: translateY(.5vw);
 				animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
 			}
+
 			25% {
 				width: 1.8vw;
 				height: 2.2vw;
 			}
+
 			50% {
 				width: 2vw;
 				height: 2vw;
 				transform: translateY(-3vw);
 				animation-timing-function: cubic-bezier(0.11, 0, 0.5, 0);
 			}
+
 			75% {
 				width: 1.8vw;
 				height: 2.2vw;
 			}
+
 			100% {
 				width: 2.2vw;
 				height: 1.4vw;
@@ -215,12 +218,14 @@
 				opacity: 1;
 				animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
 			}
+
 			50% {
 				filter: blur(.2rem);
 				width: 1vw;
 				opacity: .6;
 				animation-timing-function: cubic-bezier(0.11, 0, 0.5, 0);
 			}
+
 			100% {
 				filter: blur(.05rem);
 				width: .5vw;
@@ -233,7 +238,7 @@
 			width: 100%;
 			height: fit-content;
 			padding-top: 6rem;
-			padding-bottom: 2rem;
+			padding-bottom: 4rem;
 		}
 
 		#copyright {
@@ -260,7 +265,7 @@
 
 			#intro {
 				width: 100%;
-/*				flex-flow: column;*/
+				/*				flex-flow: column;*/
 				gap: 5rem;
 				padding-top: 1rem;
 				padding-bottom: 7rem;
@@ -275,7 +280,7 @@
 				font-weight: normal;
 				letter-spacing: .1rem;
 				font-size: var(--phone-size-tiny);
-/*				text-transform: none;*/
+				/*				text-transform: none;*/
 			}
 
 			#intro p {
@@ -306,7 +311,6 @@
 				padding-bottom: 3rem;
 			}
 		}
-
 	</style>
 </head>
 
@@ -314,7 +318,9 @@
 
 	<!-- Intro -->
 	<div id="intro">
-		<div class="text"><h1>Ray's Online Gallery</h1></div>
+		<div class="text">
+			<h1>Ray's Online Gallery</h1>
+		</div>
 		<!-- <div class="split"></div> -->
 		<div class="text">
 			<p>I make illustrations and interactive toys for children.</p>
@@ -337,7 +343,8 @@
 	<footer class="tiny">
 		<span id="copyright">
 			<p>Copyright © Arrayewhy 2026</p>
-			<p>None of the materials on this website be it code, images or music, may be used in the training of AI models.</p>
+			<p>None of the materials on this website be it code, images or music, may be used in the
+				training of AI models.</p>
 		</span>
 	</footer>
 
@@ -362,9 +369,9 @@
 			"media/image/s20a/thankyou.png"
 		]
 		let STACK_LIBRARY = {
-			"worlds" : _stack_worlds,
-			"little_places" : _stack_little_places,
-			"s20a" : _stack_s20a
+			"worlds": _stack_worlds,
+			"little_places": _stack_little_places,
+			"s20a": _stack_s20a
 		}
 
 		let _html = document.querySelector('html');
@@ -385,7 +392,7 @@
 
 		function _Start() {
 
-			_body.onload = function() {
+			_body.onload = function () {
 				_intro_h1.style.opacity = .8;
 			}
 
@@ -394,7 +401,7 @@
 
 			_loading_interval = setInterval(_Check_Reveals, 100);
 
-			_body.onscroll = function() {
+			_body.onscroll = function () {
 				_image_stacks.forEach(_Show_Hide_Frames);
 				_cells.forEach(_Blur);
 				_Blur_Title(document.querySelector('#intro'));
@@ -406,7 +413,7 @@
 			let id = image_stack.id;
 			let sources = STACK_LIBRARY[id];
 
-			for(let i = -1; i < sources.length; i++) {
+			for (let i = -1; i < sources.length; i++) {
 
 				// Create the Loading element that sitz on top of all the Frames
 				if (i == -1) {
@@ -429,7 +436,7 @@
 				// Add the .loading Class used for checking if this frame's Image is Done Loading
 				new_frame.classList.add('loading');
 				// Make it so when this Image is Done Loading, its Parent sheds the .loading class
-				new_img.onload = function() { new_img.parentElement.classList.remove('loading'); }
+				new_img.onload = function () {new_img.parentElement.classList.remove('loading');}
 
 				// Parent the Image to the Frame
 				new_frame.appendChild(new_img);
@@ -445,14 +452,14 @@
 		}
 
 		function _Check_Reveals() {
-			
+
 			let loaded_frames = 0;
 
 			// For each Image Stack
-			for(let i = 0; i < _image_stacks.length; i++) {
+			for (let i = 0; i < _image_stacks.length; i++) {
 
 				// For each Frame within the Image Stack
-				for(let f = 1; f < _image_stacks[i].children.length; f++) {
+				for (let f = 1; f < _image_stacks[i].children.length; f++) {
 
 					if (_image_stacks[i].children[f].classList.contains('loading')) {
 						break;
@@ -477,7 +484,7 @@
 
 			const top_gap = '10%';
 
-			for(let i = 2; i < frames.length; i++) {
+			for (let i = 2; i < frames.length; i++) {
 
 				if (img_stack_dist_from_top + _image_stack_intervals * i < _image_stack_top_thresh) {
 
