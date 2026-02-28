@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>The Hidden Music Player</title>
 
 	<style type="text/css">
-
 		:root {
 			--dark-gray: rgba(50, 50, 50, 1.0);
 		}
@@ -22,18 +22,21 @@
 		}
 
 		/* Scroll Bar */
-		
+
 		::-webkit-scrollbar {
 			width: .5rem;
 		}
+
 		::-webkit-scrollbar-track {
 			background-color: transparent;
 		}
+
 		::-webkit-scrollbar-thumb {
 			width: 1rem;
 			background-color: gray;
 			border-radius: 1rem;
 		}
+
 		::-webkit-scrollbar-thumb:hover {
 			background-color: #555;
 		}
@@ -52,7 +55,7 @@
 			flex-flow: column;
 			gap: .5rem;
 
-/*			padding: 0 8rem;*/
+			/*			padding: 0 8rem;*/
 			padding-left: 8rem;
 			padding-right: 8rem;
 			padding-top: 4rem;
@@ -69,7 +72,7 @@
 
 			background-image: url('media/image/100_days/0010.jpg');
 			background-repeat: no-repeat;
-/*			background-size: 70%;*/
+			/*			background-size: 70%;*/
 			background-size: 100vh;
 			background-position-x: 100%;
 			background-position-y: center;
@@ -108,7 +111,7 @@
 
 			border-radius: .5rem;
 
-/*			color: gray;*/
+			/*			color: gray;*/
 
 			cursor: pointer;
 
@@ -118,7 +121,7 @@
 
 		.audio-player:after {
 			content: ">";
-			
+
 			position: absolute;
 			top: calc(50% - .75rem);
 			left: 1rem;
@@ -134,9 +137,17 @@
 		}
 
 		@keyframes Bounce {
-			0% { left: 0; }
-			50% { left: 1rem; }
-			100% { left: 0; }
+			0% {
+				left: 0;
+			}
+
+			50% {
+				left: 1rem;
+			}
+
+			100% {
+				left: 0;
+			}
 		}
 
 		.playing {
@@ -187,7 +198,7 @@
 			}
 
 			body:after {
-/*				background-size: 100%;*/
+				/*				background-size: 100%;*/
 				background-position-x: center;
 				background-position-y: -20vh;
 			}
@@ -224,8 +235,8 @@
 			}
 
 			body:after {
-/*				background-size: 150%;*/
-/*				background-position-y: -60%;*/
+				/*				background-size: 150%;*/
+				/*				background-position-y: -60%;*/
 			}
 
 			.audio-player {
@@ -252,7 +263,6 @@
 				text-align: center;
 			}
 		}
-
 	</style>
 
 </head>
@@ -265,11 +275,14 @@
 
 	<script type="text/javascript">
 
-		if(window.innerWidth <= 1024) {
+		if (window.innerWidth <= 1024) {
 			document.querySelector('#playlist-title a').innerHTML = "The Hidden<br>Music<br>Player";
 		}
 
 		let SONGS = [
+			"others/music/Photograph - Her, Arcade Fire.mp3",
+			"others/music/Breadtime - Lifeformed.mp3",
+			"others/music/Ashitaka and San - Joe Hisaishi.mp3",
 			"others/music/Afterglow.mp3",
 			"others/music/ Coldplay - ALL MY LOVE (Official Video) (Directors' Cut).mp3",
 			"others/music/Branch - Keith Kenniff.mp3",
@@ -291,7 +304,7 @@
 
 		// Create Audio Players
 
-		for(let i = 0; i < SONGS.length; i++) {
+		for (let i = 0; i < SONGS.length; i++) {
 			let container = document.createElement('div');
 			// Create Audio Player Container
 			container.innerHTML = '<p>' + SONGS[i].replace('others/music/', '') + '</p>';
@@ -300,13 +313,13 @@
 			// Create Audio Player
 			let audio_player = document.createElement('audio');
 			audio_player.setAttribute('data-player-idx', i);
-			audio_player.onended = function() { _Play_Next(audio_player); }
+			audio_player.onended = function () {_Play_Next(audio_player);}
 			container.appendChild(audio_player);
 			audio_player.src = SONGS[i];
 			// audio_player.load();
 			_music_players.push(audio_player);
 			// Assign Play on Click
-			container.onclick = function() { _Play(container, audio_player); };
+			container.onclick = function () {_Play(container, audio_player);};
 			// Add to Body
 			_body.appendChild(container);
 		}
@@ -320,14 +333,14 @@
 		function _Play(container, audio_player) {
 
 			// Pause
-			if(!audio_player.paused) {
+			if (!audio_player.paused) {
 				audio_player.pause();
 				container.classList.add('paused');
 				return;
 			}
 
 			// Unpause
-			if(audio_player.paused && container.classList.contains('paused')) {
+			if (audio_player.paused && container.classList.contains('paused')) {
 				audio_player.play();
 				container.classList.remove('paused');
 				return;
@@ -346,7 +359,7 @@
 
 			audio_player.parentElement.classList.remove('playing');
 
-			if(audio_player.parentElement.classList.contains('paused')) {
+			if (audio_player.parentElement.classList.contains('paused')) {
 				audio_player.parentElement.classList.remove('paused');
 			}
 		}
@@ -356,7 +369,7 @@
 			let player_idx = audio_player.getAttribute('data-player-idx');
 			let next_player_idx = player_idx + 1;
 
-			if(next_player_idx >= _music_players.length) {
+			if (next_player_idx >= _music_players.length) {
 				_Play(_music_players[0].parentElement, _music_players[0]);
 			} else {
 				_Play(_music_players[next_player_idx].parentElement, _music_players[next_player_idx]);
