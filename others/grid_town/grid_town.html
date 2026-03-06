@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>grid_town</title>
+
+	<style type="text/css">
+
+		:root {
+			--standard-size: 8rem;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html, body {
+			width: 100%;
+			height: 100%;
+		}
+
+		html {
+			background-color: rgba(120, 150, 40, 1.0);
+
+		}
+
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#frame {
+			width: fit-content;
+			aspect-ratio: 2/1;
+			max-height: calc(var(--standard-size) * 5);
+
+			display: flex;
+			flex-wrap: wrap;
+			align-items: top;
+
+			padding: 1rem;
+			border: solid beige .01rem;
+		}
+
+		/* Cells */
+
+		.cell {
+			width: var(--standard-size);
+			height: var(--standard-size);
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			cursor: pointer;
+		}
+
+		.cell .art_container {
+			width: 100%;
+			height: 100%;
+			background-color: rgba(80, 110, 60, .4);
+
+			border-radius: .2rem;
+			box-sizing: border-box;
+
+			scale: .975;
+
+			transition: background-color .5s ease-in-out;
+		}
+
+		.cell .art_container.focused {
+			background-color: rgba(190, 170, 50, 1.0);
+
+			transition: background-color .2s ease-out;
+		}
+
+		/* Art  */
+
+		.art {
+			width: 100%;
+			height: 100%;
+			background-image: url(media/art/grid_town_spritesheet.png);
+			background-size: calc(var(--standard-size) * 8);
+
+			scale: .5;
+		}
+
+		.house {
+			background-position: calc(var(--standard-size) * 0) 0;
+			translate: 0 -4rem;
+		}
+
+		.tree {
+			background-position: calc(var(--standard-size) * -1) 0;
+			translate: 0 -4rem;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="frame"></div>
+
+	<script type="text/javascript">
+
+		const _frame = document.querySelector("#frame");
+		const _cell_count = 50;
+
+		_Start();
+
+		function _Start() {
+			for(let i = 0; i < _cell_count; i ++) {
+	// Create new Cell
+				let new_cell = document.createElement("div");
+				new_cell.classList.add("cell");
+
+	// Create new Sprite
+				let art_container = document.createElement("div");
+				art_container.classList.add("art_container");
+
+				_frame.appendChild(new_cell);
+				new_cell.appendChild(art_container);
+
+				new_cell.onmouseenter = function() { _Cell_Enter(art_container); }
+				new_cell.onmouseleave = function() { _Cell_Exit(art_container); }
+
+				let rand_num = Math.random();
+
+				if(rand_num > 0.2) {
+
+					let new_art = document.createElement("div");
+					new_art.classList.add("art");
+
+					if (rand_num > 0.9) {
+						new_art.classList.add("house");
+					}
+					else {
+						new_art.classList.add("tree");
+					}
+
+					art_container.appendChild(new_art);
+				}
+			}
+		}
+
+		function _Cell_Enter(art_container) {
+			art_container.classList.add("focused");
+		}
+
+		function _Cell_Exit(art_container) {
+			art_container.classList.remove("focused");
+		}
+	</script>
+
+</body>
+</html>
