@@ -256,6 +256,8 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+
+			z-index: 1000;
 		}
 
 		#kid .sprite {
@@ -267,15 +269,20 @@
 			position: absolute;
 			top: -3rem;
 			left: -1.5rem;
-
-			animation-name: Idle;
-			animation-duration: 1s;
-			animation-iteration-count: infinite;
 		}
 
+		.animation_Idle { animation: Idle 1s infinite steps(1); }
 		@keyframes Idle {
 			0% { background-position-x: 0; }
 			50% { background-position-x: -3rem; }
+		}
+
+		.animation_Walk { animation: Walk 1s infinite steps(3); }
+		@keyframes Walk {
+			0% { background-position-x: -6rem; }
+			25% { background-position-x: -9rem; }
+			50% { background-position-x: -12rem; }
+			75% { background-position-x: -15rem; }
 		}
 
 		/* Phone ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/

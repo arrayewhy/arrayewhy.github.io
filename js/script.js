@@ -65,6 +65,7 @@ let _stack_worlds = [
 			// Create Kid Sprite
 			_kid_sprite = document.createElement("div");
 			_kid_sprite.classList.add("sprite");
+			_kid_sprite.classList.add("animation_Idle");
 			_kid.appendChild(_kid_sprite);
 
 			_body.onclick = function() { _Move_Kid(event); }
@@ -200,6 +201,8 @@ let _stack_worlds = [
 		}
 
 		function _Move_Kid(event) {
+			_kid_sprite.classList.remove("animation_Idle");
+			_kid_sprite.classList.add("animation_Walk");
 			let targ_pos_x = event.clientX;
 			let targ_pos_y = event.clientY;
 			// Minus 12px/0.5rem to compensate for Body's 0.5rem Border
