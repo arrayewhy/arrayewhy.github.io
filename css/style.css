@@ -250,44 +250,6 @@
 			letter-spacing: .01rem;
 		}
 
-		/* Kid ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-
-		#kid {
-			width: 10px;
-			height: 10px;
-
-			position: absolute;
-			top: 0;
-			left: 0;
-
-			z-index: 1000;
-		}
-
-		#kid .sprite {
-			width: 3rem;
-			height: 3rem;
-			background-image: url(../media/image/kid_spritesheet.png);
-			background-size: 24rem;
-
-			position: absolute;
-			top: -3rem;
-			left: -1.5rem;
-		}
-
-		.animation_Idle { animation: Idle 1s infinite steps(1); }
-		@keyframes Idle {
-			0% { background-position-x: 0; }
-			50% { background-position-x: -3rem; }
-		}
-
-		.animation_Walk { animation: Walk .7s infinite steps(1); }
-		@keyframes Walk {
-			0% { background-position-x: -6rem; }
-			25% { background-position-x: -9rem; }
-			50% { background-position-x: -12rem; }
-			75% { background-position-x: -15rem; }
-		}
-
 		/* Phone ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 		@media only screen and (max-width: 1024px) {

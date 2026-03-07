@@ -34,9 +34,6 @@ const _image_stack_intervals = 60;
 
 let _loading_interval;
 
-let _kid;
-let kid_sprite;
-
 /* Functions ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 _Start();
@@ -58,17 +55,7 @@ function _Start() {
 		_Blur_Title(document.querySelector('#intro'));
 	}
 
-	// Create Kid
-	_kid = document.createElement("div");
-	_kid.id = "kid";
-	_body.appendChild(_kid);
-	// Create Kid Sprite
-	_kid_sprite = document.createElement("div");
-	_kid_sprite.classList.add("sprite");
-	_kid_sprite.classList.add("animation_Idle");
-	_kid.appendChild(_kid_sprite);
-
-	_body.onclick = function() { _Move_Kid(event); }
+	Create_Kid(_body);
 }
 
 function _Create_Image_Frames(image_stack) {
@@ -198,18 +185,4 @@ function Object_Distance_from_Viewport_Top(obj) {
 
 function _Random_Number(min, max) {
 	return Math.random() * (max - (min) + 1) + min;
-}
-
-function _Move_Kid(event) {
-	_kid_sprite.classList.remove("animation_Idle");
-	_kid_sprite.classList.add("animation_Walk");
-	let targ_pos_x = event.clientX;
-	let targ_pos_y = event.clientY;
-	// Minus 12px/0.5rem to compensate for Body's 0.5rem Border
-	targ_pos_x -= 12;
-	targ_pos_y -= 12;
-	// Offset target Y position by the Viewport's Distance from Top
-	targ_pos_y += _html.scrollTop;
-	_kid.style.left = targ_pos_x + "px";
-	_kid.style.top = targ_pos_y + "px";
 }
