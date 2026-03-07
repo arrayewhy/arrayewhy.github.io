@@ -1,216 +1,215 @@
 let _stack_worlds = [
-			"media/image/worlds/worlds_1.png",
-			"media/image/worlds/worlds_2.png",
-			"media/image/worlds/worlds_3.png",
-			"media/image/worlds/worlds_4.png"
-		]
-		let _stack_little_places = [
-			"media/image/little_places/cozy-kettle-low-res.jpg",
-			"media/image/little_places/tiger-puff-high-res.png",
-			"media/image/little_places/warm-tea-cup-high-res-cropped.png",
-			"media/image/little_places/cloud-house-cropped.png"
-		]
-		let _stack_s20a = [
-			"media/image/s20a/facilities.png",
-			"media/image/s20a/parent.png",
-			"media/image/s20a/story.png",
-			"media/image/s20a/thankyou.png"
-		]
-		let STACK_LIBRARY = {
-			"worlds": _stack_worlds,
-			"little_places": _stack_little_places,
-			"s20a": _stack_s20a
+	"media/image/worlds/worlds_1.png",
+	"media/image/worlds/worlds_2.png",
+	"media/image/worlds/worlds_3.png",
+	"media/image/worlds/worlds_4.png"
+]
+let _stack_little_places = [
+	"media/image/little_places/cozy-kettle-low-res.jpg",
+	"media/image/little_places/tiger-puff-high-res.png",
+	"media/image/little_places/warm-tea-cup-high-res-cropped.png",
+	"media/image/little_places/cloud-house-cropped.png"
+]
+let _stack_s20a = [
+	"media/image/s20a/facilities.png",
+	"media/image/s20a/parent.png",
+	"media/image/s20a/story.png",
+	"media/image/s20a/thankyou.png"
+]
+let STACK_LIBRARY = {
+	"worlds": _stack_worlds,
+	"little_places": _stack_little_places,
+	"s20a": _stack_s20a
+}
+
+let _html = document.querySelector('html');
+let _body = document.querySelector('body');
+let _intro_h1 = document.querySelector('#intro h1');
+let _cells = document.querySelectorAll('.cell');
+let _image_stacks = document.querySelectorAll('.image-stack');
+let _frames = [];
+
+let _image_stack_top_thresh = 300;
+const _image_stack_intervals = 60;
+
+let _loading_interval;
+
+let _kid;
+let kid_sprite;
+
+/* Functions ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+_Start();
+
+function _Start() {
+
+	_body.onload = function () {
+		_intro_h1.style.opacity = .8;
+	}
+
+	// Create Image Frames for each Image Stack
+	_image_stacks.forEach(_Create_Image_Frames);
+
+	_loading_interval = setInterval(_Check_Reveals, 100);
+
+	_body.onscroll = function () {
+		_image_stacks.forEach(_Show_Hide_Frames);
+		_cells.forEach(_Blur);
+		_Blur_Title(document.querySelector('#intro'));
+	}
+
+	// Create Kid
+	_kid = document.createElement("div");
+	_kid.id = "kid";
+	_body.appendChild(_kid);
+	// Create Kid Sprite
+	_kid_sprite = document.createElement("div");
+	_kid_sprite.classList.add("sprite");
+	_kid_sprite.classList.add("animation_Idle");
+	_kid.appendChild(_kid_sprite);
+
+	_body.onclick = function() { _Move_Kid(event); }
+}
+
+function _Create_Image_Frames(image_stack) {
+
+	let id = image_stack.id;
+	let sources = STACK_LIBRARY[id];
+
+	for (let i = -1; i < sources.length; i++) {
+
+		// Create the Loading element that sitz on top of all the Frames
+		if (i == -1) {
+			let loader = document.createElement('div');
+			loader.classList.add('loader');
+			// loader.style.opacity = 0;
+			image_stack.appendChild(loader);
+			continue;
 		}
 
-		let _html = document.querySelector('html');
-		let _body = document.querySelector('body');
-		let _intro_h1 = document.querySelector('#intro h1');
-		let _cells = document.querySelectorAll('.cell');
-		let _image_stacks = document.querySelectorAll('.image-stack');
-		let _frames = [];
+		// Create the Frame that holds the Image
+		let new_frame = document.createElement('var');
+		new_frame.style.opacity = 0;
+		new_frame.classList.add('frame');
 
-		let _image_stack_top_thresh = 300;
-		const _image_stack_intervals = 60;
+		// Create the Image showing the Artwork
+		let new_img = document.createElement('img');
+		new_img.src = sources[i];
 
-		let _loading_interval;
+		// Add the .loading Class used for checking if this frame's Image is Done Loading
+		new_frame.classList.add('loading');
+		// Make it so when this Image is Done Loading, its Parent sheds the .loading class
+		new_img.onload = function () {new_img.parentElement.classList.remove('loading');}
 
-		let _kid;
-		let kid_sprite;
+		// Parent the Image to the Frame
+		new_frame.appendChild(new_img);
+		// Parent the Frame to the Gallery Cell
+		image_stack.appendChild(new_frame);
 
-		_Start();
+		_frames.push(new_frame);
+	}
 
-		// Functions
+	// Make the First Image Visible on Start
+	image_stack.children[1].style.top = 0;
+	image_stack.children[1].style.opacity = 1;
+}
 
-		function _Start() {
+function _Check_Reveals() {
 
-			_body.onload = function () {
-				_intro_h1.style.opacity = .8;
+	let loaded_frames = 0;
+
+	// For each Image Stack
+	for (let i = 0; i < _image_stacks.length; i++) {
+
+		// For each Frame within the Image Stack
+		for (let f = 1; f < _image_stacks[i].children.length; f++) {
+
+			if (_image_stacks[i].children[f].classList.contains('loading')) {
+				break;
 			}
 
-			// Create Image Frames for each Image Stack
-			_image_stacks.forEach(_Create_Image_Frames);
-
-			_loading_interval = setInterval(_Check_Reveals, 100);
-
-			_body.onscroll = function () {
-				_image_stacks.forEach(_Show_Hide_Frames);
-				_cells.forEach(_Blur);
-				_Blur_Title(document.querySelector('#intro'));
-			}
-
-			// Create Kid
-			_kid = document.createElement("div");
-			_kid.id = "kid";
-			_body.appendChild(_kid);
-			// Create Kid Sprite
-			_kid_sprite = document.createElement("div");
-			_kid_sprite.classList.add("sprite");
-			_kid_sprite.classList.add("animation_Idle");
-			_kid.appendChild(_kid_sprite);
-
-			_body.onclick = function() { _Move_Kid(event); }
+			loaded_frames += 1;
+			_image_stacks[i].children[0].style.top = '-100%';
+			// _image_stacks[i].children[0].style.opacity = 0;
 		}
+	}
 
-		function _Create_Image_Frames(image_stack) {
+	if (loaded_frames == _frames.length) {
+		clearInterval(_loading_interval);
+		_loading_interval = null;
+	}
+}
 
-			let id = image_stack.id;
-			let sources = STACK_LIBRARY[id];
+function _Show_Hide_Frames(image_stack) {
 
-			for (let i = -1; i < sources.length; i++) {
+	let frames = image_stack.children;
+	let img_stack_dist_from_top = Object_Distance_from_Viewport_Top(image_stack);
 
-				// Create the Loading element that sitz on top of all the Frames
-				if (i == -1) {
-					let loader = document.createElement('div');
-					loader.classList.add('loader');
-					// loader.style.opacity = 0;
-					image_stack.appendChild(loader);
-					continue;
-				}
+	const top_gap = '10%';
 
-				// Create the Frame that holds the Image
-				let new_frame = document.createElement('var');
-				new_frame.style.opacity = 0;
-				new_frame.classList.add('frame');
+	for (let i = 2; i < frames.length; i++) {
 
-				// Create the Image showing the Artwork
-				let new_img = document.createElement('img');
-				new_img.src = sources[i];
+		if (img_stack_dist_from_top + _image_stack_intervals * i < _image_stack_top_thresh) {
 
-				// Add the .loading Class used for checking if this frame's Image is Done Loading
-				new_frame.classList.add('loading');
-				// Make it so when this Image is Done Loading, its Parent sheds the .loading class
-				new_img.onload = function () {new_img.parentElement.classList.remove('loading');}
+			// frames[i].style.top = (2 * i) + 'px';
+			frames[i].style.top = 0;
+			frames[i].style.opacity = 1;
 
-				// Parent the Image to the Frame
-				new_frame.appendChild(new_img);
-				// Parent the Frame to the Gallery Cell
-				image_stack.appendChild(new_frame);
+			// if (frames[i].style.transform == 'rotate(0deg)') {
+			// 	frames[i].style.transform = 'rotate(' + _Random_Number(-.5, .5) + 'deg)';
+			// }
+		} else {
 
-				_frames.push(new_frame);
-			}
+			frames[i].style.top = top_gap;
+			frames[i].style.opacity = 0;
 
-			// Make the First Image Visible on Start
-			image_stack.children[1].style.top = 0;
-			image_stack.children[1].style.opacity = 1;
+			// frames[i].style.transform = 'rotate(0deg)';
 		}
+	}
+}
 
-		function _Check_Reveals() {
+function _Blur(cell) {
+	let obj_dist_from_top = Object_Distance_from_Viewport_Top(cell);
+	let blur_thresh = 500;
+	if (obj_dist_from_top < blur_thresh) {
+		cell.style.filter = 'blur(0)';
+	} else {
+		cell.style.filter = 'blur(.2rem)';
+	}
+}
 
-			let loaded_frames = 0;
+function _Blur_Title(title) {
 
-			// For each Image Stack
-			for (let i = 0; i < _image_stacks.length; i++) {
+	let obj_dist_from_top = Object_Distance_from_Viewport_Top(title);
+	let blur_thresh = -50;
 
-				// For each Frame within the Image Stack
-				for (let f = 1; f < _image_stacks[i].children.length; f++) {
+	if (obj_dist_from_top < blur_thresh) {
+		// title.style.filter = 'blur(.1rem)';
+		title.style.opacity = '.3';
+	} else {
+		// title.style.filter = 'blur(0)';
+		title.style.opacity = '1';
+	}
+}
 
-					if (_image_stacks[i].children[f].classList.contains('loading')) {
-						break;
-					}
+function Object_Distance_from_Viewport_Top(obj) {
+	return obj.offsetTop - _html.scrollTop;
+}
 
-					loaded_frames += 1;
-					_image_stacks[i].children[0].style.top = '-100%';
-					// _image_stacks[i].children[0].style.opacity = 0;
-				}
-			}
+function _Random_Number(min, max) {
+	return Math.random() * (max - (min) + 1) + min;
+}
 
-			if (loaded_frames == _frames.length) {
-				clearInterval(_loading_interval);
-				_loading_interval = null;
-			}
-		}
-
-		function _Show_Hide_Frames(image_stack) {
-
-			let frames = image_stack.children;
-			let img_stack_dist_from_top = Object_Distance_from_Viewport_Top(image_stack);
-
-			const top_gap = '10%';
-
-			for (let i = 2; i < frames.length; i++) {
-
-				if (img_stack_dist_from_top + _image_stack_intervals * i < _image_stack_top_thresh) {
-
-					// frames[i].style.top = (2 * i) + 'px';
-					frames[i].style.top = 0;
-					frames[i].style.opacity = 1;
-
-					// if (frames[i].style.transform == 'rotate(0deg)') {
-					// 	frames[i].style.transform = 'rotate(' + _Random_Number(-.5, .5) + 'deg)';
-					// }
-				} else {
-
-					frames[i].style.top = top_gap;
-					frames[i].style.opacity = 0;
-
-					// frames[i].style.transform = 'rotate(0deg)';
-				}
-			}
-		}
-
-		function _Blur(cell) {
-			let obj_dist_from_top = Object_Distance_from_Viewport_Top(cell);
-			let blur_thresh = 500;
-			if (obj_dist_from_top < blur_thresh) {
-				cell.style.filter = 'blur(0)';
-			} else {
-				cell.style.filter = 'blur(.2rem)';
-			}
-		}
-
-		function _Blur_Title(title) {
-
-			let obj_dist_from_top = Object_Distance_from_Viewport_Top(title);
-			let blur_thresh = -50;
-
-			if (obj_dist_from_top < blur_thresh) {
-				// title.style.filter = 'blur(.1rem)';
-				title.style.opacity = '.3';
-			} else {
-				// title.style.filter = 'blur(0)';
-				title.style.opacity = '1';
-			}
-		}
-
-		function Object_Distance_from_Viewport_Top(obj) {
-			return obj.offsetTop - _html.scrollTop;
-		}
-
-		function _Random_Number(min, max) {
-			return Math.random() * (max - (min) + 1) + min;
-		}
-
-		function _Move_Kid(event) {
-			_kid_sprite.classList.remove("animation_Idle");
-			_kid_sprite.classList.add("animation_Walk");
-			let targ_pos_x = event.clientX;
-			let targ_pos_y = event.clientY;
-			// Minus 12px/0.5rem to compensate for Body's 0.5rem Border
-			targ_pos_x -= 12;
-			targ_pos_y -= 12;
-			// Offset the sprite to make the kid's Feet touch the Ground
-			// targ_pos_x -= _kid_sprite.offsetWidth / 2;
-			// targ_pos_y -= _kid_sprite.offsetHeight;
-			_kid.style.left = targ_pos_x + "px";
-			_kid.style.top = targ_pos_y + "px";
-		}
+function _Move_Kid(event) {
+	_kid_sprite.classList.remove("animation_Idle");
+	_kid_sprite.classList.add("animation_Walk");
+	let targ_pos_x = event.clientX;
+	let targ_pos_y = event.clientY;
+	// Minus 12px/0.5rem to compensate for Body's 0.5rem Border
+	targ_pos_x -= 12;
+	targ_pos_y -= 12;
+	// Offset target Y position by the Viewport's Distance from Top
+	targ_pos_y += _html.scrollTop;
+	_kid.style.left = targ_pos_x + "px";
+	_kid.style.top = targ_pos_y + "px";
+}
