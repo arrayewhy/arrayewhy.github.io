@@ -20,7 +20,11 @@
 #kid_sprite {
 	width: 3rem;
 	height: 3rem;
+<<<<<<< HEAD
 	background-image: url(kid_spritesheet.png);
+=======
+	background-image: url(../media/image/kid_spritesheet.png);
+>>>>>>> cf534917a82073543a3f8951c10c6e80534d4d04
 	background-size: 24rem;
 
 	position: absolute;
@@ -28,6 +32,7 @@
 	left: -1.5rem;
 }
 
+<<<<<<< HEAD
 .animation_Idle {
 	animation: Idle 1s infinite steps(1);
 }
@@ -63,3 +68,18 @@
 		background-position-x: -15rem;
 	}
 }
+=======
+.animation_Idle { animation: Idle 1s infinite steps(1); }
+@keyframes Idle {
+	0% { background-position-x: 0; }
+	50% { background-position-x: -3rem; }
+}
+
+.animation_Walk { animation: Walk .7s infinite steps(1); }
+@keyframes Walk {
+	0% { background-position-x: -6rem; }
+	25% { background-position-x: -9rem; }
+	50% { background-position-x: -12rem; }
+	75% { background-position-x: -15rem; }
+}
+>>>>>>> cf534917a82073543a3f8951c10c6e80534d4d04
