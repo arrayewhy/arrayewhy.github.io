@@ -1,0 +1,467 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+		:root {
+
+			--mercury-orbit-width: 25rem;
+			--venus-orbit-width: 30rem;
+			--earth-orbit-width: 37rem;
+			--mars-orbit-width: 50rem;
+			--jupiter-orbit-width: 60rem;
+			--saturn-orbit-width: 75rem;
+			--uranus-orbit-width: 85rem;
+			--neptune-orbit-width: 95rem;
+			--pluto-orbit-width: 105rem;
+
+			--sun-diameter: 20rem;
+			--mercury-diameter: .1rem;
+			--venus-diameter: .2rem;
+			--earth-diameter: .75rem;
+			--mars-diameter: .4rem;
+			--jupiter-diameter: 2rem;
+			--saturn-diameter: 1.5rem;
+			--uranus-diameter: 1.25rem;
+			--neptune-diameter: 1.125rem;
+			--pluto-diameter: .05rem;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#viewport {
+			width: 100%;
+			height: 100%;
+			background-color: black;
+
+			position: relative;
+			overflow: hidden;
+		}
+
+		/* General Classes ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+		.circle {
+			aspect-ratio: 1/1;
+			border-radius: 50%;
+		}
+
+		.stroke {
+			border: solid .001rem rgba(255, 255, 255, .2);
+		}
+
+		.planet {
+			position: absolute;
+			left: calc(100% / 2);
+		}
+
+		/* Planets ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+		#solar-system {
+			width: 100%;
+			height: 100%;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			position: absolute;
+
+			scale: .5;
+
+			transition: scale .5s;
+		}
+
+		#sun {
+			width: var(--sun-diameter);
+			aspect-ratio: 1/1;
+			background-color: gold;
+			border-radius: 50%;
+
+			position: absolute;
+
+		}
+
+		#sun:after {
+			content: "";
+			width: 100%;
+			aspect-ratio: 1/1;
+			background-color: lightyellow;
+
+			position: absolute;
+			border-radius: 50%;
+			z-index: -1;
+
+			filter: blur(2rem);
+			opacity: .5;
+		}
+
+		/* Mercury */
+
+		#mercury {
+			width: var(--mercury-orbit-width);
+			position: absolute;
+		}
+
+		#mercury > div {
+			width: var(--mercury-diameter);
+			background-color: sandybrown;
+			top: calc(var(--mercury-diameter) * -0.5);
+		}
+
+		/* Venus */
+
+		#venus {
+			width: var(--venus-orbit-width);
+			position: absolute;
+		}
+
+		#venus > div {
+			width: var(--venus-diameter);
+			background-color: skyblue;
+			top: calc(var(--venus-diameter) * -0.5);
+		}
+
+		/* Earth */
+
+		#earth {
+			width: var(--earth-orbit-width);
+			position: absolute;
+		}
+
+		#earth > div {
+			width: var(--earth-diameter);
+			background-color: dodgerblue;
+			top: calc(var(--earth-diameter) * -0.5);
+		}
+
+		/* Mars */
+
+		#mars {
+			width: var(--mars-orbit-width);
+			position: absolute;
+		}
+
+		#mars > div {
+			width: var(--mars-diameter);
+			background-color: indianred;
+			top: calc(var(--mars-diameter) * -0.5);
+		}
+
+		/* Jupiter */
+
+		#jupiter {
+			width: var(--jupiter-orbit-width);
+			position: absolute;
+		}
+
+		#jupiter > div {
+			width: var(--jupiter-diameter);
+			background-color: saddlebrown;
+			top: calc(var(--jupiter-diameter) * -0.5);
+		}
+
+		/* Saturn */
+
+		#saturn {
+			width: var(--saturn-orbit-width);
+			position: absolute;
+		}
+
+		#saturn > div {
+			width: var(--saturn-diameter);
+			background-color: sandybrown;
+			top: calc(var(--saturn-diameter) * -0.5);
+		}
+
+		/* Uranus */
+
+		#uranus {
+			width: var(--uranus-orbit-width);
+			position: absolute;
+		}
+
+		#uranus > div {
+			width: var(--uranus-diameter);
+			background-color: mediumblue;
+			top: calc(var(--uranus-diameter) * -0.5);
+		}
+
+		/* Neptune */
+
+		#neptune {
+			width: var(--neptune-orbit-width);
+			position: absolute;
+		}
+
+		#neptune > div {
+			width: var(--neptune-diameter);
+			background-color: darkblue;
+			top: calc(var(--neptune-diameter) * -0.5);
+		}
+		
+		/* Pluto */
+
+		#pluto {
+			width: var(--pluto-orbit-width);
+			position: absolute;
+		}
+
+		#pluto > div {
+			width: var(--pluto-diameter);
+			background-color: sandybrown;
+			top: calc(var(--pluto-diameter) * -0.5);
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="viewport">
+		<div id="solar-system">
+			<!-- Sun -->
+			<div id="sun"></div>
+			<!-- Mercury -->
+			<div id="mercury" class="circle stroke"><div class="circle planet"></div></div>
+			<!-- Venus -->
+			<div id="venus" class="circle stroke"><div class="circle planet"></div></div>
+			<!-- Earth -->
+			<div id="earth" class="circle stroke"><div class="circle planet"></div></div>
+			<!-- Mars -->
+			<div id="mars" class="circle stroke"><div class="circle planet"></div></div>
+			<!-- Jupiter -->
+			<div id="jupiter" class="circle stroke"><div class="circle planet"></div></div>
+			<!-- Saturn -->
+			<div id="saturn" class="circle stroke"><div class="circle planet"></div></div>
+			<!-- Uranus -->
+			<div id="uranus" class="circle stroke"><div class="circle planet"></div></div>
+			<!-- Neptue -->
+			<div id="neptune" class="circle stroke"><div class="circle planet"></div></div>
+			<!-- Pluto -->
+			<div id="pluto" class="circle stroke"><div class="circle planet"></div></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		let _viewport = document.querySelector("#viewport");
+		let _solar_system = document.querySelector("#solar-system");
+
+		let _mouse_pos_x = 0;
+		let _mouse_pos_y = 0;
+		let _mouse_influence = 0;
+
+		let _update_focus_interval;
+		const _update_speed = .1;
+
+		// Mercury
+		let _mercury = document.querySelector("#mercury");
+		let _mercury_curr_rot = 0;
+		let _mercury_rot_rate;
+		let _mercury_rot_interval;
+
+		// Venus
+		let _venus = document.querySelector("#venus");
+		let _venus_curr_rot = 0;
+		let _venus_rot_rate;
+		let _venus_rot_interval;
+
+		// Earth
+		let _earth = document.querySelector("#earth");
+		let _earth_curr_rot = 0;
+		let _earth_rot_rate;
+		let _earth_rot_interval;
+
+		// Mars
+		let _mars = document.querySelector("#mars");
+		let _mars_curr_rot = 0;
+		let _mars_rot_rate;
+		let _mars_rot_interval;
+
+		// Jupiter
+		let _jupiter = document.querySelector("#jupiter");
+		let _jupiter_curr_rot = 0;
+		let _jupiter_rot_rate;
+		let _jupiter_rot_interval;
+
+		// Saturn
+		let _saturn = document.querySelector("#saturn");
+		let _saturn_curr_rot = 0;
+		let _saturn_rot_rate;
+		let _saturn_rot_interval;
+
+		// Uranus
+		let _uranus = document.querySelector("#uranus");
+		let _uranus_curr_rot = 0;
+		let _uranus_rot_rate;
+		let _uranus_rot_interval;
+
+		// Neptune
+		let _neptune = document.querySelector("#neptune");
+		let _neptune_curr_rot = 0;
+		let _neptune_rot_rate;
+		let _neptune_rot_interval;
+
+		// Pluto
+		let _pluto = document.querySelector("#pluto");
+		let _pluto_curr_rot = 0;
+		let _pluto_rot_rate;
+		let _pluto_rot_interval;
+
+		_Start();
+
+		function _Start() {
+
+			// Zoom
+			document.querySelector("body").onkeydown = function() { _Zoom_On_Key(event); }
+
+			document.querySelector("body").onmousemove = function() { _On_Mouse_Move(event); }
+
+			_update_focus_interval = setInterval(function() { _Move_SS_To_FocusPoint(); }, 16.666);
+
+			// Set Initial Rotation Rates
+			_Set_Rot_Rates(1);
+
+			_mercury_rot_interval = setInterval(function() { _Rotate_Mercury(); }, 16.666);
+			_venus_rot_interval = setInterval(function() { _Rotate_Venus(); }, 16.666);
+			_earth_rot_interval = setInterval(function() { _Rotate_Earth(); }, 16.666);
+			_mars_rot_interval = setInterval(function() { _Rotate_Mars(); }, 16.666);
+			_jupiter_rot_interval = setInterval(function() { _Rotate_Jupiter(); }, 16.666);
+			_saturn_rot_interval = setInterval(function() { _Rotate_Saturn(); }, 16.666);
+			_uranus_rot_interval = setInterval(function() { _Rotate_Uranus(); }, 16.666);
+			_neptune_rot_interval = setInterval(function() { _Rotate_Neptune(); }, 16.666);
+			_pluto_rot_interval = setInterval(function() { _Rotate_Pluto(); }, 16.666);
+		}
+
+		function _Move_SS_To_FocusPoint() {
+			// let move_val_x = _mouse_pos_x - _solar_system.offsetLeft;
+			// let move_Val_y = _mouse_pos_y - _solar_system.offsetTop;
+
+			// _solar_system.style.left = (_solar_system.offsetLeft + move_val_x) * _update_speed + "px";
+			// _solar_system.style.top = (_solar_system.offsetTop + move_Val_y) * _update_speed + "px";
+
+			// let dest_x = _viewport.offsetWidth / 2 - _mouse_pos_x;
+			// let dest_y = _viewport.offsetHeight / 2 - _mouse_pos_y;
+
+			// let next_x = dest_x - _solar_system.offsetLeft;
+			// let next_y = dest_y - _solar_system.offsetTop;
+
+			// _solar_system.style.left = next_x * _update_speed + "px";
+			// _solar_system.style.top = next_y * _update_speed + "px";
+			
+			let dist_x = _mouse_pos_x - _solar_system.offsetLeft;
+			_solar_system.style.left = _solar_system.offsetLeft + dist_x * _update_speed + "px";
+		}
+
+		function _Rotate_Mercury() {
+			_mercury_curr_rot += _mercury_rot_rate;
+			_mercury.style.rotate = _mercury_curr_rot + "deg";
+		}
+
+		function _Rotate_Venus() {
+			_venus_curr_rot += _venus_rot_rate;
+			_venus.style.rotate = _venus_curr_rot + "deg";
+		}
+
+		function _Rotate_Earth() {
+			_earth_curr_rot += _earth_rot_rate;
+			_earth.style.rotate = _earth_curr_rot + "deg";
+		}
+
+		function _Rotate_Mars() {
+			_mars_curr_rot += _mars_rot_rate;
+			_mars.style.rotate = _mars_curr_rot + "deg";
+		}
+
+		function _Rotate_Jupiter() {
+			_jupiter_curr_rot += _jupiter_rot_rate;
+			_jupiter.style.rotate = _jupiter_curr_rot + "deg";
+		}
+
+		function _Rotate_Saturn() {
+			_saturn_curr_rot += _saturn_rot_rate;
+			_saturn.style.rotate = _saturn_curr_rot + "deg";
+		}
+
+		function _Rotate_Uranus() {
+			_uranus_curr_rot += _uranus_rot_rate;
+			_uranus.style.rotate = _uranus_curr_rot + "deg";
+		}
+
+		function _Rotate_Neptune() {
+			_neptune_curr_rot += _neptune_rot_rate;
+			_neptune.style.rotate = _neptune_curr_rot + "deg";
+		}
+
+		function _Rotate_Pluto() {
+			_pluto_curr_rot += _pluto_rot_rate;
+			_pluto.style.rotate = _pluto_curr_rot + "deg";
+		}
+
+		function _Zoom_On_Key(event) {
+			let key = event.key;
+			switch(key) {
+				case "1":
+					_Set_Rot_Rates(1);
+					// Solar System Scale
+					_solar_system.style.scale = .5;
+					_mouse_influence = 0;
+					break;
+				case "2":
+					_Set_Rot_Rates(4);
+					// Solar System Scale
+					_solar_system.style.scale = .6;
+					_mouse_influence = .5;
+					break;
+				case "3":
+					_Set_Rot_Rates(8);
+					// Solar System Scale
+					_solar_system.style.scale = .7;
+					_mouse_influence = 1;
+					break;
+				case "4":
+					_Set_Rot_Rates(16);
+					// Solar System Scale
+					_solar_system.style.scale = 1;
+					_mouse_influence = 2;
+					break;
+				case "5":
+					_Set_Rot_Rates(1);
+					// Solar System Scale
+					_solar_system.style.scale = 2;
+					_mouse_influence = 3.5;
+					break;
+				case "6":
+					_Set_Rot_Rates(1);
+					// Solar System Scale
+					_solar_system.style.scale = 4;
+					_mouse_influence = 10;
+					break;
+			}
+		}
+
+		function _On_Mouse_Move(event) {
+			_mouse_pos_x = event.clientX;
+			_mouse_pos_y = event.clientY;
+			// let viewport_width = _viewport.offsetWidth;
+			// let viewport_height = _viewport.offsetHeight;
+			// _mouse_pos_x = [(viewport_width / 2) - event.clientX] * _mouse_influence;
+			// _mouse_pos_y = [(viewport_height / 2) - event.clientY] * _mouse_influence;
+		}
+
+		function _Set_Rot_Rates(factor) {
+			_mercury_rot_rate = 47.87 / 400 * factor;
+			_venus_rot_rate = 35.02 / 400 * factor;
+			_earth_rot_rate = 29.78 / 400 * factor;
+			_mars_rot_rate = 24.077 / 400 * factor;
+			_jupiter_rot_rate = 13.07 / 400 * factor;
+			_saturn_rot_rate = 9.69 / 400 * factor;
+			_uranus_rot_rate = 6.81 / 400 * factor;
+			_neptune_rot_rate = 5.43 / 400 * factor;
+			_pluto_rot_rate = 16.81 / 400 * factor;
+		}
+	</script>
+</body>
+
+</html>
