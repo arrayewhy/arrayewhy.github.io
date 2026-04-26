@@ -5,6 +5,15 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<title>Degemon</title>
 		<style>
+@font-face {
+	font-family: 'Werkman';
+	src: url('werkman.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'XTypewriter';
+	src: url('XTypewriter-Bold.ttf') format('truetype');
+}
+
 html, body, #canvas {
 	margin: 0;
 	padding: 0;
@@ -16,6 +25,10 @@ body {
 	background-color: black;
 	overflow: hidden;
 	touch-action: none;
+}
+
+a, a:visited {
+	color: white;
 }
 
 #canvas {
@@ -43,13 +56,13 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	visibility: hidden;
 }
 
 #status-splash {
 	max-height: 100%;
 	max-width: 100%;
 	margin: auto;
+	background-color: #471d21;
 }
 
 #status-splash.show-image--false {
@@ -89,10 +102,10 @@ body {
 	text-align: center;
 	z-index: 1;
 }
+
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<link rel="manifest" href="index.manifest.json">
 
 	</head>
 	<body>
@@ -103,26 +116,45 @@ body {
 		<noscript>
 			Your browser does not support JavaScript.
 		</noscript>
-
 		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
+            <span class="start-fs" style="z-index: 1000; cursor: pointer; user-select: none; display: block; padding-top: 20px; font-family: Werkman, sans-serif; font-size: 2em;"
+				onclick="initializeGodot()">
+				Degemon!
+			</span>
+            <button onclick="initializeGodot()" style="color: white; cursor: pointer;">
+			    <img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="" />
+            </button>
 			<progress id="status-progress"></progress>
 			<div id="status-notice"></div>
 		</div>
-
+		<div style="position: fixed; bottom: 0; font-family: 'XTypewriter';">XTypewriter font by <a href="License-X-Typewriter-Font.txt">GGBotNet</a></div>
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":5252692,"index.wasm":36145869},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
-const GODOT_THREADS_ENABLED = false;
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":5252772,"index.wasm":37695054},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4} || {};
+const GODOT_THREADS_ENABLED = false || false;
 const engine = new Engine(GODOT_CONFIG);
-
-(function () {
+</script>
+<script>
+window.touchEnabled = false;
+addEventListener("touchstart", () => {
+	window.touchEnabled = true;
+})	
+let initializeClicked = false;
+function initializeGodot() {
+    if (initializeClicked) { return; }
+    initializeClicked = true;
+	document.getElementById("canvas").requestFullscreen();
+	if (typeof screen.orientation.lock !== 'undefined') {
+		screen.orientation.lock('landscape').catch((e) => {})
+	}
+	const canvas = document.getElementById('canvas');
 	const statusOverlay = document.getElementById('status');
 	const statusProgress = document.getElementById('status-progress');
 	const statusNotice = document.getElementById('status-notice');
 
 	let initializing = true;
 	let statusMode = '';
+	canvas.style.display = "none";
 
 	function setStatusMode(mode) {
 		if (statusMode === mode || !initializing) {
@@ -212,9 +244,12 @@ const engine = new Engine(GODOT_CONFIG);
 			},
 		}).then(() => {
 			setStatusMode('hidden');
+			canvas.style.display = "block";
+
 		}, displayFailureNotice);
 	}
-}());
+};
+
 		</script>
 	</body>
 </html>
