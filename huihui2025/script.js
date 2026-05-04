@@ -10,6 +10,8 @@ var icons = document.getElementsByClassName("icon");
 var emailIcon = document.getElementById("email-icon");
 var galleryIcon = document.getElementById("gallery-icon");
 
+var peace_sticker_2026_desktop = document.getElementById("peace_sticker_2026_desktop");
+
 // Window
 var windowWrapper = document.getElementsByClassName("window-wrapper")[0];
 
@@ -26,14 +28,18 @@ var stickyPhoto = document.getElementById("sticky-photo");
 
 // Message Selectors
 var birthdayMessageSelector = document.getElementById("birthday-message-selector");
+var birthday2026MessageSelector = document.getElementById("birthday-2026-message-selector");
 var ingridMessageSelector = document.getElementById("ingrid-message-selector");
 var shupeeMessageSelector = document.getElementById("shupee-message-selector");
 
 // Letter
 var envelope = document.getElementById("envelope");
+var envelope_2026 = document.getElementById("envelope-2026");
 var letterWrapper = document.getElementById("letter-wrapper");
-var letter = document.getElementById("letter");
+var letterWrapper_2026 = document.getElementById("letter-wrapper-2026");
+var letter_2026 = document.getElementById("letter-2026");
 var letterShown = false;
+var letterShown_2026 = false;
 
 // Milo
 var miloChooser = document.getElementById("milo-chooser");
@@ -81,6 +87,7 @@ loginBtn.onclick = function() { Hide_Login(); }
 // Email
 emailIcon.onclick = function() { Open_Email_First(); }
 birthdayMessageSelector.onclick = function() { Show_BirthdayMessage_First(); }
+birthday2026MessageSelector.onclick = function() { Show_Birthday2026Message(); }
 ingridMessageSelector.onclick = function() { Show_Message("ingrid"); }
 shupeeMessageSelector.onclick = function() { Show_Message("shupee"); }
 
@@ -105,6 +112,7 @@ stickyPhoto.onmouseover = function() { Play_TouchLetter(); }
 
 // Letter
 envelope.onclick = function() { Show_Letter(); }
+envelope_2026.onclick = function() { Show_Letter_2026(); }
 
 
 // Milo
@@ -133,6 +141,10 @@ for(i = 0; i < backBtns.length; i++) {
 	else if(backBtns[i].id == "letter-back") {
 		backBtns[i].onclick = function() { Hide_Letter(); }
 	}
+	// Letter 2026
+	else if(backBtns[i].id == "letter-back-2026") {
+		backBtns[i].onclick = function() { Hide_Letter_2026(); }
+	}
 
 	backBtns[i].onmouseover = function() { Play_Pop(); }
 }
@@ -152,7 +164,10 @@ for(i = 0; i < soundBtns.length; i++) {
 	else if(soundBtns[i].id == "envelope") {
 		soundBtns[i].onmouseover = function() { Play_TouchLetter(); }
 	}
-	else if(soundBtns[i].id != "envelope") {
+	else if(soundBtns[i].id == "envelope-2026") {
+		soundBtns[i].onmouseover = function() { Play_TouchLetter(); }
+	}
+	else if(soundBtns[i].id != "envelope" || soundBtns[i].id != "envelope_2026") {
 		soundBtns[i].onclick = function() { Play_PopLoud(); }
 	}
 }
@@ -206,8 +221,14 @@ function Show_Message(topic) {
 
 function Show_BirthdayMessage_First() {
 	Show_Message("birthday");
-	birthdayMessageSelector.classList.remove("heart");
+	// birthdayMessageSelector.classList.remove("heart");
 	birthdayMessageSelector.onclick = function() { Show_Message("birthday"); }
+}
+
+function Show_Birthday2026Message() {
+	Show_Message("birthday-2026");
+	birthday2026MessageSelector.classList.remove("heart");
+	birthday2026MessageSelector.onclick = function() { Show_Message("birthday-2026"); }
 }
 
 
@@ -257,20 +278,20 @@ function Open_GalleryZoomWrapper(photoID) {
 	Hide_GalleryWindow();
 
 	if(photoID == "photo-1") {
-		stickyPhoto.style.backgroundImage = "url('huihui2025/media/Photo-1.png')";
-		galleryZoom.style.backgroundImage = "url('huihui2025/media/Photo-1.png')";
+		stickyPhoto.style.backgroundImage = "url('media/Photo-1.png')";
+		galleryZoom.style.backgroundImage = "url('media/Photo-1.png')";
 	}
 	else if(photoID == "photo-2") {
-		stickyPhoto.style.backgroundImage = "url('huihui2025/media/Photo-2.png')";
-		galleryZoom.style.backgroundImage = "url('huihui2025/media/Photo-2.png')";
+		stickyPhoto.style.backgroundImage = "url('media/Photo-2.png')";
+		galleryZoom.style.backgroundImage = "url('media/Photo-2.png')";
 	}
 	else if(photoID == "photo-3") {
-		stickyPhoto.style.backgroundImage = "url('huihui2025/media/Photo-3.png')";
-		galleryZoom.style.backgroundImage = "url('huihui2025/media/Photo-3.png')";
+		stickyPhoto.style.backgroundImage = "url('media/Photo-3.png')";
+		galleryZoom.style.backgroundImage = "url('media/Photo-3.png')";
 	}
 	else if(photoID == "photo-4") {
-		stickyPhoto.style.backgroundImage = "url('huihui2025/media/Photo-4.png')";
-		galleryZoom.style.backgroundImage = "url('huihui2025/media/Photo-4.png')";
+		stickyPhoto.style.backgroundImage = "url('media/Photo-4.png')";
+		galleryZoom.style.backgroundImage = "url('media/Photo-4.png')";
 	}
 
 	galleryZoomWrapper.style.display = "flex";
@@ -294,6 +315,12 @@ function Show_Letter() {
 	Play_OpenLetter();
 }
 
+function Show_Letter_2026() {
+	letterWrapper_2026.style.display = "flex";
+	Hide_EmailWindow(false);
+	Play_OpenLetter();
+}
+
 
 function Hide_Letter() {
 	letterWrapper.style.display = "none";
@@ -306,6 +333,20 @@ function Hide_Letter() {
 	letterShown = true;
 
 	Show_MiloChooser();
+}
+
+function Hide_Letter_2026() {
+	letterWrapper_2026.style.display = "none";
+	Play_Dull();
+
+	if(letterShown_2026) {
+		return;
+	}
+
+	letterShown_2026 = true;
+
+	peace_sticker_2026_desktop.classList.remove("hidden");
+	// Show_MiloChooser();
 }
 
 

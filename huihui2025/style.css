@@ -73,6 +73,14 @@ body {
 	scale: 3;
 }
 
+.fade {
+	opacity: .5;
+}
+
+.hidden {
+	display: none;
+}
+
 /* Login ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 #login-wrapper {
@@ -244,6 +252,19 @@ body {
 
 #gallery.image {
 	background-image: url('media/Camera.png');
+}
+
+#peace_sticker_2026_desktop {
+	width: 12rem;
+	height: auto;
+	position: absolute;
+	top: 5%;
+	right: 25%;
+}
+
+#peace_sticker_2026_desktop:hover {
+	scale: 1.1;
+	transition: scale .2s;
 }
 
 .icon p {
@@ -695,6 +716,81 @@ body {
 }
 
 #letter p {
+	margin-bottom: 64px;
+}
+
+/* 2026 */
+
+#envelope-2026 {
+	width: 50%;
+	max-width: 512px;
+	height: auto;
+}
+
+#envelope-2026:hover {
+	rotate: 2.5deg;
+}
+
+#letter-wrapper-2026 {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 213, 75);
+
+/*	display: flex;*/
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	z-index: 200;
+}
+
+#letter-2026 {
+	width: 40%;
+	height: auto;
+	background-color: beige;
+
+	padding: 32px;
+
+	position: absolute;
+
+	border-radius: .25rem;
+
+	color: rgba(65, 105, 225, .9);
+	font-size: 1.25rem;
+	font-family: "Playpen Sans", sans-serif;
+	letter-spacing: 0;
+
+	box-shadow: 8px 8px 12px rgba(54, 35, 17, .5);
+
+	rotate: 5deg;
+
+	transition: 1s;
+}
+
+#letter-2026 > #peace_sticker_2026 {
+	width: 10rem;
+
+	position: absolute;
+	right: 4rem;
+	bottom: 4rem;
+
+	rotate: 10deg;
+
+	transition: scale 1s;
+}
+
+#letter-2026 > #peace_sticker_2026:hover {
+	scale: 1.1;
+	transition: scale .2s;
+}
+
+#letter-2026:hover {
+	rotate: 1deg;
+	transition: .5s;
+}
+
+#letter-2026 p {
 	margin-bottom: 64px;
 }
 
