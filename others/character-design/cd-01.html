@@ -14,16 +14,17 @@
 
 		html {
 			width: 100%;
+			background-color: mistyrose;
 		}
 
 		body {
 			width: 100%;
-			padding: 1rem;
+			padding: 4rem;
 			box-sizing: border-box;
 
 			display: flex;
 			flex-flow: column;
-			gap: 2rem;
+			gap: 4rem;
 		}
 
 		h1 {
@@ -34,16 +35,22 @@
 			font-size: 3rem;
 		}
 
+		h3 {
+			font-size: 1.5rem;
+		}
+
 		.frame {
 			width: 100%;
-			height: 95vh;
-/*			background-color: orange;*/
+			height: 90vh;
+			background-color: white;
 
 			display: flex;
 			gap: 1rem;
 
 			padding: 1rem;
 			box-sizing: border-box;
+
+			text-align: center;
 		}
 
 		.frame.title {
@@ -53,20 +60,54 @@
 			flex-flow: column;
 		}
 
-		.example {
+		.three-col {
+			width: 33.3%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: width .5s;
+		}
+
+		.full {
 			width: 100%;
 			height: 100%;
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
+			transition: width .5s;
 		}
 
-		#similar01 { background-image:url(images/similar/similar01.jpg); }
+		.fade {
+			opacity: .1;
+			transition: opacity .5s;
+		}
+
+		.fade:hover {
+			opacity: 1;
+			transition: opacity .2s;
+		}
+
+		.hover-full {
+			width: 33.3%;
+			transition: width .5s;
+		}
+
+		.hover-full:hover {
+			width: 100%;
+			transition: width .5s;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+
+		#similar01 { background-image:url(images/similar/similar01.webp); }
 		#similar02 { background-image:url(images/similar/similar02.webp); }
-		#similar03 { background-image:url(images/similar/similar03.webp); }
+		#similar03 { background-image:url(images/similar/similar03.jpg); }
 		#similar04 { background-image:url(images/similar/similar04.jpg); }
-		#similar05 { background-image:url(images/similar/similar05.webp); }
-		#similar06 { background-image:url(images/similar/similar06.webp); }
+		#similar05 { background-image:url(images/similar/similar05.jpg); }
+		#similar06 { background-image:url(images/similar/similar06.jpg); }
 
 		#distinct01 { background-image:url(images/distinct/distinct01.jpg); }
 		#distinct02 { background-image:url(images/distinct/distinct02.jpg); }
@@ -74,42 +115,202 @@
 		#distinct04 { background-image:url(images/distinct/distinct04.png); }
 		#distinct05 { background-image:url(images/distinct/distinct05.jpg); }
 		#distinct06 { background-image:url(images/distinct/distinct06.jpg); }
+
+		#e1 { background-image:url(images/examples/e1.png); }
+		#e2 { background-image:url(images/examples/e2.png); }
+		#e3 { background-image:url(images/examples/e3.png); }
+		#e4 { background-image:url(images/examples/e4.png); }
+		#e5 { background-image:url(images/examples/e5.png); }
+		#e6 { background-image:url(images/examples/e6.png); }
+		#e7 { background-image:url(images/examples/e7.png); }
+		#e8 { background-image:url(images/examples/e8.png); }
+		#e9 { background-image:url(images/examples/e9.png); }
+		#e10 { background-image:url(images/examples/e10.png); }
+		#e11 { background-image:url(images/examples/e11.png); }
+		#e12 { background-image:url(images/examples/e12.png); }
+
+		#c1 { background-image:url(images/circles/c1.png); }
+		#c2 { background-image:url(images/circles/c2.png); }
+		#c3 { background-image:url(images/circles/c3.png); }
+		#c4 { background-image:url(images/circles/c4.png); }
+		#c5 { background-image:url(images/circles/c5.png); }
+		#c6 { background-image:url(images/circles/c6.png); }
+
+		#t1 { background-image:url(images/triangles/t1.png); }
+		#t2 { background-image:url(images/triangles/t2.png); }
+		#t3 { background-image:url(images/triangles/t3.png); }
+		#t4 { background-image:url(images/triangles/t4.png); }
+		#t5 { background-image:url(images/triangles/t5.png); }
+		#t6 { background-image:url(images/triangles/t6.png); }
+
+		#sc1 { background-image:url(images/stretched-circles/sc1.png); }
+		#sc2 { background-image:url(images/stretched-circles/sc2.png); }
+		#sc3 { background-image:url(images/stretched-circles/sc3.png); }
+		#sc4 { background-image:url(images/stretched-circles/sc4.png); }
+		#sc5 { background-image:url(images/stretched-circles/sc5.png); }
+		#sc6 { background-image:url(images/stretched-circles/sc6.png); }
 	</style>
 </head>
 
 <body>
 	<div class="frame title">
-		<h2>The Power of Shapes</h2>
+		<h1>Shapes & Proportions</h1>
+		<h3>in Character Design</h3>
 	</div>
 	<!-- Title -->
 	<div class="frame title">
-		<h2>The Situation</h2>
+		<h2>Same Face Syndrome</h2>
+		<h3>The Situation</h3>
 	</div>
 	<!-- Similar -->
-	<div class="frame">
-		<div id="similar01" class="example"></div>
-		<div id="similar02" class="example"></div>
-		<div id="similar03" class="example"></div>
+	<div class="frame fade">
+		<div id="similar01" class="three-col"></div>
+		<div id="similar02" class="three-col"></div>
+		<div id="similar03" class="three-col"></div>
 	</div>
-	<div class="frame">
-		<div id="similar04" class="example"></div>
-		<div id="similar05" class="example"></div>
-		<div id="similar06" class="example"></div>
+	<div class="frame fade">
+		<div id="similar04" class="three-col"></div>
+		<div id="similar05" class="three-col"></div>
+		<div id="similar06" class="three-col"></div>
 	</div>
 	<!-- Title -->
 	<div class="frame title">
 		<h2>The Goal</h2>
 	</div>
 	<!-- Distinct -->
-	<div class="frame">
-		<div id="distinct01" class="example"></div>
-		<div id="distinct02" class="example"></div>
-		<div id="distinct03" class="example"></div>
+	<div class="frame fade">
+		<div id="distinct01" class="three-col"></div>
+		<div id="distinct02" class="three-col"></div>
+		<div id="distinct03" class="three-col hover-full"></div>
 	</div>
-	<div class="frame">
-		<div id="distinct04" class="example"></div>
-		<div id="distinct05" class="example"></div>
-		<div id="distinct06" class="example"></div>
+	<div class="frame fade">
+		<div id="distinct04" class="three-col"></div>
+		<div id="distinct05" class="three-col"></div>
+		<div id="distinct06" class="three-col"></div>
+	</div>
+	<!-- Title -->
+	<div class="frame title">
+		<h2>
+			Don't draw Things, <br/>Draw Shapes
+		</h2>
+	</div>
+	<!-- Examples -->
+	<div class="frame fade">
+		<div id="e1" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e2" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e3" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e4" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e5" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e6" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e7" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e8" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e9" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e10" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e11" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="e12" class="full"></div>
+	</div>
+
+	<!-- Circles -->
+	<div class="frame title">
+		<h2>Exercise: Circles</h2>
+	</div>
+	<div class="frame fade">
+		<div id="c1" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="c2" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="c3" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="c4" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="c5" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="c6" class="full"></div>
+	</div>
+
+	<!-- Triangles -->
+	<div class="frame title">
+		<h2>Exercise: Triangles</h2>
+	</div>
+	<div class="frame fade">
+		<div id="t1" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="t2" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="t3" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="t4" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="t5" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="t6" class="full"></div>
+	</div>
+
+	<!-- Stretched Circles -->
+	<div class="frame title">
+		<h2>Exercise: Stretched Circles</h2>
+	</div>
+	<div class="frame fade">
+		<div id="sc1" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="sc2" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="sc3" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="sc4" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="sc5" class="full"></div>
+	</div>
+	<div class="frame fade">
+		<div id="sc6" class="full"></div>
+	</div>
+
+	<!-- Takeaways -->
+	<div class="frame title text-left">
+		<ul>
+			<h2 style="font-size: 4rem;">Remember</h2>
+			<br/>
+			<br/>
+			<h2 style="font-weight: normal;"><li>Start with Shapes</li></h2>
+			<h2 style="font-weight: normal;"><li>Add Information One at a Time</li></h2>
+			<h2 style="font-weight: normal;"><li>Interpret as you Go</li></h2>
+		</ul>
 	</div>
 </body>
 
