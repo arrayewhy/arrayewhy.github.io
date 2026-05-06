@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html onkeydown="Change_Frame(event)">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +42,7 @@
 
 		.frame {
 			width: 100%;
-			height: 90vh;
+			height: 100vh;
 			background-color: white;
 
 			display: flex;
@@ -164,12 +164,12 @@
 		<h3>The Situation</h3>
 	</div>
 	<!-- Similar -->
-	<div class="frame fade">
+	<div class="frame">
 		<div id="similar01" class="three-col"></div>
 		<div id="similar02" class="three-col"></div>
 		<div id="similar03" class="three-col"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="similar04" class="three-col"></div>
 		<div id="similar05" class="three-col"></div>
 		<div id="similar06" class="three-col"></div>
@@ -179,12 +179,12 @@
 		<h2>The Goal</h2>
 	</div>
 	<!-- Distinct -->
-	<div class="frame fade">
+	<div class="frame">
 		<div id="distinct01" class="three-col"></div>
 		<div id="distinct02" class="three-col"></div>
 		<div id="distinct03" class="three-col hover-full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="distinct04" class="three-col"></div>
 		<div id="distinct05" class="three-col"></div>
 		<div id="distinct06" class="three-col"></div>
@@ -196,40 +196,40 @@
 		</h2>
 	</div>
 	<!-- Examples -->
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e1" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e2" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e3" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e4" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e5" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e6" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e7" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e8" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e9" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e10" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e11" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="e12" class="full"></div>
 	</div>
 
@@ -237,22 +237,22 @@
 	<div class="frame title">
 		<h2>Exercise: Circles</h2>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="c1" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="c2" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="c3" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="c4" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="c5" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="c6" class="full"></div>
 	</div>
 
@@ -260,22 +260,22 @@
 	<div class="frame title">
 		<h2>Exercise: Triangles</h2>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="t1" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="t2" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="t3" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="t4" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="t5" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="t6" class="full"></div>
 	</div>
 
@@ -283,22 +283,22 @@
 	<div class="frame title">
 		<h2>Exercise: Stretched Circles</h2>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="sc1" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="sc2" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="sc3" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="sc4" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="sc5" class="full"></div>
 	</div>
-	<div class="frame fade">
+	<div class="frame">
 		<div id="sc6" class="full"></div>
 	</div>
 
@@ -318,6 +318,27 @@
 			<h2 style="font-weight: normal;"><li>Interpret as you Go</li></h2>
 		</ul>
 	</div>
+
+	<script type="text/javascript">
+		let html = document.querySelector("html");
+		let frames = document.querySelectorAll(".frame");
+		let curr_frame = 0;
+		function Change_Frame(event) {
+			let key = event.key;
+			if (key == "ArrowLeft") {
+				if (curr_frame > 0) curr_frame--;
+				let next = frames[curr_frame].offsetTop;
+				html.scrollTop = next;
+				console.log(html.scrollTop);
+			}
+			else if (key == "ArrowRight") {
+				if (curr_frame < frames.length - 1) curr_frame++;
+				let next = frames[curr_frame].offsetTop;
+				html.scrollTop = next;
+				console.log(html.scrollTop);
+			}
+		}
+	</script>
 </body>
 
 </html>
