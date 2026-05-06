@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Character Design</title>
+
+	<style type="text/css">
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			width: 100%;
+		}
+
+		body {
+			width: 100%;
+			padding: 1rem;
+			box-sizing: border-box;
+
+			display: flex;
+			flex-flow: column;
+			gap: 2rem;
+		}
+
+		h1 {
+			font-size: 4rem;
+		}
+
+		h2 {
+			font-size: 3rem;
+		}
+
+		.frame {
+			width: 100%;
+			height: 95vh;
+/*			background-color: orange;*/
+
+			display: flex;
+			gap: 1rem;
+
+			padding: 1rem;
+			box-sizing: border-box;
+		}
+
+		.frame.title {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-flow: column;
+		}
+
+		.example {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+
+		#similar01 { background-image:url(images/similar/similar01.jpg); }
+		#similar02 { background-image:url(images/similar/similar02.webp); }
+		#similar03 { background-image:url(images/similar/similar03.webp); }
+		#similar04 { background-image:url(images/similar/similar04.jpg); }
+		#similar05 { background-image:url(images/similar/similar05.webp); }
+		#similar06 { background-image:url(images/similar/similar06.webp); }
+
+		#distinct01 { background-image:url(images/distinct/distinct01.jpg); }
+		#distinct02 { background-image:url(images/distinct/distinct02.jpg); }
+		#distinct03 { background-image:url(images/distinct/distinct03.jpg); }
+		#distinct04 { background-image:url(images/distinct/distinct04.png); }
+		#distinct05 { background-image:url(images/distinct/distinct05.jpg); }
+		#distinct06 { background-image:url(images/distinct/distinct06.jpg); }
+	</style>
+</head>
+
+<body>
+	<div class="frame title">
+		<h2>The Power of Shapes</h2>
+	</div>
+	<!-- Title -->
+	<div class="frame title">
+		<h2>The Situation</h2>
+	</div>
+	<!-- Similar -->
+	<div class="frame">
+		<div id="similar01" class="example"></div>
+		<div id="similar02" class="example"></div>
+		<div id="similar03" class="example"></div>
+	</div>
+	<div class="frame">
+		<div id="similar04" class="example"></div>
+		<div id="similar05" class="example"></div>
+		<div id="similar06" class="example"></div>
+	</div>
+	<!-- Title -->
+	<div class="frame title">
+		<h2>The Goal</h2>
+	</div>
+	<!-- Distinct -->
+	<div class="frame">
+		<div id="distinct01" class="example"></div>
+		<div id="distinct02" class="example"></div>
+		<div id="distinct03" class="example"></div>
+	</div>
+	<div class="frame">
+		<div id="distinct04" class="example"></div>
+		<div id="distinct05" class="example"></div>
+		<div id="distinct06" class="example"></div>
+	</div>
+</body>
+
+</html>
