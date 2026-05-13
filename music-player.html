@@ -98,7 +98,7 @@
 			height: auto;
 			min-height: 3rem;
 
-			background-color: white;
+			background-color: #f9f4ec;
 
 			display: flex;
 			align-items: center;
@@ -111,11 +111,13 @@
 
 			border-radius: .5rem;
 
+			opacity: .5;
+
 			/*			color: gray;*/
 
 			cursor: pointer;
 
-			transition: background-color .5s, color .5s, padding-left .5s, left .5s;
+			transition: background-color .5s, color .5s, padding-left .5s, left .5s, opacity 1s;
 			transition-timing-function: ease;
 		}
 
@@ -297,10 +299,14 @@
 			"others/music/Shimagurashi - Night.mp3",
 			"others/music/The Golden Hour - Louie Zong.mp3",
 			"others/music/The Sea - Tomas Dvorak, Machinarium.mp3",
+			"others/music/Path of the Wind - Joe Hisaishi.mp3",
 		];
 
 		let _body = document.querySelector('body');
 		let _music_players = [];
+		let _music_containers = [];
+
+		let _music_check_interval;
 
 		// Create Audio Players
 
@@ -315,6 +321,7 @@
 			audio_player.setAttribute('data-player-idx', i);
 			audio_player.onended = function () {_Play_Next(audio_player);}
 			container.appendChild(audio_player);
+			_music_containers.push(container);
 			audio_player.src = SONGS[i];
 			// audio_player.load();
 			_music_players.push(audio_player);
@@ -324,11 +331,46 @@
 			_body.appendChild(container);
 		}
 
+		_Start_Music_Check();
+
 		// Disclaimer
 		let disclaimer = document.createElement('p');
 		disclaimer.setAttribute('id', 'disclaimer');
 		disclaimer.innerHTML = "Disclaimer:<br>None of these songs belong to the creator of this website.";
 		_body.appendChild(disclaimer);
+
+		// Functions
+
+		function _Start_Music_Check() {
+			_Check_Players_Playable();
+			_music_check_interval = setInterval(_Check_Players_Playable, 2000);
+		}
+
+		function _Check_Players_Playable() {
+
+			let all_loaded = true;
+
+			// Check if Music Players are Loaded
+			for (var i = 0; i < _music_containers.length; i++)
+			{
+				if (_music_containers[i].children[1].readyState == 4)
+				{
+					_music_containers[i].style.backgroundColor = "white";
+					_music_containers[i].style.opacity = 1;
+				}
+				else
+				{
+					console.log("Loading: ", _music_containers[i].children[1].src);
+					all_loaded = false;
+				}
+			}
+
+			if (all_loaded)
+			{
+				console.log("All songs loaded!");
+				clearInterval(_music_check_interval);
+			}
+		}
 
 		function _Play(container, audio_player) {
 
