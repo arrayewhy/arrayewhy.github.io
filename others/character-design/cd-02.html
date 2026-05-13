@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html onkeydown="Change_Frame(event)">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Character Design</title>
+
+	<style type="text/css">
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			width: 100%;
+			background-color: mistyrose;
+		}
+
+		body {
+			width: 100%;
+			padding: 4rem;
+			box-sizing: border-box;
+
+			display: flex;
+			flex-flow: column;
+			gap: 4rem;
+		}
+
+		h1 {
+			font-size: 4rem;
+		}
+
+		h2 {
+			font-size: 3rem;
+		}
+
+		h3 {
+			font-size: 1.5rem;
+			letter-spacing: .1rem;
+		}
+
+		.frame {
+			width: 100%;
+			height: 100vh;
+			background-color: white;
+
+			display: flex;
+			gap: 1rem;
+
+			padding: 1rem;
+			box-sizing: border-box;
+
+			text-align: center;
+		}
+
+		.frame.title {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-flow: column;
+		}
+
+		.three-col {
+			width: 33.3%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: width .5s;
+		}
+
+		.full {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: width .5s;
+		}
+
+		.fade {
+			opacity: .1;
+			transition: opacity .5s;
+		}
+
+		.fade:hover {
+			opacity: 1;
+			transition: opacity .2s;
+		}
+
+		.hover-full {
+			width: 33.3%;
+			transition: width .5s;
+		}
+
+		.hover-full:hover {
+			width: 100%;
+			transition: width .5s;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+
+		#similar01 { background-image:url(images/similar/similar01.webp); }
+		#similar02 { background-image:url(images/similar/similar02.webp); }
+		#similar03 { background-image:url(images/similar/similar03.jpg); }
+		#similar04 { background-image:url(images/similar/similar04.jpg); }
+		#similar05 { background-image:url(images/similar/similar05.jpg); }
+		#similar06 { background-image:url(images/similar/similar06.jpg); }
+
+		#distinct01 { background-image:url(images/distinct/distinct01.jpg); }
+		#distinct02 { background-image:url(images/distinct/distinct02.jpg); }
+		#distinct03 { background-image:url(images/distinct/distinct03.jpg); }
+		#distinct04 { background-image:url(images/distinct/distinct04.png); }
+		#distinct05 { background-image:url(images/distinct/distinct05.jpg); }
+		#distinct06 { background-image:url(images/distinct/distinct06.jpg); }
+
+		#e1 { background-image:url(images/body/b1.png); }
+		#e2 { background-image:url(images/body/b2.png); }
+		#e3 { background-image:url(images/body/b3.png); }
+		#e4 { background-image:url(images/body/b4.png); }
+		#e5 { background-image:url(images/body/b5.png); }
+		#e6 { background-image:url(images/body/b6.png); }
+
+		#eb1 { background-image:url(images/body/eb1.png); }
+		#eb2 { background-image:url(images/body/eb2.png); }
+		#eb3 { background-image:url(images/body/eb3.png); }
+		#eb4 { background-image:url(images/body/eb4.png); }
+		#eb5 { background-image:url(images/body/eb5.png); }
+		#eb6 { background-image:url(images/body/eb6.png); }
+	</style>
+</head>
+
+<body>
+	<!-- Title -->
+	<div class="frame title">
+		<h1>Shapes & Proportions / Part 2</h1>
+		<h3>in Character Design</h3>
+	</div>
+	<!-- Title -->
+	<div class="frame title">
+		<h2>
+			Draw Shapes,<br>
+			Not Things
+		</h2>
+	</div>
+	<!-- Examples -->
+	<div class="frame">
+		<div id="e1" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="e2" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="e3" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="e4" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="e5" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="e6" class="full"></div>
+	</div>
+	<!-- Title -->
+	<div class="frame title">
+		<h2>Exercise: Stretched Squares</h2>
+	</div>
+	<!-- Exercise -->
+	<div class="frame">
+		<div id="eb1" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="eb2" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="eb3" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="eb4" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="eb5" class="full"></div>
+	</div>
+	<div class="frame">
+		<div id="eb6" class="full"></div>
+	</div>
+	<!-- Others -->
+	<div class="frame title">
+		<h2>How are we doing on time?</h2>
+	</div>
+
+	<!-- Takeaways -->
+	<div class="frame title text-left">
+		<ul>
+			<h2 style="font-size: 4rem;">Remember</h2>
+			<br/>
+			<br/>
+			<h2 style="font-weight: normal;"><li>Start with Shapes</li></h2>
+			<h2 style="font-weight: normal;"><li>Add Information One at a Time</li></h2>
+			<h2 style="font-weight: normal;"><li>Interpret as you Go</li></h2>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		let html = document.querySelector("html");
+		let frames = document.querySelectorAll(".frame");
+		let curr_frame = 0;
+		function Change_Frame(event) {
+			let key = event.key;
+			if (key == "ArrowLeft") {
+				if (curr_frame > 0) curr_frame--;
+				let next = frames[curr_frame].offsetTop;
+				html.scrollTop = next;
+				console.log(html.scrollTop);
+			}
+			else if (key == "ArrowRight") {
+				if (curr_frame < frames.length - 1) curr_frame++;
+				let next = frames[curr_frame].offsetTop;
+				html.scrollTop = next;
+				console.log(html.scrollTop);
+			}
+		}
+	</script>
+</body>
+
+</html>
