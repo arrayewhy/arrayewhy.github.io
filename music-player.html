@@ -300,6 +300,7 @@
 			"others/music/The Golden Hour - Louie Zong.mp3",
 			"others/music/The Sea - Tomas Dvorak, Machinarium.mp3",
 			"others/music/Path of the Wind - Joe Hisaishi.mp3",
+			"others/music/Pokke Village - Monster Hunter Freedom Unite.mp3",
 		];
 
 		let _body = document.querySelector('body');
@@ -351,22 +352,18 @@
 			let all_loaded = true;
 
 			// Check if Music Players are Loaded
-			for (var i = 0; i < _music_containers.length; i++)
-			{
-				if (_music_containers[i].children[1].readyState == 4)
-				{
+			for (var i = 0; i < _music_containers.length; i++) {
+				if (_music_containers[i].children[1].readyState == 4) {
 					_music_containers[i].style.backgroundColor = "white";
 					_music_containers[i].style.opacity = 1;
 				}
-				else
-				{
+				else {
 					console.log("Loading: ", _music_containers[i].children[1].src);
 					all_loaded = false;
 				}
 			}
 
-			if (all_loaded)
-			{
+			if (all_loaded) {
 				console.log("All songs loaded!");
 				clearInterval(_music_check_interval);
 			}
